@@ -1,4 +1,6 @@
 const mix = require('laravel-mix');
+// globのインポート
+const glob = require('glob');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +13,19 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+// mix.js('resources/js/app.js', 'public/js')
+//     .sass('resources/sass/app.scss', 'public/css');
+
+mix.webpackConfig({
+    module: {
+        rules: [{
+            // ローダーの処理対象ファイル
+            test: /\.scss/,
+            enforce: "pre",
+            loader: 'import-glob-loader'
+        }]
+    }
+})
+    .js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/style.scss', 'public/css')
+    .sourceMaps();
