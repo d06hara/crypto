@@ -30,3 +30,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+// ヘッダーの高さコンテンツを下げる
+$(function () {
+    var height = $(".js-l-header").height();
+    $("body").css("margin-top", height);
+});
