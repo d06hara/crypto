@@ -1,0 +1,742 @@
+@charset "UTF-8";
+
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+html,
+body {
+  width: 100%;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  color: #666;
+}
+
+a:hover {
+  color: #F99F48;
+  transition: 0.3s;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input {
+  outline: none;
+  background-image: none;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.l-footer {
+  box-sizing: border-box;
+  width: 100%;
+  color: #666;
+  font-size: 14px;
+  background-color: #D5EEFF;
+  text-align: center;
+  padding: 5px 0;
+  margin-top: 40px;
+}
+
+.l-header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 80px;
+  color: #666;
+  background-color: #D5EEFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 2;
+}
+
+.l-header__title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.l-main {
+  width: 980px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.l-main__title {
+  font-size: 24px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #1B435D;
+}
+
+.c-input__label {
+  display: block;
+}
+
+.c-input__label-accent {
+  background-color: #1B435D;
+  color: #ffffff;
+}
+
+input[type=text] {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type=text]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.c-submit-btn {
+  font-size: 24px;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  transition: 0.4s;
+}
+
+.c-submit-btn:hover {
+  background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
+
+.c-submit-btn__container {
+  text-align: center;
+}
+
+.btn {
+  clear: both;
+  white-space: nowrap;
+  font-size: 0.8em;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.35);
+  margin: 2px;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.btn:hover {
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.45);
+}
+
+.btn:focus {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.btn > span,
+.btn-icon > i {
+  float: left;
+  padding: 13px;
+  transition: all 0.5s;
+  line-height: 1em;
+}
+
+.btn > span {
+  padding: 14px 18px 16px;
+  white-space: nowrap;
+  color: #FFF;
+  background: #b8b8b8;
+}
+
+.btn:focus > span {
+  background: #9a9a9a;
+}
+
+.btn-icon > i {
+  border-radius: 5px 0 0 5px;
+  position: relative;
+  width: 13px;
+  text-align: center;
+  font-size: 1.25em;
+  color: #fff;
+  background: #212121;
+}
+
+.btn-icon > i:after {
+  content: "";
+  border: 8px solid;
+  border-color: transparent transparent transparent #222;
+  position: absolute;
+  top: 13px;
+  right: -15px;
+}
+
+.btn-icon:hover > i,
+.btn-icon:focus > i {
+  color: #FFF;
+}
+
+.btn-icon > span {
+  border-radius: 0 5px 5px 0;
+}
+
+.btn-twitter:hover > i,
+.btn-twitter:focus > i {
+  color: #55acee;
+}
+
+.btn-twitter > span {
+  background: #55acee;
+}
+
+.c-reload-btn {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #f9a9ae;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.c-reload-btn:active {
+  /*押したとき*/
+  transform: translateY(2px);
+  /*沈むように*/
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(#fed6e3 0%, #ffbcbc 100%);
+  /*グラデーションを明るく*/
+}
+
+.c-reload-btn__container {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.p-account {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.p-account__card {
+  width: 45%;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px 1px #c0c0c0;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.p-account__card-tweet {
+  width: 90%;
+  color: #666;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.p-form__container {
+  width: 980px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.p-form__group {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d0cece;
+}
+
+.p-login {
+  box-shadow: 0 0 5px 1px #c0c0c0;
+  border-radius: 20px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.p-login__container {
+  margin-top: 40px;
+}
+
+.p-login__title {
+  background: #1B435D;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  font-size: 28px;
+  padding: 20px 26px;
+}
+
+.p-login__title-accent {
+  margin-right: 10px;
+}
+
+.p-login__twitter {
+  margin: 0 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #d0cece;
+}
+
+.p-login__twitter-btn {
+  color: #FFF;
+  /*文字・アイコン色*/
+  border-radius: 7px;
+  /*角丸に*/
+  display: inline-block;
+  text-align: center;
+  /*中身を中央寄せ*/
+  font-size: 14px;
+  background: #1da1f3;
+  overflow: hidden;
+  /*はみ出た部分を隠す*/
+  padding: 10px;
+}
+
+.p-login__twitter-btn .fab-twitter {
+  text-shadow: 2px 2px 0px #4287d6;
+  font-size: 30px;
+}
+
+.p-login__twitter-btn span {
+  display: inline-block;
+}
+
+.p-login__form-fieldset {
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+}
+
+.p-login__form p {
+  color: #777;
+  margin-bottom: 14px;
+}
+
+.p-login__form input {
+  border-radius: 3px;
+}
+
+.p-login__form input[type=email],
+.p-login__form input[type=password] {
+  background: #eee;
+  color: #777;
+  padding: 4px 10px;
+  width: 100%;
+}
+
+.p-login__form input[type=submit] {
+  background: #F99F48;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 0;
+  width: 100px;
+}
+
+.p-login__form input[type=submit]:hover {
+  background-color: rgba(249, 159, 72, 0.7);
+}
+
+.p-nav__menu {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+.p-nav__menu-item {
+  margin-right: 20px;
+}
+
+.p-nav__menu-link {
+  -webkit-font-smoothing: initial;
+}
+
+.p-mypage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+.p-mypage__left {
+  width: 70%;
+  box-sizing: border-box;
+}
+
+.p-mypage__right {
+  width: 30%;
+  box-sizing: border-box;
+}
+
+.p-mybrand {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.p-mybrand__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.p-mybrand__card {
+  margin-left: 15px;
+}
+
+.p-mynews {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.p-mynews__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.p-mynews__container {
+  display: flex;
+}
+
+.p-mypage__menu {
+  padding: 10px 15px;
+  margin: 20px;
+  background-color: #D5EEFF;
+  border-top: solid 10px #1B435D;
+  border-radius: 10px;
+}
+
+.p-news {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.p-news__card {
+  width: 45%;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px 1px #c0c0c0;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.p-news__card-tweet {
+  width: 90%;
+  color: #666;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.p-passremind {
+  box-shadow: 0 0 5px 1px #c0c0c0;
+  border-radius: 20px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.p-passremind__container {
+  margin-top: 40px;
+}
+
+.p-passremind__title {
+  background: #1B435D;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  font-size: 28px;
+  padding: 20px 26px;
+}
+
+.p-passremind__title-accent {
+  margin-right: 10px;
+}
+
+.p-passremind__form-fieldset {
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+}
+
+.p-passremind__form p {
+  color: #777;
+  margin-bottom: 14px;
+}
+
+.p-passremind__form input {
+  border-radius: 3px;
+}
+
+.p-passremind__form input[type=email],
+.p-passremind__form input[type=password] {
+  background: #eee;
+  color: #777;
+  padding: 4px 10px;
+  width: 100%;
+}
+
+.p-passremind__form input[type=submit] {
+  background: #F99F48;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 0;
+  width: 100px;
+}
+
+.p-passremind__form input[type=submit]:hover {
+  background-color: rgba(249, 159, 72, 0.7);
+}
+
+.p-ranking {
+  width: 100%;
+  display: flex;
+}
+
+.p-ranking__checkbox {
+  box-sizing: border-box;
+  background-color: #D5EEFF;
+  box-shadow: 0 0 5px 1px #c0c0c0;
+  padding: 10px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.p-ranking__checkbox label {
+  display: block;
+}
+
+.p-ranking__checkbox label input[type=checkbox] {
+  margin-right: 10px;
+}
+
+.p-ranking__checkbox-container {
+  width: 30%;
+}
+
+.p-ranking__index {
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.p-ranking__index-container {
+  width: 70%;
+}
+
+.p-ranking__brand-container {
+  color: #ffffff;
+  background-color: #F99F48;
+  width: 80%;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
