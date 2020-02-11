@@ -1,0 +1,13 @@
+// ===============================
+// layout:footer
+// ===============================
+.l-footer {
+  box-sizing: border-box;
+  width: 100%;
+  color: $font-color-default;
+  font-size: $font-size_m;
+  background-color: $main-color;
+  text-align: center;
+  padding: $space_s 0;
+  margin-top: $space_3l;
+}

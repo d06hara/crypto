@@ -1,0 +1,52 @@
+// ===============================
+// project:ranking
+// ===============================
+
+.p-ranking {
+  width: 100%;
+  display: flex;
+
+
+  &__checkbox {
+    box-sizing: border-box;
+    background-color: $main-color;
+    box-shadow: 0 0 5px 1px #c0c0c0;
+    padding: $space_m;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    label{
+      display:block;
+      input[type=checkbox]{
+        margin-right:$space_m;
+      }
+    }
+
+    &-container {
+      width: 30%;
+    }
+  }
+
+  &__index {
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 auto;
+
+    &-container {
+      width: 70%;
+    }
+  }
+
+  &__brand {
+
+
+    &-container{
+      color: $white;
+      background-color: $accent-color;
+      width: 80%;
+      border: 1px solid;
+      border-radius: 10px;
+      margin-bottom: $space_m;
+    }
+  }
+}

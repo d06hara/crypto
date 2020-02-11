@@ -1,0 +1,125 @@
+// ===============================
+// project:login
+// ===============================
+
+// 参考　https://deshinon.com/2019/03/03/oshare-kopipe-login-css/
+.p-login {
+  box-shadow: 0 0 5px 1px #c0c0c0;
+  border-radius: 20px;
+  width:60%;
+  margin:0 auto;
+
+  &__container {
+    margin-top: $space_3l;
+  }
+
+  &__title {
+    background: $sub-color;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    font-size: 28px;
+    padding: 20px 26px;
+    &-accent {
+      margin-right: $space_m;
+    }
+  }
+
+  &__twitter {
+    margin: 0 $space_xl;
+    padding: $space_xl 0;
+    border-bottom: 1px solid #d0cece;
+    
+    &-btn {
+      color: #FFF;/*文字・アイコン色*/
+      border-radius: 7px;/*角丸に*/
+      display: inline-block;
+      text-align: center;/*中身を中央寄せ*/
+      font-size: $font-size_m;
+      background: #1da1f3;
+      overflow: hidden;/*はみ出た部分を隠す*/
+      padding: $space_m;
+      .fab-twitter {
+        text-shadow: 2px 2px 0px #4287d6;
+        font-size: 30px;
+      }
+      span {
+        display: inline-block;
+      }
+    }
+  }
+  &__form {
+
+    &-fieldset{
+      border-radius: 0 0 20px 20px;
+      padding: $space_xl;
+    }
+    p {
+      color: #777;
+  margin-bottom: 14px;
+    }
+    input {
+      border-radius: 3px;
+      
+    }
+    input[type="email"], input[type="password"]{
+      background: #eee;
+      color: #777;
+      padding: 4px 10px;
+      width: 100%;
+    }
+    input[type="submit"] {
+      background: $accent-color;
+      color: #fff;
+      display: block;
+      margin: 0 auto;
+      padding: 4px 0;
+      width: 100px;
+      &:hover {
+        background-color: rgba($accent-color, 0.7);
+      }
+    }
+  }
+}
+
+
+// // #login h2 span[class*="fontawesome-"] {
+// //   margin-right: 14px;
+// // }
+
+// // #login fieldset {
+// //   background: #fff;
+  
+// // }
+
+// // #login fieldset p {
+// //   color: #777;
+// //   margin-bottom: 14px;
+// // }
+
+// #login fieldset p:last-child {
+//   margin-bottom: 0;
+// }
+
+// #login fieldset input {
+//   border-radius: 3px;
+// }
+
+// #login fieldset input[type="email"], #login fieldset input[type="password"] {
+//   background: #eee;
+//   color: #777;
+//   padding: 4px 10px;
+//   width: 100%;
+// }
+
+// #login fieldset input[type="submit"] {
+//   background: #33cc77;
+//   color: #fff;
+//   display: block;
+//   margin: 0 auto;
+//   padding: 4px 0;
+//   width: 100px;
+// }
+
+// #login fieldset input[type="submit"]:hover {
+//   background: #28ad63;
+// }

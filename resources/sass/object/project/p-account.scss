@@ -1,0 +1,30 @@
+// ===============================
+// project:account
+// ===============================
+
+.p-account {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  &__card {
+    width: 45%;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 1px #c0c0c0;
+    padding: $space_m;
+    border-radius: 10px;
+    margin: $space_m;
+
+    &-tweet {
+      width: 90%;
+      color: #666;
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      padding: $space_s;
+      margin: $space_m auto;
+    }
+  }
+
+}

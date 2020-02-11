@@ -1,0 +1,35 @@
+html, body {
+  width: 100%;
+  color: $font-color_default;
+  font-size: $font-size_default;
+  line-height: 1.6;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  transition: .3s;
+  color: $font-color_default;
+}
+
+a:hover {
+  color:$font-color_accent;
+  transition: .3s;
+}
+
+button:focus {
+outline:0;
+}
+
+input {
+  outline: none;
+  background-image: none;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: all .3s;
+}

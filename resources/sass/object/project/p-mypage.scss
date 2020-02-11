@@ -1,0 +1,59 @@
+// ===============================
+// project:mypage
+// ===============================
+
+.p-mypage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: $space_xl;
+
+  &__left {
+    width: 70%;
+    box-sizing: border-box;
+  }
+  &__right {
+    width: 30%;
+    box-sizing: border-box;
+  }
+}
+
+.p-mybrand {
+  margin: 0 auto;
+  padding: $space_l;
+  &__title {
+    font-size: $font-size_l;
+    font-weight: bold;
+    margin-bottom: $space_m;
+  }
+  &__card {
+    margin-left: $space_l;
+
+    &-container {
+      
+    }
+  }
+}
+
+.p-mynews {
+  margin: 0 auto;
+  padding: $space_l;
+  &__title {
+    font-size: $font-size_l;
+    font-weight: bold;
+    margin-bottom: $space_m;
+  }
+
+  &__container {
+    display: flex;
+  }
+}
+
+.p-mypage__menu {
+  padding: $space_m $space_l;
+  margin: $space_xl;
+  background-color: $main-color;
+  border-top: solid $space_m $sub-color;
+  border-radius: 10px;
+}

@@ -1,0 +1,15 @@
+// ===============================
+// layout:main
+// ===============================
+
+.l-main {
+  width:980px;
+  margin:0 auto;
+  padding-top: $space_3l;
+
+  &__title {
+    font-size: $font-size_xl;
+    padding-bottom: $space_xl;
+    border-bottom: 2px solid $sub-color;
+  }
+}
