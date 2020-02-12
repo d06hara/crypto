@@ -50,9 +50,10 @@ Auth::routes();
 Route::get('/home', function () {
     return view('home');
 });
-Route::get('/account', function () {
-    return view('account');
-});
+// Route::get('/account', function () {
+//     return view('account');
+// });
+Route::get('/account', 'TwittersController@index')->name('account');
 Route::get('/news', function () {
     return view('news');
 });
