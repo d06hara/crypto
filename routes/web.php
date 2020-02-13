@@ -26,6 +26,19 @@ Route::get('/mypage', function () {
     return view('mypage');
 });
 
+
+// ---------------------------------------------
+// 一時確定
+// ---------------------------------------------
+
+// twitterアカウント表示画面
+Route::get('/account', 'TwittersController@index')->name('account');
+
+
+// ---------------------------------------------
+
+
+
 // ツイート取得テスト
 Route::get('twitter', 'TwitterController@index');
 // ハッシュタグテスト
@@ -45,6 +58,10 @@ Route::get('auth/twitter/logout', 'Auth\AuthController@getLogout');
 // 認証系
 Auth::routes();
 
+
+
+
+
 // Route::get('/home', 'HomeController@index')->name('home');
 // 画面作成のため一時
 Route::get('/home', function () {
@@ -53,7 +70,6 @@ Route::get('/home', function () {
 // Route::get('/account', function () {
 //     return view('account');
 // });
-Route::get('/account', 'TwittersController@index')->name('account');
 Route::get('/news', function () {
     return view('news');
 });
