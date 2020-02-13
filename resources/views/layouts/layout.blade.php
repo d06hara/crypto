@@ -55,7 +55,7 @@
 
 
   @section('sidebar')
-  <p>メインのサイドバー（共通部分)</p>
+
   @show
   <div class="l-main">
     @yield('content')
