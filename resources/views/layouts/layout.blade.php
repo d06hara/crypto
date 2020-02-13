@@ -52,11 +52,10 @@
     </nav>
 
   </header>
-
-
   @section('sidebar')
 
   @show
+
   <div class="l-main">
     @yield('content')
   </div>
