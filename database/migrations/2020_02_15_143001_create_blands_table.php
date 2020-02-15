@@ -15,6 +15,8 @@ class CreateBlandsTable extends Migration
     {
         Schema::create('blands', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('bland_name');
+            $table->boolean('delete_flg');
             $table->timestamps();
         });
     }
