@@ -18,4 +18,9 @@ class TwittersController extends Controller
             "search_users" => $search_users
         ]);
     }
+
+    // ツイートを取得
+    public function tweets()
+    {
+    }
 }
