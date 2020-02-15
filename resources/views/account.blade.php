@@ -6,18 +6,19 @@
 <main>
   <p class="l-main__title">アカウント一覧</p>
   <div class="p-account">
-    @for($i=1; $i <= 5; $i++) <div class="p-account__card">
-      <p>ユーザー名</p>
-      <p>アカウント名</p>
-      <p>フォロー数</p>
-      <p>フォロワー数</p>
-      <p>プロフィール</p>
+    @foreach($search_users as $user)
+    <div class="p-account__card">
+      <p>{{ $user->name }}</p>
+      <p>{{  $user->screen_name }}</p>
+      <p>{{ $user->friends_count }}</p>
+      <p>{{ $user->followers_count }}</p>
+      <p>{{ $user->description }}</p>
       <button>フォロー</button>
       <div class="p-account__card-tweet">
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+        {{ $user->status->text }}
       </div>
-  </div>
-  @endfor
+    </div>
+    @endforeach
 
   </div>
 
