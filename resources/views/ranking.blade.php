@@ -46,22 +46,37 @@
         <h1>ここはあとでvueつかってテーブルで作る？</h1>
         <p>銘柄一覧</p>
         <div class="p-ranking__brand-container">
-          <p class="p-ranking__brand"><span class="p-ranking__rank">１位</span>ビットコイン</p>
+          <p class="p-ranking__brand"><span class="p-ranking__rank">１位</span>ビットコイン(Bitcoin/BTC)</p>
+          <p>ツイート数:</p>
         </div>
         <div class="p-ranking__brand-container">
-          <p class="p-ranking__brand"><span class="p-ranking__rank">２位</span>リップル</p>
+          <p class="p-ranking__brand"><span class="p-ranking__rank">２位</span>ビットコインキャッシュ（BitcoinCash／BCH）</p>
+          <p>ツイート数:</p>
         </div>
         <div class="p-ranking__brand-container">
-          <p class="p-ranking__brand"><span class="p-ranking__rank">３位</span>ビットコイン</p>
+          <p class="p-ranking__brand"><span class="p-ranking__rank">３位</span>イーサリアム（Ethereum／ETH）</p>
+          <p>ツイート数:</p>
         </div>
         <div class="p-ranking__brand-container">
-          <p class="p-ranking__brand"><span class="p-ranking__rank">４位</span>ビットコイン</p>
+          <p class="p-ranking__brand"><span class="p-ranking__rank">４位</span>イーサリアムクラシック（EthereumClassic／ETC）</p>
         </div>
         <div class="p-ranking__brand-container">
-          <p class="p-ranking__brand"><span class="p-ranking__rank">５位</span>ビットコイン</p>
+          <p class="p-ranking__brand"><span class="p-ranking__rank">５位</span>リップル（Ripple／XRP）</p>
         </div>
         <div class="p-ranking__brand-container">
-          <p class="p-ranking__brand"><span class="p-ranking__rank">６位</span>ビットコイン</p>
+          <p class="p-ranking__brand"><span class="p-ranking__rank">５位</span>ライトコイン（LiteCoin／LTC）</p>
+        </div>
+        <div class="p-ranking__brand-container">
+          <p class="p-ranking__brand"><span class="p-ranking__rank">６位</span>ネム（NEM／XEM）</p>
+        </div>
+        <div class="p-ranking__brand-container">
+          <p class="p-ranking__brand"><span class="p-ranking__rank">６位</span>モナコイン（MonaCoin／MONA）</p>
+        </div>
+        <div class="p-ranking__brand-container">
+          <p class="p-ranking__brand"><span class="p-ranking__rank">６位</span>リスク（Lisk／LSK）</p>
+        </div>
+        <div class="p-ranking__brand-container">
+          <p class="p-ranking__brand"><span class="p-ranking__rank">６位</span>ファクトム（Factom／FCT）</p>
         </div>
       </div>
     </div>
