@@ -91,5 +91,8 @@ Route::get('/passEdit', function () {
 Route::get('/edit', function () {
     return view('edit');
 });
+Route::get('/ranking', function () {
+    return view('ranking');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
