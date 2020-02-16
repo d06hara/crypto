@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\WriteLog::class,
+        Commands\GetTweetCommand::class,
+
     ];
 
     /**

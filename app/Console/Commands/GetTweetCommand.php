@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Http\Tweet;
+use App\Tweet;
 
 class GetTweetCommand extends Command
 {

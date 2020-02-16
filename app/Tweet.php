@@ -10,7 +10,7 @@ class Tweet extends Model
     public $timestamps = false;
 
     // 最新のツイートを取得する
-    public static function getBlandLatestApi()
+    public static function getTweetLatestApi(string $search_key, int $since_id = null)
     {
         // twitterapiを呼び出しデータを取得する
         $twitter_api = \Twitter::get("search/tweets", [
