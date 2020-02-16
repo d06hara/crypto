@@ -53,5 +53,17 @@ class GetTweetCommand extends Command
         } else {
             $since_id = null;
         }
+
+        // TwitterAPIでデータを取得
+        $twitter_api = Tweet::getTweetLatestApi($search_key, $since_id);
+
+        //TwitterAPIからデータが返ってきているか確認
+        if (is_object($twitter_api)) {
+            //念の為ツイートデータが入ってるか確認
+            if (isset($twitter_api->statuses)) {
+                //ツイート保存する処理
+                $twitter_store = Tweet::tweetStore($twitter_api);
+            }
+        }
     }
 }
