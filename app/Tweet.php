@@ -40,12 +40,7 @@ class Tweet extends Model
 
                 // ツイート情報
                 $tweet->tweet_id = $status->id;
-                $tweet->text = $status->text;
                 $tweet->tweet_created_at = date('Y-m-d H:i:s', strtotime($status->created_at));
-                // ツイートしたユーザーの情報
-                $tweet->screen_name = $status->user->screen_name;
-                $tweet->user_name = $status->user->name;
-
 
                 // DBヘ保存
                 $tweet->save();
