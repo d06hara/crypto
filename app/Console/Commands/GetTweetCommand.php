@@ -39,30 +39,38 @@ class GetTweetCommand extends Command
     public function handle()
     {
         //cronで実行したい処理を記述
-        // 検索したいキーワード
-        // とりあえずビットコインでモデル作成
-        $search_key = "ビットコイン";
-        $query = Tweet::get();
 
-        //初期データ
-        if (!is_object($query)) {
-            //DBから最大値を取得
-            $max = $query->max('tweet_id');
-            //tweet_idの最大値から+1してDBのデータと被らないようにする
-            $since_id = $max + 1;
-        } else {
-            $since_id = null;
-        }
+        // 検索したい銘柄キーワードを配列にしておく
+        $search_key_array = array(
+            1 => "ビットコイン OR Bitcoin OR BTC",
+            2 => "イーサリアム OR Ethereum OR ETH",
+            3 => "リップル OR Ripple OR XRP",
+        );
 
-        // TwitterAPIでデータを取得
-        $twitter_api = Tweet::getTweetLatestApi($search_key, $since_id);
+        foreach ($search_key_array as $bland_id => $search_key) {
 
-        //TwitterAPIからデータが返ってきているか確認
-        if (is_object($twitter_api)) {
-            //念の為ツイートデータが入ってるか確認
-            if (isset($twitter_api->statuses)) {
-                //ツイート保存する処理
-                $twitter_store = Tweet::tweetStore($twitter_api);
+            $query = Tweet::get();
+
+            //初期データ
+            if (!is_object($query)) {
+                //DBから最大値を取得
+                $max = $query->max('tweet_id');
+                //tweet_idの最大値から+1してDBのデータと被らないようにする
+                $since_id = $max + 1;
+            } else {
+                $since_id = null;
+            }
+
+            // TwitterAPIでデータを取得
+            $twitter_api = Tweet::getTweetLatestApi($search_key, $since_id);
+
+            //TwitterAPIからデータが返ってきているか確認
+            if (is_object($twitter_api)) {
+                //念の為ツイートデータが入ってるか確認
+                if (isset($twitter_api->statuses)) {
+                    //ツイート保存する処理
+                    $twitter_store = Tweet::tweetStore($twitter_api, $bland_id);
+                }
             }
         }
     }

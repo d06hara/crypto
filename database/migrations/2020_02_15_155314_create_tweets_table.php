@@ -16,6 +16,7 @@ class CreateTweetsTable extends Migration
         Schema::create('tweets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('tweet_id')->nullable()->comment('ツイートID');
+            $table->string('text')->nullable()->comment('ツイート内容');
             $table->dateTime('tweet_created_at')->nullable()->comment('ツイート日時');
             $table->integer('bland_id')->nullable();
             $table->boolean('delete_flg')->nullable();
