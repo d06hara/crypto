@@ -41,10 +41,20 @@ class GetTweetCommand extends Command
         //cronで実行したい処理を記述
 
         // 検索したい銘柄キーワードを配列にしておく
+        // 日本で取り扱っている有名銘柄10種
+        // それぞれbland_idと対応させる
+        // 銘柄を追加する場合はここに追加
         $search_key_array = array(
             1 => "ビットコイン OR Bitcoin OR BTC",
-            2 => "イーサリアム OR Ethereum OR ETH",
-            3 => "リップル OR Ripple OR XRP",
+            2 => "ビットコインキャッシュ OR BitcoinCash OR BCH",
+            3 => "イーサリアム OR Ethereum OR ETH",
+            4 => "イーサリアムクラシック OR EthreumClassic OR ETC",
+            5 => "リップル OR Ripple OR XRP",
+            6 => "ライトコイン OR LiteCoin OR LTC",
+            7 => "ネム OR NEM OR XEM",
+            8 => "モナコイン OR  MonaCoin OR MONA",
+            9 => "リスク OR Lisk OR LSK",
+            10 => "ファクトム OR Factom OR FCT",
         );
 
         foreach ($search_key_array as $bland_id => $search_key) {

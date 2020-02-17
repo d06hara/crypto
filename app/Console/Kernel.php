@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\WriteLog::class,
         Commands\GetTweetCommand::class,
+        Commands\GetTweetAppAuthCommand::class,
 
     ];
 
