@@ -77,14 +77,14 @@ class GetTweetAppAuthCommand extends Command
         $search_key_array = array(
             1 => "ビットコイン OR Bitcoin OR BTC",
             2 => "ビットコインキャッシュ OR BitcoinCash OR BCH",
-            // 3 => "イーサリアム OR Ethereum OR ETH",
-            // 4 => "イーサリアムクラシック OR EthreumClassic OR ETC",
-            // 5 => "リップル OR Ripple OR XRP",
-            // 6 => "ライトコイン OR LiteCoin OR LTC",
-            // 7 => "ネム OR NEM OR XEM",
-            // 8 => "モナコイン OR  MonaCoin OR MONA",
-            // 9 => "リスク OR Lisk OR LSK",
-            // 10 => "ファクトム OR Factom OR FCT",
+            3 => "イーサリアム OR Ethereum OR ETH",
+            4 => "イーサリアムクラシック OR EthreumClassic OR ETC",
+            5 => "リップル OR Ripple OR XRP",
+            6 => "ライトコイン OR LiteCoin OR LTC",
+            7 => "ネム OR NEM OR XEM",
+            8 => "モナコイン OR  MonaCoin OR MONA",
+            9 => "リスク OR Lisk OR LSK",
+            10 => "ファクトム OR Factom OR FCT",
         );
 
         $test_arr = [];
@@ -104,8 +104,15 @@ class GetTweetAppAuthCommand extends Command
 
             $tweet_obj = $connection->searchTweet('search/tweets', $params);
 
-            //TwitterAPIからデータが返ってきているか確認
+            $tweet_arr = json_decode($tweet_obj);
+
+            // dd($tweet_arr);
+
+            $twitter_store = Tweet::tweetStore($tweet_arr, $bland_id);
+
+            // TwitterAPIからデータが返ってきているか確認
             // if (is_object($tweet_obj)) {
+            //     dd($tweet_obj);
             //     //念の為ツイートデータが入ってるか確認
             //     if (isset($tweet_obj->statuses)) {
             //         //ツイート保存する処理
@@ -113,22 +120,22 @@ class GetTweetAppAuthCommand extends Command
             //         // $twitter_store = Tweet::tweetStore($twitter_api, $bland_id);
             //     }
             // }
-            // }
-            $tweets_arr = json_decode($tweet_obj);
-
-            $test_arr[] = $tweets_arr;
-
-            // dd($tweet_obj);
         }
-        dd($test_arr);
+        // $tweets_arr = json_decode($tweet_obj);
+
+        // $test_arr[] = $tweets_arr;
+
+        // dd($tweet_obj);
 
 
 
-        $tweet_obj = $connection->searchTweet('search/tweets', $params);
 
-        $tweets_arr = json_decode($tweet_obj);
 
-        dd($tweets_arr);
+        // $tweet_obj = $connection->searchTweet('search/tweets', $params);
+
+        // $tweets_arr = json_decode($tweet_obj);
+
+        // dd($tweets_arr);
 
         // // ベアラートークン作成
         // $bearer_credentials = rawurlencode($key) . ":" . rawurlencode($secret_key);

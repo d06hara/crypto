@@ -141,8 +141,8 @@ class Tweet extends Model
         return $json;
     }
 
-    // app authを使用したツイートのDB保存メソッド
-    public static function tweetStoreAppAuth()
-    {
-    }
+    // // app authを使用したツイートのDB保存メソッド
+    // public static function tweetStoreAppAuth()
+    // {
+    // }
 }
