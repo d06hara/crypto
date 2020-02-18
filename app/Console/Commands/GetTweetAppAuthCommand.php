@@ -5,6 +5,9 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Tweet;
 
+// 自作認証クラスの読み込み
+use App\lib\TwitterAppAuth;
+
 class GetTweetAppAuthCommand extends Command
 {
     /**
@@ -60,7 +63,10 @@ class GetTweetAppAuthCommand extends Command
         // }
 
         // インスタンス作成
-        $connection = new Tweet($key, $secret_key);
+        // $connection = new Tweet($key, $secret_key);
+
+        // 自作クラスでインスタンス作成
+        $connection = new TwitterAppAuth($key, $secret_key);
 
 
         // 検索したい銘柄キーワードを配列にしておく
