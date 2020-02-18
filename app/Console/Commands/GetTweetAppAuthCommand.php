@@ -50,23 +50,25 @@ class GetTweetAppAuthCommand extends Command
         $key = $config['api_key'];
         $secret_key = $config['secret_key'];
 
-        // $query = Tweet::get();
-        // dd($query);
-        // //初期データ
-        // if (!is_object($query)) {
-        //     //DBから最大値を取得
-        //     $max = $query->max('tweet_id');
-        //     //tweet_idの最大値から+1してDBのデータと被らないようにする
-        //     $since_id = $max + 1;
-        // } else {
-        //     $since_id = null;
-        // }
+        $query = Tweet::get();
+
+        //初期データ
+        if (!is_object($query)) {
+            //DBから最大値を取得
+            $max = $query->max('tweet_id');
+            //tweet_idの最大値から+1してDBのデータと被らないようにする
+            $since_id = $max + 1;
+        } else {
+            $since_id = null;
+        }
 
         // インスタンス作成
         // $connection = new Tweet($key, $secret_key);
 
         // 自作クラスでインスタンス作成
         $connection = new TwitterAppAuth($key, $secret_key);
+
+        dd($query);
 
 
         // 検索したい銘柄キーワードを配列にしておく
