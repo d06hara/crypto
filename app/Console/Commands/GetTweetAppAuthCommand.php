@@ -74,52 +74,53 @@ class GetTweetAppAuthCommand extends Command
         // 日本で取り扱っている有名銘柄10種
         // それぞれbland_idと対応させる
         // 銘柄を追加する場合はここに追加
-        // $search_key_array = array(
-        //     1 => "ビットコイン OR Bitcoin OR BTC",
-        //     2 => "ビットコインキャッシュ OR BitcoinCash OR BCH",
-        //     3 => "イーサリアム OR Ethereum OR ETH",
-        //     4 => "イーサリアムクラシック OR EthreumClassic OR ETC",
-        //     5 => "リップル OR Ripple OR XRP",
-        //     6 => "ライトコイン OR LiteCoin OR LTC",
-        //     7 => "ネム OR NEM OR XEM",
-        //     8 => "モナコイン OR  MonaCoin OR MONA",
-        //     9 => "リスク OR Lisk OR LSK",
-        //     10 => "ファクトム OR Factom OR FCT",
-        // );
-
-        // foreach ($search_key_array as $bland_id => $search_key) {
-
-
-
-        // パラメータ
-        $params = array(
-            "q" => "BTC",
-            // "q" => $search_key,
-            "count" => 1,
-            "lang" => "ja",
-            "since_id" => $since_id
+        $search_key_array = array(
+            1 => "ビットコイン OR Bitcoin OR BTC",
+            2 => "ビットコインキャッシュ OR BitcoinCash OR BCH",
+            // 3 => "イーサリアム OR Ethereum OR ETH",
+            // 4 => "イーサリアムクラシック OR EthreumClassic OR ETC",
+            // 5 => "リップル OR Ripple OR XRP",
+            // 6 => "ライトコイン OR LiteCoin OR LTC",
+            // 7 => "ネム OR NEM OR XEM",
+            // 8 => "モナコイン OR  MonaCoin OR MONA",
+            // 9 => "リスク OR Lisk OR LSK",
+            // 10 => "ファクトム OR Factom OR FCT",
         );
 
-        //     $tweet_obj = $connection->searchTweet('search/tweets', $params);
+        $test_arr = [];
 
-        //     //TwitterAPIからデータが返ってきているか確認
-        //     if (is_object($tweet_obj)) {
-        //         //念の為ツイートデータが入ってるか確認
-        //         if (isset($tweet_obj->statuses)) {
-        //             //ツイート保存する処理
-        //             $twitter_store = Tweet::tweetStore($tweet_obj, $bland_id);
-        //             // $twitter_store = Tweet::tweetStore($twitter_api, $bland_id);
-        //         }
-        //     }
-        //     // }
+        foreach ($search_key_array as $bland_id => $search_key) {
 
-        //     dd($tweet_obj);
-        // }
 
-        // $params = array(
-        //     'q' => '焼肉',
-        //     'count' => 1,
-        // );
+
+            // パラメータ
+            $params = array(
+                // "q" => "BTC",
+                "q" => $search_key,
+                "count" => 1,
+                "lang" => "ja",
+                "since_id" => $since_id
+            );
+
+            $tweet_obj = $connection->searchTweet('search/tweets', $params);
+
+            //TwitterAPIからデータが返ってきているか確認
+            // if (is_object($tweet_obj)) {
+            //     //念の為ツイートデータが入ってるか確認
+            //     if (isset($tweet_obj->statuses)) {
+            //         //ツイート保存する処理
+            //         $twitter_store = Tweet::tweetStore($tweet_obj, $bland_id);
+            //         // $twitter_store = Tweet::tweetStore($twitter_api, $bland_id);
+            //     }
+            // }
+            // }
+            $tweets_arr = json_decode($tweet_obj);
+
+            $test_arr[] = $tweets_arr;
+
+            // dd($tweet_obj);
+        }
+        dd($test_arr);
 
 
 
