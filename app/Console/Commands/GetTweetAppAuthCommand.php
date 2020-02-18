@@ -68,7 +68,6 @@ class GetTweetAppAuthCommand extends Command
         // 自作クラスでインスタンス作成
         $connection = new TwitterAppAuth($key, $secret_key);
 
-        dd($query);
 
 
         // 検索したい銘柄キーワードを配列にしておく
@@ -92,14 +91,14 @@ class GetTweetAppAuthCommand extends Command
 
 
 
-        //     // パラメータ
-        //     $params = array(
-        //         // "q" => "BTC",
-        //         "q" => $search_key,
-        //         "count" => 1,
-        //         "lang" => "ja",
-        //         "since_id" => $since_id
-        //     );
+        // パラメータ
+        $params = array(
+            "q" => "BTC",
+            // "q" => $search_key,
+            "count" => 1,
+            "lang" => "ja",
+            "since_id" => $since_id
+        );
 
         //     $tweet_obj = $connection->searchTweet('search/tweets', $params);
 
@@ -117,10 +116,10 @@ class GetTweetAppAuthCommand extends Command
         //     dd($tweet_obj);
         // }
 
-        $params = array(
-            'q' => '焼肉',
-            'count' => 1,
-        );
+        // $params = array(
+        //     'q' => '焼肉',
+        //     'count' => 1,
+        // );
 
 
 
