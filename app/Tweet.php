@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Tweet extends Model
 {
 
+    // リレーション設定
+    public function bland()
+    {
+        return $this->belongsTo('App\Bland');
+    }
+
     // app authお試し
     // --------------------------------------------
     // private $bearer_token;
@@ -66,20 +72,20 @@ class Tweet extends Model
     public $timestamps = false;
 
     // 最新のツイートを取得する(ユーザー認証ver)
-    public static function getTweetLatestApi(string $search_key, int $since_id = null)
-    {
-        // twitterapiを呼び出しデータを取得する
-        $twitter_api = \Twitter::get("search/tweets", [
-            'q' => $search_key,
-            // １度に最大100件のツイートを取得
-            'count' => 100,
-            // とりあえず日本語のツイートのみ（変更可能）
-            'lang' => 'ja',
-            'since_id' => $since_id
-        ]);
+    // public static function getTweetLatestApi(string $search_key, int $since_id = null)
+    // {
+    //     // twitterapiを呼び出しデータを取得する
+    //     $twitter_api = \Twitter::get("search/tweets", [
+    //         'q' => $search_key,
+    //         // １度に最大100件のツイートを取得
+    //         'count' => 100,
+    //         // とりあえず日本語のツイートのみ（変更可能）
+    //         'lang' => 'ja',
+    //         'since_id' => $since_id
+    //     ]);
 
-        return $twitter_api;
-    }
+    //     return $twitter_api;
+    // }
 
     // ツイートオブジェクトを形成してDBに保存する(ユーザー認証ver)
     public static function tweetStore($twitter_api, int $bland_id)
@@ -112,34 +118,34 @@ class Tweet extends Model
 
 
     // app authのみを使用したツイート取得メソッド
-    public static function getTweetAppAuth($context, $request_url)
-    {
-        // cURLを使ってリクエスト
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $request_url);    // リクエストURL
-        curl_setopt($curl, CURLOPT_HEADER, true);    // ヘッダーを取得する
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $context['http']['method']);    // メソッド
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);    // 証明書の検証を行わない
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);    // curl_execの結果を文字列で返す
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $context['http']['header']);    // ヘッダー
-        $res1 = curl_exec($curl);
+    // public static function getTweetAppAuth($context, $request_url)
+    // {
+    //     // cURLを使ってリクエスト
+    //     $curl = curl_init();
+    //     curl_setopt($curl, CURLOPT_URL, $request_url);    // リクエストURL
+    //     curl_setopt($curl, CURLOPT_HEADER, true);    // ヘッダーを取得する
+    //     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $context['http']['method']);    // メソッド
+    //     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);    // 証明書の検証を行わない
+    //     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);    // curl_execの結果を文字列で返す
+    //     curl_setopt($curl, CURLOPT_HTTPHEADER, $context['http']['header']);    // ヘッダー
+    //     $res1 = curl_exec($curl);
 
-        dd($res1);
-        $res2 = curl_getinfo($curl);
-        curl_close($curl);
+    //     dd($res1);
+    //     $res2 = curl_getinfo($curl);
+    //     curl_close($curl);
 
-        $res_str_arr = json_decode($res1, true);
+    //     $res_str_arr = json_decode($res1, true);
 
-        dd($res_str_arr);
+    //     dd($res_str_arr);
 
-        // 取得したデータ
-        $json = substr($res1, $res2['header_size']);    // 取得したデータ(JSONなど)
-        $header = substr($res1, 0, $res2['header_size']);    // レスポンスヘッダー (検証に利用したい場合にどうぞ)
+    //     // 取得したデータ
+    //     $json = substr($res1, $res2['header_size']);    // 取得したデータ(JSONなど)
+    //     $header = substr($res1, 0, $res2['header_size']);    // レスポンスヘッダー (検証に利用したい場合にどうぞ)
 
-        dd($json);
+    //     dd($json);
 
-        return $json;
-    }
+    //     return $json;
+    // }
 
     // // app authを使用したツイートのDB保存メソッド
     // public static function tweetStoreAppAuth()
