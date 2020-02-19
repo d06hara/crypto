@@ -34,6 +34,9 @@ Route::get('/mypage', function () {
 // twitterアカウント表示画面
 Route::get('/account', 'TwittersController@index')->name('account');
 
+// ranking画面
+Route::get('/ranking', 'TwittersController@getTweetCount')->name('ranking');
+
 
 // ---------------------------------------------
 
@@ -91,8 +94,8 @@ Route::get('/passEdit', function () {
 Route::get('/edit', function () {
     return view('edit');
 });
-Route::get('/ranking', function () {
-    return view('ranking');
-});
+// Route::get('/ranking', function () {
+//     return view('ranking');
+// });
 
 Route::get('/home', 'HomeController@index')->name('home');
