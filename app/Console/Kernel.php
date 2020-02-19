@@ -31,6 +31,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         // $schedule->command('writelog:info')
         //     ->everyMinute();
+        $schedule->command('gettweet:appauth')
+            ->everyFiveMinutes();
     }
 
     /**

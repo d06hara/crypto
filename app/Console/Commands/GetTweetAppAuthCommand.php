@@ -97,7 +97,7 @@ class GetTweetAppAuthCommand extends Command
             $params = array(
                 // "q" => "BTC",
                 "q" => $search_key,
-                "count" => 1,
+                "count" => 10,
                 "lang" => "ja",
                 "since_id" => $since_id
             );
@@ -198,5 +198,8 @@ class GetTweetAppAuthCommand extends Command
         // }
         // // }
         // // }
+
+        // 確認証
+        logger()->info('This is gettweet:appauth Command');
     }
 }
