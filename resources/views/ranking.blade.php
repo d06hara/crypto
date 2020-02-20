@@ -47,8 +47,11 @@
         <p>銘柄一覧</p>
         @foreach($data as $bland)
         <div class="p-ranking__brand-container">
-          <p class="p-ranking__brand"><span class="p-ranking__rank">１位</span>{{ $bland['name'] }}</p>
-          <p>ツイート数:{{  $bland['count'] }}</p>
+          <a href="https://twitter.com/search?q={{ urlencode($bland['name']) }}&src=typed_query" target="_blank">
+            <p class="p-ranking__brand"><span class="p-ranking__rank">１位</span>{{ $bland['name'] }}</p>
+            <p>ツイート数:{{  $bland['count'] }}</p>
+          </a>
+
         </div>
         @endforeach
         {{-- <div class="p-ranking__brand-container">
