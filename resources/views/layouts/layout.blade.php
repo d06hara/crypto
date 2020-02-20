@@ -43,10 +43,10 @@
 
     <nav class="p-nav nav-menu js-toggle-sp-menu-target">
       <ul class="p-nav__menu">
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">Ranking</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">Account</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">News</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">Mypage</a></li>
+        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
+        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
+        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/news") }}">News</a></li>
+        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li>
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">Logout</a></li>
       </ul>
     </nav>
