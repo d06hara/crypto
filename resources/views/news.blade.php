@@ -26,5 +26,4 @@
 
 
 </main>
-
 @endsection
