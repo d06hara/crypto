@@ -12,11 +12,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Abraham\TwitterOAuth\TwitterOAuth;
 
+// app認証
+use App\lib\TwitterAppAuth;
+
 class TwittersController extends Controller
 {
     // twitterアカウント一覧画面表示
     public function index(Request $requiest)
     {
+
+        // ユーザー認証
         $search_users = \Twitter::get('users/search', array("q" => "#仮想通貨", 'count' => 10));
         // dump($search_users);
 

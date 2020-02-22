@@ -1,5 +1,7 @@
 <?php
 
+// twiter app認証のためのクラス
+
 namespace App\lib;
 
 class TwitterAppAuth
