@@ -50,8 +50,10 @@
           <a href="https://twitter.com/search?q={{ urlencode($bland['name']) }}&src=typed_query" target="_blank">
             <p class="p-ranking__brand"><span class="p-ranking__rank">１位</span>{{ $bland['name'] }}</p>
             <p>ツイート数:{{  $bland['count'] }}</p>
-            <p>２４時間での最高取引価格</p>
-            <p>２４時間での最安取引価格</p>
+            @if($bland['name'] === 'ビットコイン')
+            <p>２４時間での最高取引価格 {{ $coin_info['high'] }}</p>
+            <p>２４時間での最安取引価格{{ $coin_info['low'] }}</p>
+            @endif
           </a>
 
         </div>

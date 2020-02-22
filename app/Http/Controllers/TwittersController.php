@@ -3,8 +3,9 @@
 
 namespace App\Http\Controllers;
 
-require "vendor/autoload.php";
+// require "vendor/autoload.php";
 
+use Coincheck\Coincheck;
 
 use App\Bland;
 use Illuminate\Http\Request;
@@ -44,10 +45,22 @@ class TwittersController extends Controller
                 'count' => $bland->tweets_count, //件数へアクセス
             ];
         }
-        // dump($data);
+
+
+        // coincheck処理
+        $strUrl = "https://coincheck.com/api/ticker";
+        $file = file_get_contents($strUrl);
+        $file = mb_convert_encoding($file, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+
+        $coin_info = json_decode($file, true);
+
+
+        // dd($coin_info);
+
         // 連想配列としてviewに渡す
         return view('ranking', [
-            "data" => $data
+            "data" => $data,
+            "coin_info" => $coin_info
         ]);
     }
 }
