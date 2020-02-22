@@ -37,6 +37,9 @@ Route::get('/account', 'TwittersController@index')->name('account');
 // ranking画面
 Route::get('/ranking', 'TwittersController@getTweetCount')->name('ranking');
 
+// news画面
+Route::get('/news', 'NewsController@get_news')->name('news');
+
 
 // ---------------------------------------------
 
@@ -73,9 +76,9 @@ Route::get('/home', function () {
 // Route::get('/account', function () {
 //     return view('account');
 // });
-Route::get('/news', function () {
-    return view('news');
-});
+// Route::get('/news', function () {
+//     return view('news');
+// });
 Route::get('/passremind', function () {
     return view('passremind');
 });
