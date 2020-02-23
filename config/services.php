@@ -34,4 +34,10 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'twitter' => [
+        'client_id' => env('TWITTER_CLIENT_ID_ACCESS_TOKEN'),
+        'client_secret' => env('TWITTER_CLIENT_ID_ACCESS_TOKEN_SECRET'),
+        'redirect' => env('TWITTER_CLIENT_CALLBACK'),
+    ]
+
 ];
