@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
 
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -178,7 +180,7 @@ return [
         // TwitterOAuth
         App\Providers\TwitterServiceProvider::class,
         // Socialite
-        Laravel\Socialite\SocialiteServiceProvider::class,
+        // \SocialiteProviders\Manager\ServiceProvider::class,
 
     ],
 

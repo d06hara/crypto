@@ -44,6 +44,13 @@ Route::get('/ranking', 'TwittersController@getTweetCount')->name('ranking');
 // news画面
 Route::get('/news', 'NewsController@get_news')->name('news');
 
+// socialite使用
+
+// Route::get('auth/twitter', 'TwittersController@twitterLogin');
+// Route::get('auth/twitter/callback', 'TwittersController@callback');
+
+
+
 
 // ---------------------------------------------
 
@@ -64,24 +71,30 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
+Route::prefix('auth')->group(function () {
+    Route::get('twitter', 'Auth\SocialAuthController@login');
+    Route::get('twitter/callback', 'Auth\SocialAuthController@callback');
+});
+
+
 
 
 // ---------------------------------------------
 
 
-// ツイート取得テスト
-Route::get('twitter', 'TwitterController@index');
-// ハッシュタグテスト
-Route::get('hash', 'TwitterController@sample');
+// // ツイート取得テスト
+// Route::get('twitter', 'TwitterController@index');
+// // ハッシュタグテスト
+// Route::get('hash', 'TwitterController@sample');
 // // twitterログインテスト
 // Route::get('/login/twitter', 'Auth\LoginController@redirectToProvider');
 // // twitter認証後のコールバック先
 // Route::get('login/twitter/callback', 'Auth\LoginController@handleProviderCallback');
 
 // Auth Twitter
-Route::get('auth/twitter', 'Auth\AuthController@TwitterRedirect')->name('auth.twitter');
-Route::get('auth/twitter/callback', 'Auth\AuthController@TwitterCallback');
-Route::get('auth/twitter/logout', 'Auth\AuthController@getLogout');
+// Route::get('auth/twitter', 'Auth\SocialAuthController@redirectToProvider');
+// Route::get('auth/twitter/callback', 'Auth\SocialAuthController@handleProviderCallback');
+// Route::get('auth/twitter/logout', 'Auth\SocialAuthController@logout');
 
 
 
@@ -93,35 +106,33 @@ Route::get('auth/twitter/logout', 'Auth\AuthController@getLogout');
 
 
 // 画面作成のため一時
-Route::get('/home', function () {
-    return view('home');
-});
+// Route::get('/home', function () {
+//     return view('home');
+// });
 // Route::get('/account', function () {
 //     return view('account');
 // });
 // Route::get('/news', function () {
 //     return view('news');
 // });
-Route::get('/passremind', function () {
-    return view('passremind');
-});
-Route::get('/passremindsend', function () {
-    return view('passremindsend');
-});
-Route::get('/passremindedit', function () {
-    return view('passremindedit');
-});
-Route::get('/withdraw', function () {
-    return view('withdraw');
-});
-Route::get('/passEdit', function () {
-    return view('passEdit');
-});
-Route::get('/edit', function () {
-    return view('edit');
-});
+// Route::get('/passremind', function () {
+//     return view('passremind');
+// });
+// Route::get('/passremindsend', function () {
+//     return view('passremindsend');
+// });
+// Route::get('/passremindedit', function () {
+//     return view('passremindedit');
+// });
+// Route::get('/withdraw', function () {
+//     return view('withdraw');
+// });
+// Route::get('/passEdit', function () {
+//     return view('passEdit');
+// });
+// Route::get('/edit', function () {
+//     return view('edit');
+// });
 // Route::get('/ranking', function () {
 //     return view('ranking');
 // });
-
-Route::get('/home', 'HomeController@index')->name('home');
