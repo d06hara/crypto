@@ -12,13 +12,13 @@
             <p class="mb-0">{{ $user->name }}</p>
             <a href="{{ url('users/' .$user->id) }}" class="text-secondary">{{ $user->name }}</a>
           </div>
-          @if ($user->isFollowed($user->id))
+          @if (auth()->user()->isFollowed($user->id))
           <div class="px-2">
             <span class="px-1 bg-secondary text-light">フォローされています</span>
           </div>
           @endif
           <div class="d-flex justify-content-end flex-grow-1">
-            @if ($user->isFollowing($user->id))
+            @if (auth()->user()->isFollowing($user->id))
             <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
               {{ csrf_field() }}
               {{ method_field('DELETE') }}

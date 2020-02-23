@@ -99,6 +99,7 @@ class UsersController extends Controller
     public function follow(User $user)
     {
         $follower = auth()->user();
+        // dd($follower);
         // フォローしているか
         $is_following = $follower->isFollowing($user->id);
         if (!$is_following) {
