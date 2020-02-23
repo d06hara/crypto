@@ -53,11 +53,10 @@ class User extends Authenticatable
     // -----------------------------
 
     // テスト用ユーザー表示機能
-    public function getAllUsers()
+    public function getAllUsers(Int $user_id)
     {
-        $data = DB::table('users')->get();
-
-        return $data;
+        // ログインしているユーザーを除くユーザーを取得
+        return $this->Where('id', '<>', $user_id)->paginate(5);
     }
 
     // フォローする

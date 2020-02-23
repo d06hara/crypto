@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="my-4 d-flex justify-content-center">
-    {{-- {{ $all_users->links() }} --}}
+    {{ $data->links() }}
   </div>
 </div>
 @endsection

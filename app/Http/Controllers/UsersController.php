@@ -15,11 +15,12 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     // ユーザー一覧機能のテスト
-    public function index(Request $request)
+    public function index(User $user)
     {
         // $md = new User();
-        // $data = $md->getAllUsers();
-        $data = User::all();
+        $data = $user->getAllUsers(auth()->user()->id);
+        // dd($data);
+        // $data = User::all();
 
         // dd($data);
 
