@@ -11,6 +11,10 @@
 |
 */
 
+// 認証系
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -45,6 +49,26 @@ Route::get('/news', 'NewsController@get_news')->name('news');
 
 
 
+
+// ---------------------------------------------
+// テストrouting
+// ---------------------------------------------
+
+// ログイン認証
+Route::group(['middleware' => 'auth'], function () {
+    // ユーザー一覧
+    Route::get('/users/index', 'UsersController@index');
+    // フォロー/フォロー解除を追加
+    Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
+    Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
+});
+
+
+
+
+// ---------------------------------------------
+
+
 // ツイート取得テスト
 Route::get('twitter', 'TwitterController@index');
 // ハッシュタグテスト
@@ -61,14 +85,13 @@ Route::get('auth/twitter/logout', 'Auth\AuthController@getLogout');
 
 
 
-// 認証系
-Auth::routes();
 
 
 
 
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
+
 // 画面作成のため一時
 Route::get('/home', function () {
     return view('home');

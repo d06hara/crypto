@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -50,4 +51,36 @@ class User extends Authenticatable
         return $this->belongsToMany(self::class, 'followers', 'following_id', 'followed_id');
     }
     // -----------------------------
+
+    // テスト用ユーザー表示機能
+    public function getAllUsers()
+    {
+        $data = DB::table('users')->get();
+
+        return $data;
+    }
+
+    // フォローする
+    public function follow(Int $user_id)
+    {
+        return $this->follows()->attach($user_id);
+    }
+
+    // フォロー解除する
+    public function unfollow(Int $user_id)
+    {
+        return $this->follows()->detach($user_id);
+    }
+
+    // フォローしているか
+    public function isFollowing(Int $user_id)
+    {
+        return (bool) $this->follows()->where('followed_id', $user_id)->first(['id']);
+    }
+
+    // フォローされているか
+    public function isFollowed(Int $user_id)
+    {
+        return (bool) $this->followers()->where('following_id', $user_id)->first(['id']);
+    }
 }
