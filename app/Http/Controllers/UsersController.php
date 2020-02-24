@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Follower;
+use App\Models\TwitterUser;
 
 class UsersController extends Controller
 {
@@ -98,13 +99,17 @@ class UsersController extends Controller
     // フォロー
     public function follow(User $user)
     {
+        // ログインしているユーザーの情報を取得
         $follower = auth()->user();
         // dd($follower);
-        // フォローしているか
+        // フォローしているか(会員登録していないアカウントをフォローする場合は変更する必要がある)
         $is_following = $follower->isFollowing($user->id);
         if (!$is_following) {
             // フォローしていなければフォローする
-            $follower->follow($user->id);
+            // $aa = $user->twitterUser->provider_user_id;
+            // dd($aa);
+            // dd($user->twitterUser()->provider_user_id);
+            $follower->follow($user->twitterUser->provider_user_id);
             return back();
         }
     }

@@ -72,10 +72,10 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{ route('auth.twitter') }}">
-                                    <button type="button" class="btn btn-primary"><i class="fab fa-twitter"></i>
-                                        Twitterアカウントでログインする</button>
-                                </a>
+                                {{-- <a href="{{ route('auth.twitter') }}">
+                                <button type="button" class="btn btn-primary"><i class="fab fa-twitter"></i>
+                                    Twitterアカウントでログインする</button>
+                                </a> --}}
                             </div>
                         </div>
                     </form>

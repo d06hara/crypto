@@ -42,7 +42,7 @@ class User extends Authenticatable
     // twitterユーザーとのリレーション
     public function twitterUser()
     {
-        return $this->hasOne('App\Models\TwitterUser');
+        return $this->hasOne('App\Models\TwitterUser', 'user_id');
     }
 
 
