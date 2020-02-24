@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
+use App\Models\User;
+use App\Models\TwitterUser;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class SocialAuthController extends Controller
@@ -20,8 +24,34 @@ class SocialAuthController extends Controller
 
     public function callback()
     {
-        $user = Socialite::driver('Twitter')->user();
-        dd($user);
+        $checkTwitterUser = Socialite::driver('Twitter')->user();
+
+        // 既に存在するユーザーかを確認
+        $twitterUser = TwitterUser::where('provider_user_id', $checkTwitterUser->id)->first();
+
+        // ユーザーidが存在していればログインしてトップページへ
+        if ($twitterUser) {
+            Auth::login($twitterUser->user, true);
+            return redirect('/');
+        }
+
+        // ユーザーがいなければ新しいユーザーを作成
+        $user = new User();
+        $user->name = $twitterUser->name;
+
+        $newTwitterUser = new TwitterUser();
+        $newTwitterUser->provider_user_id = $checkTwitterUser->id;
+
+        DB::transaction(function () use ($user, $newTwitterUser) {
+            $user->save();
+            $user->twitterUser()->save($newTwitterUser);
+        });
+
+        Auth::login($user, true);
+        return redirect('/');
+
+
+        // dd($user);
     }
     // public function TwitterRedirect()
     // {
