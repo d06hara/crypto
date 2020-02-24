@@ -47,6 +47,9 @@ class User extends Authenticatable
 
 
     // フォロー機能のリレーション
+    // 第二引数： 結合テーブル名
+    // 第三引数： リレーションを定義しているモデルの外部キー名
+    // 第四引数： 結合するモデルの外部キー名
     // -----------------------------
     public function followers()
     {
@@ -79,9 +82,9 @@ class User extends Authenticatable
     }
 
     // フォローしているか
-    public function isFollowing(Int $user_id)
+    public function isFollowing(Int $provider_user_id)
     {
-        return (bool) $this->follows()->where('followed_id', $user_id)->first(['id']);
+        return (bool) $this->follows()->where('followed_id', $provider_user_id)->first(['id']);
     }
 
     // フォローされているか

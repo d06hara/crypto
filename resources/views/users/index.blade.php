@@ -10,6 +10,9 @@
           {{-- <img src="{{ $user->profile_image }}" class="rounded-circle" width="50" height="50"> --}}
           <div class="ml-2 d-flex flex-column">
             <p class="mb-0">{{ $user->name }}</p>
+            @if($user->twitterUser)
+            <p class="mb-0">{{ $user->twitterUser->id }}</p>
+            @endif
             <a href="{{ url('users/' .$user->id) }}" class="text-secondary">{{ $user->name }}</a>
           </div>
           @if (auth()->user()->isFollowed($user->id))
