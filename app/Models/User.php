@@ -39,6 +39,13 @@ class User extends Authenticatable
     ];
 
 
+    // twitterユーザーとのリレーション
+    public function twitterUser()
+    {
+        return $this->hasOne('App\Models\TwitterUser');
+    }
+
+
     // フォロー機能のリレーション
     // -----------------------------
     public function followers()
