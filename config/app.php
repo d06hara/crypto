@@ -165,8 +165,10 @@ return [
         /*
          * Package Service Providers...
          */
-
+        // Socialite
         Laravel\Socialite\SocialiteServiceProvider::class,
+        // laravel/debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -237,6 +239,8 @@ return [
         'Twitter' => App\Facades\Twitter::class,
         // Socialite
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        // laravel/debugbar
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
