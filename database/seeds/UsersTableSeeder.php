@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 // userモデルを追加
-use App\User;
+use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {

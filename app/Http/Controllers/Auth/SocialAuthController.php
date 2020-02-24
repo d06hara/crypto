@@ -37,7 +37,8 @@ class SocialAuthController extends Controller
 
         // ユーザーがいなければ新しいユーザーを作成
         $user = new User();
-        $user->name = $twitterUser->name;
+        $user->name = $checkTwitterUser->name;
+        $user->delete_flg = 1;
 
         $newTwitterUser = new TwitterUser();
         $newTwitterUser->provider_user_id = $checkTwitterUser->id;
