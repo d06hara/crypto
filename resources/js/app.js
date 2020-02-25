@@ -22,10 +22,16 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+// Components
+import AccountLayout from './components/AccountLayout.vue';
+
 
 
 const app = new Vue({
     el: '#app',
+    components: {
+        'account-layout': AccountLayout,
+    },
     data: {
         message: 'ああ',
     }
