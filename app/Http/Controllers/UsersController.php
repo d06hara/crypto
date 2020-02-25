@@ -97,13 +97,15 @@ class UsersController extends Controller
     }
 
     // フォロー
-    public function follow(User $user)
+    public function follow()
     {
         // ログインしているユーザーの情報を取得
         $follower = auth()->user();
         // dd($follower);
         // フォローしているか(会員登録していないアカウントをフォローする場合は変更する必要がある)
+        // $is_following = $follower->isFollowing($user->id);
         $is_following = $follower->isFollowing($user->id);
+        dd($is_following);
         if (!$is_following) {
             // フォローしていなければフォローする
             // $aa = $user->twitterUser->provider_user_id;

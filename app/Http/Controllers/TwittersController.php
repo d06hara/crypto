@@ -41,7 +41,7 @@ class TwittersController extends Controller
     {
 
         // ユーザー認証
-        $search_users = \Twitter::get('users/search', array("q" => "#仮想通貨", 'count' => 10));
+        $search_users = \Twitter::get('users/search', array("q" => "あああ", 'count' => 10));
         // dd($search_users);
 
         return view('account', [

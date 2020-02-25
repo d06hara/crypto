@@ -5,6 +5,9 @@
 @section('content')
 <main>
   <p class="l-main__title">アカウント一覧</p>
+  @auth
+  <h1>ログイン状態です</h1>
+  @endauth
   <div class="p-account">
     @foreach($search_users as $user)
     <div class="p-account__card">
@@ -14,13 +17,23 @@
       <p>friends_count:{{ $user->friends_count }}</p>
       <p>followers_count:{{ $user->followers_count }}</p>
       <p>description:{{ $user->description }}</p>
-      <button>フォロー</button>
+      {{-- twitterのidを使用してフォロー --}}
+      <form action="{{ route('follow',['id' => $user->id] )}}" method="POST">
+        @csrf
+        <button type="submit">フォロー</button>
+      </form>
+
       <div class="p-account__card-tweet">
         {{ $user->status->text }}
       </div>
     </div>
     @endforeach
 
+  </div>
+  <div>
+    <p>
+      @{{ message }}い
+    </p>
   </div>
 
 

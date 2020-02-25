@@ -79,6 +79,7 @@ Route::prefix('auth')->group(function () {
 
 
 
+
 // ---------------------------------------------
 
 
@@ -136,3 +137,7 @@ Route::prefix('auth')->group(function () {
 // Route::get('/ranking', function () {
 //     return view('ranking');
 // });
+// vueテスト
+Route::get('/test', function () {
+    return view('test');
+});

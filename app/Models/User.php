@@ -70,9 +70,9 @@ class User extends Authenticatable
     }
 
     // フォローする
-    public function follow(Int $user_id)
+    public function follow(Int $twitter_id)
     {
-        return $this->follows()->attach($user_id);
+        return $this->follows()->attach($twitter_id);
     }
 
     // フォロー解除する
@@ -81,7 +81,7 @@ class User extends Authenticatable
         return $this->follows()->detach($user_id);
     }
 
-    // フォローしているか
+    // フォローしているか(自分が引数のidをフォローしているかをチェック)
     public function isFollowing(Int $provider_user_id)
     {
         return (bool) $this->follows()->where('followed_id', $provider_user_id)->first(['id']);
