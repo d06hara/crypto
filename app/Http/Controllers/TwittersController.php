@@ -42,9 +42,10 @@ class TwittersController extends Controller
     {
 
         // ユーザー認証
-        $search_users = \Twitter::get('users/search', array("q" => "あああ", 'count' => 1));
-        $a = json_decode($search_users, true);
-        dd($a);
+        $search_users = \Twitter::get('users/search', array("q" => "あああ", 'count' => 5));
+        return $search_users;
+        // $a = json_decode($search_users, true);
+        // dd($a);
         // dd($search_users);
         // function is_json($str)
         // {

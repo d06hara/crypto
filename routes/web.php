@@ -149,4 +149,6 @@ Route::get('/aaa', function () {
     return $user;
 });
 
+Route::get('/bbb', 'TwittersController@index');
+
 // Route::get("/api/test", 'TwittersController@test');
