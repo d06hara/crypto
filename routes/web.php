@@ -11,6 +11,8 @@
 |
 */
 
+use App\Models\User;
+
 // 認証系
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -141,3 +143,9 @@ Route::prefix('auth')->group(function () {
 Route::get('/test', function () {
     return view('test');
 });
+
+// Route::get('test', function () {
+//     return ['ken', 'mike', 'john'];
+// });
+
+// Route::get("/api/test", 'TwittersController@test');

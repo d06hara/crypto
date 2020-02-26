@@ -9,25 +9,25 @@
   <h1>ログイン状態です</h1>
   @endauth
   <div class="p-account">
-    @foreach($search_users as $user)
+    {{-- @foreach($search_users as $user)
     <div class="p-account__card">
       <p>id:{{ $user->id }}</p>
-      <p>name:{{ $user->name }}</p>
-      <p>screen_name:{{  $user->screen_name }}</p>
-      <p>friends_count:{{ $user->friends_count }}</p>
-      <p>followers_count:{{ $user->followers_count }}</p>
-      <p>description:{{ $user->description }}</p>
+    <p>name:{{ $user->name }}</p>
+    <p>screen_name:{{  $user->screen_name }}</p>
+    <p>friends_count:{{ $user->friends_count }}</p>
+    <p>followers_count:{{ $user->followers_count }}</p>
+    <p>description:{{ $user->description }}</p>
 
-      <form action="{{ route('follow',['id' => $user->id] )}}" method="POST">
-        @csrf
-        <button type="submit">フォロー</button>
-      </form>
+    <form action="{{ route('follow',['id' => $user->id] )}}" method="POST">
+      @csrf
+      <button type="submit">フォロー</button>
+    </form>
 
-      <div class="p-account__card-tweet">
-        {{ $user->status->text }}
-      </div>
+    <div class="p-account__card-tweet">
+      {{ $user->status->text }}
     </div>
-    @endforeach
+  </div>
+  @endforeach --}}
 
   </div>
 
@@ -35,5 +35,6 @@
 
 </main>
 <account-layout></account-layout>
+<test-test></test-test>
 
 @endsection

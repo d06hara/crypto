@@ -8,6 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 // import Vue from 'vue';
+// import axios from 'axios';
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,6 +22,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('notifications-component', require('./components/NotificationsComponent.vue').default);
+Vue.component('test-test', require('./components/Test.vue').default);
 
 // Components
 import AccountLayout from './components/AccountLayout.vue';

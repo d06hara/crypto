@@ -11,6 +11,7 @@ use App\Bland;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Models\User;
 
 // app認証
 use App\lib\TwitterAppAuth;
@@ -41,13 +42,42 @@ class TwittersController extends Controller
     {
 
         // ユーザー認証
-        $search_users = \Twitter::get('users/search', array("q" => "あああ", 'count' => 10));
+        $search_users = \Twitter::get('users/search', array("q" => "あああ", 'count' => 1));
+        $a = json_decode($search_users, true);
+        dd($a);
         // dd($search_users);
+        // function is_json($str)
+        // {
+        //     if (is_array($str)) {
+        //         return 'あ';
+        //     }
+        //     json_decode($str);
+        //     if (!json_last_error()) {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+        // $b = $search_users[0];
+        // $a = is_json($b);
+        // dd($a);
+        // $data = response()->json($search_users[0]);
+        // dd($data);
+        // return $data;
+        // return response()->json(['search_users' => $search_users]);
 
-        return view('account', [
-            "search_users" => $search_users
-        ]);
+
+        // return view('account', [
+        //     "search_users" => $search_users
+        // ]);
+        // return response()->json(['apple' => 'red', 'peach' => 'pink']);
+        // return view('account')->with(['apple' => 'red', 'peach' => 'pink']);
     }
+
+    // public function test()
+    // {
+    //     $users = User::all()->take(5);
+    //     return $users;
+    // }
 
     // ツイートを取得
     public function tweets()

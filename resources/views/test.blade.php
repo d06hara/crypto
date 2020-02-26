@@ -9,8 +9,9 @@
 
 <body>
 
-  <div id="aa">
+  <div id="app">
     @{{ message }}
+    <test-test></test-test>
   </div>
 
   <footer class="l-footer">

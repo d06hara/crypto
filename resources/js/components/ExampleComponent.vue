@@ -6,6 +6,7 @@
           <div class="card-header">Example Component</div>
 
           <div class="card-body">I'm an example component.</div>
+          <h1>{{ message }}</h1>
         </div>
       </div>
     </div>
@@ -14,8 +15,10 @@
 
 <script>
 export default {
-  mounted() {
-    console.log("Component mounted.");
+  data() {
+    return {
+      // message: "Hello"
+    };
   }
 };
 </script>
