@@ -144,8 +144,9 @@ Route::get('/test', function () {
     return view('test');
 });
 
-// Route::get('test', function () {
-//     return ['ken', 'mike', 'john'];
-// });
+Route::get('/aaa', function () {
+    $user = User::all()->take(5);
+    return $user;
+});
 
 // Route::get("/api/test", 'TwittersController@test');

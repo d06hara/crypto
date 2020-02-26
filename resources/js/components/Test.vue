@@ -20,8 +20,8 @@ export default {
   },
   mounted: function() {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then(response => console.log(response))
+      .get("/aaa")
+      // .then(response => console.log(response))
       .then(response => (this.users = response.data))
       .catch(response => console.log(response));
   }
