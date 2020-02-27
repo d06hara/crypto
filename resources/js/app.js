@@ -10,6 +10,11 @@ window.Vue = require('vue');
 // import Vue from 'vue';
 // import axios from 'axios';
 
+// ルーティングの定義をインポートする
+import router from './router'
+// ルートコンポーネントをインポート
+import App from './App.vue'
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -32,12 +37,11 @@ import AccountLayout from './components/AccountLayout.vue'
 
 const app = new Vue({
     el: '#app',
+    router,
     components: {
-        AccountLayout,
+        App
     },
-    data: {
-        message: 'ああ',
-    }
+    template: '<App />'
 });
 
 // ヘッダーの高さコンテンツを下げる
