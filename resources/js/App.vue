@@ -1,5 +1,9 @@
 <template>
-  <main>
-    <router-view />
-  </main>
+  <div>
+    <header class="l-header"></header>
+    <main>
+      <router-view />
+    </main>
+    <footer></footer>
+  </div>
 </template>

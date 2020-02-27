@@ -59,7 +59,7 @@
   @section('content')
 
   @endsection
-  <div class="l-main" id="app">
+  <div class="l-main">
     @yield('content')
   </div>
 
