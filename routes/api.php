@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-// Route::get('/account', 'TwittersController@index')->name('account');
+// Route::get('/account', 'TwittersController@index');
 
 Route::get("/data", function () {
     $users = User::all()->take(5);

@@ -20,7 +20,7 @@ export default {
   },
   mounted: function() {
     axios
-      .get("/bbb")
+      .get("/api/account")
       // .then(response => console.log(response))
       .then(response => (this.users = response.data))
       .catch(response => console.log(response));

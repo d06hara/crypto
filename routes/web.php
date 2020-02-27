@@ -149,6 +149,7 @@ Route::get('/aaa', function () {
     return $user;
 });
 
-Route::get('/bbb', 'TwittersController@index');
+// twitter account取得のデータ先
+Route::get('/api/account', 'TwittersController@index');
 
 // Route::get("/api/test", 'TwittersController@test');
