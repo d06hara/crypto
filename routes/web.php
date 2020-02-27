@@ -160,5 +160,5 @@ Route::get('/api/account', 'TwittersController@index');
 
 // vue router導入
 Route::get('/{any?}', function () {
-    return view('index');
+    return view('app');
 });
