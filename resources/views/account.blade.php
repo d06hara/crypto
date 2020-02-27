@@ -30,11 +30,10 @@
   @endforeach --}}
 
   </div>
-
-
+  <account-layout></account-layout>
+  {{-- <test-test></test-test> --}}
 
 </main>
-<account-layout></account-layout>
-<test-test></test-test>
+
 
 @endsection

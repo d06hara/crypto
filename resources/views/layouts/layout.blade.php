@@ -56,9 +56,11 @@
 
   @show
   {{-- この中でvue使用可能 --}}
+  @section('content')
   <div class="l-main" id="app">
-    @yield('content')
   </div>
+  @endsection
+
 
   <footer class="l-footer">
     <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>

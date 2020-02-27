@@ -26,14 +26,14 @@ Vue.component('notifications-component', require('./components/NotificationsComp
 Vue.component('test-test', require('./components/Test.vue').default);
 
 // Components
-import AccountLayout from './components/AccountLayout.vue';
+import AccountLayout from './components/AccountLayout.vue'
 
 
 
 const app = new Vue({
     el: '#app',
     components: {
-        'account-layout': AccountLayout,
+        AccountLayout,
     },
     data: {
         message: 'ああ',

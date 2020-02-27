@@ -38,7 +38,10 @@ Route::get('/mypage', function () {
 // ---------------------------------------------
 
 // twitterアカウント表示画面
-Route::get('/account', 'TwittersController@index')->name('account');
+// Route::get('/account', 'TwittersController@index')->name('account');
+Route::get('/account', function () {
+    return view('account');
+});
 
 // ranking画面
 Route::get('/ranking', 'TwittersController@getTweetCount')->name('ranking');

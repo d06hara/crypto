@@ -1,26 +1,30 @@
 <template>
   <div class="p-account__card">
-    <p>id{{ accounts.name }}</p>
+    <!-- <div v-for="account in accounts"> -->
+    <p>id{{ accounts.id }}</p>
     <p>name</p>
+    <p>{{ aa }}</p>
     <form>
       <button></button>
     </form>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
-  data: function() {
+  data() {
     return {
+      aa: "アイウエオ",
       accounts: [] //accountデータを入れるための空配列
     };
   },
-  mounted() {
-    axios.get("/account").then(function(response) {
-      self.accounts = response.data;
-    });
+  mounted: function() {
+    axios
+      .get("/api/account")
+      .then(response => console.log(response))
+      // .then(response => (this.accounts = response.data))
+      .catch(response => consol.lod(response));
   }
 };
 </script>
