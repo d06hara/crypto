@@ -3,6 +3,7 @@
 @section('title', 'アカウント一覧')
 
 @section('content')
+
 <main>
   <p class="l-main__title">アカウント一覧</p>
   @auth
@@ -10,8 +11,8 @@
   @endauth
   <div class="p-account">
     {{-- @foreach($search_users as $user)
-    <div class="p-account__card">
-      <p>id:{{ $user->id }}</p>
+      <div class="p-account__card">
+        <p>id:{{ $user->id }}</p>
     <p>name:{{ $user->name }}</p>
     <p>screen_name:{{  $user->screen_name }}</p>
     <p>friends_count:{{ $user->friends_count }}</p>
@@ -28,12 +29,15 @@
     </div>
   </div>
   @endforeach --}}
+  <account-panel></account-panel>
 
   </div>
-  <account-layout></account-layout>
-  {{-- <test-test></test-test> --}}
+  {{-- <account-layout></account-layout> --}}
+  <test-test></test-test>
 
 </main>
+
+
 
 
 @endsection

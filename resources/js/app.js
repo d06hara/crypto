@@ -4,16 +4,17 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
+import './bootstrap'
 
-window.Vue = require('vue');
-// import Vue from 'vue';
+// window.Vue = require('vue');
+import Vue from 'vue';
 // import axios from 'axios';
 
 // ルーティングの定義をインポートする
-import router from './router'
+// import router from './router'
 // ルートコンポーネントをインポート
-import App from './App.vue'
+// import App from './App.vue'
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,21 +28,25 @@ import App from './App.vue'
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('notifications-component', require('./components/NotificationsComponent.vue').default);
-Vue.component('test-test', require('./components/Test.vue').default);
-
+// Vue.component('notifications-component', require('./components/NotificationsComponent.vue').default);
+// Vue.component('test-test', require('./components/Test.vue').default);
+// Vue.component('account-panel', require('./components/AccountPanel.vue').default);
 // Components
-import AccountLayout from './components/AccountLayout.vue'
+// import ExampleComponent from './components/ExampleComponent'
+// import AccountLayout from './components/AccountLayout.vue'
+// import TestTest from './components/Test.vue'
 
 
 
 const app = new Vue({
     el: '#app',
-    router,
-    components: {
-        App
-    },
-    template: '<App />'
+    // components: {
+    //     ExampleComponent,
+    //     TestTest
+    // }
+    data: {
+        aaa: 'あああ'
+    }
 });
 
 // ヘッダーの高さコンテンツを下げる

@@ -55,11 +55,8 @@
   @section('sidebar')
 
   @show
-  {{-- この中でvue使用可能 --}}
-  @section('content')
 
-  @endsection
-  <div class="l-main">
+  <div id="app" class="l-main">
     @yield('content')
   </div>
 
@@ -68,7 +65,7 @@
   </footer>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="/js/app.js"></script>
+  <script src="{{ asset('/public/js/app.js') }}"></script>
 </body>
 
 </html>

@@ -9,11 +9,11 @@
 
 <script>
 // 子コンポーネント
-import AccountPanel from "./AccountPanel.vue";
+// import AccountPanel from "./AccountPanel.vue";
 
-export default {
-  components: {
-    "account-panel": AccountPanel
-  }
-};
+// export default {
+//   components: {
+//     "account-panel": AccountPanel
+//   }
+// };
 </script>
