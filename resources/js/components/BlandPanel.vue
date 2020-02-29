@@ -7,12 +7,7 @@
         <ul>
           <li v-for="(check, index) in check_lists" :key="index">
             <label v-bind:for="check">
-              <input
-                type="checkbox"
-                v-bind:value="check"
-                v-model="preview"
-                v-on:click="find_blands"
-              />
+              <input type="checkbox" v-bind:value="check" v-model="preview" />
               {{ check }}
             </label>
           </li>
@@ -23,12 +18,7 @@
     <div class="p-ranking__index-container">
       <div class="p-ranking__index">
         <p>銘柄一覧</p>
-        <div
-          class="p-ranking__brand-container"
-          v-for="bland in blands"
-          :key="bland.id"
-          v-show="bland.display"
-        >
+        <div class="p-ranking__brand-container" v-for="bland in selectedBlands" :key="bland.id">
           <a v-bind:href="bland.url" target="_blank">
             <p class="p-ranking__brand">銘柄名:{{ bland.name }}</p>
             <p>ツイート数：{{ bland.count }}</p>
@@ -62,33 +52,43 @@ export default {
       blands: []
     };
   },
-
-  methods: {
-    find_blands: function() {
-      var blands = this.blands;
-      var preview = this.preview;
-
-      if (preview.length > 0) {
-        for (var i = 0; i < blands.length; i++) {
-          var check_bland = blands[i].name;
-          for (var j = 0; j < preview.length; j++) {
-            if (check_bland === preview[j]) {
-              blands[i].display = true;
-              break;
-            } else {
-              blands[i].display = false;
-            }
-          }
-        }
-        // checkが全て外れた場合の処理
-      } else {
-        for (var i = 0; i < blands.length; i++) {
-          // var checked_bland = blands[i].name;
-          blands[i].display = true;
-        }
+  computed: {
+    selectedBlands: function() {
+      if (this.preview.length === 0) {
+        return this.blands;
       }
+      return this.blands.filter(function(bland) {
+        return this.preview.includes(bland.name);
+      }, this);
     }
   },
+
+  // methods: {
+  //   find_blands: function() {
+  //     var blands = this.blands;
+  //     var preview = this.preview;
+
+  //     if (preview.length > 0) {
+  //       for (var i = 0; i < blands.length; i++) {
+  //         var check_bland = blands[i].name;
+  //         for (var j = 0; j < preview.length; j++) {
+  //           if (check_bland === preview[j]) {
+  //             blands[i].display = true;
+  //             break;
+  //           } else {
+  //             blands[i].display = false;
+  //           }
+  //         }
+  //       }
+  //       // checkが全て外れた場合の処理
+  //     } else {
+  //       for (var i = 0; i < blands.length; i++) {
+  //         // var checked_bland = blands[i].name;
+  //         blands[i].display = true;
+  //       }
+  //     }
+  //   }
+  // },
   mounted: function() {
     axios
       .get("/api/ranking")
