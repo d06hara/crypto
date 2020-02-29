@@ -8,7 +8,7 @@
       <p>followers_count: {{ account.followers_count }}</p>
       <p>description: {{ account.description }}</p>
       <form>
-        <button></button>
+        <button>フォロー</button>
       </form>
       <div class="p-account__card-tweet">{{ account.status.text }}</div>
     </div>

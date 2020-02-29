@@ -42,6 +42,8 @@ Route::get('/mypage', function () {
 Route::get('/account', function () {
     return view('account');
 });
+// twitter account取得のデータ先
+Route::get('/api/account', 'TwittersController@index');
 
 // ranking画面
 Route::get('/ranking', 'TwittersController@getTweetCount')->name('ranking');
@@ -143,17 +145,16 @@ Route::prefix('auth')->group(function () {
 //     return view('ranking');
 // });
 // vueテスト
-Route::get('/test', function () {
-    return view('test');
-});
+// Route::get('/test', function () {
+//     return view('test');
+// });
 
-Route::get('/aaa', function () {
-    $user = User::all()->take(5);
-    return $user;
-});
+// Route::get('/aaa', function () {
+//     $user = User::all()->take(5);
+//     return $user;
+// });
 
-// twitter account取得のデータ先
-Route::get('/api/account', 'TwittersController@index');
+
 
 // Route::get("/api/test", 'TwittersController@test');
 
