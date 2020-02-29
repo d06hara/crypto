@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="p-ranking__brand-container" v-for="bland in blands" :key="bland.id">
-      <a href>
+      <a v-bind:href="bland.url" target="_blank">
         <p class="p-ranking__brand">銘柄名:{{ bland.name }}</p>
         <p>ツイート数：{{ bland.count }}</p>
         <p>２４時間での最高取引価格 : {{ bland.high }}</p>

@@ -115,6 +115,7 @@ class TwittersController extends Controller
                     'count' => $bland->tweets_count, //件数へアクセス
                     'high' => $coin_info['high'],
                     'low' => $coin_info['low'],
+                    'url' => 'https://twitter.com/search?q=' . urlencode($bland->bland_name) . '&src=typed_query',
                 ];
             } else {
                 $data[] = [
@@ -123,6 +124,7 @@ class TwittersController extends Controller
                     'count' => $bland->tweets_count, //件数へアクセス
                     'high' => '不明',
                     'low' => '不明',
+                    'url' => 'https://twitter.com/search?q=' . urlencode($bland->bland_name) . '&src=typed_query',
                 ];
             }
         }
