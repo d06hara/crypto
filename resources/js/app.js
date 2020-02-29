@@ -7,6 +7,7 @@ import Vue from 'vue';
 // import axios from 'axios';
 
 Vue.component('account-panel', require('./components/AccountPanel.vue').default);
+Vue.component('bland-panel', require('./components/BlandPanel.vue').default);
 // Components
 import ExampleComponent from './components/ExampleComponent'
 // import AccountLayout from './components/AccountLayout.vue'

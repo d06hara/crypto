@@ -93,13 +93,7 @@ class TwittersController extends Controller
         // dd($blands);
         // 空の配列を用意
         $data = [];
-        foreach ($blands as $bland) {
-            $data[] = [
-                'id' => $bland->id,
-                'name' => $bland->bland_name,
-                'count' => $bland->tweets_count, //件数へアクセス
-            ];
-        }
+
 
 
         // coincheck処理
@@ -109,13 +103,38 @@ class TwittersController extends Controller
 
         $coin_info = json_decode($file, true);
 
+        // dd($coin_info);
+
+
+        // ビットコインのデータのみcoincheckから取得したデータを入れる
+        foreach ($blands as $bland) {
+            if ($bland->bland_name === 'ビットコイン') {
+                $data[] = [
+                    'id' => $bland->id,
+                    'name' => $bland->bland_name,
+                    'count' => $bland->tweets_count, //件数へアクセス
+                    'high' => $coin_info['high'],
+                    'low' => $coin_info['low'],
+                ];
+            } else {
+                $data[] = [
+                    'id' => $bland->id,
+                    'name' => $bland->bland_name,
+                    'count' => $bland->tweets_count, //件数へアクセス
+                    'high' => '不明',
+                    'low' => '不明',
+                ];
+            }
+        }
+        // dd($data);
 
         // dd($coin_info);
 
         // 連想配列としてviewに渡す
-        return view('ranking', [
-            "data" => $data,
-            "coin_info" => $coin_info
-        ]);
+        // return view('ranking', [
+        //     "data" => $data,
+        //     "coin_info" => $coin_info
+        // ]);
+        return $data;
     }
 }

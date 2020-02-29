@@ -29,7 +29,7 @@ export default {
       .get("/api/account")
       // .then(response => console.log(response))
       .then(response => (this.accounts = response.data))
-      .catch(response => consol.lod(response));
+      .catch(response => console.log(response));
   }
 };
 </script>

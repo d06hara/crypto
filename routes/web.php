@@ -45,8 +45,14 @@ Route::get('/account', function () {
 // twitter account取得のデータ先
 Route::get('/api/account', 'TwittersController@index');
 
+
+Route::get('/ranking', function () {
+    return view('ranking');
+});
 // ranking画面
-Route::get('/ranking', 'TwittersController@getTweetCount')->name('ranking');
+Route::get('/api/ranking', 'TwittersController@getTweetCount');
+
+
 
 // news画面
 Route::get('/news', 'NewsController@get_news')->name('news');
