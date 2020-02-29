@@ -33,6 +33,6 @@ s
 @section('content')
 
 <example-component></example-component>
-{{-- <test-test></test-test> --}}
+<test-test></test-test>
 
 @endsection
