@@ -116,6 +116,7 @@ class TwittersController extends Controller
                     'high' => $coin_info['high'],
                     'low' => $coin_info['low'],
                     'url' => 'https://twitter.com/search?q=' . urlencode($bland->bland_name) . '&src=typed_query',
+                    'display' => true,
                 ];
             } else {
                 $data[] = [
@@ -125,6 +126,7 @@ class TwittersController extends Controller
                     'high' => '不明',
                     'low' => '不明',
                     'url' => 'https://twitter.com/search?q=' . urlencode($bland->bland_name) . '&src=typed_query',
+                    'display' => true,
                 ];
             }
         }
