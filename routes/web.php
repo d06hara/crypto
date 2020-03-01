@@ -150,22 +150,11 @@ Route::prefix('auth')->group(function () {
 // Route::get('/ranking', function () {
 //     return view('ranking');
 // });
-// vueテスト
-// Route::get('/test', function () {
-//     return view('test');
-// });
-
-// Route::get('/aaa', function () {
-//     $user = User::all()->take(5);
-//     return $user;
-// });
 
 
 
-// Route::get("/api/test", 'TwittersController@test');
-
-
-// // vue router導入
-// Route::get('/{any?}', function () {
-//     return view('index');
-// });
+// テスト用ページ
+Route::get('/test', function () {
+    return view('test');
+});
+Route::get('/test', 'TwittersController@getAccountPractice');

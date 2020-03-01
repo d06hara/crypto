@@ -43,6 +43,6 @@ class GetTwitterAccount extends Command
         // ユーザー認証(twitterOauth使用:ユーザーは自分)
         // ---------------------------
         // 練習として10ユーザー分取得
-        $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'count' => 10));
+        $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'count' => 10, 'since_id' => 1000000000));
     }
 }

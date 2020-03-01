@@ -127,4 +127,27 @@ class TwittersController extends Controller
         // ]);
         return $data;
     }
+
+    // ユーザー取得練習メソッド
+    public function getAccountPractice()
+    {
+        // page 1~25 と26~51で２通りの処理を用意
+        // grobal変数としてスイッチ用の変数を用意0と１
+        // そのgrobal変数が0のときは1~25で処理し最後に1に変えて、1のときは26~51で処理し0に変える
+        // この仕組みで関数が動くたびに処理が入れ替わる
+
+        $total_search_accounts = [];
+
+
+        // とりあえず
+        for ($i = 1; $i < 5; $i++) {
+            $total_search_accounts[] = \Twitter::get('users/search', array('q' => '仮想通貨', 'page' => $i));
+        };
+
+        // $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'page' => 51));
+        dd($total_search_accounts);
+        return view('test', [
+            'search_accounts' => $total_search_accounts
+        ]);
+    }
 }
