@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         Commands\WriteLog::class,
         Commands\GetTweetCommand::class,
         Commands\GetTweetAppAuthCommand::class,
+        Commands\GetTwitterAccount::class,
 
     ];
 

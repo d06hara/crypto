@@ -15,12 +15,12 @@ class CreateTwitterAccountsTable extends Migration
     {
         Schema::create('twitter_accounts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('twetter_id')->comment('ツイッターid');
+            $table->bigInteger('twitter_id')->comment('ツイッターid');
             $table->string('name')->nullable();
             $table->string('screen_name')->nullable();
             $table->string('description')->nullable();
-            $table->bigInteger('followers_count');
-            $table->bigInteger('friends_count');
+            $table->bigInteger('followers_count')->nullable();
+            $table->bigInteger('friends_count')->nullable();
             $table->string('text')->nullable();
             $table->timestamps();
         });

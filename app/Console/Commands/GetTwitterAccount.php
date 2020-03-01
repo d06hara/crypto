@@ -12,14 +12,14 @@ class GetTwitterAccount extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'get:twitteraccount';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'getting twitter account';
 
     /**
      * Create a new command instance.
@@ -42,7 +42,14 @@ class GetTwitterAccount extends Command
 
         // ユーザー認証(twitterOauth使用:ユーザーは自分)
         // ---------------------------
-        // 練習として10ユーザー分取得
-        $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'count' => 10, 'since_id' => 1000000000));
+        $total_search_accounts = [];
+
+        // とりあえず4ページ分(80account)
+        for ($i = 1; $i < 2; $i++) {
+            $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'page' => $i));
+            $total_search_accounts = array_merge($total_search_accounts, $search_accounts);
+        };
+
+        TwitterAccount::accountStore($total_search_accounts);
     }
 }

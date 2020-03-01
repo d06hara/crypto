@@ -141,11 +141,13 @@ class TwittersController extends Controller
 
         // とりあえず
         for ($i = 1; $i < 5; $i++) {
-            $total_search_accounts[] = \Twitter::get('users/search', array('q' => '仮想通貨', 'page' => $i));
+            $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'page' => $i));
+            $total_search_accounts = array_merge($total_search_accounts, $search_accounts);
         };
-
+        // $count = count($total_search_accounts);
+        // dd($count);
         // $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'page' => 51));
-        dd($total_search_accounts);
+        dump($total_search_accounts);
         return view('test', [
             'search_accounts' => $total_search_accounts
         ]);

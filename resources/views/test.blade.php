@@ -32,22 +32,11 @@ s
 
 @section('content')
 
-{{-- <p>0</p>
+<p>0</p>
 
-@for($i=0; $i<20; $i++) <p>{{ $search_accounts[0][$i]->name }}</p>
-@endfor
-
-<p>1</p>
-
-@for($i=0; $i<20; $i++) <p>{{ $search_accounts[1][$i]->name }}</p>
+@for($i=0; $i<80; $i++) <p>{{ $search_accounts[$i]->name }}</p>
   @endfor
-  <p>1</p>
 
-  @for($i=0; $i<20; $i++) <p>{{ $search_accounts[2][$i]->name }}</p>
-    @endfor
-    <p>1</p>
 
-    @for($i=0; $i<20; $i++) <p>{{ $search_accounts[3][$i]->name }}</p>
-      @endfor --}}
 
-      @endsection
+  @endsection
