@@ -36,6 +36,8 @@ class GetTweetCommand extends Command
      *
      * @return mixed
      */
+
+    //  練習としてユーザー認証を使ってツイートを取得していた
     public function handle()
     {
         //cronで実行したい処理を記述

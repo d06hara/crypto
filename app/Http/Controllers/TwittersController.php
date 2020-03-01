@@ -33,16 +33,13 @@ class TwittersController extends Controller
         dd($user);
     }
 
-
-
-
-
     // twitterアカウント一覧画面表示
     public function index(Request $requiest)
     {
 
         // ユーザー認証
-        $search_users = \Twitter::get('users/search', array("q" => "あああ", 'count' => 10));
+        // 取得人数はとりあえず10
+        $search_users = \Twitter::get('users/search', array("q" => "仮想通貨", 'count' => 10));
         return $search_users;
         // $a = json_decode($search_users, true);
         // dd($a);
@@ -72,17 +69,6 @@ class TwittersController extends Controller
         // ]);
         // return response()->json(['apple' => 'red', 'peach' => 'pink']);
         // return view('account')->with(['apple' => 'red', 'peach' => 'pink']);
-    }
-
-    // public function test()
-    // {
-    //     $users = User::all()->take(5);
-    //     return $users;
-    // }
-
-    // ツイートを取得
-    public function tweets()
-    {
     }
 
     // DBからツイート件数を取得⇨ランキング画面表示

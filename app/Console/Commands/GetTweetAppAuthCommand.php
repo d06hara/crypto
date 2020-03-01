@@ -42,18 +42,18 @@ class GetTweetAppAuthCommand extends Command
     public function handle()
     {
         //cronで実行したい処理を記述
-        echo memory_get_usage() . "\n";
+        // echo memory_get_usage() . "\n";
         // app認証の準備
         // ------------------------
         // アクセスキー読み込み
         $config = config('twitter');
         $key = $config['api_key'];
         $secret_key = $config['secret_key'];
-        echo memory_get_usage() . "\n";
+        // echo memory_get_usage() . "\n";
 
         // 自作クラスでインスタンス作成
         $connection = new TwitterAppAuth($key, $secret_key);
-        echo memory_get_usage() . "\n";
+        // echo memory_get_usage() . "\n";
 
         // $query = Tweet::get();
         // $max_tweet_id = Tweet::where('bland_id', 1)->max('tweet_id');
@@ -93,7 +93,7 @@ class GetTweetAppAuthCommand extends Command
             9 => "リスク OR Lisk OR LSK",
             10 => "ファクトム OR Factom OR FCT",
         );
-        echo memory_get_usage() . "\n";
+        // echo memory_get_usage() . "\n";
 
         $test_arr = [];
 
