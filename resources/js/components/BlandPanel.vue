@@ -12,7 +12,7 @@
             </label>
           </li>
         </ul>
-        <p>選択している銘柄:{{ preview }}</p>
+        <!-- <p>選択している銘柄:{{ preview }}</p> -->
       </div>
     </div>
     <div class="p-ranking__index-container">
@@ -53,10 +53,13 @@ export default {
     };
   },
   computed: {
+    // checkboxを使用した銘柄filter
     selectedBlands: function() {
+      // 初期値,previewに何もない場合は全てを表示
       if (this.preview.length === 0) {
         return this.blands;
       }
+      // previewに入っている場合、その名前を含んでいる銘柄を取得
       return this.blands.filter(function(bland) {
         return this.preview.includes(bland.name);
       }, this);
