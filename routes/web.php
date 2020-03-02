@@ -154,7 +154,7 @@ Route::prefix('auth')->group(function () {
 
 
 // テスト用ページ
-Route::get('/test', function () {
-    return view('test');
-});
-Route::get('/test', 'TwittersController@getAccountPractice');
+// Route::get('/test', function () {
+//     return view('test');
+// });
+Route::get('/account', 'TwittersController@index');

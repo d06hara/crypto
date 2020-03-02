@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\User;
+use App\Models\TwitterAccount;
 
 // app認証
 use App\lib\TwitterAppAuth;
@@ -36,11 +37,22 @@ class TwittersController extends Controller
     // twitterアカウント一覧画面表示
     public function index(Request $requiest)
     {
+        $twitter_accounts = TwitterAccount::get();
+
+        // dd($twitter_accounts);
+        // $twitter_accounts = json_encode($twitter_accounts);
+
+
+
+        return view('account', [
+            'twitter_accounts' => $twitter_accounts
+        ]);
+
 
         // ユーザー認証
         // 取得人数はとりあえず10
-        $search_users = \Twitter::get('users/search', array("q" => "仮想通貨", 'count' => 10));
-        return $search_users;
+        // $search_users = \Twitter::get('users/search', array("q" => "仮想通貨", 'count' => 10));
+        // return $search_users;
         // $a = json_decode($search_users, true);
         // dd($a);
         // dd($search_users);

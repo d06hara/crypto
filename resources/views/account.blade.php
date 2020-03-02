@@ -29,7 +29,7 @@
   </div>
   </div>
   @endforeach --}}
-  <account-panel></account-panel>
+  <account-panel :twitter_accounts="{{ $twitter_accounts }}"></account-panel>
 
   {{-- </div> --}}
 

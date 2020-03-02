@@ -32,11 +32,8 @@ s
 
 @section('content')
 
-<p>0</p>
-
-@for($i=0; $i<80; $i++) <p>{{ $search_accounts[$i]->name }}</p>
-  @endfor
 
 
 
-  @endsection
+
+@endsection
