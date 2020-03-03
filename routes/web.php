@@ -28,34 +28,50 @@ Route::get('/', function () {
 //     return view('index');
 // })->where('any', '.+');
 
-Route::get('/mypage', function () {
-    return view('mypage');
-});
 
 
 // ---------------------------------------------
 // 一時確定
 // ---------------------------------------------
 
-// twitterアカウント表示画面
-// Route::get('/account', 'TwittersController@index')->name('account');
-Route::get('/account', function () {
-    return view('account');
+// ログイン認証を必要にする
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/mypage', function () {
+        return view('mypage');
+    });
+
+
+    // twitterアカウント表示画面
+    // Route::get('/account', 'TwittersController@index')->name('account');
+    Route::get('/account', function () {
+        return view('account');
+    });
+    Route::middleware(['cors'])->group(function () {
+        Route::post('/account/follow', 'TwittersController@accountFollow');
+        // Route::get('/account/follow', 'TwittersController@accountFollow');
+    });
+
+    Route::get('/ranking', function () {
+        return view('ranking');
+    });
+    // ranking画面
+    Route::get('/api/ranking', 'TwittersController@getTweetCount');
+
+    // news画面
+    Route::get('/news', 'NewsController@get_news')->name('news');
 });
+
+
 // twitter account取得のデータ先
 Route::get('/api/account', 'TwittersController@index');
 
 
-Route::get('/ranking', function () {
-    return view('ranking');
-});
-// ranking画面
-Route::get('/api/ranking', 'TwittersController@getTweetCount');
 
 
 
-// news画面
-Route::get('/news', 'NewsController@get_news')->name('news');
+
+
 
 // socialite使用
 
@@ -158,8 +174,3 @@ Route::prefix('auth')->group(function () {
 //     return view('test');
 // });
 Route::get('/account', 'TwittersController@index');
-
-Route::middleware(['cors'])->group(function () {
-    Route::post('/account/follow', 'TwittersController@accountFollow');
-    // Route::get('/account/follow', 'TwittersController@accountFollow');
-});
