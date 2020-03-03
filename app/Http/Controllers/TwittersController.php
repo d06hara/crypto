@@ -83,6 +83,15 @@ class TwittersController extends Controller
         // return view('account')->with(['apple' => 'red', 'peach' => 'pink']);
     }
 
+    // アカウントフォロー(api, cors対策)
+    public function accountFollow()
+    {
+        $follow =  \Twitter::post('friendships/create', array('user_id' => 108808407));
+        // return $follow;
+        // $search_users = \Twitter::get('users/search', array("q" => "仮想通貨", 'count' => 10));
+        // return $search_users;
+    }
+
     // DBからツイート件数を取得⇨ランキング画面表示
     public function getTweetCount()
     {

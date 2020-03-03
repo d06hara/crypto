@@ -183,6 +183,7 @@ return [
         App\Providers\TwitterServiceProvider::class,
         // Socialite
         // \SocialiteProviders\Manager\ServiceProvider::class,
+        // Barryvdh\Cors\ServiceProvider::class,
 
     ],
 

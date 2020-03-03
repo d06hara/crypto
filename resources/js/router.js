@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // ページコンポーネントをインポートする
-import AccountList from './pages/AccountList.vue'
-import Login from './pages/Login.vue'
+// import AccountList from './pages/AccountList.vue'
+// import Login from './pages/Login.vue'
 
 // VueRouterプラグインを使用する
 Vue.use(VueRouter)

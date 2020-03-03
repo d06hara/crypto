@@ -158,3 +158,8 @@ Route::prefix('auth')->group(function () {
 //     return view('test');
 // });
 Route::get('/account', 'TwittersController@index');
+
+Route::middleware(['cors'])->group(function () {
+    Route::post('/account/follow', 'TwittersController@accountFollow');
+    // Route::get('/account/follow', 'TwittersController@accountFollow');
+});

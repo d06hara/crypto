@@ -7,8 +7,8 @@
       <p>frineds_count: {{ account.friends_count }}</p>
       <p>followers_count: {{ account.followers_count }}</p>
       <p>description: {{ account.description }}</p>
-      <form>
-        <button>フォロー</button>
+      <form method="POST" v-on:submit.prevent="follow">
+        <button type="submit">フォロー</button>
       </form>
       <div class="p-account__card-tweet">{{ account.text }}</div>
     </div>
@@ -16,9 +16,43 @@
 </template>
 
 <script>
+// const api = axios.create({
+//   baseURL: "http://crypto.test",
+//   headers: {
+//     "X-Requested-With": "XMLHttpRequest",
+//     "Access-Control-Allow-Origin": "*"
+//   }
+// });
+const config = {
+  headers: {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    "Access-Control-Allow-Credentials": "true"
+  }
+};
 export default {
   name: "AccountPanel",
-  props: ["twitter_accounts"]
+  // data() {
+  //   return {
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "http://crypto.test"
+  //     }
+  //   };
+  // },
+  props: ["twitter_accounts"],
+  methods: {
+    follow: function() {
+      console.log("フォロー");
+      axios
+        .post("/account/follow")
+        // .post("https://api.twitter.com/1.1/friendships/create.json", config)
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
+      // .then(console.log("フォローしました"));
+    }
+  }
   // data() {
   //   return {
   //     aa: "アイウエオ",
