@@ -68,16 +68,13 @@ Route::get('/api/account', 'TwittersController@index');
 
 
 
-
-
-
-
-
 // socialite使用
 
 // Route::get('auth/twitter', 'TwittersController@twitterLogin');
 // Route::get('auth/twitter/callback', 'TwittersController@callback');
 
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 
 
@@ -100,10 +97,10 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-Route::prefix('auth')->group(function () {
-    Route::get('twitter', 'Auth\SocialAuthController@login');
-    Route::get('twitter/callback', 'Auth\SocialAuthController@callback');
-});
+// Route::prefix('auth')->group(function () {
+//     Route::get('twitter', 'Auth\SocialAuthController@login');
+//     Route::get('twitter/callback', 'Auth\SocialAuthController@callback');
+// });
 
 
 
@@ -173,4 +170,4 @@ Route::prefix('auth')->group(function () {
 // Route::get('/test', function () {
 //     return view('test');
 // });
-Route::get('/account', 'TwittersController@index');
+// Route::get('/account', 'TwittersController@index');

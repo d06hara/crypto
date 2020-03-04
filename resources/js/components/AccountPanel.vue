@@ -46,7 +46,7 @@ export default {
     follow: function() {
       console.log("フォロー");
       axios
-        .post("/account/follow")
+        .post("/account/follow", data)
         // .post("https://api.twitter.com/1.1/friendships/create.json", config)
         .then(response => console.log(response))
         .catch(error => console.log(error));
