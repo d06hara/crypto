@@ -47,7 +47,11 @@
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/news") }}">News</a></li>
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">Logout</a></li>
+        <li class="p-nav__menu-item">
+          <a class="p-nav__menu-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">Logout</a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
+        </li>
       </ul>
     </nav>
 
