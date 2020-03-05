@@ -10,6 +10,9 @@ use Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+// logout機能追加のため
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     /*
@@ -23,7 +26,10 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    // logout先変更のため書き換え
+    use AuthenticatesUsers {
+        logout as performLogout;
+    }
 
     /**
      * Where to redirect users after login.
@@ -82,5 +88,13 @@ class LoginController extends Controller
         } else {
             return redirect('/login')->with('oauth_error', 'メールアドレスが取得できませんでした');
         }
+    }
+
+    // logout機能作成
+    public function Logout(Request $request)
+    {
+        $this->performLogout($request);
+        // redirect先をカスタマイズ
+        return redirect('/login');
     }
 }
