@@ -43,6 +43,19 @@
 
     <nav class="p-nav nav-menu js-toggle-sp-menu-target">
       <ul class="p-nav__menu">
+        @guest
+        <li class="p-nav__menu-item">
+          <a class="p-nav__menu-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
+        @if(Route::has('register'))
+        <li class="p-nav__menu-item">
+          <a class="p-nav__menu-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        </li>
+        @endif
+        @else
+        <li class="p-nav__menu-item">
+          <a class="p-nav__menu-link" href="#">{{ Auth::user()->name }}</a>
+        </li>
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/news") }}">News</a></li>
@@ -52,6 +65,8 @@
           document.getElementById('logout-form').submit();">Logout</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
         </li>
+        @endguest
+
       </ul>
     </nav>
 
