@@ -98,8 +98,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 // Route::prefix('auth')->group(function () {
-//     Route::get('twitter', 'Auth\SocialAuthController@login');
-//     Route::get('twitter/callback', 'Auth\SocialAuthController@callback');
+//     Route::get('twitter', 'AuthController@login');
+//     Route::get('twitter/callback', 'AuthController@callback');
 // });
 
 

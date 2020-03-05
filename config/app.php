@@ -239,7 +239,7 @@ return [
         // TwitterOAuthAliases
         'Twitter' => App\Facades\Twitter::class,
         // Socialite
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        // 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         // laravel/debugbar
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 

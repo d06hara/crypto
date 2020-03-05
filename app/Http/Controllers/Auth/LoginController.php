@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 // Socialite追加
 use Socialite;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -28,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/ranking';
 
     /**
      * Create a new controller instance.
@@ -60,15 +62,20 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         try {
-            $providerUser = \Socialite::with($provider)->user();
+            $providerUser = Socialite::with($provider)->user();
         } catch (\Exception $e) {
             return redirect('/login')->with('oauth_error', '予期せぬエラーが発生しました');
         }
+
+        // dd($providerUser);
+
         if ($email = $providerUser->getEmail()) {
             Auth::login(User::firstOrCreate([
                 'email' => $email
             ], [
-                'name' => $providerUser->getName()
+                'name' => $providerUser->getName(),
+                'twitter_id' => $providerUser->getId(),
+                'delete_flg' => 1,
             ]));
 
             return redirect($this->redirectTo);
