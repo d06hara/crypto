@@ -84,10 +84,15 @@ class TwittersController extends Controller
     }
 
     // アカウントフォロー(api, cors対策)
-    public function accountFollow()
+    public function accountFollow(Request $request)
     {
-        $follow =  \Twitter::post('friendships/create', array('user_id' => 108808407));
-        // return $follow;
+        // vueからtwitter_idを受け取る
+        // dd($request);
+        $twitter_id = $request->twitter_id;
+        // dd($twitter_id);
+        // 受け取ったtwitter_idで紐付くアカウントをフォロー
+        $follow =  \Twitter::post('friendships/create', array('user_id' => $twitter_id));
+        dd($follow);
         // $search_users = \Twitter::get('users/search', array("q" => "仮想通貨", 'count' => 10));
         // return $search_users;
     }

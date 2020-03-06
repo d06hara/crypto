@@ -43,14 +43,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     // twitterアカウント表示画面
-    // Route::get('/account', 'TwittersController@index')->name('account');
-    Route::get('/account', function () {
-        return view('account');
-    });
-    Route::middleware(['cors'])->group(function () {
-        Route::post('/account/follow', 'TwittersController@accountFollow');
-        // Route::get('/account/follow', 'TwittersController@accountFollow');
-    });
+    Route::get('/account', 'TwittersController@index')->name('account');
+
+    Route::post('/account/follow', 'TwittersController@accountFollow');
+
+    // Route::middleware(['cors'])->group(function () {
+    //     Route::post('/account/follow', 'TwittersController@accountFollow');
+    // });
 
     Route::get('/ranking', function () {
         return view('ranking');
