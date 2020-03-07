@@ -6,7 +6,7 @@
       <p>テスト {{ autoMode }} （機能が完成したら削除</p>
     </div>
     <div class="p-account">
-      <div v-for="account in twitter_accounts" class="p-account__card" :key="account.id">
+      <div v-for="account in accounts" class="p-account__card" :key="account.id">
         <p>twitter_id:{{ account.twitter_id }}</p>
         <p>name: {{ account.name }}</p>
         <p>screen_name: {{ account.screen_name }}</p>
@@ -24,13 +24,6 @@
 </template>
 
 <script>
-// const api = axios.create({
-//   baseURL: "http://crypto.test",
-//   headers: {
-//     "X-Requested-With": "XMLHttpRequest",
-//     "Access-Control-Allow-Origin": "*"
-//   }
-// });
 const config = {
   headers: {
     "Content-Type": "application/json",
@@ -43,21 +36,18 @@ const config = {
 export default {
   name: "AccountPanel",
   props: ["twitter_accounts", "user_mode"],
-  // data() {
-  //   return {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "http://crypto.test"
-  //     }
-  //   };
-  // },
+
   data() {
     return {
-      accounts: [], //accountデータを入れるための空配列
+      // accounts: [], //accountデータを入れるための空配列
       follow_ids: [],
       isChecked: this.user_mode
     };
   },
   computed: {
+    accounts: function() {
+      return this.twitter_accounts;
+    },
     autoMode: {
       get() {
         return this.isChecked;
@@ -75,13 +65,8 @@ export default {
         .post("/account/follow", {
           twitter_id: account.twitter_id
         })
-        // .post("https://api.twitter.com/1.1/friendships/create.json", config)
-        // .then(response =>{
 
-        // })
-        // .then(response => console.log(response))
         .catch(error => console.log(error));
-      // .then(console.log("フォローしました"));
     },
     autoFollow: function(event) {
       if (this.autoMode === true) {
