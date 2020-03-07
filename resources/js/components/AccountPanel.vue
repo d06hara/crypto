@@ -1,17 +1,22 @@
 <template>
-  <div class="p-account">
-    <div v-for="account in twitter_accounts" class="p-account__card" :key="account.id">
-      <p>twitter_id:{{ account.twitter_id }}</p>
-      <p>name: {{ account.name }}</p>
-      <p>screen_name: {{ account.screen_name }}</p>
-      <p>frineds_count: {{ account.friends_count }}</p>
-      <p>followers_count: {{ account.followers_count }}</p>
-      <p>description: {{ account.description }}</p>
-      <!-- <form method="POST" v-on:submit.prevent="follow" v-bind:value="account"> -->
-      <!-- <input type="submit" />あああ -->
-      <button v-on:click.prevent="follow(account)">フォロー</button>
-      <!-- </form> -->
-      <div class="p-account__card-tweet">{{ account.text }}</div>
+  <div>
+    <div>
+      <button>アカウント自動フォロー</button>
+    </div>
+    <div class="p-account">
+      <div v-for="account in twitter_accounts" class="p-account__card" :key="account.id">
+        <p>twitter_id:{{ account.twitter_id }}</p>
+        <p>name: {{ account.name }}</p>
+        <p>screen_name: {{ account.screen_name }}</p>
+        <p>frineds_count: {{ account.friends_count }}</p>
+        <p>followers_count: {{ account.followers_count }}</p>
+        <p>description: {{ account.description }}</p>
+        <!-- <form method="POST" v-on:submit.prevent="follow" v-bind:value="account"> -->
+        <!-- <input type="submit" />あああ -->
+        <button v-on:click.prevent="follow(account)">フォロー</button>
+        <!-- </form> -->
+        <div class="p-account__card-tweet">{{ account.text }}</div>
+      </div>
     </div>
   </div>
 </template>
