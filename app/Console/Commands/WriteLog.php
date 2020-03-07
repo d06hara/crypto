@@ -37,6 +37,13 @@ class WriteLog extends Command
      */
     public function handle()
     {
-        logger()->info('This is WriteLog Command.');
+        // logger()->info('This is WriteLog Command.');
+
+        // ユーザー情報によって判定できるようにする
+
+
+
+
+
     }
 }

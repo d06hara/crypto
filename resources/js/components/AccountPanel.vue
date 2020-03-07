@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div>
-      <button>アカウント自動フォロー</button>
-    </div>
     <div class="p-account">
       <div v-for="account in twitter_accounts" class="p-account__card" :key="account.id">
         <p>twitter_id:{{ account.twitter_id }}</p>

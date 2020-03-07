@@ -29,6 +29,9 @@
   </div>
   </div>
   @endforeach --}}
+  <div>
+    <button>アカウント自動フォロー</button>
+  </div>
   <account-panel :twitter_accounts="{{ $twitter_accounts }}"></account-panel>
 
   {{-- </div> --}}
