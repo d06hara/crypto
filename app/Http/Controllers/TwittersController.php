@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\User;
 use App\Models\TwitterAccount;
+use Illuminate\Support\Facades\DB;
 
 // app認証
 use App\lib\TwitterAppAuth;
@@ -107,7 +108,14 @@ class TwittersController extends Controller
     // ここでの処理は使用ユーザーのauto_modeを変更するだけ
     public function autoFollowStart()
     {
-        dd('autoフォローします');
+        // ログインしているユーザーを取得
+        $user = Auth()->user();
+        // dd($user->id);
+
+        DB::table('users')->where('id', $user->id)->update([
+            'auto_mode' => 1
+        ]);
+        dd($user->auto_mode);
     }
     public function autoFollowStop()
     {
