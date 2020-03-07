@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Follower extends Model
+class Follower extends Pivot
 {
     protected $primaryKey = [
         'following_id',

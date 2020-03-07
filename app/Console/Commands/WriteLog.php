@@ -40,6 +40,13 @@ class WriteLog extends Command
      */
     public function handle()
     {
+
+        // TODO
+        // ユーザー認証
+        // 差分がない場合の処理
+        // array_diffの高速化
+
+
         // logger()->info('This is WriteLog Command.');
 
         // ユーザー情報によって判定できるようにする
