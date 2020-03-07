@@ -3,7 +3,7 @@
     <div>
       <input type="checkbox" v-model="autoMode" v-on:change="autoFollow" />
       <label for>自動フォロー</label>
-      <p>テスト {{ autoMode }}</p>
+      <p>テスト {{ autoMode }} （機能が完成したら削除</p>
     </div>
     <div class="p-account">
       <div v-for="account in twitter_accounts" class="p-account__card" :key="account.id">

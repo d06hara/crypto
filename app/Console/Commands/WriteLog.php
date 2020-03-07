@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\User;
 
 class WriteLog extends Command
 {
@@ -40,11 +41,22 @@ class WriteLog extends Command
         // logger()->info('This is WriteLog Command.');
 
         // ユーザー情報によって判定できるようにする
+        // 基本はauto_mode 0 で停止状態
+
+        // auto_modeが1のユーザーを取得
+        // $auto_mode_user = User::where('auto_mode', 1)->get();
+        $auto_mode_user = User::find(13);
+
+        // dd($auto_mode_user);
+
+        $auto_mode = $auto_mode_user->auto_mode;
+        // dd($auto_mode);
         // auto_modeが0か1かで処理を変える
 
-
-
-
-
+        if ($auto_mode === 1) {
+            echo '自動フォローします' . "\n";
+        } else {
+            echo '自動フォロー機能停止中です' . "\n";
+        }
     }
 }
