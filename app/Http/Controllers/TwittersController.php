@@ -45,8 +45,14 @@ class TwittersController extends Controller
 
 
 
+        // 自分のauto_modeの情報も知りたいので自分の情報を取得
+        $user_mode = Auth()->user()->auto_mode;
+
+
+
         return view('account', [
-            'twitter_accounts' => $twitter_accounts
+            'twitter_accounts' => $twitter_accounts,
+            'user_mode' => $user_mode
         ]);
 
 
@@ -119,7 +125,14 @@ class TwittersController extends Controller
     }
     public function autoFollowStop()
     {
-        dd('autoフォロー終了します');
+        // ログインしているユーザーを取得
+        $user = Auth()->user();
+        // dd($user->id);
+
+        DB::table('users')->where('id', $user->id)->update([
+            'auto_mode' => 0
+        ]);
+        dd($user->auto_mode);
     }
 
     // DBからツイート件数を取得⇨ランキング画面表示

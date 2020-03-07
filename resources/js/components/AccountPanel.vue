@@ -1,8 +1,9 @@
 <template>
   <div>
     <div>
-      <input type="checkbox" v-model="isChecked" v-on:change="autoFollow" />
+      <input type="checkbox" v-model="autoMode" v-on:change="autoFollow" />
       <label for>自動フォロー</label>
+      <p>テスト {{ autoMode }}</p>
     </div>
     <div class="p-account">
       <div v-for="account in twitter_accounts" class="p-account__card" :key="account.id">
@@ -41,6 +42,7 @@ const config = {
 };
 export default {
   name: "AccountPanel",
+  props: ["twitter_accounts", "user_mode"],
   // data() {
   //   return {
   //     headers: {
@@ -52,10 +54,19 @@ export default {
     return {
       accounts: [], //accountデータを入れるための空配列
       follow_ids: [],
-      isChecked: false
+      isChecked: this.user_mode
     };
   },
-  props: ["twitter_accounts"],
+  computed: {
+    autoMode: {
+      get() {
+        return this.isChecked;
+      },
+      set() {
+        this.isChecked = !this.isChecked;
+      }
+    }
+  },
   methods: {
     follow: function(account) {
       // controllerに送る値(twitter_id)を設定
@@ -73,7 +84,7 @@ export default {
       // .then(console.log("フォローしました"));
     },
     autoFollow: function(event) {
-      if (this.isChecked === true) {
+      if (this.autoMode === true) {
         console.log("自動フォローします");
         axios.post("/account/start");
       } else {
@@ -81,7 +92,7 @@ export default {
         axios.post("/account/stop");
       }
 
-      console.log("変更" + this.isChecked);
+      console.log("変更" + this.autoMode);
     }
   }
 
