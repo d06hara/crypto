@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\TwittersController;
 use App\Models\User;
 
 // 認証系
@@ -46,6 +47,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/account', 'TwittersController@index')->name('account');
 
     Route::post('/account/follow', 'TwittersController@accountFollow');
+
+    Route::post('/account/start', 'TwittersController@autoFollowStart');
+    Route::post('/account/stop', 'TwittersController@autoFollowStop');
 
     // Route::middleware(['cors'])->group(function () {
     //     Route::post('/account/follow', 'TwittersController@accountFollow');

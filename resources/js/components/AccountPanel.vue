@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <input type="checkbox" />
+      <input type="checkbox" v-model="isChecked" v-on:change="autoFollow" />
       <label for>自動フォロー</label>
     </div>
     <div class="p-account">
@@ -51,7 +51,8 @@ export default {
   data() {
     return {
       accounts: [], //accountデータを入れるための空配列
-      follow_ids: []
+      follow_ids: [],
+      isChecked: false
     };
   },
   props: ["twitter_accounts"],
@@ -70,6 +71,17 @@ export default {
         // .then(response => console.log(response))
         .catch(error => console.log(error));
       // .then(console.log("フォローしました"));
+    },
+    autoFollow: function(event) {
+      if (this.isChecked === true) {
+        console.log("自動フォローします");
+        axios.post("/account/start");
+      } else {
+        console.log("自動フォロー終了");
+        axios.post("/account/stop");
+      }
+
+      console.log("変更" + this.isChecked);
     }
   }
 

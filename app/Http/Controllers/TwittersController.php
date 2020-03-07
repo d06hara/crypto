@@ -86,6 +86,12 @@ class TwittersController extends Controller
     // アカウントフォロー(api, cors対策)
     public function accountFollow(Request $request)
     {
+        // ＝＝＝＝＝＝＝＝＝＝
+        // TODO
+        // 各アカウントからアクセストークンを取得し、それぞれのアカウントがフォローするようにする
+        // ================
+
+
         // vueからtwitter_idを受け取る
         // dd($request);
         $twitter_id = $request->twitter_id;
@@ -95,6 +101,17 @@ class TwittersController extends Controller
         dd($follow);
         // $search_users = \Twitter::get('users/search', array("q" => "仮想通貨", 'count' => 10));
         // return $search_users;
+    }
+
+    // 自動アカウントフォロー
+    // ここでの処理は使用ユーザーのauto_modeを変更するだけ
+    public function autoFollowStart()
+    {
+        dd('autoフォローします');
+    }
+    public function autoFollowStop()
+    {
+        dd('autoフォロー終了します');
     }
 
     // DBからツイート件数を取得⇨ランキング画面表示

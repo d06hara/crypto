@@ -40,6 +40,7 @@ class WriteLog extends Command
         // logger()->info('This is WriteLog Command.');
 
         // ユーザー情報によって判定できるようにする
+        // auto_modeが0か1かで処理を変える
 
 
 
