@@ -81,114 +81,67 @@
 </div>
 @endsection --}}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    {{-- fontawesome --}}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-</head>
-
-<body>
-    {{-- header --}}
-    <header class="l-header js-l-header">
-        <a href="l-header__logo">
-            <h1 class="l-header__title">responsive practice</h1>
-        </a>
 
 
-        <!-- ハンバーガーメニュー（スマートフォン) -->
-        <div class="menu-triger js-toggle-sp-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+@extends('layouts.layout')
 
-        <nav class="p-nav nav-menu js-toggle-sp-menu-target">
-            <ul class="p-nav__menu">
-                <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">TOP</a></li>
-                <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">MENU</a></li>
-                <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">ABOUT</a></li>
-                <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">NEWS</a></li>
-                <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">CONTACT</a></li>
-            </ul>
-        </nav>
+@section('content')
 
-    </header>
-    <div class="l-main">
-        <main>
-            <p class="l-main__title">アカウントを新規登録します</p>
-            <div class="p-form__container">
-                <form action="" class="p-form p-form-register">
+<main>
+    <p class="l-main__title">アカウントを新規登録します</p>
+    <div class="p-form__container">
+        <form action="" class="p-form p-form-register">
 
-                    {{-- twitter --}}
-                    <div class="p-form__group">
-                        <a class="btn btn-icon btn-twitter" href="#"><i
-                                class="fab fa-twitter"></i><span>Twitterで登録</span></a>
-                        <p>twitterアカウントをお持ちでない方は以下から登録できます</p>
-                    </div>
-
-                    {{-- name --}}
-                    <div class="p-form__group">
-                        <label for="" class="c-input__label">name<span class="c-input__label-accent">必須</span></label>
-                        <div class="c-input__container">
-                            <input type="text" class="c-input c-input__name">
-
-                        </div>
-                    </div>
-
-                    {{-- email --}}
-                    <div class="p-form__group">
-                        <label for="" class="c-input__label">email<span class="c-input__label-accent">必須</span></label>
-                        <div class="c-input__container">
-                            <input type="text" class="c-input c-input__email">
-
-                        </div>
-                    </div>
-
-                    {{-- password --}}
-                    <div class="p-form__group">
-                        <label for="" class="c-input__label">パスワード<span class="c-input__label-accent">必須</span></label>
-                        <div class="c-input__container">
-                            <input type="text" class="c-input c-input__password">
-
-                        </div>
-
-                        <label for="" class="c-input__label">パスワード(再入力)<span
-                                class="c-input__label-accent">必須</span></label>
-                        <div class="c-input__container">
-                            <input type="text" class="c-input c-input_password">
-
-                        </div>
-                    </div>
-
-                    <div class="p-form__group">
-                        <div class="c-submit-btn__container">
-                            <button type="submit"
-                                class="c-submit-btn c-submit-btn__register">{{ __('Register') }}</button>
-                        </div>
-                    </div>
-
-
-                </form>
-
+            {{-- twitter --}}
+            <div class="p-form__group">
+                <a class="btn btn-icon btn-twitter" href="#"><i class="fab fa-twitter"></i><span>Twitterで登録</span></a>
+                <p>twitterアカウントをお持ちでない方は以下から登録できます</p>
             </div>
 
-        </main>
+            {{-- name --}}
+            <div class="p-form__group">
+                <label for="" class="c-input__label">name<span class="c-input__label-accent">必須</span></label>
+                <div class="c-input__container">
+                    <input type="text" class="c-input c-input__name">
+
+                </div>
+            </div>
+
+            {{-- email --}}
+            <div class="p-form__group">
+                <label for="" class="c-input__label">email<span class="c-input__label-accent">必須</span></label>
+                <div class="c-input__container">
+                    <input type="text" class="c-input c-input__email">
+
+                </div>
+            </div>
+
+            {{-- password --}}
+            <div class="p-form__group">
+                <label for="" class="c-input__label">パスワード<span class="c-input__label-accent">必須</span></label>
+                <div class="c-input__container">
+                    <input type="text" class="c-input c-input__password">
+
+                </div>
+
+                <label for="" class="c-input__label">パスワード(再入力)<span class="c-input__label-accent">必須</span></label>
+                <div class="c-input__container">
+                    <input type="text" class="c-input c-input_password">
+
+                </div>
+            </div>
+
+            <div class="p-form__group">
+                <div class="c-submit-btn__container">
+                    <button type="submit" class="c-submit-btn c-submit-btn__register">{{ __('Register') }}</button>
+                </div>
+            </div>
+
+
+        </form>
+
     </div>
 
-    <footer class="l-footer">
-        <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="./js/app.js"></script>
-</body>
+</main>
 
-</html>
+@endsection
