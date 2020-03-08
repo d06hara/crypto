@@ -97,7 +97,8 @@ class TwittersController extends Controller
         // TODO
         // 各アカウントからアクセストークンを取得し、それぞれのアカウントがフォローするようにする
         // フォロー済みアカウントをボタンでわかるように
-        // ================
+        // idを受け取りフォローするかフォロー解除するか処理を分ける
+        // ===============
 
 
         // vueからtwitter_idを受け取る
@@ -110,6 +111,8 @@ class TwittersController extends Controller
         // $search_users = \Twitter::get('users/search', array("q" => "仮想通貨", 'count' => 10));
         // return $search_users;
     }
+
+
 
     // 自動アカウントフォロー
     // ここでの処理は使用ユーザーのauto_modeを変更するだけ

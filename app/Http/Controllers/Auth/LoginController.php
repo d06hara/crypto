@@ -68,12 +68,16 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         try {
+            // twitterアカウント情報を取得
             $providerUser = Socialite::with($provider)->user();
         } catch (\Exception $e) {
             return redirect('/login')->with('oauth_error', '予期せぬエラーが発生しました');
         }
 
-        // dd($providerUser);
+        dd($providerUser);
+        $token = $providerUser->token;
+        $tokenSecret = $providerUser->tokenSecret;
+        dd($tokenSecret);
 
         if ($email = $providerUser->getEmail()) {
             Auth::login(User::firstOrCreate([

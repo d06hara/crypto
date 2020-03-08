@@ -17,6 +17,10 @@
         <!-- <input type="submit" />あああ -->
         <button v-on:click.prevent="follow(account)">フォロー</button>
         <!-- </form> -->
+        <!-- ボタントグルテスト用 -->
+        <div>
+          <button>ボタントグルテスト</button>
+        </div>
         <div class="p-account__card-tweet">{{ account.text }}</div>
       </div>
     </div>
@@ -68,6 +72,8 @@ export default {
 
         .catch(error => console.log(error));
     },
+
+    // 自動フォロー機能
     autoFollow: function(event) {
       if (this.autoMode === true) {
         console.log("自動フォローします");
