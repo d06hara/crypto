@@ -90,13 +90,18 @@
 <main>
     <p class="l-main__title">アカウントを新規登録します</p>
     <div class="p-form__container">
-        <form action="" class="p-form p-form-register">
+        <form action="POST" class="p-form p-form-register">
 
             {{-- twitter --}}
             <div class="p-form__group">
-                <a class="btn btn-icon btn-twitter" href="#"><i class="fab fa-twitter"></i><span>Twitterで登録</span></a>
+                <a class="btn btn-icon btn-twitter" href="/login/twitter"><i
+                        class="fab fa-twitter"></i><span>Twitterで登録</span></a>
                 <p>twitterアカウントをお持ちでない方は以下から登録できます</p>
+                <p>twitterアカウントを未登録の場合、本サービスの機能を一部制限させていただきます。</p>
             </div>
+            @if (session('oauth_error'))
+            {{ session('oauth_error') }}
+            @endif
 
             {{-- name --}}
             <div class="p-form__group">

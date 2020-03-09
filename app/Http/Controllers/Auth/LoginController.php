@@ -10,6 +10,8 @@ use Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\DB;
+
 // logout機能追加のため
 use Illuminate\Http\Request;
 
@@ -74,24 +76,94 @@ class LoginController extends Controller
             return redirect('/login')->with('oauth_error', '予期せぬエラーが発生しました');
         }
 
-        dd($providerUser);
-        $token = $providerUser->token;
-        $tokenSecret = $providerUser->tokenSecret;
-        dd($tokenSecret);
+        $authUser = $this->findOrCreateUser($providerUser);
 
-        if ($email = $providerUser->getEmail()) {
-            Auth::login(User::firstOrCreate([
-                'email' => $email
-            ], [
-                'name' => $providerUser->getName(),
-                'twitter_id' => $providerUser->getId(),
-                'delete_flg' => 1,
-            ]));
+        Auth::login($authUser, true);
 
-            return redirect($this->redirectTo);
-        } else {
-            return redirect('/login')->with('oauth_error', 'メールアドレスが取得できませんでした');
+        return redirect('/ranking');
+
+        // dd($providerUser);
+        // $token = $providerUser->token;
+        // $tokenSecret = $providerUser->tokenSecret;
+        // dd($tokenSecret);
+
+        // アカウントが有するemailが既に登録されているかチェック
+        // emailが既に登録されていた場合
+        // if (DB::table('users')->where('email', $providerUser->getEmail())->exists()) {
+
+        //     if (Auth::attempt(['email' => $providerUser->getEmail()])) {
+        //         return redirect('/ranking');
+        //     }
+
+        //     return redirect('/renking')->with('oauth_error', 'アカウントに使用されているEmailは既に登録されています');
+        // } else {
+        //     // emailが登録されていない場合、新規ユーザーとして登録
+
+        //     // userテーブルに必要な情報を入れる
+        //     $user = User::create([
+        //         'name' => $providerUser->getName(),
+        //         'email' => $providerUser->getEmail(),
+        //         'twitter_id' => $providerUser->getId(),
+        //     ]);
+
+        //     // twitterUserに必要な情報を入れる
+        //     $user->twitterUser()->create([
+        //         'user_id' => $user->id,
+        //         'twitter_id' => $providerUser->getId(),
+        //         'token' => $providerUser->token,
+        //         'tokenSecret' => $providerUser->tokenSecret,
+        //         'nickname' => $providerUser->getNickname(),
+        //         'name' => $providerUser->getName(),
+
+        //     ]);
+
+        //     return redirect('/ranking');
+        // }
+
+        // if ($email = $providerUser->getEmail()) {
+        //     Auth::login(User::firstOrCreate([
+        //         'email' => $email
+        //     ], [
+        //         'name' => $providerUser->getName(),
+        //         'twitter_id' => $providerUser->getId(),
+
+        //     ]));
+
+        //     return redirect($this->redirectTo);
+        // } else {
+        //     return redirect('/login')->with('oauth_error', 'メールアドレスが取得できませんでした');
+        // }
+    }
+
+    private function findOrCreateUser($providerUser)
+    {
+        // twitter_idでuserテーブルを検索
+        $authUser = User::where('twitter_id', $providerUser->getId())->first();
+
+        // twitter_idが見つかった場合はそのまま返す
+        if ($authUser) {
+            return $authUser;
         }
+        // なかった場合
+        // userテーブルに必要な情報を入れる
+        $newUser = User::create([
+            'name' => $providerUser->getName(),
+            'email' => $providerUser->getEmail(),
+            'twitter_id' => $providerUser->getId(),
+        ]);
+
+        // twitterUserに必要な情報を入れる
+        $newUser->twitterUser()->create([
+            'user_id' => $newUser->id,
+            'twitter_id' => $providerUser->getId(),
+            'token' => $providerUser->token,
+            'tokenSecret' => $providerUser->tokenSecret,
+            'nickname' => $providerUser->getNickname(),
+            'name' => $providerUser->getName(),
+
+        ]);
+
+        return $newUser;
     }
 
     // logout機能作成

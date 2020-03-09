@@ -75,12 +75,14 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/api/account', 'TwittersController@index');
 
 
-
+// ---------------------------
 // socialite使用
+// ---------------------------
+// 新規登録
+// Route::get('/register/{provider}', 'Auth\RegisterController@redirectToProvider');
+// Route::get('register/{provider}/callback', 'Auth\RegisterController@handleProviderCallbac');
 
-// Route::get('auth/twitter', 'TwittersController@twitterLogin');
-// Route::get('auth/twitter/callback', 'TwittersController@callback');
-
+// ログイン
 Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
