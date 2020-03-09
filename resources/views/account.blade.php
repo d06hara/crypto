@@ -4,6 +4,9 @@
 
 @section('content')
 
+
+
+@if(Auth::user()->twitterUser)
 <main>
   <p class="l-main__title">アカウント一覧</p>
   @auth
@@ -35,6 +38,14 @@
   {{-- </div> --}}
 
 </main>
+
+@else
+
+<main>
+  <p>この機能を利用するにはtwitterアカウント登録が必要です</p>
+</main>
+
+@endif
 
 
 
