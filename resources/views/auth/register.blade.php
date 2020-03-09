@@ -90,7 +90,8 @@
 <main>
     <p class="l-main__title">アカウントを新規登録します</p>
     <div class="p-form__container">
-        <form action="POST" class="p-form p-form-register">
+        <form method="POST" action="{{ route('register') }}" class="p-form p-form-register">
+            @csrf
 
             {{-- twitter --}}
             <div class="p-form__group">
@@ -105,36 +106,62 @@
 
             {{-- name --}}
             <div class="p-form__group">
-                <label for="" class="c-input__label">name<span class="c-input__label-accent">必須</span></label>
+                <label for="name" class="c-input__label">name<span class="c-input__label-accent">必須</span></label>
                 <div class="c-input__container">
-                    <input type="text" class="c-input c-input__name">
+                    <input type="text" class="c-input c-input__name @error('name') is-invalid @enderror" name="name"
+                        value="{{ old('name') }}" required autocomplete="name" autofocus>
 
+                    @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
             </div>
+
 
             {{-- email --}}
             <div class="p-form__group">
-                <label for="" class="c-input__label">email<span class="c-input__label-accent">必須</span></label>
+                <label for="email" class="c-input__label">email<span class="c-input__label-accent">必須</span></label>
                 <div class="c-input__container">
-                    <input type="text" class="c-input c-input__email">
+                    <input type="text" class="c-input c-input__email @error('email') is-invalid @enderror" name="email"
+                        value="{{ old('email') }}" required autocomplete="email">
 
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
             </div>
+
+
+
 
             {{-- password --}}
             <div class="p-form__group">
-                <label for="" class="c-input__label">パスワード<span class="c-input__label-accent">必須</span></label>
+                <label for="password" class="c-input__label">パスワード<span class="c-input__label-accent">必須</span></label>
                 <div class="c-input__container">
-                    <input type="text" class="c-input c-input__password">
+                    <input type="password" class="c-input c-input__password @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="new-password">
+
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
 
                 </div>
 
-                <label for="" class="c-input__label">パスワード(再入力)<span class="c-input__label-accent">必須</span></label>
+                <label for="password-confirm" class="c-input__label">パスワード(再入力)<span
+                        class="c-input__label-accent">必須</span></label>
                 <div class="c-input__container">
-                    <input type="text" class="c-input c-input_password">
+                    <input type="password" class="c-input c-input_password" name="password_confirmation" required
+                        autocomplete="new-password">
 
                 </div>
             </div>
+
 
             <div class="p-form__group">
                 <div class="c-submit-btn__container">
