@@ -103,17 +103,38 @@
             @endif
 
             {{-- login form --}}
-            <form action="#" method="POST" class="p-login__form">
+            <form action="{{ route('login') }}" method="POST" class="p-login__form">
+                @csrf
 
                 <fieldset class="p-login__form-fieldset">
 
                     <p><label for="email">E-mail address</label></p>
-                    <p><input type="email" id="email" placeholder="mail@address.com"></<input>
-                    </p>
+                    <div>
+                        <input type="email" id="email" class="@error('email') is-invalid @enderror" name="email"
+                            value="{{ old('email') }}" required autocomplete="email" autofocus
+                            placeholder="mail@address.com"></<input>
 
-                    <p><label for="password">Password</label></p>
-                    <p><input type="password" id="password" placeholder="password"></<input>
-                    </p>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+
+                    <p><label for="password">password</label></p>
+                    <div>
+                        <input type="password" id="password" class="@error('password') is-invalid @enderror"
+                            name="password" value="{{ old('password') }}" required autocomplete="password" autofocus
+                            placeholder="mail@address.com"></<input>
+
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
 
                     <p><input type="checkbox">次回から自動でログインする</p>
 

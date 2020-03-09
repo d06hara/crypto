@@ -54,8 +54,17 @@
         @endif
         @else
         <li class="p-nav__menu-item">
-          <a class="p-nav__menu-link" href="#">{{ Auth::user()->name }}</a>
+          <a class="p-nav__menu-link" href="#">ユーザー名：{{ Auth::user()->name }}</a>
         </li>
+        @if(Auth::user()->twitterUser)
+        <li class="p-nav__menu-item">
+          <a class="p-nav__menu-link" href="#">twitterアカウント：{{ Auth::user()->twitterUser->nickname }} </a>
+        </li>
+        @else
+        <li class="p-nav__menu-item">
+          <a class="p-nav__menu-link" href="#">twitterアカウント：未登録 </a>
+        </li>
+        @endif
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
         <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/news") }}">News</a></li>
