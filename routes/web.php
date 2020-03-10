@@ -83,9 +83,10 @@ Route::get('/api/account', 'TwittersController@index');
 // Route::get('register/{provider}/callback', 'Auth\RegisterController@handleProviderCallbac');
 
 // ログイン
-Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
-Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/login/twitter', 'Auth\LoginController@redirectToProvider')->name('twitter');
+Route::get('/login/twitter/callback', 'Auth\LoginController@handleProviderCallback');
 
+Route::get('/account/twitter', 'TwittersController@addTwitterAccount');
 
 
 // ---------------------------------------------

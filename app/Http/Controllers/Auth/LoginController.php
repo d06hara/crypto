@@ -53,25 +53,27 @@ class LoginController extends Controller
     /**
      * OAuth認証先にリダイレクト
      *
-     * @param str $provider
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider($provider)
+    public function redirectToProvider()
     {
-        return Socialite::driver($provider)->redirect();
+
+        return Socialite::driver('twitter')->redirect();
     }
 
     /**
      * OAuth認証の結果受け取り
      *
-     * @param str $provider
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback($provider)
+    public function handleProviderCallback()
     {
+
         try {
             // twitterアカウント情報を取得
-            $providerUser = Socialite::with($provider)->user();
+            $providerUser = Socialite::driver('twitter')->user();
         } catch (\Exception $e) {
             return redirect('/login')->with('oauth_error', '予期せぬエラーが発生しました');
         }
@@ -80,7 +82,7 @@ class LoginController extends Controller
 
         Auth::login($authUser, true);
 
-        return redirect('/ranking');
+        return redirect('/ranking')->with('flash_message', 'ログインしました！');
 
         // dd($providerUser);
         // $token = $providerUser->token;
@@ -137,6 +139,34 @@ class LoginController extends Controller
 
     private function findOrCreateUser($providerUser)
     {
+
+        // 新規ユーザー登録かtwitterアカウントを追加する場合かで処理を分ける
+        if (Auth::user()) {
+
+            // そのユーザーがtwitterアカウントを登録しているかチェック
+            if (Auth::user()->twitterUser) {
+                return redirect('/ranking')->with('flash_message', 'ご利用中のtwitterアカウントは既に他のユーザーに登録されています');
+            }
+            // ない場合はtwitterアカウントのみ追加で登録
+
+            // 現在のユーザー情報を取得
+            $user = Auth::user();
+
+            // twitterUserにのみ必要な情報を入れる
+            $user->twitterUser()->create([
+                'user_id' => $user->id,
+                'twitter_id' => $providerUser->getId(),
+                'token' => $providerUser->token,
+                'tokenSecret' => $providerUser->tokenSecret,
+                'nickname' => $providerUser->getNickname(),
+                'name' => $providerUser->getName(),
+            ]);
+
+            // 既にログインしているのでここでリダイレクト
+            return redirect('/account')->with('flash_message', 'twitterアカウントが登録されました！');
+        }
+
+
         // twitter_idでuserテーブルを検索
         $authUser = User::where('twitter_id', $providerUser->getId())->first();
 

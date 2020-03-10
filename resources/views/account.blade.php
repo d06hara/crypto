@@ -43,6 +43,17 @@
 
 <main>
   <p>この機能を利用するにはtwitterアカウント登録が必要です</p>
+  <p>一度ログアウトし、twitterアカウントでログインするを押してください</p>
+
+  <p>途中でtwitterアカウントを追加するのは難しそう</p>
+
+  <p></p>
+
+  <div>
+    <a href="/account/twitter">
+      <i class="fab fa-twitter"></i><span>twitterアカウントを登録する</span>
+    </a>
+  </div>
 </main>
 
 @endif

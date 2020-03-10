@@ -220,4 +220,8 @@ class TwittersController extends Controller
             'search_accounts' => $total_search_accounts
         ]);
     }
+
+    public function addTwitterAccount()
+    {
+    }
 }
