@@ -14,6 +14,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\User;
 use App\Models\TwitterAccount;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 // app認証
 use App\lib\TwitterAppAuth;
@@ -82,12 +83,6 @@ class TwittersController extends Controller
         // return $data;
         // return response()->json(['search_users' => $search_users]);
 
-
-        // return view('account', [
-        //     "search_users" => $search_users
-        // ]);
-        // return response()->json(['apple' => 'red', 'peach' => 'pink']);
-        // return view('account')->with(['apple' => 'red', 'peach' => 'pink']);
     }
 
     // アカウントフォロー(api, cors対策)
@@ -95,21 +90,29 @@ class TwittersController extends Controller
     {
         // ＝＝＝＝＝＝＝＝＝＝
         // TODO
-        // 各アカウントからアクセストークンを取得し、それぞれのアカウントがフォローするようにする
         // フォロー済みアカウントをボタンでわかるように
         // idを受け取りフォローするかフォロー解除するか処理を分ける
         // ===============
 
+        // アクセスキー読み込み
+        $config = config('twitter');
+        $key = $config['api_key'];
+        $secret_key = $config['secret_key'];
 
-        // vueからtwitter_idを受け取る
-        // dd($request);
+        // ログインユーザーのアクセストークンとアクセストークンキーを取得
+        $twitterUser = Auth::user()->twitterUser;
+        $token = $twitterUser->token;
+        $token_secret = $twitterUser->tokenSecret;
+
+        // APIに接続
+        $connection = new TwitterOAuth($key, $secret_key, $token, $token_secret);
+
+        // vueからフォローするwitter_idを受け取る
         $twitter_id = $request->twitter_id;
-        // dd($twitter_id);
+
         // 受け取ったtwitter_idで紐付くアカウントをフォロー
-        $follow =  \Twitter::post('friendships/create', array('user_id' => $twitter_id));
+        $follow =  $connection->post('friendships/create', array('user_id' => $twitter_id));
         dd($follow);
-        // $search_users = \Twitter::get('users/search', array("q" => "仮想通貨", 'count' => 10));
-        // return $search_users;
     }
 
 
