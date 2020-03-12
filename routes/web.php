@@ -60,6 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
     //     Route::post('/account/follow', 'TwittersController@accountFollow');
     // });
 
+    // Route::get('/ranking', 'TwittersController@getTweet');
+    // Route::get('/ranking', 'TwittersController@getTweetCount');
+
     Route::get('/ranking', function () {
         return view('ranking');
     });

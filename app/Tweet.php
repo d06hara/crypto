@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Tweet extends Model
 {
 
+    protected $fillable = [
+        'twitter_id', 'text', 'tweet_created_at', 'bland_id'
+    ];
+
     // リレーション設定
     public function bland()
     {

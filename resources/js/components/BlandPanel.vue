@@ -18,6 +18,12 @@
     <div class="p-ranking__index-container">
       <div class="p-ranking__index">
         <p>銘柄一覧</p>
+        <div>
+          <select>
+            <option v-for="(item, index) in sortItems" :key="index">{{ item.name }}</option>
+          </select>
+          <!-- <i class="selectbox__icon"></i> -->
+        </div>
         <div class="p-ranking__brand-container" v-for="bland in selectedBlands" :key="bland.id">
           <a v-bind:href="bland.url" target="_blank">
             <p class="p-ranking__brand">銘柄名:{{ bland.name }}</p>
@@ -49,7 +55,12 @@ export default {
         "ネム"
       ],
       preview: [], //チェックした銘柄を格納する
-      blands: []
+      blands: [],
+      sortItems: [
+        { name: "過去1時間" },
+        { name: "過去1日" },
+        { name: "過去1週間" }
+      ]
     };
   },
   computed: {

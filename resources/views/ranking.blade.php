@@ -9,38 +9,6 @@
 
     <bland-panel></bland-panel>
 
-    {{-- チェックボックス --}}
-    {{-- <div class="p-ranking__checkbox-container">
-      <form class="p-ranking__checkbox">
-        <p>銘柄チェックボックス</p>
-        <p>TODO スクロールさせる</p>
-        <label for="">
-          <input type="checkbox">全て
-        </label>
-        <label for="">
-          <input type="checkbox">ビットコイン
-        </label>
-        <label for="">
-          <input type="checkbox">リップル
-        </label>
-        <label for="">
-          <input type="checkbox">イーサリアム
-        </label>
-        <label for="">
-          <input type="checkbox">ビットコインキャッシュ
-        </label>
-        <label for="">
-          <input type="checkbox">ライトコイン
-        </label>
-        <label for="">
-          <input type="checkbox">イーサリアムクラシック
-        </label>
-        <label for="">
-          <input type="checkbox">リスク
-        </label>
-
-      </form>
-    </div> --}}
 
 
     {{-- 銘柄一覧 --}}
