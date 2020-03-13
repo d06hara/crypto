@@ -14,7 +14,7 @@ class Tweet extends Model
     // リレーション設定
     public function bland()
     {
-        return $this->belongsTo('App\Bland');
+        return $this->belongsTo('App\Models\Bland');
     }
 
     // app authお試し

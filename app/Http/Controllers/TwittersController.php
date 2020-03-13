@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 
 use Coincheck\Coincheck;
 
-use App\Bland;
+use App\Models\Bland;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Abraham\TwitterOAuth\TwitterOAuth;
@@ -15,7 +15,6 @@ use App\Models\User;
 use App\Models\TwitterAccount;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Tweet;
 
 // app認証
 use App\lib\TwitterAppAuth;

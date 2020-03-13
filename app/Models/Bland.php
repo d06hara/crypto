@@ -19,6 +19,6 @@ class Bland extends Model
     // １対多の関係
     public function tweets()
     {
-        return $this->hasMany('App\Tweet');
+        return $this->hasMany('App\Models\Tweet');
     }
 }
