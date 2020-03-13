@@ -13,66 +13,89 @@ class BlandsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //データのクリア
+        DB::table('blands')->truncate();
+
+        // データ挿入
         $param = [
-            'bland_name' => 'ビットコインキャッシュ',
-            'delete_flg' => 0,
+            'bland_name' => 'ビットコイン',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
         DB::table('blands')->insert($param);
+
         $param = [
             'bland_name' => 'イーサリアム',
-            'delete_flg' => 0,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
         DB::table('blands')->insert($param);
+
         $param = [
             'bland_name' => 'イーサリアムクラシック',
-            'delete_flg' => 0,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
         DB::table('blands')->insert($param);
-        $param = [
-            'bland_name' => 'リップル',
-            'delete_flg' => 0,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ];
-        DB::table('blands')->insert($param);
-        $param = [
-            'bland_name' => 'ライトコイン',
-            'delete_flg' => 0,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ];
-        DB::table('blands')->insert($param);
-        $param = [
-            'bland_name' => 'ネム',
-            'delete_flg' => 0,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ];
-        DB::table('blands')->insert($param);
-        $param = [
-            'bland_name' => 'モナコイン',
-            'delete_flg' => 0,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ];
-        DB::table('blands')->insert($param);
+
         $param = [
             'bland_name' => 'リスク',
-            'delete_flg' => 0,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
         DB::table('blands')->insert($param);
+
         $param = [
             'bland_name' => 'ファクトム',
-            'delete_flg' => 0,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('blands')->insert($param);
+
+        $param = [
+            'bland_name' => 'リップル',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('blands')->insert($param);
+
+        $param = [
+            'bland_name' => 'ネム',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('blands')->insert($param);
+
+        $param = [
+            'bland_name' => 'ライトコイン',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('blands')->insert($param);
+
+        $param = [
+            'bland_name' => 'ビットコインキャッシュ',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('blands')->insert($param);
+
+        $param = [
+            'bland_name' => 'モナコイン',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('blands')->insert($param);
+
+        $param = [
+            'bland_name' => 'ステラルーメン',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('blands')->insert($param);
+
+        $param = [
+            'bland_name' => 'クアンタム',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
