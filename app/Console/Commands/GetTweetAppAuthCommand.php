@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Tweet;
+use App\Models\Tweet;
 
 // 自作認証クラスの読み込み
 use App\lib\TwitterAppAuth;
@@ -83,15 +83,18 @@ class GetTweetAppAuthCommand extends Command
         // 銘柄を追加する場合はここに追加
         $search_key_array = array(
             1 => "ビットコイン OR Bitcoin OR BTC",
-            2 => "ビットコインキャッシュ OR BitcoinCash OR BCH",
-            3 => "イーサリアム OR Ethereum OR ETH",
-            4 => "イーサリアムクラシック OR EthreumClassic OR ETC",
-            5 => "リップル OR Ripple OR XRP",
-            6 => "ライトコイン OR LiteCoin OR LTC",
+            2 => "イーサリアム OR Ethereum OR ETH",
+            3 => "イーサリアムクラシック OR EthreumClassic OR ETC",
+            4 => "リスク OR Lisk OR LSK",
+            5 => "ファクトム OR Factom OR FCT",
+            6 => "リップル OR Ripple OR XRP",
             7 => "ネム OR NEM OR XEM",
-            8 => "モナコイン OR  MonaCoin OR MONA",
-            9 => "リスク OR Lisk OR LSK",
-            10 => "ファクトム OR Factom OR FCT",
+            8 => "ライトコイン OR LiteCoin OR LTC",
+            9 => "ビットコインキャッシュ OR BitcoinCash OR BCH",
+            10 => "モナコイン OR MonaCoin OR MONA",
+            11 => "ステラルーメン OR StellarLumens OR XLM",
+            12 => "クアンタム OR Quantum OR QTUM",
+
         );
         // echo memory_get_usage() . "\n";
 
@@ -112,7 +115,7 @@ class GetTweetAppAuthCommand extends Command
                 "lang" => "ja",
                 "since_id" => $since_id
             );
-            echo memory_get_usage() . "\n";
+            // echo memory_get_usage() . "\n";
 
 
             $tweet_obj = $connection->searchTweet('search/tweets', $params);
@@ -123,96 +126,8 @@ class GetTweetAppAuthCommand extends Command
 
             $twitter_store = Tweet::tweetStore($tweet_arr, $bland_id);
 
-            // TwitterAPIからデータが返ってきているか確認
-            // if (is_object($tweet_obj)) {
-            //     dd($tweet_obj);
-            //     //念の為ツイートデータが入ってるか確認
-            //     if (isset($tweet_obj->statuses)) {
-            //         //ツイート保存する処理
-            //         $twitter_store = Tweet::tweetStore($tweet_obj, $bland_id);
-            //         // $twitter_store = Tweet::tweetStore($twitter_api, $bland_id);
-            //     }
-            // }
+            // 確認証
+            logger()->info('This is gettweet:appauth Command');
         }
-        // $tweets_arr = json_decode($tweet_obj);
-
-        // $test_arr[] = $tweets_arr;
-
-        // dd($tweet_obj);
-
-
-
-
-
-        // $tweet_obj = $connection->searchTweet('search/tweets', $params);
-
-        // $tweets_arr = json_decode($tweet_obj);
-
-        // dd($tweets_arr);
-
-        // // ベアラートークン作成
-        // $bearer_credentials = rawurlencode($key) . ":" . rawurlencode($secret_key);
-        // // $bearer_credentials = rawurlencode($config['api_key']) . ":" . rawurlencode($config['secret_key']);
-        // $bearer_token = base64_encode($bearer_credentials);
-        // // エンドポイント
-        // // $request_url = 'https://twitter.com/search';
-        // $request_url = 'https://api.twitter.com/1.1/search/tweets.json';
-
-        // // リクエスト用のコンテキスト
-        // $context = array(
-        //     'http' => array(
-        //         'method' => 'GET', // リクエストメソッド
-        //         'header' => array(              // ヘッダー
-        //             'Authorization: Bearer ' . $bearer_token,
-        //         ),
-        //     ),
-        // );
-        // ------------------------
-
-
-        // // foreach ($search_key_array as $bland_id => $search_key) {
-
-        // $query = Tweet::get();
-
-        // //初期データ
-        // if (!is_object($query)) {
-        //     //DBから最大値を取得
-        //     $max = $query->max('tweet_id');
-        //     //tweet_idの最大値から+1してDBのデータと被らないようにする
-        //     $since_id = $max + 1;
-        // } else {
-        //     $since_id = null;
-        // }
-
-        // // パラメータ
-        // $params = array(
-        //     "q" => "BTC",
-        //     // "q" => $search_key,
-        //     "count" => 1,
-        //     "lang" => "ja",
-        //     "since_id" => $since_id
-        // );
-
-        // // パラメータに対応したリクエストurl
-        // if ($params) {
-        //     $request_url .= '?' . http_build_query($params);
-        // }
-
-        // // TwitterAPIでデータを取得
-        // $twitter_api = Tweet::getTweetAppAuth($context, $request_url);
-
-        // //TwitterAPIからデータが返ってきているか確認
-        // // if (is_object($twitter_api)) {
-        // //念の為ツイートデータが入ってるか確認
-        // if (isset($twitter_api->statuses)) {
-        //     //ツイート保存する処理
-        //     $twitter_store = Tweet::tweetStore($twitter_api, 1);
-        //     // $twitter_store = Tweet::tweetStore($twitter_api, $bland_id);
-        // }
-        // // }
-        // // }
-
-        // 確認証
-        logger()->info('This is gettweet:appauth Command');
     }
 }
