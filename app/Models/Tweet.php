@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,7 @@ class Tweet extends Model
 {
 
     protected $fillable = [
-        'twitter_id', 'text', 'tweet_created_at', 'bland_id'
+        'twitter_id', 'tweet_created_at', 'bland_id'
     ];
 
     // リレーション設定
