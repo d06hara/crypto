@@ -7,23 +7,33 @@
     </div>
 
     <!-- pagination draft  todo:css修正 -->
-    <div class="row">
-      <div class="col-sm-6">
-        <ul class="pagination">
+    <div>
+      <div class="c-pagination">
+        <ul class="c-pagination__ul">
           <li :class="{disabled: current_page <= 1}">
-            <a href="#" @click="change(1)">&laquo;</a>
+            <a href="#" @click="change(1)">
+              <span>&laquo;</span>
+            </a>
           </li>
           <li :class="{disabled: current_page <= 1}">
-            <a href="#" @click="change(current_page - 1)">&lt;</a>
+            <a href="#" @click="change(current_page - 1)">
+              <span>&lt;</span>
+            </a>
           </li>
           <li v-for="page in pages" :key="page" :class="{active: page === current_page}">
-            <a href="#" @click="change(page)">{{page}}</a>
+            <a href="#" @click="change(page)">
+              <span>{{page}}</span>
+            </a>
           </li>
           <li :class="{disabled: current_page >= last_page}">
-            <a href="#" @click="change(current_page + 1)">&gt;</a>
+            <a href="#" @click="change(current_page + 1)">
+              <span>&gt;</span>
+            </a>
           </li>
           <li :class="{disabled: current_page >= last_page}">
-            <a href="#" @click="change(last_page)">&raquo;</a>
+            <a href="#" @click="change(last_page)">
+              <span>&raquo;</span>
+            </a>
           </li>
         </ul>
       </div>
