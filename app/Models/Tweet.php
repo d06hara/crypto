@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Tweet extends Model
@@ -112,6 +113,8 @@ class Tweet extends Model
                 $tweet->tweet_created_at = date('Y-m-d H:i:s', strtotime($status->created_at));
                 // 対応するbland_idを代入
                 $tweet->bland_id = $bland_id;
+                $tweet->created_at = Carbon::now();
+                $tweet->updated_at = Carbon::now();
 
                 // DBヘ保存
                 $tweet->save();

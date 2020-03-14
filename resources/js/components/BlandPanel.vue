@@ -19,9 +19,11 @@
       <div class="p-ranking__index">
         <p>銘柄一覧</p>
         <div>
-          <!-- <select>
-            <option v-for="(item, index) in sortItems" :key="index">{{ item.name }}</option>
-          </select>-->
+          <div>
+            <p>
+              <span>{{ time }}</span>時点のランキング
+            </p>
+          </div>
           <nav>
             <div>
               <button v-on:click="sort('hour')">過去１時間のツイート数順</button>
@@ -49,6 +51,7 @@
 <script>
 export default {
   name: "BlandPanel",
+  // props: ["time"],
   data() {
     return {
       check_lists: [
@@ -64,6 +67,7 @@ export default {
       ],
       preview: [], //チェックした銘柄を格納する
       blands: [],
+      time: {},
       sortItems: [
         { name: "過去1時間" },
         { name: "過去1日" },
@@ -146,7 +150,12 @@ export default {
     axios
       .get("/api/ranking")
       // .then(response => console.log(response))
-      .then(response => (this.blands = response.data))
+      // .then(response => (this.time = response.data[0]))
+      // .then(response => (this.blands = response.data[1]))
+      .then(response => {
+        this.time = response.data[0];
+        this.blands = response.data[1];
+      })
       .catch(response => console.log(response));
   }
 };

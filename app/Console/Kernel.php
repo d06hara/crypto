@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('writelog:info')
         //     ->everyMinute();
         $schedule->command('gettweet:appauth')
-            ->everyFiveMinutes();
+            ->everyFiveMinutes()->withoutOverlapping();
     }
 
     /**

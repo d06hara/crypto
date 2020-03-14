@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 use Coincheck\Coincheck;
 
 use App\Models\Bland;
+use App\Models\Tweet;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Abraham\TwitterOAuth\TwitterOAuth;
@@ -203,9 +204,23 @@ class TwittersController extends Controller
 
     }
 
+    public function rankingIndex()
+    {
+        // 現在の時間を取得
+        $time = Carbon::now()->format('Y年m月d日');
+
+        return view('ranking', [
+            'time' => $time
+        ]);
+    }
+
     // DBからツイート件数を取得⇨ランキング画面表示
     public function getTweetCount()
     {
+        // DBの更新日時を取得
+        $recent_time = Tweet::max('created_at');
+        // dd($recent_time);
+
         // １時間前の時間を取得
         $before_one_hour = Carbon::now()->subHour(1);
         // dd($before_one_hour);
@@ -278,7 +293,7 @@ class TwittersController extends Controller
         // ]);
 
         // dd($data);
-        return $data;
+        return [$recent_time, $data];
     }
 
     // ユーザー取得練習メソッド
@@ -302,6 +317,7 @@ class TwittersController extends Controller
         // $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'page' => 51));
         dump($total_search_accounts);
         return view('test', [
+
             'search_accounts' => $total_search_accounts
         ]);
     }
