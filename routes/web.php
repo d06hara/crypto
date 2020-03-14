@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\TwittersController;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 // 認証系
 Auth::routes();
@@ -47,6 +48,15 @@ Route::group(['middleware' => 'auth'], function () {
     // twitterアカウント表示画面
     Route::get('/account', 'TwittersController@index')->name('account');
 
+    // Route::get('/account', function () {
+    //     return view('account');
+    // });
+
+
+    Route::get('api/account', function (Request $request) {
+        return App\Models\TwitterAccount::paginate(10);
+    });
+
     // ボタンからフォロー
     Route::post('/account/follow', 'TwittersController@accountFollow');
 
@@ -60,13 +70,9 @@ Route::group(['middleware' => 'auth'], function () {
     //     Route::post('/account/follow', 'TwittersController@accountFollow');
     // });
 
-    // Route::get('/ranking', 'TwittersController@getTweet');
-    // Route::get('/ranking', 'TwittersController@getTweetCount');
-
     Route::get('/ranking', function () {
         return view('ranking');
     });
-    // Route::get('/ranking', 'TwittersController@rankingIndex');
     // ranking画面
     Route::get('/api/ranking', 'TwittersController@getTweetCount');
 
@@ -74,9 +80,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/news', 'NewsController@get_news')->name('news');
 });
 
-
-// twitter account取得のデータ先
-Route::get('/api/account', 'TwittersController@index');
 
 
 // ---------------------------

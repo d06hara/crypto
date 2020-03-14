@@ -9,6 +9,16 @@ class TwitterAccount extends Model
     //
     protected $fillable = ['twitter_id'];
 
+
+    // // アカウントデータの取得
+    // public function getAccountPage()
+    // {
+    //     // 10件データを取得
+    //     $data = TwitterAccount::paginate(10);
+
+    //     return $data;
+    // }
+
     // twitterアカウント保存メソッド
     public static function accountStore(array $twitter_accounts)
     {

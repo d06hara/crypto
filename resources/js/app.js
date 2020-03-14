@@ -5,6 +5,11 @@ import './bootstrap'
 // window.Vue = require('vue');
 import Vue from 'vue';
 
+// import InfiniteLoading from 'vue-infinite-loading';
+// Vue.use(InfiniteLoading)
+// import infinite from './infinite'
+
+
 // import axios from 'axios';
 
 Vue.component('account-panel', require('./components/AccountPanel.vue').default);
@@ -30,6 +35,7 @@ const config = {
 
 const app = new Vue({
     el: '#app',
+    // infinite,
     // router,
     // components: {
     //     ExampleComponent,

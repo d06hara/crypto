@@ -40,20 +40,16 @@ class TwittersController extends Controller
     // twitterアカウント一覧画面表示
     public function index(Request $requiest)
     {
-        $twitter_accounts = TwitterAccount::get();
+        // $twitter_accounts = TwitterAccount::get();
 
         // dd($twitter_accounts);
         // $twitter_accounts = json_encode($twitter_accounts);
 
-
-
         // 自分のauto_modeの情報も知りたいので自分の情報を取得
         $user_mode = Auth()->user()->auto_mode;
 
-
-
         return view('account', [
-            'twitter_accounts' => $twitter_accounts,
+            // 'twitter_accounts' => $twitter_accounts,
             'user_mode' => $user_mode
         ]);
 
