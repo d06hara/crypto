@@ -185,7 +185,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 // テスト用ページ
-// Route::get('/test', function () {
-//     return view('test');
-// });
+Route::get('test', 'TwittersController@addTwitterAccount');
 // Route::get('/account', 'TwittersController@index');

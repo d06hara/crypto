@@ -95,9 +95,9 @@ export default {
     this.load(1);
   },
   computed: {
-    accounts: function() {
-      return this.twitter_accounts;
-    },
+    // accounts: function() {
+    //   return this.twitter_accounts;
+    // },
     autoMode: {
       get() {
         return this.isChecked;
