@@ -204,15 +204,6 @@ class TwittersController extends Controller
 
     }
 
-    public function rankingIndex()
-    {
-        // 現在の時間を取得
-        $time = Carbon::now()->format('Y年m月d日');
-
-        return view('ranking', [
-            'time' => $time
-        ]);
-    }
 
     // DBからツイート件数を取得⇨ランキング画面表示
     public function getTweetCount()
