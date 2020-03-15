@@ -24,7 +24,7 @@ class CreateUserAccountTable extends Migration
                 ->on('twitter_users')
                 ->onDelete('cascade');
             $table->foreign('twitter_account_id')
-                ->reference('id')
+                ->references('id')
                 ->on('twitter_accounts')
                 ->onDelete('cascade');
         });
