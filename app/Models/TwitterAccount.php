@@ -23,7 +23,7 @@ class TwitterAccount extends Model
     // twitter_userとのリレーション
     public function users()
     {
-        return $this->belongsToMany('App\Models\TwitterUser');
+        return $this->belongsToMany('App\Models\TwitterUser', 'user_accounts');
     }
 
 

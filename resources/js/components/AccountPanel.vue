@@ -55,6 +55,7 @@
         <!-- </form> -->
         <!-- ボタントグルテスト用 -->
         <div>
+          <p>テスト：{{ account.users }}</p>
           <button>ボタントグルテスト</button>
         </div>
         <div class="p-account__card-tweet">{{ account.text }}</div>
@@ -95,6 +96,15 @@ export default {
     this.load(1);
   },
   computed: {
+    reAccounts: function() {
+      return this.accounts.map(function(element, index, array) {
+        if (element.users[0]) {
+          return (element.users = true);
+        } else {
+          return (element.users = false);
+        }
+      });
+    },
     // accounts: function() {
     //   return this.twitter_accounts;
     // },

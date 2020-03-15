@@ -11,6 +11,6 @@ class AccountController extends Controller
     public function accountIndex()
     {
         // return TwitterAccount::paginate(10);
-        return TwitterAccount::paginate(10);
+        return TwitterAccount::with(['users'])->paginate(10);
     }
 }

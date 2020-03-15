@@ -19,4 +19,10 @@ class TwitterUser extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    // twitteraccountとのリレーション
+    public function accounts()
+    {
+        return $this->belongsToMany('App\Models\TwitterAccount', 'user_accounts');
+    }
 }
