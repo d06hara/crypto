@@ -56,7 +56,7 @@
         <!-- ボタントグルテスト用 -->
         <div>
           <p>テスト：{{ account.users }}</p>
-          <button>ボタントグルテスト</button>
+          <button v-bind:class="{ active: account.users }">ボタントグルテスト</button>
         </div>
         <div class="p-account__card-tweet">{{ account.text }}</div>
       </div>
