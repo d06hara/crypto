@@ -354,7 +354,7 @@ class TwittersController extends Controller
         dd($search_accounts);
 
         // $ids = array_column($search_accounts, 'id');
-        dd($ids);
+        // dd($ids);
 
         dd($search_accounts);
 

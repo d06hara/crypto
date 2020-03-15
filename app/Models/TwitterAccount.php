@@ -20,6 +20,12 @@ class TwitterAccount extends Model
         'updated_at'
     ];
 
+    // twitter_userとのリレーション
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\TwitterUser');
+    }
+
 
     // // アカウントデータの取得
     // public function getAccountPage()
