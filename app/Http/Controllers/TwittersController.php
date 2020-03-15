@@ -85,11 +85,26 @@ class TwittersController extends Controller
     // アカウントフォロー(api, cors対策)
     public function accountFollow(Request $request)
     {
+
         // ＝＝＝＝＝＝＝＝＝＝
         // TODO
         // フォロー済みアカウントをボタンでわかるように
         // idを受け取りフォローするかフォロー解除するか処理を分ける
         // ===============
+
+        // フォローするtwitter_idとtwitter_account_idを取得
+        $twitter_id = $request->twitter_id;
+        $twitter_account_id = $request->id;
+
+
+        // まずリレーションへの操作
+        // フォローするユーザーを取得
+        $follower = auth()->user()->twitterUser;
+        // リレーションへの記入処理
+        $follower->accounts()->attach($twitter_account_id);
+
+
+        // 以下、apiを用いたfollw処理
 
         // アクセスキー読み込み
         $config = config('twitter');
@@ -104,12 +119,8 @@ class TwittersController extends Controller
         // APIに接続
         $connection = new TwitterOAuth($key, $secret_key, $token, $token_secret);
 
-        // vueからフォローするwitter_idを受け取る
-        $twitter_id = $request->twitter_id;
-
         // 受け取ったtwitter_idで紐付くアカウントをフォロー
         $follow =  $connection->post('friendships/create', array('user_id' => $twitter_id));
-        dd($follow);
     }
 
 

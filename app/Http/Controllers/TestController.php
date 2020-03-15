@@ -18,10 +18,14 @@ class TestController extends Controller
         // $user = auth()->user()->twitterUser::with(['accounts'])->get();
         // $aa = $user;
         // dd($aa);
-        $user = TwitterAccount::with(['users'])->get();
+        // $user = TwitterAccount::with(['users'])->get();
+
+        $user = auth()->user()->twitterUser;
+        $twitterUser = $user->accounts()->where('twitter_account_id', 10)->first();
+        $user->accounts()->attach(22);
 
         // $aa = $user->accounts;
         // dd($aa);
-        dd($user);
+        dd((bool) $twitterUser);
     }
 }

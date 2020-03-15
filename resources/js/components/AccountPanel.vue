@@ -124,12 +124,15 @@ export default {
     }
   },
   methods: {
+    // フォロー機能
     follow: function(account) {
       // controllerに送る値(twitter_id)を設定
       console.log(account.twitter_id);
       axios
         .post("/account/follow", {
-          twitter_id: account.twitter_id
+          // DB登録に必要なaccount_idとapiに必要なtwitter_idを取得
+          accounte_id: account.id,
+          twitter_id: account.twitter_idC
         })
 
         .catch(error => console.log(error));
