@@ -67,13 +67,13 @@ class GetTwitterAccount extends Command
         $total_search_accounts = [];
 
         // 40page分の繰り返し処理
-        // for ($i = 1; $i < 6; $i++) {
-        //     $search_accounts = $connection->get('users/search', array('q' => '仮想通貨', 'page' => $array_num[$i], 'count' => 20));
-        //     // 取得したアカウントを配列に追加していく
-        //     $total_search_accounts = array_merge($total_search_accounts, $search_accounts);
-        // }
+        for ($i = 1; $i < 6; $i++) {
+            $search_accounts = $connection->get('users/search', array('q' => '仮想通貨', 'page' => $array_num[$i], 'count' => 20));
+            // 取得したアカウントを配列に追加していく
+            $total_search_accounts = array_merge($total_search_accounts, $search_accounts);
+        }
 
-        $search_accounts = $connection->get('users/search', array('q' => '仮想通貨', 'page' => 100, 'count' => 10));
+        // $search_accounts = $connection->get('users/search', array('q' => '仮想通貨', 'page' => 100, 'count' => 10));
 
         // dd($search_accounts);
 
@@ -84,9 +84,10 @@ class GetTwitterAccount extends Command
         //     $search_accounts = \Twitter::get('users/search', array('q' => '仮想通貨', 'page' => $i));
         //     $total_search_accounts = array_merge($total_search_accounts, $search_accounts);
         // };
-        if (is_array($search_accounts)) {
-            TwitterAccount::accountStore($search_accounts);
+        if (is_array($total_search_accounts)) {
+            TwitterAccount::accountStore($total_search_accounts);
             // TwitterAccount::accountStore($total_search_accounts);
+            logger()->info('アカウント保存処理完了');
         }
     }
 }

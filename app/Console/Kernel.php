@@ -33,6 +33,8 @@ class Kernel extends ConsoleKernel
         //     ->everyMinute();
         $schedule->command('gettweet:appauth')
             ->everyFiveMinutes()->withoutOverlapping();
+        $schedule->command('get:twitteraccount')
+            ->everyFiveMinutes()->withoutOverlapping();
     }
 
     /**

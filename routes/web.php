@@ -48,14 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
     // twitterアカウント表示画面
     Route::get('/account', 'TwittersController@index')->name('account');
 
-    // Route::get('/account', function () {
-    //     return view('account');
-    // });
+    Route::get('api/account', 'AccountController@accountIndex');
 
 
-    Route::get('api/account', function (Request $request) {
-        return App\Models\TwitterAccount::paginate(10);
-    });
 
     // ボタンからフォロー
     Route::post('/account/follow', 'TwittersController@accountFollow');

@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
-    // public function account()
-    // {
-    //     $accounts = TwitterAccount::getAccountPage();
 
-    //     return $accounts;
-    // }
+    public function accountIndex()
+    {
+        // return TwitterAccount::paginate(10);
+        return TwitterAccount::paginate(10);
+    }
 }
