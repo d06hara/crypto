@@ -42,7 +42,7 @@
     <!-- pagination 終了 -->
 
     <div class="p-account">
-      <div v-for="account in accounts" class="p-account__card" :key="account.id">
+      <div v-for="account in reAccounts" class="p-account__card" :key="account.id">
         <p>twitter_id:{{ account.twitter_id }}</p>
         <p>name: {{ account.name }}</p>
         <p>screen_name: {{ account.screen_name }}</p>
@@ -84,7 +84,6 @@ export default {
       accounts: [], //accountデータを入れるための空配列
       follow_ids: [],
       isChecked: this.user_mode,
-      page: 0,
       current_page: 1,
       last_page: 1,
       total: 1,
@@ -92,18 +91,58 @@ export default {
       to: 0
     };
   },
-  mounted() {
+  created() {
+    console.log("create");
     this.load(1);
+    this.reAccounts;
+  },
+  mounted() {
+    console.log("load");
+    // this.load(1);
   },
   computed: {
     reAccounts: function() {
-      return this.accounts.map(function(element, index, array) {
+      console.log("reaccounts");
+      // return this.accounts.forEach((object, index) => {
+      //   if (object[index].users[0]) {
+      //     this.$set(this.accounts[index], users[0], true);
+      //   }
+      //   this.$set(this.object[index], users[0], false);
+      // });
+      // if (this.accounts.users) {
+      //   return { ...this.accounts, users: true };
+      // }
+      // return { ...this.accounts, users: false };
+
+      return this.accounts.map(function(element) {
         if (element.users[0]) {
-          return (element.users = true);
-        } else {
-          return (element.users = false);
+          return { ...element, users: true };
         }
+        return { ...element, users: false };
+        // if (element.users[0]) {
+        //   this.$set((this.accounts.users = true));
+        // }
+        // this.$set((this.accounts.users = false));
       });
+    },
+    // reAccounts: {
+    //   get() {
+    //     return this.accounts;
+    //   },
+    //   set() {
+    //     return this.accounts.map(function(element, index, array) {
+    //       if (element.users[0]) {
+    //         return (element.users = true);
+    //       }
+    //       return (element.users = false);
+    //     });
+    //   }
+    // },
+    pages() {
+      let start = _.max([this.current_page - 2, 1]);
+      let end = _.min([start + 5, this.last_page + 1]);
+      start = _.max([end - 5, 1]);
+      return _.range(start, end);
     },
     // accounts: function() {
     //   return this.twitter_accounts;
@@ -115,12 +154,6 @@ export default {
       set() {
         this.isChecked = !this.isChecked;
       }
-    },
-    pages() {
-      let start = _.max([this.current_page - 2, 1]);
-      let end = _.min([start + 5, this.last_page + 1]);
-      start = _.max([end - 5, 1]);
-      return _.range(start, end);
     }
   },
   methods: {
@@ -151,7 +184,9 @@ export default {
       console.log("変更" + this.autoMode);
     },
     load(page) {
+      console.log("loadします");
       axios.get("/api/account?page=" + page).then(({ data }) => {
+        console.log(data);
         this.accounts = data.data;
         this.current_page = data.current_page;
         this.last_page = data.last_page;
@@ -161,7 +196,9 @@ export default {
       });
     },
     change(page) {
-      if (page >= 1 && page <= this.last_page) this.load(page);
+      if (page >= 1 && page <= this.last_page) {
+        this.load(page);
+      }
     }
   }
   // mounted: function() {
