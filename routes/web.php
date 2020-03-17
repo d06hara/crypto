@@ -119,28 +119,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-// ---------------------------------------------
-
-
-// // ツイート取得テスト
-// Route::get('twitter', 'TwitterController@index');
-// // ハッシュタグテスト
-// Route::get('hash', 'TwitterController@sample');
-// // twitterログインテスト
-// Route::get('/login/twitter', 'Auth\LoginController@redirectToProvider');
-// // twitter認証後のコールバック先
-// Route::get('login/twitter/callback', 'Auth\LoginController@handleProviderCallback');
-
-// Auth Twitter
-// Route::get('auth/twitter', 'Auth\SocialAuthController@redirectToProvider');
-// Route::get('auth/twitter/callback', 'Auth\SocialAuthController@handleProviderCallback');
-// Route::get('auth/twitter/logout', 'Auth\SocialAuthController@logout');
-
-
-
-
-
-
 
 
 

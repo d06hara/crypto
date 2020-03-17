@@ -103,6 +103,13 @@ export default {
   computed: {
     reAccounts: function() {
       console.log("reaccounts");
+
+      return this.accounts.map(function(element) {
+        if (element.users[0]) {
+          return { ...element, users: true };
+        }
+        return { ...element, users: false };
+      });
       // return this.accounts.forEach((object, index) => {
       //   if (object[index].users[0]) {
       //     this.$set(this.accounts[index], users[0], true);
@@ -113,17 +120,10 @@ export default {
       //   return { ...this.accounts, users: true };
       // }
       // return { ...this.accounts, users: false };
-
-      return this.accounts.map(function(element) {
-        if (element.users[0]) {
-          return { ...element, users: true };
-        }
-        return { ...element, users: false };
-        // if (element.users[0]) {
-        //   this.$set((this.accounts.users = true));
-        // }
-        // this.$set((this.accounts.users = false));
-      });
+      // if (element.users[0]) {
+      //   this.$set((this.accounts.users = true));
+      // }
+      // this.$set((this.accounts.users = false));
     },
     // reAccounts: {
     //   get() {
