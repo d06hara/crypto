@@ -94,22 +94,36 @@ export default {
   created() {
     console.log("create");
     this.load(1);
-    this.reAccounts;
+    // this.reAccounts;
   },
   mounted() {
     console.log("load");
     // this.load(1);
+    this.accounts.forEach(function(object, index) {
+      if (object.users[0]) {
+        return this.$set(this.accounts[index], "users", true);
+      } else {
+        return this.$set(this.accounts[index], "users", false);
+      }
+    });
   },
   computed: {
     reAccounts: function() {
       console.log("reaccounts");
-
       return this.accounts.map(function(element) {
         if (element.users[0]) {
           return { ...element, users: true };
         }
         return { ...element, users: false };
       });
+      // return this.accounts.forEach(function(object, index) {
+      //   if (object.users[0]) {
+      //     return this.$set(this.accounts[index], "users", true);
+      //   } else {
+      //     return this.$set(this.accounts[index], "users", false);
+      //   }
+      // });
+
       // return this.accounts.forEach((object, index) => {
       //   if (object[index].users[0]) {
       //     this.$set(this.accounts[index], users[0], true);
@@ -161,11 +175,12 @@ export default {
     follow: function(account) {
       // controllerに送る値(twitter_id)を設定
       console.log(account.twitter_id);
+
       axios
         .post("/account/follow", {
           // DB登録に必要なaccount_idとapiに必要なtwitter_idを取得
-          accounte_id: account.id,
-          twitter_id: account.twitter_idC
+          account_id: account.id,
+          twitter_id: account.twitter_id
         })
 
         .catch(error => console.log(error));

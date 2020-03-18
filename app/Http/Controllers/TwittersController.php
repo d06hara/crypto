@@ -90,19 +90,25 @@ class TwittersController extends Controller
         // TODO
         // フォロー済みアカウントをボタンでわかるように
         // idを受け取りフォローするかフォロー解除するか処理を分ける
+        // advance
+        // 既にフォローしているアカウントの区別をつけるにはどうするか
         // ===============
 
         // フォローするtwitter_idとtwitter_account_idを取得
+        // dd($request);
         $twitter_id = $request->twitter_id;
-        $twitter_account_id = $request->id;
+        // dd($twitter_id);
+        $twitter_account_id = $request->account_id;
+        // dd($twitter_account_id);
 
+        // 先にこの処理をしないとpost後だと動かない
 
-        // まずリレーションへの操作
         // フォローするユーザーを取得
         $follower = auth()->user()->twitterUser;
+        // dd($follower);
         // リレーションへの記入処理
         $follower->accounts()->attach($twitter_account_id);
-
+        // dd('フォローしました');
 
         // 以下、apiを用いたfollw処理
 
@@ -113,14 +119,51 @@ class TwittersController extends Controller
 
         // ログインユーザーのアクセストークンとアクセストークンキーを取得
         $twitterUser = Auth::user()->twitterUser;
+        // dd($twitterUser);
         $token = $twitterUser->token;
+        // dd($token);
         $token_secret = $twitterUser->tokenSecret;
+        // dd($token_secret);
 
         // APIに接続
         $connection = new TwitterOAuth($key, $secret_key, $token, $token_secret);
+        // dd($connection);
 
         // 受け取ったtwitter_idで紐付くアカウントをフォロー
         $follow =  $connection->post('friendships/create', array('user_id' => $twitter_id));
+        // $follow =  $connection->post('friendships/create', array('user_id' => null));
+        // dd($follow);
+
+        // errorチェックよくわからん
+
+        // if (!($follow['id'])) {
+        //     // フォローできていない場合
+        //     dd('エラー');
+        //     // リレーションへの操作を行う
+        //     // // フォローするユーザーを取得
+        //     // $follower = auth()->user()->twitterUser;
+        //     // // リレーションへの記入処理
+        //     // $follower->accounts()->attach($twitter_account_id);
+
+        // }
+        // dd('a');
+
+
+
+        // フォローできている場合
+        // // フォローするユーザーを取得
+        // $follower = auth()->user()->twitterUser;
+        // // dd($follower);
+        // // リレーションへの記入処理
+        // $follower->accounts()->attach($twitter_account_id);
+        // // dd('フォローしました');
+
+
+
+
+
+        // リレーションへの操作はフォローが問題なく完了した場合に行う
+
     }
 
 
