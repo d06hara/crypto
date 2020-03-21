@@ -25,6 +25,7 @@
     "dependencies": {
         "grob": "^1.0.0",
         "import-glob-loader": "^1.1.0",
-        "vue-infinite-loading": "^2.4.5"
+        "vue-infinite-loading": "^2.4.5",
+        "vue-multiselect": "^2.1.6"
     }
 }

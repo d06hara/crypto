@@ -3,6 +3,7 @@ html, body {
   color: $font-color_default;
   font-size: $font-size_default;
   line-height: 1.6;
+  background-color: #f0f7fd;
 }
 
 li {
@@ -16,8 +17,8 @@ a {
 }
 
 a:hover {
-  color:$font-color_accent;
-  transition: .3s;
+  // color:$font-color_accent;
+  // transition: .3s;
 }
 
 button:focus {

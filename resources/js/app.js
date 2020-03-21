@@ -8,6 +8,8 @@ import Vue from 'vue';
 // import InfiniteLoading from 'vue-infinite-loading';
 // Vue.use(InfiniteLoading)
 // import infinite from './infinite'
+// import Multiselect from 'vue-multiselect';
+// Vue.component('multiselect', Multiselect);
 
 
 // import axios from 'axios';
@@ -38,8 +40,7 @@ const app = new Vue({
     // infinite,
     // router,
     // components: {
-    //     ExampleComponent,
-    //     TestTest,
+    //     multiselect
     // },
     data: {
         aaa: 'あああ'

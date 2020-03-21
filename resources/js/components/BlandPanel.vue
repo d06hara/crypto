@@ -1,7 +1,8 @@
 <template>
   <div class="p-ranking">
-    <div class="p-ranking__checkbox-container">
-      <div class="p-ranking__checkbox">
+    <!-- <div class="p-ranking__checkbox">
+ 
+      <div class="p-ranking__checkbox-content">
         <p>銘柄チェックボックス</p>
         <p>TODO スクロールさせる</p>
         <ul>
@@ -12,38 +13,85 @@
             </label>
           </li>
         </ul>
-        <!-- <p>選択している銘柄:{{ preview }}</p> -->
       </div>
-    </div>
-    <div class="p-ranking__index-container">
-      <div class="p-ranking__index">
-        <p>銘柄一覧</p>
-        <div>
-          <div>
-            <p>
-              <span>{{ time }}</span>時点のランキング
-            </p>
-          </div>
-          <nav>
-            <div>
-              <button v-on:click="sort('hour')">過去１時間のツイート数順</button>
-              <button v-on:click="sort('day')">過去１日のツイート数順</button>
-              <button v-on:click="sort('week')">過去１週間のツイート数順</button>
-            </div>
-          </nav>
-          <!-- <i class="selectbox__icon"></i> -->
-        </div>
-        <div class="p-ranking__brand-container" v-for="bland in selectedBlands" :key="bland.id">
+    </div>-->
+
+    <div class="p-ranking__content">
+      <!-- ツイート数sort -->
+      <div class="p-ranking__content-sort">
+        <ul>
+          <li>
+            <button v-on:click="sort('hour')">過去１時間のツイート数順</button>
+          </li>
+          <li>
+            <button v-on:click="sort('day')">過去１日のツイート数順</button>
+          </li>
+          <li>
+            <button v-on:click="sort('week')">過去１週間のツイート数順</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 銘柄filter-->
+      <div class="p-ranking__content-filter">
+        <select v-model="preview" multiple class="c-filter">
+          <option class="c-filter__option" disabled>--銘柄の絞り込みが可能です--</option>
+          <option
+            class="c-filter__option"
+            v-bind:value="check"
+            v-for="(check, index) in check_lists"
+            :key="index"
+          >{{ check }}</option>
+        </select>
+      </div>
+
+      <!-- ランキング何時部分 -->
+      <div class="p-ranking__content-information">
+        <p>
+          <span>{{ time }}</span> 時点のランキング
+        </p>
+      </div>
+
+      <!-- ランキングテーブル -->
+      <div class="p-ranking__content-table">
+        <table class="c-table">
+          <thead class="c-table__thead">
+            <tr>
+              <th>ランク</th>
+              <th>銘柄</th>
+              <th>24時間での最高取引価格</th>
+              <th>24時間での最安取引価格</th>
+            </tr>
+          </thead>
+          <tbody class="c-table__tbody">
+            <tr v-for="(bland, index) in selectedBlands" :key="bland.id">
+              <td>
+                <a v-bind:href="bland.url" target="_blank">{{ index + 1 }}</a>
+              </td>
+              <td>
+                <a v-bind:href="bland.url" target="_blank">{{ bland.name }}</a>
+              </td>
+              <td>
+                <a v-bind:href="bland.url" target="_blank">{{ bland.high }}</a>
+              </td>
+              <td>
+                <a v-bind:href="bland.url" target="_blank">{{ bland.low }}</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <div class="p-ranking__brand" v-for="bland in selectedBlands" :key="bland.id">
           <a v-bind:href="bland.url" target="_blank">
-            <p class="p-ranking__brand">銘柄名:{{ bland.name }}</p>
+            <p class="p-ranking__brand-content">銘柄名:{{ bland.name }}</p>
             <p>１時間ツイート数：{{ bland.hour_tweets_count }}</p>
             <p>１日ツイート数：{{ bland.day_tweets_count }}</p>
             <p>１週間ツイート数：{{ bland.week_tweets_count }}</p>
             <p>２４時間での最高取引価格 : {{ bland.high }}</p>
             <p>２４時間での最安取引価格 : {{ bland.low }}</p>
           </a>
-        </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -51,19 +99,25 @@
 <script>
 export default {
   name: "BlandPanel",
+
   // props: ["time"],
   data() {
     return {
+      selected: null,
+      options: ["list", "of", "options"],
       check_lists: [
         "ビットコイン",
-        "ビットコインキャッシュ",
         "イーサリアム",
         "イーサリアムクラシック",
+        "リスク",
+        "ファクトム",
         "リップル",
-        "ライトコイン",
-        "モナコイン",
         "ネム",
-        "ファクトム"
+        "ライトコイン",
+        "ビットコインキャッシュ",
+        "モナコイン",
+        "ステラルーメン",
+        "クアンタム"
       ],
       preview: [], //チェックした銘柄を格納する
       blands: [],

@@ -1,0 +1,46 @@
+// ===============================
+// component:table
+// ===============================
+
+.c-table { 
+  width: 100%;
+  margin:0 auto;
+  border-collapse: separate;
+  border-spacing: 0 $space_m;
+  table-layout: fixed;
+
+  &__thead {
+
+    background-color: $accent-color;
+    color: white;
+
+    tr {
+      th{
+        padding:$space_m;
+        vertical-align: center;
+
+      }
+    }
+  }
+
+  &__tbody {
+
+    tr { 
+      background-color: $white;
+      height: 50px;
+
+      &:hover {
+        background-color: rgba($accent-color, 0.3);
+      }
+      
+      td{
+        text-align: center;
+        line-height: 50px;
+
+         a{
+           display: block;
+         }
+      }
+    }
+  }
+}

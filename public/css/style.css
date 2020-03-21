@@ -183,6 +183,7 @@ body {
   color: #666;
   font-size: 16px;
   line-height: 1.6;
+  background-color: #f0f7fd;
 }
 
 li {
@@ -193,11 +194,6 @@ a {
   text-decoration: none;
   transition: 0.3s;
   color: #666;
-}
-
-a:hover {
-  color: #F99F48;
-  transition: 0.3s;
 }
 
 button:focus {
@@ -257,15 +253,6 @@ input {
   font-size: 24px;
   padding-bottom: 20px;
   border-bottom: 2px solid #1B435D;
-}
-
-button {
-  color: white;
-  background-color: green;
-}
-
-button.active {
-  background-color: red;
 }
 
 .c-input__label {
@@ -420,6 +407,34 @@ input[type=text]:focus {
   text-align: right;
 }
 
+.c-filter {
+  width: 100%;
+  outline: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background: none transparent;
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+.c-filter::-ms-expand {
+  display: none;
+}
+
+.c-filter:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #828c9a;
+}
+
+.c-filter__option {
+  background-color: #fff;
+  color: #333;
+}
+
 .c-pagination {
   text-align: center;
 }
@@ -466,6 +481,42 @@ input[type=text]:focus {
 .c-pagination li a span {
   display: table-cell;
   vertical-align: middle;
+}
+
+.c-table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  table-layout: fixed;
+}
+
+.c-table__thead {
+  background-color: #F99F48;
+  color: white;
+}
+
+.c-table__thead tr th {
+  padding: 10px;
+  vertical-align: center;
+}
+
+.c-table__tbody tr {
+  background-color: #ffffff;
+  height: 50px;
+}
+
+.c-table__tbody tr:hover {
+  background-color: rgba(249, 159, 72, 0.3);
+}
+
+.c-table__tbody tr td {
+  text-align: center;
+  line-height: 50px;
+}
+
+.c-table__tbody tr td a {
+  display: block;
 }
 
 .p-account {
@@ -753,47 +804,64 @@ input[type=text]:focus {
 
 .p-ranking {
   width: 100%;
+  padding-top: 20px;
+}
+
+.p-ranking__content {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.p-ranking__content-filter {
+  margin-top: 10px;
+  display: inline-block;
+  width: 50%;
+}
+
+.p-ranking__content-sort ul {
   display: flex;
+  justify-content: center;
 }
 
-.p-ranking__checkbox {
-  box-sizing: border-box;
-  background-color: #D5EEFF;
-  box-shadow: 0 0 5px 1px #c0c0c0;
-  padding: 10px;
-  border-radius: 10px;
-  width: 80%;
-  margin: 0 auto;
+.p-ranking__content-sort ul li {
+  width: 25%;
+  text-align: center;
 }
 
-.p-ranking__checkbox label {
-  display: block;
+.p-ranking__content-sort ul li button {
+  width: 100%;
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #999;
+  border: solid 1px #999;
+  transition: 0.4s;
+  margin-right: 0;
 }
 
-.p-ranking__checkbox label input[type=checkbox] {
-  margin-right: 10px;
+.p-ranking__content-sort ul li button:hover {
+  background: #999;
+  color: white;
 }
 
-.p-ranking__checkbox-container {
-  width: 30%;
+.p-ranking__content-information {
+  float: right;
+  position: relative;
+  top: 90px;
 }
 
-.p-ranking__index {
-  box-sizing: border-box;
-  width: 80%;
-  margin: 0 auto;
+.p-ranking__content-information span {
+  font-weight: bold;
 }
 
-.p-ranking__index-container {
-  width: 70%;
-}
-
-.p-ranking__brand-container {
+.p-ranking__brand {
   color: #ffffff;
   background-color: #F99F48;
   width: 80%;
   border: 1px solid;
-  border-radius: 10px;
   margin-bottom: 10px;
+  padding: 10px;
 }
 
