@@ -57,24 +57,24 @@
         <table class="c-table">
           <thead class="c-table__thead">
             <tr>
-              <th>ランク</th>
-              <th>銘柄</th>
-              <th>24時間での最高取引価格</th>
-              <th>24時間での最安取引価格</th>
+              <th width="10">ランク</th>
+              <th width="40">銘柄</th>
+              <th width="25">24時間での最高取引価格</th>
+              <th width="25">24時間での最安取引価格</th>
             </tr>
           </thead>
           <tbody class="c-table__tbody">
             <tr v-for="(bland, index) in selectedBlands" :key="bland.id">
-              <td>
+              <td width="10">
                 <a v-bind:href="bland.url" target="_blank">{{ index + 1 }}</a>
               </td>
-              <td>
+              <td width="40">
                 <a v-bind:href="bland.url" target="_blank">{{ bland.name }}</a>
               </td>
-              <td>
+              <td width="25">
                 <a v-bind:href="bland.url" target="_blank">{{ bland.high }}</a>
               </td>
-              <td>
+              <td width="25">
                 <a v-bind:href="bland.url" target="_blank">{{ bland.low }}</a>
               </td>
             </tr>

@@ -7,9 +7,18 @@
   margin:0 auto;
   padding-top: $space_3l;
 
+  @include mq(lg) {
+    width: 100%;
+  }
+
   &__title {
     font-size: $font-size_xl;
-    padding-bottom: $space_xl;
+    padding-bottom: $space_l;
     border-bottom: 2px solid $sub-color;
+
+    @include mq(lg) {
+      font-size: $font_size_l;
+      padding-bottom: $space_m;
+    }
   }
 }

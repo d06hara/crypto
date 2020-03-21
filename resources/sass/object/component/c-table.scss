@@ -9,15 +9,25 @@
   border-spacing: 0 $space_m;
   table-layout: fixed;
 
+  @include mq(){
+    font-size: $font_size_m;
+  }
   &__thead {
-
     background-color: $accent-color;
     color: white;
 
     tr {
+      height: 30px;
+      @include mq(){
+        height: 50px;
+      }
+
       th{
         padding:$space_m;
-        vertical-align: center;
+        vertical-align: middle;
+        @include mq(){
+          padding: $space_s;
+        }
 
       }
     }
@@ -29,6 +39,10 @@
       background-color: $white;
       height: 50px;
 
+      @include mq(){
+ 
+      }
+
       &:hover {
         background-color: rgba($accent-color, 0.3);
       }
@@ -36,6 +50,10 @@
       td{
         text-align: center;
         line-height: 50px;
+        white-space: nowrap;
+        @include mq(){
+
+        }
 
          a{
            display: block;
