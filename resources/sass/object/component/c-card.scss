@@ -22,15 +22,22 @@
   box-shadow: 0 4px 15px rgba(0,0,0,.2);
   background-color: $white;
 
+  @include mq() {
+    width: 80%;
+    margin: 0 auto $space_m auto;
+  }
+
   &__textbox {
     width: 100%;
     // height: 100%;
     padding: $space_l;
     box-sizing: border-box;
 
+
     &-text {
       font-size: $font-size_l;
       font-weight: bold;
+      margin-bottom: $space_s;
     }
 
     &-item {

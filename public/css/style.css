@@ -440,6 +440,13 @@ input[type=text]:focus {
   background-color: #ffffff;
 }
 
+@media screen and (max-width: 768px) {
+  .c-card {
+    width: 80%;
+    margin: 0 auto 10px auto;
+  }
+}
+
 .c-card__textbox {
   width: 100%;
   padding: 15px;
@@ -449,6 +456,7 @@ input[type=text]:focus {
 .c-card__textbox-text {
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .c-card__textbox-item {
