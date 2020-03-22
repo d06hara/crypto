@@ -487,7 +487,6 @@ input[type=text]:focus {
   display: flex;
   display: -webkit-flex;
   flex-wrap: wrap;
-  text-align: center;
 }
 
 .c-pagination__list {
@@ -532,6 +531,26 @@ input[type=text]:focus {
   height: 100%;
   text-align: center;
   transition: all 0.1s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .c-pagination__list {
+    display: none;
+  }
+
+  .c-pagination__list-pre {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+  }
+
+  .c-pagination__list-next {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+  }
 }
 
 .c-table {
@@ -798,6 +817,16 @@ input[type=text]:focus {
 
 .p-news__cards {
   margin-top: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-news__pagination {
+    text-align: center;
+  }
+}
+
+.p-news__pagination-content {
+  display: inline-block;
 }
 
 .p-passremind {

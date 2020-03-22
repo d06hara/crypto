@@ -17,30 +17,32 @@
 
     <!-- news pagination todo css -->
     <div class="p-news__pagination">
-      <ul class="c-pagination">
-        <li class="c-pagination__list c-pagination__list-pre">
-          <a @click="first" class="c-pagination__list-link" href="#">&laquo;</a>
-        </li>
-        <li class="c-pagination__list">
-          <a @click="prev" class="c-pagination__list-link" href="#">&lt;</a>
-        </li>
+      <div class="p-news__pagination-content">
+        <ul class="c-pagination">
+          <li class="c-pagination__list c-pagination__list-pre">
+            <a @click="first" class="c-pagination__list-link" href="#">&laquo;</a>
+          </li>
+          <li class="c-pagination__list">
+            <a @click="prev" class="c-pagination__list-link" href="#">&lt;</a>
+          </li>
 
-        <li
-          v-for="(i, index) in displayPageRange"
-          :key="index"
-          class="c-pagination__list"
-          :class="{active: i-1 === currentPage}"
-        >
-          <a @click="pageSelect(i)" class="c-pagination__list-link" href="#">{{ i }}</a>
-        </li>
+          <li
+            v-for="(i, index) in displayPageRange"
+            :key="index"
+            class="c-pagination__list"
+            :class="{active: i-1 === currentPage}"
+          >
+            <a @click="pageSelect(i)" class="c-pagination__list-link" href="#">{{ i }}</a>
+          </li>
 
-        <li class="c-pagination__list">
-          <a @click="next" class="c-pagination__list-link" href="#">&gt;</a>
-        </li>
-        <li class="c-pagination__list c-pagination__list-next">
-          <a @click="last" class="c-pagination__list-link" href="#">&raquo;</a>
-        </li>
-      </ul>
+          <li class="c-pagination__list">
+            <a @click="next" class="c-pagination__list-link" href="#">&gt;</a>
+          </li>
+          <li class="c-pagination__list c-pagination__list-next">
+            <a @click="last" class="c-pagination__list-link" href="#">&raquo;</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

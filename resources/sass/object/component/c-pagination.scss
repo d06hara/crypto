@@ -8,7 +8,6 @@
   display: -webkit-box;
   display: -webkit-flex;
   flex-wrap: wrap;
-  text-align: center;
   &__list {
     margin-right: $space_s;
     padding: $space_s;
@@ -67,6 +66,24 @@
       transition: all  0.1s ease;
 
 
+    }
+
+    @include mq(){
+      display: none;
+
+      &-pre {
+        display: inline-block;
+        width: 100px;
+        height: 40px;
+        text-align: center;
+      }
+
+      &-next {
+        display: inline-block;
+        width: 100px;
+        height: 40px;
+        text-align: center;
+      }
     }
   }
 }

@@ -9,4 +9,15 @@
     margin-top: $space_l;
   }
 
+  &__pagination {
+
+    @include mq(){
+      text-align: center;
+    }
+    &-content {
+      display: inline-block;
+
+    }
+  }
+
 }
