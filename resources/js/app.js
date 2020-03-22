@@ -16,6 +16,7 @@ import Vue from 'vue';
 
 Vue.component('account-panel', require('./components/AccountPanel.vue').default);
 Vue.component('bland-panel', require('./components/BlandPanel.vue').default);
+Vue.component('news-panel', require('./components/NewsPanel.vue').default);
 // Components
 import ExampleComponent from './components/ExampleComponent'
 // import AccountLayout from './components/AccountLayout.vue'

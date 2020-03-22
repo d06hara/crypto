@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class NewsController extends Controller
 {
@@ -20,7 +21,7 @@ class NewsController extends Controller
         set_time_limit(90);
 
         $keyword = '仮想通貨';
-        $max_num = 5;
+        $max_num = 20;
         //----　キーワードの文字コード変更
         $query = urlencode(mb_convert_encoding($keyword, "UTF-8", "auto"));
 
@@ -41,20 +42,21 @@ class NewsController extends Controller
 
         //---- APIにアクセス、結果をsimplexmlに格納
         $contents = file_get_contents($api_url);
-        // dd($contents);
-        $xml = simplexml_load_string($contents);
-        // $xml = simplexml_load_string($contents, 'SimpleXMLElement', LIBXML_NOCDATA);
 
-        // print_r($xml);
+        $xml = simplexml_load_string($contents);
+        // // $xml = simplexml_load_string($contents, 'SimpleXMLElement', LIBXML_NOCDATA);
+
+        // // print_r($xml);
         // dd($xml);
-        // $json = json_encode($xml);
-        // dd($json);
-        // print_r($json);
-        // $array = json_decode($json, true);
-        // dd($array);
+        // // $json = json_encode($xml);
+        // // dd($json);
+        // // print_r($json);
+        // // $array = json_decode($json, true);
+        // // dd($array);
 
         //記事エントリを取り出す
         $items = $xml->channel->item;
+        // dd($items);
         // $data = $xml->channel;
         // $count = count($items);
         // 記事のタイトルとURLを取り出して配列に格納
@@ -71,12 +73,9 @@ class NewsController extends Controller
             // $url_split =  explode("=", (string) $items[$i]->link->attributes()->href);
             // $list[$i]['url'] = end($url_split);
         }
-        // dd($list);
-        // dd(count($list));
-        // dd($count);
-        // dd($items);
-        // $item = $data->item;
-        // dd($item);
+
+        $news = new LengthAwarePaginator($list, count($list), 10, 1);
+        // dd($news);
 
         // foreach($xml->channel->item as $item){
         //     $title = $item->title;
@@ -99,6 +98,9 @@ class NewsController extends Controller
         //     // dd($list);
         // }
         // // dd($list);
+        // $list_gn = $list->paginate(10);
+
+
 
         //$max_num以上の記事数の場合は切り捨て
         if (count($list) > $max_num) {
@@ -111,8 +113,12 @@ class NewsController extends Controller
         // dd($list_gn);
 
 
-        return view('news', [
-            'list_gn' => $list_gn
-        ]);
+        // return view('news', [
+        //     // 'list_gn' => $list_gn,
+        //     'news' => $news
+        // ]);
+        $newsData = json_encode($news);
+        // return view('news')->with('newsData', $newsData);
+        return $newsData;
     }
 }

@@ -72,7 +72,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/api/ranking', 'TwittersController@getTweetCount');
 
     // news画面
-    Route::get('/news', 'NewsController@get_news')->name('news');
+    Route::get('/news', function () {
+        return view('news');
+    });
+    Route::get('api/news', 'NewsController@get_news');
+    // Route::get('/news', 'NewsController@get_news')->name('news');
 });
 
 
@@ -116,44 +120,6 @@ Route::group(['middleware' => 'auth'], function () {
 // });
 
 
-
-
-
-
-
-
-
-// 画面作成のため一時
-// Route::get('/home', function () {
-//     return view('home');
-// });
-// Route::get('/account', function () {
-//     return view('account');
-// });
-// Route::get('/news', function () {
-//     return view('news');
-// });
-// Route::get('/passremind', function () {
-//     return view('passremind');
-// });
-// Route::get('/passremindsend', function () {
-//     return view('passremindsend');
-// });
-// Route::get('/passremindedit', function () {
-//     return view('passremindedit');
-// });
-// Route::get('/withdraw', function () {
-//     return view('withdraw');
-// });
-// Route::get('/passEdit', function () {
-//     return view('passEdit');
-// });
-// Route::get('/edit', function () {
-//     return view('edit');
-// });
-// Route::get('/ranking', function () {
-//     return view('ranking');
-// });
 
 
 
