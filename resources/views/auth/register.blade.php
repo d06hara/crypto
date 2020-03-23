@@ -177,7 +177,7 @@
     <div class="p-login__container">
         <div id="login" class="p-login">
 
-            <h2 class="p-login__title"><span class="p-login__title-accent"></span>アカウント登録</h2>
+            <p class="p-login__title"><span class="p-login__title-accent"></span>アカウント登録</p>
 
 
             {{-- regist form --}}

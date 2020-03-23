@@ -880,6 +880,14 @@ input[type=text]:focus {
   border-radius: 20px;
   width: 60%;
   margin: 0 auto;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-login {
+    width: 80%;
+    font-size: 12px;
+  }
 }
 
 .p-login__container {
@@ -890,8 +898,15 @@ input[type=text]:focus {
   background: #1B435D;
   border-radius: 20px 20px 0 0;
   color: #fff;
-  font-size: 28px;
+  font-size: 24px;
+  font-weight: bold;
   padding: 20px 26px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-login__title {
+    font-size: 18px;
+  }
 }
 
 .p-login__title-accent {
@@ -912,11 +927,16 @@ input[type=text]:focus {
   display: inline-block;
   text-align: center;
   /*中身を中央寄せ*/
-  font-size: 14px;
   background: #1da1f3;
   overflow: hidden;
   /*はみ出た部分を隠す*/
   padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-login__twitter-btn {
+    font-size: 12px;
+  }
 }
 
 .p-login__twitter-btn .fab-twitter {
@@ -959,15 +979,19 @@ input[type=text]:focus {
 
 .p-login__form input[type=submit] {
   background: #F99F48;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
   color: #fff;
   display: block;
   margin: 0 auto;
-  padding: 4px 0;
+  padding: 5px;
   width: 100px;
 }
 
 .p-login__form input[type=submit]:hover {
   background-color: rgba(249, 159, 72, 0.7);
+  cursor: pointer;
 }
 
 .use_icon {
