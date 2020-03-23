@@ -26,29 +26,29 @@
     }
   }
 
-  // &__twitter {
-  //   margin: 0 $space_xl;
-  //   padding: $space_xl 0;
-  //   border-bottom: 1px solid #d0cece;
+  &__twitter {
+    margin: 0 $space_xl;
+    padding: $space_xl 0;
+    border-bottom: 1px solid #d0cece;
     
-  //   &-btn {
-  //     color: #FFF;/*文字・アイコン色*/
-  //     border-radius: 7px;/*角丸に*/
-  //     display: inline-block;
-  //     text-align: center;/*中身を中央寄せ*/
-  //     font-size: $font-size_m;
-  //     background: #1da1f3;
-  //     overflow: hidden;/*はみ出た部分を隠す*/
-  //     padding: $space_m;
-  //     .fab-twitter {
-  //       text-shadow: 2px 2px 0px #4287d6;
-  //       font-size: 30px;
-  //     }
-  //     span {
-  //       display: inline-block;
-  //     }
-  //   }
-  // }
+    &-btn {
+      color: #FFF;/*文字・アイコン色*/
+      border-radius: 7px;/*角丸に*/
+      display: inline-block;
+      text-align: center;/*中身を中央寄せ*/
+      font-size: $font-size_m;
+      background: #1da1f3;
+      overflow: hidden;/*はみ出た部分を隠す*/
+      padding: $space_m;
+      .fab-twitter {
+        text-shadow: 2px 2px 0px #4287d6;
+        font-size: 30px;
+      }
+      span {
+        display: inline-block;
+      }
+    }
+  }
   &__form {
 
     &-fieldset{

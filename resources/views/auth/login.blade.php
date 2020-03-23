@@ -108,12 +108,12 @@
 
                 <fieldset class="p-login__form-fieldset">
 
-                    <p><label for="email">E-mail address</label></p>
-                    <div>
-                        <input type="email" id="email" class="@error('email') is-invalid @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email" autofocus
-                            placeholder="mail@address.com"></<input>
-
+                    {{-- email --}}
+                    <div class="p-login__form-item">
+                        <p><label for="email">E-mail address</label></p>
+                        <input type="email" id="email" class="use_icon @error('email') is-invalid @enderror"
+                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                            placeholder="&#xf0e0;"></<input>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -121,20 +121,19 @@
                         @enderror
                     </div>
 
-
-                    <p><label for="password">password</label></p>
-                    <div>
-                        <input type="password" id="password" class="@error('password') is-invalid @enderror"
+                    {{-- password --}}
+                    <div class="p-login__form-item">
+                        <p><label for="password">password</label></p>
+                        <input type="password" id="password" class="use_icon @error('password') is-invalid @enderror"
                             name="password" value="{{ old('password') }}" required autocomplete="password" autofocus
-                            placeholder="mail@address.com"></<input>
-
+                            placeholder="&#xf084;">
+                        </<input>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
-
 
                     <p><input type="checkbox">次回から自動でログインする</p>
 
