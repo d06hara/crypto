@@ -133,4 +133,16 @@ return [
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
 
+
+    "driver" => "smtp",
+    "host" => "smtp.mailtrap.io",
+    "port" => 2525,
+    "from" => array(
+        "address" => "test12@test.com",
+        "name" => "Example"
+    ),
+    "username" => "f42d06ae839d8d",
+    "password" => "3269c33c260c27",
+    "sendmail" => "/usr/sbin/sendmail -bs"
+
 ];
