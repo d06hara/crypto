@@ -83,84 +83,36 @@
 </div>
 @endsection --}}
 
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.layout')
+@section('content')
+<div class="l-main">
+  <main>
+    {{-- login --}}
+    <div class="p-passremind__container">
+      <div id="login" class="p-passremind">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  {{-- fontawesome --}}
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-</head>
-
-<body>
-  {{-- header --}}
-  <header class="l-header js-l-header">
-    <a href="l-header__logo">
-      <h1 class="l-header__title">responsive practice</h1>
-    </a>
+        <p class="p-passremind__title"><span class="p-passremind__title-accent"></span>パスコード入力</p>
 
 
-    <!-- ハンバーガーメニュー（スマートフォン) -->
-    <div class="menu-triger js-toggle-sp-menu">
-      <span></span>
-      <span></span>
-      <span></span>
+        {{-- passremind form --}}
+        <form action="" method="POST" class="p-passremind__form">
+
+          <fieldset class="p-passremind__form-fieldset">
+
+            <p><label for="password">パスコード</label></p>
+            <p><input type="password" placeholder="パスコード"></<input>
+            </p>
+
+            <p><input type="submit" value="送信"></<input>
+            </p>
+
+          </fieldset>
+
+        </form>
+
+      </div>
     </div>
 
-    <nav class="p-nav nav-menu js-toggle-sp-menu-target">
-      <ul class="p-nav__menu">
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">TOP</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">MENU</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">ABOUT</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">NEWS</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="">CONTACT</a></li>
-      </ul>
-    </nav>
 
-  </header>
-  <div class="l-main">
-    <main>
-      {{-- login --}}
-      <div class="p-passremind__container">
-        <div id="login" class="p-passremind">
-
-          <h2 class="p-passremind__title"><span class="p-passremind__title-accent"></span>パスコード入力</h2>
-
-
-          {{-- passremind form --}}
-          <form action="#" method="POST" class="p-passremind__form">
-
-            <fieldset class="p-passremind__form-fieldset">
-
-              <p><label for="password">パスコード</label></p>
-              <p><input type="password" placeholder="パスコード"></<input>
-              </p>
-
-              <p><input type="submit" value="送信"></<input>
-              </p>
-
-            </fieldset>
-
-          </form>
-
-        </div>
-      </div>
-
-
-    </main>
-  </div>
-
-  <footer class="l-footer">
-    <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="./js/app.js"></script>
-</body>
-
-</html>
+  </main>
+  @endsection
