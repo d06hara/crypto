@@ -19,6 +19,11 @@
   border-radius: 10px;
   margin: $space_m;
 
+  @include mq() {
+    width: 80%;
+    margin: $space_m auto;
+  }
+
   &__name {
     font-size: $font-size_l;
     margin-bottom : $space_m;
@@ -71,7 +76,7 @@
   &__tweet {
     width: 90%;
     color: #666;
-    height: 100px;
+    max-height: 100px;
     overflow: scroll;
     // background-color: #f7f7f7;
     // border: 1px solid #ccc;
