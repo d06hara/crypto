@@ -1,6 +1,16 @@
 <template>
   <div class="p-mypage">
-    <div class="p-mypage__left">
+    <div class="c-profile">
+      <div class="c-profile__name">
+        name:
+        <span>{{ user.name }}</span>
+      </div>
+      <div class="c-profile__email">
+        email:
+        <span>{{ user.email }}</span>
+      </div>
+    </div>
+    <!-- <div class="p-mypage__left">
       <div class="p-mybrand">
         <p class="p-mybrand__title">マイ銘柄</p>
         <div class="p-mybrand__card-container">
@@ -15,10 +25,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <p>{{ user.name }}</p>
-    </div>
+    </div>-->
 
     <div class="p-mypage__right">
       <div class="p-mypage__menu">
