@@ -1,51 +1,18 @@
 <template>
   <div class="p-account">
+    <!-- 自動フォローボタン -->
     <div class="p-account__auto">
       <input type="checkbox" v-model="autoMode" v-on:change="autoFollow" />
       <label for>自動フォロー</label>
       <p>テスト {{ autoMode }} （機能が完成したら削除</p>
     </div>
 
-    <!-- pagination draft  todo:css修正 -->
-    <div class="p-account__pagination">
-      <div class>
-        <ul class="c-pagination">
-          <li class="c-pagination__list" :class="{disabled: current_page <= 1}">
-            <a href="#" class="c-pagination__list-link" @click="change(1)">
-              <span>&laquo;</span>
-            </a>
-          </li>
-          <li class="c-pagination__list" :class="{disabled: current_page <= 1}">
-            <a href="#" class="c-pagination__list-link" @click="change(current_page - 1)">
-              <span>&lt;</span>
-            </a>
-          </li>
-          <li
-            class="c-pagination__list"
-            v-for="page in pages"
-            :key="page"
-            :class="{active: page === current_page}"
-          >
-            <a href="#" class="c-pagination__list-link" @click="change(page)">
-              <span>{{page}}</span>
-            </a>
-          </li>
-          <li class="c-pagination__list" :class="{disabled: current_page >= last_page}">
-            <a href="#" class="c-pagination__list-link" @click="change(current_page + 1)">
-              <span>&gt;</span>
-            </a>
-          </li>
-          <li class="c-pagination__list" :class="{disabled: current_page >= last_page}">
-            <a href="#" class="c-pagination__list-link" @click="change(last_page)">
-              <span>&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div style="margin-top: 40px" class="col-sm-6 text-right">全 {{total}} 件中 {{from}} 〜 {{to}} 件表示</div>
+    <!-- アカウント件数 -->
+    <div class="p-account__total">
+      <p>全 {{total}} 件中 {{from}} 〜 {{to}} 件表示</p>
     </div>
-    <!-- pagination 終了 -->
 
+    <!-- アカウントカード -->
     <div class="p-account__container">
       <div class="c-accountcard__container">
         <div v-for="account in reAccounts" class="c-accountcard" :key="account.id">
@@ -77,6 +44,51 @@
         </div>
       </div>
     </div>
+
+    <!-- pagination draft  todo:css修正 -->
+    <div class="p-account__pagination">
+      <div class="p-account__pagination-content">
+        <ul class="c-pagination">
+          <li class="c-pagination__list" :class="{disabled: current_page <= 1}">
+            <a href="#" class="c-pagination__list-link" @click="change(1)">
+              <span>&laquo;</span>
+            </a>
+          </li>
+          <li
+            class="c-pagination__list c-pagination__list-pre"
+            :class="{disabled: current_page <= 1}"
+          >
+            <a href="#" class="c-pagination__list-link" @click="change(current_page - 1)">
+              <span>&lt;</span>
+            </a>
+          </li>
+          <li
+            class="c-pagination__list"
+            v-for="page in pages"
+            :key="page"
+            :class="{active: page === current_page}"
+          >
+            <a href="#" class="c-pagination__list-link" @click="change(page)">
+              <span>{{page}}</span>
+            </a>
+          </li>
+          <li
+            class="c-pagination__list c-pagination__list-next"
+            :class="{disabled: current_page >= last_page}"
+          >
+            <a href="#" class="c-pagination__list-link" @click="change(current_page + 1)">
+              <span>&gt;</span>
+            </a>
+          </li>
+          <li class="c-pagination__list" :class="{disabled: current_page >= last_page}">
+            <a href="#" class="c-pagination__list-link" @click="change(last_page)">
+              <span>&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- pagination 終了 -->
   </div>
 </template>
 

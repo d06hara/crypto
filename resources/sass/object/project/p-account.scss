@@ -4,8 +4,23 @@
 
 .p-account {
   width: 100%;
-  
 
-  
+  &__auto {
+
+  }
+
+  &__container {
+
+  }
+
+  &__pagination {
+    
+    @include mq() {
+      text-align: center;
+    }
+    &-content {
+      display: inline-block;
+    }
+  }
 
 }

@@ -824,6 +824,16 @@ input[type=text]:focus {
   width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+  .p-account__pagination {
+    text-align: center;
+  }
+}
+
+.p-account__pagination-content {
+  display: inline-block;
+}
+
 .p-form__container {
   width: 980px;
   margin: 0 auto;
