@@ -989,8 +989,7 @@ input[type=text]:focus {
   color: #fff;
   display: block;
   margin: 0 auto;
-  padding: 5px;
-  width: 100px;
+  padding: 5px 10px;
 }
 
 .p-login__form button:hover {

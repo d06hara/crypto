@@ -125,8 +125,7 @@
                     <div class="p-login__form-item">
                         <p><label for="password">password</label></p>
                         <input type="password" id="password" class="use_icon @error('password') is-invalid @enderror"
-                            name="password" value="{{ old('password') }}" required autocomplete="password" autofocus
-                            placeholder="&#xf084;">
+                            name="password" required autocomplete="password" autofocus placeholder="&#xf084;">
                         </<input>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
