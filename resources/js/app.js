@@ -56,7 +56,7 @@ $(function () {
     $("body").css("margin-top", height);
 
     // フロートヘッダーメニュー
-    var targetHeight = $('.js-float-menu-target').height();
+    var targetHeight = $('.js-float-menu').height();
     $(window).on('scroll', function () {
         $('.js-float-menu').toggleClass('float-active', $(this).scrollTop() > targetHeight);
     });
