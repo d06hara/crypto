@@ -977,6 +977,10 @@ input[type=text]:focus {
   box-shadow: 0 0 8px 0 dodgerBlue;
 }
 
+.p-login__form-item strong {
+  color: red;
+}
+
 .p-login__form input[type=submit] {
   background: #F99F48;
   font-size: 14px;
