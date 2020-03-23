@@ -78,6 +78,10 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::get('api/news', 'NewsController@get_news');
     // Route::get('/news', 'NewsController@get_news')->name('news');
+
+    Route::get('/withdraw', function () {
+        return view(('withdraw'));
+    });
 });
 
 

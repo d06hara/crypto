@@ -37,7 +37,7 @@
             <a href>パスワード変更</a>
           </li>
           <li>
-            <a href>退会</a>
+            <a href="/withdraw">退会</a>
           </li>
         </ul>
       </div>
@@ -64,6 +64,20 @@ export default {
         self.user = response.data;
       })
       .catch(error => console.log(error));
+  },
+  methods: {
+    // プロフィール編集
+    edit: function() {
+      console.log("プロフィールを編集します");
+
+      axios
+        .post("/mypage/edit", {
+          name: user.name,
+          email: user.email
+        })
+
+        .catch(error => console.log(error));
+    }
   }
 };
 </script>
