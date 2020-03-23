@@ -1,8 +1,9 @@
 // ===============================
-// project:header-menu
+// component : nav
 // ===============================
 
-// .p-nav {
+
+// .c-nav {
 //   display: block;
 //   position: absolute;
 //   top: 0;
@@ -11,18 +12,34 @@
 //   height: 100vh;
 //   padding-top: $space_3l;
 // }
+.c-nav {
 
-.p-nav__menu {
-  display: flex;
+  &__menu {
+    display: flex;
     align-items: center;
-    font-size: $font-size_xl;
+    font-size: $font-size_m;
 
     &-item {
-      margin-right: $space_xl;
+      display: block;
+      border-radius: 5px;
+      padding: $space_m;
+
+      &:hover {
+        
+      }
     }
 
     &-link {
       -webkit-font-smoothing: initial;
-    }
-}
 
+      &:hover {
+        color: $accent-color;
+        
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}

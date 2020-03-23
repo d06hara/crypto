@@ -30,7 +30,7 @@
   {{-- header --}}
   <header class="l-header js-l-header">
     <a href="l-header__logo">
-      <h1 class="l-header__title">responsive practice</h1>
+      <h1 class="l-header__title">crypto trend</h1>
     </a>
 
 
@@ -41,36 +41,37 @@
       <span></span>
     </div>
 
-    <nav class="p-nav nav-menu js-toggle-sp-menu-target">
-      <ul class="p-nav__menu">
+    <nav class="c-nav nav-menu js-toggle-sp-menu-target">
+      <ul class="c-nav__menu">
         @guest
-        <li class="p-nav__menu-item">
-          <a class="p-nav__menu-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        <li class="c-nav__menu-item">
+          <a class="c-nav__menu-link" href="{{ route('login') }}">{{ __('Login') }}</a>
         </li>
         @if(Route::has('register'))
-        <li class="p-nav__menu-item">
-          <a class="p-nav__menu-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        <li class="c-nav__menu-item">
+          <a class="c-nav__menu-link" href="{{ route('register') }}">{{ __('Register') }}</a>
         </li>
         @endif
         @else
-        <li class="p-nav__menu-item">
-          <a class="p-nav__menu-link" href="#">ユーザー名：{{ Auth::user()->name }}</a>
+        <li class="c-nav__menu-item">
+          <a class="c-nav__menu-link" href="#">ユーザー名<br><span>{{ Auth::user()->name }}</span></a>
         </li>
         @if(Auth::user()->twitterUser)
-        <li class="p-nav__menu-item">
-          <a class="p-nav__menu-link" href="#">twitterアカウント：{{ Auth::user()->twitterUser->nickname }} </a>
+        <li class="c-nav__menu-item">
+          <a class="c-nav__menu-link"
+            href="#">twitterアカウント<br><span>{{ Auth::user()->twitterUser->nickname }}</span></a>
         </li>
         @else
-        <li class="p-nav__menu-item">
-          <a class="p-nav__menu-link" href="#">twitterアカウント：未登録 </a>
+        <li class="c-nav__menu-item">
+          <a class="c-nav__menu-link" href="#">twitterアカウント<br><span>未登録</span></a>
         </li>
         @endif
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/news") }}">News</a></li>
-        <li class="p-nav__menu-item"><a class="p-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li>
-        <li class="p-nav__menu-item">
-          <a class="p-nav__menu-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+        <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
+        <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
+        <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/news") }}">News</a></li>
+        <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li>
+        <li class="c-nav__menu-item">
+          <a class="c-nav__menu-link" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">Logout</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
         </li>
