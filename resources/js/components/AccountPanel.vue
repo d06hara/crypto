@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <div>
+  <div class="p-account">
+    <div class="p-account_auto">
       <input type="checkbox" v-model="autoMode" v-on:change="autoFollow" />
       <label for>自動フォロー</label>
       <p>テスト {{ autoMode }} （機能が完成したら削除</p>
     </div>
 
     <!-- pagination draft  todo:css修正 -->
-    <div>
+    <div class="p-account_pagination">
       <div class="c-pagination">
         <ul class="c-pagination__ul">
           <li :class="{disabled: current_page <= 1}">
@@ -41,24 +41,35 @@
     </div>
     <!-- pagination 終了 -->
 
-    <div class="p-account">
-      <div v-for="account in reAccounts" class="p-account__card" :key="account.id">
-        <p>twitter_id:{{ account.twitter_id }}</p>
-        <p>name: {{ account.name }}</p>
-        <p>screen_name: {{ account.screen_name }}</p>
-        <p>frineds_count: {{ account.friends_count }}</p>
-        <p>followers_count: {{ account.followers_count }}</p>
-        <p>description: {{ account.description }}</p>
-        <!-- <form method="POST" v-on:submit.prevent="follow" v-bind:value="account"> -->
-        <!-- <input type="submit" />あああ -->
-        <button v-on:click.prevent="follow(account)">フォロー</button>
-        <!-- </form> -->
-        <!-- ボタントグルテスト用 -->
-        <div>
-          <p>テスト：{{ account.users }}</p>
-          <button v-bind:class="{ active: account.users }">ボタントグルテスト</button>
+    <div class="p-account-container">
+      <div class="c-accountcard__container">
+        <div v-for="account in reAccounts" class="c-accountcard" :key="account.id">
+          <!-- <p>twitter_id:{{ account.twitter_id }}</p> -->
+          <p class="c-accountcard__name">
+            {{ account.name }}
+            <span>@{{ account.screen_name }}</span>
+          </p>
+          <div class="c-accountcard__btn">
+            <button v-on:click.prevent="follow(account)">フォロー</button>
+          </div>
+          <ul class="c-accountcard__data">
+            <li>
+              {{ account.friends_count }}
+              <span>Following</span>
+            </li>
+            <li>
+              {{ account.followers_count }}
+              <span>Follower</span>
+            </li>
+          </ul>
+
+          <!-- ボタントグルテスト用 -->
+          <!-- <div>
+            <p>テスト：{{ account.users }}</p>
+            <button v-bind:class="{ active: account.users }">ボタントグルテスト</button>
+          </div>-->
+          <div class="c-accountcard__tweet">{{ account.text }}</div>
         </div>
-        <div class="p-account__card-tweet">{{ account.text }}</div>
       </div>
     </div>
   </div>

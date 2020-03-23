@@ -1,0 +1,81 @@
+// ===============================
+// component : account-card
+// ===============================
+
+.c-accountcard__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  // align-items: center;
+
+}
+
+.c-accountcard {
+  width: calc(50% - #{$space_m}*2);
+  box-sizing: border-box;
+  box-shadow: 0 0 5px 1px #c0c0c0;
+  padding: $space_l;
+  border-radius: 10px;
+  margin: $space_m;
+
+  &__name {
+    font-size: $font-size_l;
+    margin-bottom : $space_m;
+
+    span {
+      font-size: $font-size_s;
+      font-weight: bold;
+      color: #888;
+    }
+  }
+
+  &__btn {
+    float: right;
+
+    button {
+      background-color: $white;
+      color: #007bff;
+      border: solid 1px #007bff;
+      border-radius: 10px;
+      padding: $space_s $space_m;
+
+      &:hover {
+        background-color: #007bff;
+        color: $white;
+      }
+    }
+  }
+
+  &__data {
+    
+
+    li {
+      font-size: $font-size_m;
+      text-align: center;
+      display: inline-block;
+      padding: 0 $space_m;
+      border-right: solid 1px #bdc3c7;
+
+      &:last-child {
+        border: none;
+      }
+
+      span {
+        display: block;
+        font-size: $font-size_s
+      }
+    }
+  }
+
+  &__tweet {
+    width: 90%;
+    color: #666;
+    height: 100px;
+    overflow: scroll;
+    // background-color: #f7f7f7;
+    // border: 1px solid #ccc;
+    padding: $space_s;
+    margin: $space_m auto;
+  }
+}
