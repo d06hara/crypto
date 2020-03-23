@@ -236,6 +236,7 @@ input {
   top: 0;
   position: fixed;
   z-index: 2;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .l-header.float-active {
@@ -897,36 +898,6 @@ input[type=text]:focus {
   margin-right: 10px;
 }
 
-.p-login__twitter {
-  margin: 0 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid #d0cece;
-}
-
-.p-login__twitter-btn {
-  color: #FFF;
-  /*文字・アイコン色*/
-  border-radius: 7px;
-  /*角丸に*/
-  display: inline-block;
-  text-align: center;
-  /*中身を中央寄せ*/
-  font-size: 14px;
-  background: #1da1f3;
-  overflow: hidden;
-  /*はみ出た部分を隠す*/
-  padding: 10px;
-}
-
-.p-login__twitter-btn .fab-twitter {
-  text-shadow: 2px 2px 0px #4287d6;
-  font-size: 30px;
-}
-
-.p-login__twitter-btn span {
-  display: inline-block;
-}
-
 .p-login__form-fieldset {
   border-radius: 0 0 20px 20px;
   padding: 20px;
@@ -934,19 +905,26 @@ input[type=text]:focus {
 
 .p-login__form p {
   color: #777;
-  margin-bottom: 14px;
 }
 
-.p-login__form input {
-  border-radius: 3px;
+.p-login__form-item {
+  margin-bottom: 5px;
 }
 
-.p-login__form input[type=email],
-.p-login__form input[type=password] {
-  background: #eee;
-  color: #777;
-  padding: 4px 10px;
+.p-login__form-item input {
   width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.p-login__form-item input:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
 }
 
 .p-login__form input[type=submit] {
@@ -960,6 +938,16 @@ input[type=text]:focus {
 
 .p-login__form input[type=submit]:hover {
   background-color: rgba(249, 159, 72, 0.7);
+}
+
+.use_icon {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .p-mypage {
