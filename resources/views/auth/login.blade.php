@@ -137,8 +137,7 @@
 
                     <p><input type="checkbox">次回から自動でログインする</p>
 
-                    <p><input type="submit" value="Login"></<input>
-                    </p>
+                    <div><button type="submit">ログイン</button></div>
 
                     <p>パスワードを忘れた方は<a href="">こちら</a></p>
 

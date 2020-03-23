@@ -217,7 +217,7 @@
                         <p><label for="password">password</label></p>
                         <input type="password" id="password" class="use_icon @error('password') is-invalid @enderror"
                             name="password" value="{{ old('password') }}" required autocomplete="password" autofocus
-                            placeholder="&#xf084;">
+                            placeholder="&#xf084; 8文字以上で入力してください">
                         </<input>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -228,17 +228,19 @@
 
                     {{-- password-re --}}
                     <div class="p-login__form-item">
-                        <p><label for="password-confirm">password(再入力)</label></p>
+                        <p><label for="password-confirmation">password(再入力)</label></p>
                         <input type="password" id="password-confirm"
-                            class="use_icon @error('password-confirm') is-invalid @enderror" name="password-confirm"
-                            value="{{ old('password-confirm') }}" required autocomplete="password-confirm" autofocus
-                            placeholder="&#xf084;">
+                            class="use_icon @error('password-confirm') is-invalid @enderror"
+                            name="password_confirmation" value="{{ old('password-confirm') }}" required
+                            autocomplete="password-confirm" autofocus placeholder="&#xf084;">
                         </<input>
 
                     </div>
 
-                    <p><input type="submit" value="Register"></<input>
-                    </p>
+                    <div>
+                        <button type="submit">登録する</button>
+                    </div>
+
 
                 </fieldset>
 

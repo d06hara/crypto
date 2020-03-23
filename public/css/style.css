@@ -981,7 +981,7 @@ input[type=text]:focus {
   color: red;
 }
 
-.p-login__form input[type=submit] {
+.p-login__form button {
   background: #F99F48;
   font-size: 14px;
   font-weight: bold;
@@ -993,7 +993,7 @@ input[type=text]:focus {
   width: 100px;
 }
 
-.p-login__form input[type=submit]:hover {
+.p-login__form button:hover {
   background-color: rgba(249, 159, 72, 0.7);
   cursor: pointer;
 }
