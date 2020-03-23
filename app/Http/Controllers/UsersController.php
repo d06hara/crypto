@@ -22,12 +22,17 @@ class UsersController extends Controller
         $data = $user->getAllUsers(auth()->user()->id);
         // dd($data);
         // $data = User::all();
+        // $user = auth()->user();
 
         // dd($data);
 
         return view('users.index', [
             'data'  => $data
         ]);
+        // dd($user);
+        // return view('mypage', [
+        //     'user'  => $user
+        // ]);
     }
 
     /**

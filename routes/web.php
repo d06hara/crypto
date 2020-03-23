@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/mypage', function () {
         return view('mypage');
     });
+    Route::get('api/mypage', 'MypageController@show');
 
 
     // ----------------------
