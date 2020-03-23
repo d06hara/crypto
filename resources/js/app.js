@@ -48,8 +48,23 @@ const app = new Vue({
     }
 });
 
-// ヘッダーの高さコンテンツを下げる
+
 $(function () {
+    // ヘッダーの高さコンテンツを下げる
     var height = $(".js-l-header").height();
     $("body").css("margin-top", height);
+
+    // フロートヘッダーメニュー
+    var targetHeight = $('.js-float-menu-target').height();
+    $(window).on('scroll', function () {
+        $('.js-float-menu').toggleClass('float-active', $(this).scrollTop() > targetHeight);
+    });
+
+
+    // SPメニュー
+    $('.js-toggle-sp-menu').on('click', function () {
+        $(this).toggleClass('active');
+        $('.js-toggle-sp-menu-target').toggleClass('active');
+    });
 });
+

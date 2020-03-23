@@ -28,11 +28,10 @@
 <body>
 
   {{-- header --}}
-  <header class="l-header js-l-header">
+  <header class="l-header js-l-header js-float-menu">
     <a href="l-header__logo">
       <h1 class="l-header__title">crypto trend</h1>
     </a>
-
 
     <!-- ハンバーガーメニュー（スマートフォン) -->
     <div class="menu-triger js-toggle-sp-menu">
@@ -41,6 +40,7 @@
       <span></span>
     </div>
 
+    {{-- ナビゲーションメニュー --}}
     <nav class="c-nav nav-menu js-toggle-sp-menu-target">
       <ul class="c-nav__menu">
         @guest
@@ -92,7 +92,7 @@
   </div>
   @endif
 
-  <div id="app" class="l-main">
+  <div id="app" class="l-main js-float-menu-target">
     @yield('content')
   </div>
 

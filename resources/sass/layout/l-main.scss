@@ -6,6 +6,7 @@
   width:980px;
   margin:0 auto;
   padding-top: $space_3l;
+  background-color: $white;
 
   @include mq(lg) {
     width: 100%;
