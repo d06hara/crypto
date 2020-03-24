@@ -1,0 +1,20 @@
+// ===============================
+// component : flash_message
+// ===============================
+
+.c-flash {
+  width: 20%;
+  padding: $space_m $space_l;
+  margin-left: auto;
+  font-weight: bold;
+  color: $white;
+  background-color: #28a745;
+  opacity: 0.7;
+  border-radius: 10px;/*角の丸み*/
+
+    &__text {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+}
