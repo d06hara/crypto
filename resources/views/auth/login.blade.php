@@ -93,14 +93,14 @@
 
             <p class="p-login__title"><span class="p-login__title-accent"></span>ログイン</p>
             {{-- twitter login --}}
-            <div class="p-login__twitter">
+            {{-- <div class="p-login__twitter">
                 <a href="/login/twitter" class="p-login__twitter-btn">
                     <i class="fab fa-twitter"></i> <span>twitterアカウントでログインする方はこちら</span>
                 </a>
             </div>
             @if (session('oauth_error'))
             {{ session('oauth_error') }}
-            @endif
+            @endif --}}
 
             {{-- login form --}}
             <form action="{{ route('login') }}" method="POST" class="p-login__form">
