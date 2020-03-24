@@ -587,6 +587,13 @@ input[type=text]:focus {
   /*角の丸み*/
 }
 
+@media screen and (max-width: 768px) {
+  .c-flash {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 .c-flash__text {
   text-align: center;
   margin: 0;
