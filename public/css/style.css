@@ -577,14 +577,10 @@ input[type=text]:focus {
 
 .c-flash {
   width: 20%;
-  padding: 10px 15px;
   margin-left: auto;
   font-weight: bold;
   color: #ffffff;
-  background-color: #28a745;
   opacity: 0.7;
-  border-radius: 10px;
-  /*角の丸み*/
 }
 
 @media screen and (max-width: 768px) {
@@ -594,7 +590,25 @@ input[type=text]:focus {
   }
 }
 
-.c-flash__text {
+.c-flash__success {
+  background-color: #28a745;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.c-flash__success-text {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.c-flash__error {
+  background-color: #dc3545;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.c-flash__error-text {
   text-align: center;
   margin: 0;
   padding: 0;
