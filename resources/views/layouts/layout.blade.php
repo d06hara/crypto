@@ -30,7 +30,7 @@
 
   {{-- header --}}
   <header class="l-header js-l-header js-float-menu">
-    <a href="l-header__logo">
+    <a href="{{ route('ranking') }}" class="l-header__logo">
       <h1 class="l-header__title">crypto trend</h1>
     </a>
 

@@ -68,7 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/ranking', function () {
         return view('ranking');
-    });
+    })->name('ranking');
     // ranking画面
     Route::get('/api/ranking', 'TwittersController@getTweetCount');
 
