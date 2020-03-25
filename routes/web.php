@@ -82,6 +82,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/withdraw', function () {
         return view(('withdraw'));
     });
+    Route::get('/twitter', 'AuthController@twitter');
+    Route::get('/twitter/callback', 'AuthController@twitterCallback');
+    // Route::get('/twitter', 'Auth\LoginController@redirectToProvider');
+    // Route::get('/twitter/callback', 'Auth\LoginController@handleProviderCallback');
 });
 
 
@@ -94,7 +98,7 @@ Route::group(['middleware' => 'auth'], function () {
 // Route::get('register/{provider}/callback', 'Auth\RegisterController@handleProviderCallbac');
 
 // ログイン
-Route::get('/login/twitter', 'Auth\LoginController@redirectToProvider')->name('twitter');
+Route::get('/login/twitter', 'Auth\LoginController@redirectToProvider');
 Route::get('/login/twitter/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/account/twitter', 'TwittersController@addTwitterAccount');

@@ -63,7 +63,7 @@ class LoginController extends Controller
      */
     public function redirectToProvider()
     {
-
+        dd('a');
         return Socialite::driver('twitter')->redirect();
     }
 
@@ -80,7 +80,7 @@ class LoginController extends Controller
             // twitterアカウント情報を取得
             $providerUser = Socialite::driver('twitter')->user();
         } catch (\Exception $e) {
-            return redirect('/login')->with('oauth_error', '予期せぬエラーが発生しました');
+            return redirect('/login')->with('flash_error', '予期せぬエラーが発生しました');
         }
 
         $authUser = $this->findOrCreateUser($providerUser);
@@ -101,9 +101,10 @@ class LoginController extends Controller
 
         // そのユーザーがtwitterアカウントを登録しているかチェック(ありえないが間違って押してしまった場合)
         if (Auth::user()->twitterUser) {
-            return redirect('/ranking')->with('flash_message', 'ご利用中のユーザーは既にtwitterアカウントを登録しています');
+            return redirect('/ranking')->with('flash_error', 'ご利用中のユーザーは既にtwitterアカウントを登録しています');
         }
         // ない場合はtwitterアカウントのみ追加で登録
+        dd('a');
 
         // 現在のユーザー情報を取得
         $user = Auth::user();
@@ -148,33 +149,33 @@ class LoginController extends Controller
         // }
 
 
-        // // twitter_idでuserテーブルを検索
-        // $authUser = User::where('twitter_id', $providerUser->getId())->first();
+        //     // // twitter_idでuserテーブルを検索
+        //     // $authUser = User::where('twitter_id', $providerUser->getId())->first();
 
-        // // twitter_idが見つかった場合はそのまま返す
-        // if ($authUser) {
-        //     return $authUser;
-        // }
-        // // なかった場合
-        // // userテーブルに必要な情報を入れる
-        // $newUser = User::create([
-        //     'name' => $providerUser->getName(),
-        //     'email' => $providerUser->getEmail(),
-        //     'twitter_id' => $providerUser->getId(),
-        // ]);
+        //     // // twitter_idが見つかった場合はそのまま返す
+        //     // if ($authUser) {
+        //     //     return $authUser;
+        //     // }
+        //     // // なかった場合
+        //     // // userテーブルに必要な情報を入れる
+        //     // $newUser = User::create([
+        //     //     'name' => $providerUser->getName(),
+        //     //     'email' => $providerUser->getEmail(),
+        //     //     'twitter_id' => $providerUser->getId(),
+        //     // ]);
 
-        // // twitterUserに必要な情報を入れる
-        // $newUser->twitterUser()->create([
-        //     'user_id' => $newUser->id,
-        //     'twitter_id' => $providerUser->getId(),
-        //     'token' => $providerUser->token,
-        //     'tokenSecret' => $providerUser->tokenSecret,
-        //     'nickname' => $providerUser->getNickname(),
-        //     'name' => $providerUser->getName(),
+        //     // // twitterUserに必要な情報を入れる
+        //     // $newUser->twitterUser()->create([
+        //     //     'user_id' => $newUser->id,
+        //     //     'twitter_id' => $providerUser->getId(),
+        //     //     'token' => $providerUser->token,
+        //     //     'tokenSecret' => $providerUser->tokenSecret,
+        //     //     'nickname' => $providerUser->getNickname(),
+        //     //     'name' => $providerUser->getName(),
 
-        // ]);
+        //     // ]);
 
-        // return $newUser;
+        //     // return $newUser;
     }
 
     // logout機能作成

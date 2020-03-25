@@ -25,17 +25,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 class TwittersController extends Controller
 {
-    // twitterアカウントのログイン機能
-    public function twitterLogin()
-    {
-        return Socialite::driver('twitter')->redirect();
-    }
-    // 
-    public function callback()
-    {
-        $user = Socialite::driver('Twitter')->user();
-        dd($user);
-    }
 
     // twitterアカウント一覧画面表示
     public function index(Request $requiest)

@@ -17,43 +17,43 @@ class SocialAuthController extends Controller
 
 
 
-    public function login()
-    {
-        return Socialite::with('Twitter')->redirect();
-    }
+    // public function login()
+    // {
+    //     return Socialite::with('Twitter')->redirect();
+    // }
 
-    public function callback()
-    {
-        $checkTwitterUser = Socialite::driver('Twitter')->user();
+    // public function callback()
+    // {
+    //     $checkTwitterUser = Socialite::driver('Twitter')->user();
 
-        // 既に存在するユーザーかを確認
-        $twitterUser = TwitterUser::where('provider_user_id', $checkTwitterUser->id)->first();
+    //     // 既に存在するユーザーかを確認
+    //     $twitterUser = TwitterUser::where('provider_user_id', $checkTwitterUser->id)->first();
 
-        // ユーザーidが存在していればログインしてトップページへ
-        if ($twitterUser) {
-            Auth::login($twitterUser->user, true);
-            return redirect('/');
-        }
+    //     // ユーザーidが存在していればログインしてトップページへ
+    //     if ($twitterUser) {
+    //         Auth::login($twitterUser->user, true);
+    //         return redirect('/');
+    //     }
 
-        // ユーザーがいなければ新しいユーザーを作成
-        $user = new User();
-        $user->name = $checkTwitterUser->name;
-        $user->delete_flg = 1;
+    //     // ユーザーがいなければ新しいユーザーを作成
+    //     $user = new User();
+    //     $user->name = $checkTwitterUser->name;
+    //     $user->delete_flg = 1;
 
-        $newTwitterUser = new TwitterUser();
-        $newTwitterUser->provider_user_id = $checkTwitterUser->id;
+    //     $newTwitterUser = new TwitterUser();
+    //     $newTwitterUser->provider_user_id = $checkTwitterUser->id;
 
-        DB::transaction(function () use ($user, $newTwitterUser) {
-            $user->save();
-            $user->twitterUser()->save($newTwitterUser);
-        });
+    //     DB::transaction(function () use ($user, $newTwitterUser) {
+    //         $user->save();
+    //         $user->twitterUser()->save($newTwitterUser);
+    //     });
 
-        Auth::login($user, true);
-        return redirect('/');
+    //     Auth::login($user, true);
+    //     return redirect('/');
 
 
-        // dd($user);
-    }
+    //     // dd($user);
+    // }
     // public function TwitterRedirect()
     // {
     //     return Socialite::driver('twitter')->redirect();

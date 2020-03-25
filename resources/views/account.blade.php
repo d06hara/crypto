@@ -51,7 +51,7 @@
   <p></p>
 
   <div>
-    <a href="/account/twitter">
+    <a href="{{ url('/twitter') }}">
       <i class="fab fa-twitter"></i><span>twitterアカウントを登録する</span>
     </a>
   </div>
