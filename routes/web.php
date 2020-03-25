@@ -70,7 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('ranking');
     })->name('ranking');
     // ranking画面
-    Route::get('/api/ranking', 'TwittersController@getTweetCount');
+    Route::get('/api/ranking', 'RankingController@getTweetCount');
 
     // news画面
     Route::get('/news', function () {
