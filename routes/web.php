@@ -123,13 +123,6 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-// Route::prefix('auth')->group(function () {
-//     Route::get('twitter', 'AuthController@login');
-//     Route::get('twitter/callback', 'AuthController@callback');
-// });
-
-
-
 
 
 // テスト用ページ

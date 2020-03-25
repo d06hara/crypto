@@ -55,16 +55,15 @@
         @endif
         @else
         <li class="c-nav__menu-item">
-          <a class="c-nav__menu-link" href="#">ユーザー名<br><span>{{ Auth::user()->name }}</span></a>
+          <p class="c-nav__menu-link">ユーザー名<br><span>{{ Auth::user()->name }}</span></p>
         </li>
         @if(Auth::user()->twitterUser)
         <li class="c-nav__menu-item">
-          <a class="c-nav__menu-link"
-            href="#">twitterアカウント<br><span>{{ Auth::user()->twitterUser->nickname }}</span></a>
+          <p class="c-nav__menu-link">twitterアカウント<br><span>{{ Auth::user()->twitterUser->nickname }}</span></a>
         </li>
         @else
         <li class="c-nav__menu-item">
-          <a class="c-nav__menu-link" href="#">twitterアカウント<br><span>未登録</span></a>
+          <p class="c-nav__menu-link">twitterアカウント<br><span>未登録</span></p>
         </li>
         @endif
         <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
