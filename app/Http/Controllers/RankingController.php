@@ -15,7 +15,6 @@ class RankingController extends Controller
         // DBの更新日時を取得
         $recent_time = Tweet::max('created_at');
         // dd($recent_time);
-
         // １時間前の時間を取得
         $before_one_hour = Carbon::now()->subHour(1);
         // dd($before_one_hour);
