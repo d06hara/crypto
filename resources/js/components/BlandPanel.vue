@@ -21,13 +21,22 @@
       <div class="p-ranking__content-sort">
         <ul>
           <li>
-            <button v-on:click="sortBy('hour')">過去１時間のツイート数順</button>
+            <button
+              v-on:click="sortBy('hour')"
+              v-bind:class="[ activetab === 1 ? 'active': '']"
+            >過去１時間のツイート数順</button>
           </li>
           <li>
-            <button v-on:click="sortBy('day')">過去１日のツイート数順</button>
+            <button
+              v-on:click="sortBy('day')"
+              v-bind:class="[ activetab === 2 ? 'active' : '']"
+            >過去１日のツイート数順</button>
           </li>
           <li>
-            <button v-on:click="sortBy('week')">過去１週間のツイート数順</button>
+            <button
+              v-on:click="sortBy('week')"
+              v-bind:class="[ activetab === 3 ? 'active' : '']"
+            >過去１週間のツイート数順</button>
           </li>
         </ul>
       </div>
@@ -120,12 +129,11 @@ export default {
         { name: "過去1週間" }
       ],
       sortKey: "",
+      activetab: 1,
       test: {
         key: "", //ソートキー
         mode: false
       }
-      // sortKey: "", //sort対象
-      // sortOrders: sortData.sortOrders() //ソートの値
     };
   },
   // created: function() {
@@ -157,6 +165,7 @@ export default {
         // switchで条件分岐
         switch (this.sortKey) {
           case "hour":
+            this.activetab = 1;
             this.blands.sort(function(a, b) {
               console.log("１時間で並び替え");
               if (a.hour_tweets_count > b.hour_tweets_count) return -1;
@@ -165,6 +174,7 @@ export default {
             });
             break;
           case "day":
+            this.activetab = 2;
             this.blands.sort(function(a, b) {
               console.log("１日で並び替え");
               if (a.day_tweets_count > b.day_tweets_count) return -1;
@@ -173,6 +183,7 @@ export default {
             });
             break;
           case "week":
+            this.activetab = 3;
             this.blands.sort(function(a, b) {
               console.log("１週間で並び替え");
               if (a.week_tweets_count > b.week_tweets_count) return -1;

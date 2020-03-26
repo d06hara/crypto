@@ -52,6 +52,11 @@
                 border: solid 1px #999;
                 transition: .4s;
                 margin-right: 0;
+
+                &.active {
+                  background: #999;
+                  color: white;
+                }
     
                 &:hover{
                   background: #999;

@@ -1215,6 +1215,11 @@ input[type=text]:focus {
   margin-right: 0;
 }
 
+.p-ranking__content-sort ul li button.active {
+  background: #999;
+  color: white;
+}
+
 .p-ranking__content-sort ul li button:hover {
   background: #999;
   color: white;
