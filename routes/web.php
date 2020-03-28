@@ -51,8 +51,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('api/account', 'AccountController@accountIndex');
 
-    // ボタンからフォロー
+    // ボタンからフォロー アンフォロー
     Route::post('/account/follow', 'TwittersController@accountFollow');
+    Route::post('/account/unfollow', 'TwittersController@accountUnfollow');
 
     // 自動フォロー
     Route::post('/account/start', 'TwittersController@autoFollowStart');

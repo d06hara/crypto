@@ -174,39 +174,39 @@ export default {
   //   });
   // },
   computed: {
-    reAccounts: function() {
-      console.log("reaccounts");
-      // return this.accounts.map(function(element) {
-      //   if (element.users[0]) {
-      //     return { ...element, users: true };
-      //   }
-      //   return { ...element, users: false };
-      // });
+    // reAccounts: function() {
+    //   console.log("reaccounts");
+    //   // return this.accounts.map(function(element) {
+    //   //   if (element.users[0]) {
+    //   //     return { ...element, users: true };
+    //   //   }
+    //   //   return { ...element, users: false };
+    //   // });
 
-      // -------------------------
-      // return this.accounts.forEach(function(object, index) {
-      //   if (object.users[0]) {
-      //     return this.$set(this.accounts[index], "users", true);
-      //   } else {
-      //     return this.$set(this.accounts[index], "users", false);
-      //   }
-      // });
+    //   // -------------------------
+    //   // return this.accounts.forEach(function(object, index) {
+    //   //   if (object.users[0]) {
+    //   //     return this.$set(this.accounts[index], "users", true);
+    //   //   } else {
+    //   //     return this.$set(this.accounts[index], "users", false);
+    //   //   }
+    //   // });
 
-      // return this.accounts.forEach((object, index) => {
-      //   if (object[index].users[0]) {
-      //     this.$set(this.accounts[index], users[0], true);
-      //   }
-      //   this.$set(this.object[index], users[0], false);
-      // });
-      // if (this.accounts.users) {
-      //   return { ...this.accounts, users: true };
-      // }
-      // return { ...this.accounts, users: false };
-      // if (element.users[0]) {
-      //   this.$set((this.accounts.users = true));
-      // }
-      // this.$set((this.accounts.users = false));
-    },
+    //   // return this.accounts.forEach((object, index) => {
+    //   //   if (object[index].users[0]) {
+    //   //     this.$set(this.accounts[index], users[0], true);
+    //   //   }
+    //   //   this.$set(this.object[index], users[0], false);
+    //   // });
+    //   // if (this.accounts.users) {
+    //   //   return { ...this.accounts, users: true };
+    //   // }
+    //   // return { ...this.accounts, users: false };
+    //   // if (element.users[0]) {
+    //   //   this.$set((this.accounts.users = true));
+    //   // }
+    //   // this.$set((this.accounts.users = false));
+    // },
     /**
      * ページ数を取得する
      * @return {number} 総ページ数(1はじまり)
@@ -294,19 +294,44 @@ export default {
     }
   },
   methods: {
-    // フォロー機能
+    // フォロー機能(アンフォロー)
     follow: function(account) {
-      // controllerに送る値(twitter_id)を設定
-      console.log(account.twitter_id);
-      axios
-        .post("/account/follow", {
-          // DB登録に必要なaccount_idとapiに必要なtwitter_idを取得
-          account_id: account.id,
-          twitter_id: account.twitter_id,
-          screen_name: account.screen_name
-        })
+      // 既にフォローしている場合
+      if (account.users === true) {
+        console.log(account.twitter_id + "をアンフォローします");
+        // 以下アンフォロー処理
 
-        .catch(error => console.log(error));
+        // ボタンを未フォロー状態に反転
+        account.users = !account.users;
+
+        // post処理
+        axios
+          .post("/account/unfollow", {
+            account_id: account.id,
+            twitter_id: account.twitter_id,
+            screen_name: account.screen_name
+          })
+
+          .catch(error => console.log(error));
+      } else {
+        // まだフォローしていない場合
+        console.log(account.twitter_id + "をフォローします");
+        // 以下フォロー処理
+
+        // ボタンをフォロー状態に反転
+        account.users = !account.users;
+
+        // pose処理
+        axios
+          .post("/account/follow", {
+            // DB登録に必要なaccount_idとapiに必要なtwitter_idを取得
+            account_id: account.id,
+            twitter_id: account.twitter_id,
+            screen_name: account.screen_name
+          })
+
+          .catch(error => console.log(error));
+      }
     },
 
     // 自動フォロー機能
