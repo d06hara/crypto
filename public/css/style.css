@@ -326,6 +326,11 @@ input {
   color: #ffffff;
 }
 
+.c-accountcard__btn button.active {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
 .c-accountcard__data li {
   font-size: 14px;
   text-align: center;

@@ -89,7 +89,8 @@ class TwittersController extends Controller
         // dd($twitter_id);
         $twitter_account_id = $request->account_id;
         // dd($twitter_account_id);
-
+        $twitter_screen_name = $request->screen_name;
+        // dd($twitter_screen_name);
         // 先にこの処理をしないとpost後だと動かない
 
         // フォローするユーザーを取得
@@ -98,6 +99,8 @@ class TwittersController extends Controller
         // リレーションへの記入処理
         $follower->accounts()->attach($twitter_account_id);
         // dd('フォローしました');
+
+
 
         // 以下、apiを用いたfollw処理
 
@@ -118,10 +121,16 @@ class TwittersController extends Controller
         $connection = new TwitterOAuth($key, $secret_key, $token, $token_secret);
         // dd($connection);
 
+        // dd($twitter_id);
+        // dd(is_int($twitter_id));
+
         // 受け取ったtwitter_idで紐付くアカウントをフォロー
-        $follow =  $connection->post('friendships/create', array('user_id' => $twitter_id));
+        $follow =  $connection->post('friendships/create', array(
+            'user_id' => $twitter_id,
+            'screen_name' => $twitter_screen_name
+        ));
         // $follow =  $connection->post('friendships/create', array('user_id' => null));
-        // dd($follow);
+        dd($follow);
 
         // errorチェックよくわからん
 

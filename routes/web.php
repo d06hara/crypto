@@ -51,8 +51,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('api/account', 'AccountController@accountIndex');
 
-
-
     // ボタンからフォロー
     Route::post('/account/follow', 'TwittersController@accountFollow');
 
