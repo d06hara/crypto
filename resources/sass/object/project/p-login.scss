@@ -8,11 +8,12 @@
 .p-login {
   box-shadow: 0 0 5px 1px #c0c0c0;
   border-radius: 20px;
-  width:60%;
+  max-width: 980px;
+  width:40%;
   margin:0 auto;
   font-size: $font-size_m;
 
-  @include mq(){
+  @include mq(lg){
     width: 80%;
     font-size: $font-size_s;
   }

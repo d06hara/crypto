@@ -84,6 +84,8 @@
 @endsection --}}
 @extends('layouts.layout')
 
+@section('title', 'login')
+
 @section('content')
 
 <main>
@@ -134,11 +136,10 @@
                         @enderror
                     </div>
 
-                    <p><input type="checkbox">次回から自動でログインする</p>
-
                     <div><button type="submit">ログイン</button></div>
 
-                    <p>パスワードを忘れた方は<a href="">こちら</a></p>
+                    <p style="margin-top:10px;">パスワードを忘れた方は<a href="{{ url('password/reset') }}"
+                            style="font-weight: bold;">こちら</a></p>
 
 
                 </fieldset>

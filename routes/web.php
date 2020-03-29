@@ -23,6 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // API以外のリクエストに対しては全てindexテンプレートを返す
 // anyはなんでも良い⇨正規化
 // 画面遷移はvuerouterを使用

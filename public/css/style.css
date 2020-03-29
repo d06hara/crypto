@@ -212,6 +212,7 @@ input {
 
 .l-footer {
   box-sizing: border-box;
+  height: 50px;
   width: 100%;
   color: #666;
   font-size: 14px;
@@ -284,6 +285,8 @@ input {
 .l-wrapper {
   min-height: 100vh;
   position: relative;
+  padding-bottom: 50px;
+  box-sizing: border-box;
 }
 
 .c-accountcard__container {
@@ -1084,12 +1087,13 @@ input[type=text]:focus {
 .p-login {
   box-shadow: 0 0 5px 1px #c0c0c0;
   border-radius: 20px;
-  width: 60%;
+  max-width: 980px;
+  width: 40%;
   margin: 0 auto;
   font-size: 14px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .p-login {
     width: 80%;
     font-size: 12px;
