@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         Commands\GetTweetCommand::class,
         Commands\GetTweetAppAuthCommand::class,
         Commands\GetTwitterAccount::class,
+        Commands\AutoFollow::class,
 
     ];
 
@@ -35,6 +36,8 @@ class Kernel extends ConsoleKernel
             ->everyFiveMinutes()->withoutOverlapping();
         $schedule->command('get:twitteraccount')
             ->everyFiveMinutes()->withoutOverlapping();
+        $schedule->command('auto:follow')
+            ->everyFifteenMinutes()->withoutOverlapping();
     }
 
     /**
