@@ -10,5 +10,15 @@
   &__function {
     font-weight: bold;
     margin-bottom: $space_s;
+    @include mq() {
+      font-size: $font-size_m;
+      margin-bottom: $space_m;
+    }
+  }
+  &__content {
+    font-size: $font-size_m;
+    @include mq(){
+      font-size: $font-size_s;
+    }
   }
 }

@@ -4,7 +4,7 @@
 
 .p-home {
   width: 100%;
-  
+
   &__upper {
 
     // height: 450px;
@@ -12,8 +12,9 @@
     margin: 0 auto;
   display: flex;
   box-sizing: border-box;
-  padding-left: $space_xl;
-  padding-right: $space_xl;
+  // padding-left: $space_xl;
+  // padding-right: $space_xl;
+  padding: 50px $space_xl;
 
   @include mq(){
     display: block;
@@ -23,22 +24,30 @@
     box-sizing: border-box;
     padding-top: 100px;
     width: 30%;
-    
 
     @include mq(lg){
-      padding-top: 70px;
+      padding-top: 50px;
+
     }
     @include mq(){
       width: 100%;
+      padding-top: $space_l;
     }
     &-title {
+      font-weight: bold;
       font-size: $font-size_3l;
-
+      @include mq(lg){
+        font-size: $font-size_xl;
+      }
 
     }
     &-sub {
       margin-top: $space_l;
       font-size: $font-size_xl;
+      @include mq(lg){
+        font-size: $font-size_l;
+      }
+      
     }
 
   }
@@ -64,12 +73,17 @@
 
   &__bottom {
     background-color: #f0f0f0;
+    margin-bottom: $space_l;
 
     &-contents {
 
       width: 980px;
       margin: 0 auto;
       padding: $space_3l 0;
+
+      @include mq(lg){
+        width: 80%;
+      }
 
       &-heading {
         text-align: center;
