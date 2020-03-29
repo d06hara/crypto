@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 
 // 認証系
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,6 +42,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/mypage', function () {
         return view('mypage');
+    });
+    Route::get('/edit', function () {
+        return view('edit');
+    });
+    Route::get('/passedit', function () {
+        return view('passedit');
+    });
+    Route::get('/withdraw', function () {
+        return view('withdraw');
     });
     Route::get('api/mypage', 'MypageController@show');
 

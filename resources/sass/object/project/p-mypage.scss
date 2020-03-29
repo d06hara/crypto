@@ -3,57 +3,49 @@
 // ===============================
 
 .p-mypage {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  box-sizing: border-box;
-  margin-top: $space_xl;
 
-  &__left {
-    width: 70%;
-    box-sizing: border-box;
-  }
-  &__right {
-    width: 30%;
-    box-sizing: border-box;
-  }
-}
 
-.p-mybrand {
-  margin: 0 auto;
-  padding: $space_l;
-  &__title {
-    font-size: $font-size_l;
-    font-weight: bold;
-    margin-bottom: $space_m;
-  }
-  &__card {
-    margin-left: $space_l;
-
-    &-container {
+  &__menu {
+    width: 50%;
+    margin: $space_xl auto;
+    text-align: center;
+    
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wraps;
       
+      li {
+        margin-right : $space_m;
+
+        a{
+          display:block;
+          padding: $space_m;
+          position: relative;
+         border-bottom: 2px solid #b2b2b2;
+
+         &::after {
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          display: block;
+          content: "";
+          width: 100%;
+          height: 2px;
+          background: #000000;
+          transform: scaleX(0);
+          transform-origin: right top;
+          transition: transform 0.3s;
+         }
+
+         &:hover::after{
+          transform: scaleX(1);
+          transform-origin: left top;
+         }
+        
+        }
+      }
     }
   }
-}
-
-.p-mynews {
-  margin: 0 auto;
-  padding: $space_l;
-  &__title {
-    font-size: $font-size_l;
-    font-weight: bold;
-    margin-bottom: $space_m;
-  }
-
-  &__container {
-    display: flex;
-  }
-}
-
-.p-mypage__menu {
-  padding: $space_m $space_l;
-  margin: $space_xl;
-  background-color: $main-color;
-  border-top: solid $space_m $sub-color;
-  border-radius: 10px;
 }

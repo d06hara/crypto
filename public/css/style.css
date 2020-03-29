@@ -1217,60 +1217,47 @@ input[type=text]:focus {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.p-mypage {
-  width: 100%;
+.p-mypage__menu {
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.p-mypage__menu ul {
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
-  margin-top: 20px;
+  align-items: center;
+  flex-wrap: wraps;
 }
 
-.p-mypage__left {
-  width: 70%;
-  box-sizing: border-box;
+.p-mypage__menu ul li {
+  margin-right: 10px;
 }
 
-.p-mypage__right {
-  width: 30%;
-  box-sizing: border-box;
+.p-mypage__menu ul li a {
+  display: block;
+  padding: 10px;
+  position: relative;
+  border-bottom: 2px solid #b2b2b2;
 }
 
-.p-mybrand {
-  margin: 0 auto;
-  padding: 15px;
+.p-mypage__menu ul li a::after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  transform: scaleX(0);
+  transform-origin: right top;
+  transition: transform 0.3s;
 }
 
-.p-mybrand__title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.p-mybrand__card {
-  margin-left: 15px;
-}
-
-.p-mynews {
-  margin: 0 auto;
-  padding: 15px;
-}
-
-.p-mynews__title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.p-mynews__container {
-  display: flex;
-}
-
-.p-mypage__menu {
-  padding: 10px 15px;
-  margin: 20px;
-  background-color: #D5EEFF;
-  border-top: solid 10px #1B435D;
-  border-radius: 10px;
+.p-mypage__menu ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left top;
 }
 
 .p-news {
