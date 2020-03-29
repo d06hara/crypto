@@ -127,7 +127,8 @@ class TwittersController extends Controller
         // 受け取ったtwitter_idで紐付くアカウントをフォロー
         $follow =  $connection->post('friendships/create', array(
             'user_id' => $twitter_id,
-            'screen_name' => $twitter_screen_name
+            'screen_name' => $twitter_screen_name,
+            'follow' => false
         ));
         // $follow =  $connection->post('friendships/create', array('user_id' => null));
         dd($follow);

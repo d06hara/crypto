@@ -49,16 +49,15 @@ class WriteLog extends Command
         // ユーザー情報によって判定できるようにする
         // 基本はauto_mode 0 で停止状態
 
-        // アクセスキーを取得
+        $follow_targets = DB::table('twitter_accounts')->pluck('twitter_id', 'screen_name');
+        // $follow_targets = TwitterAccount::get('twitter_id');
+        // $follow_targets = json_decode($follow_targets);
+        $follow_targets = $follow_targets->toArray();
+        // dd($follow_targets->toArray());
         $config = config('twitter');
         $key = $config['api_key'];
         $secret_key = $config['secret_key'];
 
-        // DBに保存されているaccountsの全てのtwitter_idを取得し配列に変換
-        $accounts_twitter_id = DB::table('twitter_accounts')->pluck('twitter_id');
-        $accounts_twitter_id = json_decode($accounts_twitter_id);
-
-        // auto_modeが1のユーザーを取得
         $auto_mode_users = User::where('auto_mode', 1)->get();
 
         // auto_modeが１のユーザーがいるか判定
@@ -69,26 +68,47 @@ class WriteLog extends Command
             foreach ($auto_mode_users as $auto_mode_user) {
                 // twitterUserを呼び出す
                 $twitter_user = $auto_mode_user->twitterUser;
+                // dd($twitter_user);
                 // アクセストークンを取得
                 $token = $twitter_user->token;
                 $token_secret = $twitter_user->tokenSecret;
 
+                // twitter_idとscreen_nameを取得
+                $twitter_id = $twitter_user->twitter_id;
+                // dd($twitter_id);
+                $screen_name = $twitter_user->nickname;
+                // dd($screen_name);
+
                 // APIに接続
                 $connection = new TwitterOAuth($key, $secret_key, $token, $token_secret);
+                // dd($connection);
 
                 // フォローしている人のtwitter_idを取得
-                $frinend_ids = $connection->get('friends/ids');
+                $frinend_ids = $connection->get('friends/ids', array(
+                    'user_id' => $twitter_id,
+                    'screen_name' => $screen_name,
+                    'count' => 5000
+                ));
+                // dd($frinend_ids->ids);
 
                 // まずは共通項を取得
-                $common_terms = array_intersect($frinend_ids->ids, $accounts_twitter_id);
+                $common_terms = array_intersect($frinend_ids->ids, $follow_targets);
+                // dd($common_terms);
 
                 // 次にDB内accountとの差分を取得
-                $diff = array_diff($accounts_twitter_id, $common_terms);
+                $diff = array_diff($follow_targets, $common_terms);
+                // dd($diff);
 
-                // 差分からランダムに１つidを取得する
-                $follow_id = $diff[array_rand($diff)];
+                // 差分からランダムに１キー(screen_name)を取得する
+                $follow_target_screen_name = array_rand($diff);
+                $follow_target_id = $diff[$follow_target_screen_name];
+                // dd($follow_target_id);
 
-                $follow = $connection->post('friendships/create', array('user_id' => $follow_id));
+                $follow = $connection->post('friendships/create', array(
+                    'user_id' => $follow_target_id,
+                    'screen_name' => $follow_target_screen_name,
+                    'follow' => false
+                ));
             }
         }
         // $twitter_users = $auto_mode_users->twitterUser->get();
