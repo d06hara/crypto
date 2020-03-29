@@ -10,22 +10,6 @@
         <span>{{ user.email }}</span>
       </div>
     </div>
-    <!-- <div class="p-mypage__left">
-      <div class="p-mybrand">
-        <p class="p-mybrand__title">マイ銘柄</p>
-        <div class="p-mybrand__card-container">
-          <div class="p-mybrand__card p-ranking__brand-container">
-            <p class="p-mybrand__card-name">ビットコイン</p>
-          </div>
-          <div class="p-mybrand__card p-ranking__brand-container">
-            <p class="p-mybrand__card-name">リップル</p>
-          </div>
-          <div class="p-mybrand__card p-ranking__brand-container">
-            <p class="p-mybrand__card-name">＋</p>
-          </div>
-        </div>
-      </div>
-    </div>-->
 
     <div class="p-mypage__right">
       <div class="p-mypage__menu">

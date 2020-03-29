@@ -24,6 +24,20 @@
     </div>
   </div>
 
+  <div class="p-mypage">
+    {{-- 後でここにformを入れる --}}
+    <div class="p-mypage__menu">
+
+      <ul>
+        <li><a href="{{ url('mypage') }}">マイページ</a></li>
+        <li><a href="{{ url('edit') }}">プロフィール編集</a></li>
+        <li><a href="{{ url('passedit') }}">パスワード変更</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
 
 </main>
 @endsection

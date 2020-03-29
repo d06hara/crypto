@@ -10,7 +10,7 @@
     <div class="p-login">
       <p class="p-login__title">プロフィール編集画面</p>
       {{-- login form --}}
-      <form action="{{ route('login') }}" method="POST" class="p-login__form">
+      <form action="{{ route('update', $user->id) }}" method="POST" class="p-login__form">
         @csrf
 
         <fieldset class="p-login__form-fieldset">
@@ -19,7 +19,7 @@
           <div class="p-login__form-item">
             <p><label for="name">user name</label></p>
             <input type="text" id="name" class="use_icon @error('name') is-invalid @enderror" name="name"
-              value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="&#xf007;">
+              value="{{ $user->name }}" required autocomplete="name" autofocus placeholder="&#xf007;">
             </<input>
             @error('name')
             <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
           <div class="p-login__form-item">
             <p><label for="email">E-mail address</label></p>
             <input type="email" id="email" class="use_icon @error('email') is-invalid @enderror" name="email"
-              value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="&#xf0e0;"></<input>
+              value="{{ $user->email }}" required autocomplete="email" autofocus placeholder="&#xf0e0;"></<input>
             @error('email')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>

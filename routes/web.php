@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
 
 
 // API以外のリクエストに対しては全てindexテンプレートを返す
@@ -40,19 +40,22 @@ Route::get('/', function () {
 // ログイン認証を必要にする
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/mypage', function () {
-        return view('mypage');
-    });
-    Route::get('/edit', function () {
-        return view('edit');
-    });
+    // Route::get('/mypage', function () {
+    //     return view('mypage');
+    // });
+    Route::get('/mypage', 'MypageController@show');
+    Route::get('/edit', 'MypageController@edit');
+    Route::post('/updata/{id}/', 'MypageController@update')->name('update');
+    // Route::get('/edit', function () {
+    //     return view('edit');
+    // });
     Route::get('/passedit', function () {
         return view('passedit');
     });
     Route::get('/withdraw', function () {
         return view('withdraw');
     });
-    Route::get('api/mypage', 'MypageController@show');
+    // Route::get('api/mypage', 'MypageController@show');
 
 
     // ----------------------

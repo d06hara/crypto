@@ -31,9 +31,15 @@
 
     {{-- header --}}
     <header class="l-header js-l-header js-float-menu">
+      @if(Auth::user())
       <a href="{{ route('ranking') }}" class="l-header__logo">
         <h1 class="l-header__title">crypto trend</h1>
       </a>
+      @else
+      <a href="{{ route('/') }}" class="l-header__logo">
+        <h1 class="l-header__title">crypto trend</h1>
+      </a>
+      @endif
 
       <!-- ハンバーガーメニュー（スマートフォン) -->
       <div class="menu-triger js-toggle-sp-menu">
