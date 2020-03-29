@@ -6,6 +6,8 @@
   width:980px;
   margin:0 auto;
   padding-top: $space_3l;
+  padding-left: $space_xl;
+  padding-right: $space_xl;
   background-color: $white;
 
   @include mq(lg) {

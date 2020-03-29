@@ -111,13 +111,34 @@
 
 </html> --}}
 
-<html lang="ja">
+@extends('layouts.layout')
+
+@section('title', 'TOP')
+
+@section('content')
+<main>
+    <div class="p-top">
+        <div class="p-top__left">
+            <p class="p-top__left-title">crypto trend</p>
+            <p class="p-top__left-sub">twitterを利用した、仮想通貨の話題性を分析するツールです。</p>
+        </div>
+        <div class="p-top__right">
+            {{-- <img src="{{ asset('img/bitcoin.png') }}" alt=""> --}}
+            {{-- <img src="{{ asset('img/top.png') }}" alt=""> --}}
+        </div>
+    </div>
+
+</main>
+
+@endsection
+
+{{-- <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Example</title>
-    {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+<title>Example</title>
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 
 <body>
@@ -130,4 +151,4 @@
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
-</html>
+</html> --}}

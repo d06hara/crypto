@@ -1,0 +1,52 @@
+// ===============================
+// project:topページ
+// ===============================
+
+.p-top {
+  width: 100%;
+  height: 450px;
+  display: flex;
+
+  @include mq(){
+    display: block;
+  }
+
+
+  &__left {
+    padding-top: 100px;
+    width: 30%;
+
+    @include mq(lg){
+      padding-top: 70px;
+    }
+    @include mq(){
+      width: 100%;
+    }
+    &-title {
+      font-size: $font-size_3l;
+
+
+    }
+    &-sub {
+      margin-top: $space_l;
+      font-size: $font-size_xl;
+    }
+
+  }
+  &__right {
+    width: 70%;
+    // box-sizing: border-box;
+    // padding-left: $space_xl;
+    height:0;
+    padding-top: 56.25%;
+    // background-image: url('img/top2.png');
+    // background-repeat: no-repeat;
+    // background-position: center center;
+    // background-size: cover;
+    background: url('img/top2.png') 0 0 no-repeat;
+    background-size: contain;
+    @include mq(){
+      width: 100%;
+    }
+  }
+}

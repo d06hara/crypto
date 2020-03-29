@@ -6,8 +6,10 @@
   width: 100%;
   color: $font-color-default;
   font-size: $font-size_m;
-  background-color: $main-color;
   text-align: center;
   padding: $space_s 0;
   margin-top: $space_3l;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  box-shadow: 0 0 1px gray;
 }

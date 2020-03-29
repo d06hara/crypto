@@ -27,94 +27,99 @@
 </head>
 
 <body>
+  <div class="l-wrapper">
 
-  {{-- header --}}
-  <header class="l-header js-l-header js-float-menu">
-    <a href="{{ route('ranking') }}" class="l-header__logo">
-      <h1 class="l-header__title">crypto trend</h1>
-    </a>
+    {{-- header --}}
+    <header class="l-header js-l-header js-float-menu">
+      <a href="{{ route('ranking') }}" class="l-header__logo">
+        <h1 class="l-header__title">crypto trend</h1>
+      </a>
 
-    <!-- ハンバーガーメニュー（スマートフォン) -->
-    <div class="menu-triger js-toggle-sp-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+      <!-- ハンバーガーメニュー（スマートフォン) -->
+      <div class="menu-triger js-toggle-sp-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-    {{-- ナビゲーションメニュー --}}
-    <nav class="c-nav nav-menu js-toggle-sp-menu-target">
-      <ul class="c-nav__menu">
-        @guest
-        <li class="c-nav__menu-item">
-          <a class="c-nav__menu-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-        </li>
-        @if(Route::has('register'))
-        <li class="c-nav__menu-item">
-          <a class="c-nav__menu-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-        </li>
-        @endif
-        @else
-        <li class="c-nav__menu-item">
-          <p class="c-nav__menu-link">ユーザー名<br><span>{{ Auth::user()->name }}</span></p>
-        </li>
-        @if(Auth::user()->twitterUser)
-        <li class="c-nav__menu-item">
-          <p class="c-nav__menu-link">twitterアカウント<br><span>{{ Auth::user()->twitterUser->nickname }}</span></a>
-        </li>
-        @else
-        <li class="c-nav__menu-item">
-          <p class="c-nav__menu-link">twitterアカウント<br><span>未登録</span></p>
-        </li>
-        @endif
-        <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
-        <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
-        <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/news") }}">News</a></li>
-        <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li>
-        <li class="c-nav__menu-item">
-          <a class="c-nav__menu-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+      {{-- ナビゲーションメニュー --}}
+      <nav class="c-nav nav-menu js-toggle-sp-menu-target">
+        <ul class="c-nav__menu">
+          @guest
+          <li class="c-nav__menu-item">
+            <a class="c-nav__menu-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+          </li>
+          @if(Route::has('register'))
+          <li class="c-nav__menu-item">
+            <a class="c-nav__menu-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+          </li>
+          @endif
+          @else
+          <li class="c-nav__menu-item">
+            <p class="c-nav__menu-link">ユーザー名<br><span>{{ Auth::user()->name }}</span></p>
+          </li>
+          @if(Auth::user()->twitterUser)
+          <li class="c-nav__menu-item">
+            <p class="c-nav__menu-link">twitterアカウント<br><span>{{ Auth::user()->twitterUser->nickname }}</span></a>
+          </li>
+          @else
+          <li class="c-nav__menu-item">
+            <p class="c-nav__menu-link">twitterアカウント<br><span>未登録</span></p>
+          </li>
+          @endif
+          <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
+          <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
+          <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/news") }}">News</a></li>
+          <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li>
+          <li class="c-nav__menu-item">
+            <a class="c-nav__menu-link" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">Logout</a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
-        </li>
-        @endguest
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
+          </li>
+          @endguest
 
-      </ul>
-    </nav>
+        </ul>
+      </nav>
 
-  </header>
-  @section('sidebar')
+    </header>
+    @section('sidebar')
 
-  @show
+    @show
 
-  {{-- フラッシュメッセージ --}}
-  {{-- 成功時 --}}
-  @if(Session::has('flash_message'))
-  <div class="c-flash ">
-    <div class="c-flash__success">
-      <p class="c-flash__success-text">{{ session('flash_message') }}</p>
+    {{-- フラッシュメッセージ --}}
+    {{-- 成功時 --}}
+    @if(Session::has('flash_message'))
+    <div class="c-flash ">
+      <div class="c-flash__success">
+        <p class="c-flash__success-text">{{ session('flash_message') }}</p>
+      </div>
     </div>
-  </div>
-  @endif
+    @endif
 
-  {{-- 失敗時 --}}
-  @if(Session::has('flash_error'))
-  <div class="c-flash">
-    <div class="c-flash__error">
-      <p class="c-flash__error-text">{{ session('flash_error') }}</p>
+    {{-- 失敗時 --}}
+    @if(Session::has('flash_error'))
+    <div class="c-flash">
+      <div class="c-flash__error">
+        <p class="c-flash__error-text">{{ session('flash_error') }}</p>
+      </div>
     </div>
-  </div>
-  @endif
+    @endif
 
-  <div id="app" class="l-main js-float-menu-target">
-    @yield('content')
+    <div id="app" class="l-main js-float-menu-target">
+      @yield('content')
+    </div>
+
+    <footer class="l-footer">
+      <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    {{-- <script src="/public/js/app.js"></script> --}}
+    <script src="{{ asset('public/js/app.js') }}"></script>
+
   </div>
 
-  <footer class="l-footer">
-    <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  {{-- <script src="/public/js/app.js"></script> --}}
-  <script src="{{ asset('public/js/app.js') }}"></script>
+
 </body>
 
 </html>
