@@ -65,10 +65,10 @@
           </ul>
 
           <!-- ボタントグルテスト用 -->
-          <div>
+          <!-- <div>
             <p>テスト：{{ account.users }}</p>
             <button v-bind:class="{ active: account.users }">ボタントグルテスト</button>
-          </div>
+          </div>-->
 
           <div class="c-accountcard__tweet">{{ account.text }}</div>
         </div>

@@ -14,6 +14,18 @@ class TestController extends Controller
     // テストメソッド
     public function test()
     {
+        $twitter_user = TwitterUser::where('twitter_id', 1231135)->first();
+        // dd($twitter_user);
+
+        if (!is_null($twitter_user)) {
+            dd('aaa');
+        }
+        dd('a');
+
+
+
+
+
         // $twitterUser = TwitterAccount::with('users')->all();
         $twitterUser = TwitterAccount::with('users')->get();
         // dd($twitterUser);

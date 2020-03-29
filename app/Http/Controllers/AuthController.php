@@ -63,14 +63,26 @@ class AuthController extends Controller
 
         // dd($providerUser);
 
-        $authUser = $this->connectTwitterUser($providerUser);
+        // $authUser = $this->connectTwitterUser($providerUser);
 
-        // 既にログインしているのでここでリダイレクト
-        return redirect('/account')->with('flash_message', 'twitterアカウントが登録されました！');
-    }
 
-    private function connectTwitterUser($providerUser)
-    {
+        // TODO 
+        // ・既にフォローしているアカウントがある場合は全てリレーションにattachしておく
+        // advance
+        // twittterアプリの方でフォロワーが更新された場合、それを監視するための処理（毎回認証させればいける？）
+        // ログイン処理に含めても良いかも
+
+        // 認証したアカウントが登録されているどうかで処理分け
+
+        if (!is_null($providerUser->getId())) {
+            // 認証したアカウントが既に他のユーザーに登録されていた場合
+            return redirect('/account')->with('flash_error', 'このtwitterアカウントは既に使用されています');
+        }
+
+        // 認証したアカウントが未登録だった場合
+        // アカウントのフォロワーを取得
+
+
         // 現在のユーザー情報を取得
         $user = Auth::user();
 
@@ -85,5 +97,45 @@ class AuthController extends Controller
             'nickname' => $providerUser->getNickname(),
             'name' => $providerUser->getName(),
         ]);
+
+        // 既にログインしているのでここでリダイレクト
+        return redirect('/account')->with('flash_message', 'twitterアカウントが登録されました！');
     }
+
+    // private function connectTwitterUser($providerUser)
+    // {
+
+    //     // TODO 
+    //     // ・既にアカウントが登録されている場合の処理
+    //     // ・既にフォローしているアカウントがある場合は全てリレーションにattachしておく
+    //     // advance
+    //     // twittterアプリの方でフォロワーが更新された場合、それを監視するための処理（毎回認証させればいける？）
+    //     // ログイン処理に含めても良いかも
+
+    //     // 認証したアカウントが登録されているどうかで処理分け
+
+    //     if (!is_null($providerUser->getId())) {
+    //         // 認証したアカウントが既に他のユーザーに登録されていた場合
+    //         return redirect('/account')->with('flash_error', 'このtwitterアカウントは既に使用されています');
+    //     }
+
+    //     // 認証したアカウントが未登録だった場合
+    //     // アカウントのフォロワーを取得
+
+
+    //     // 現在のユーザー情報を取得
+    //     $user = Auth::user();
+
+    //     // dd($user);
+
+    //     // twitterUserにのみ必要な情報を入れる
+    //     $user->twitterUser()->create([
+    //         'user_id' => $user->id,
+    //         'twitter_id' => $providerUser->getId(),
+    //         'token' => $providerUser->token,
+    //         'tokenSecret' => $providerUser->tokenSecret,
+    //         'nickname' => $providerUser->getNickname(),
+    //         'name' => $providerUser->getName(),
+    //     ]);
+    // }
 }
