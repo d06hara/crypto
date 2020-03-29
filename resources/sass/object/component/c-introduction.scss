@@ -1,0 +1,14 @@
+// ===============================
+// component : introduction
+// ===============================
+
+.c-introduction {
+  background-color: $white;;
+  border: 4px double #ddd;
+  margin: 2em 0;
+  padding: 2em;
+  &__function {
+    font-weight: bold;
+    margin-bottom: $space_s;
+  }
+}

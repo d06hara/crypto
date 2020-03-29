@@ -117,38 +117,49 @@
 
 @section('content')
 <main>
-    <div class="p-top">
-        <div class="p-top__left">
-            <p class="p-top__left-title">crypto trend</p>
-            <p class="p-top__left-sub">twitterを利用した、仮想通貨の話題性を分析するツールです。</p>
+    <div class="p-home">
+        <div class="p-home__upper">
+            <div class="p-home__upper-left">
+                <p class="p-home__upper-left-title">crypto trend</p>
+                <p class="p-home__upper-left-sub">twitterを利用した、仮想通貨の話題性を分析するツールです。</p>
+            </div>
+            <div class="p-home__upper-right">
+                {{-- <img src="{{ asset('img/bitcoin.png') }}" alt=""> --}}
+                {{-- <img src="{{ asset('img/top.png') }}" alt=""> --}}
+            </div>
         </div>
-        <div class="p-top__right">
-            {{-- <img src="{{ asset('img/bitcoin.png') }}" alt=""> --}}
-            {{-- <img src="{{ asset('img/top.png') }}" alt=""> --}}
+        {{-- 機能紹介 --}}
+        <div class="p-home__bottom">
+            <div class="p-home__bottom-contents">
+                <p class="p-home__bottom-contents-heading">機能紹介</p>
+
+
+                <div class="c-introduction">
+                    <p class="c-introduction__function">機能１:仮想通貨トレンドランキング</p>
+                    <p class="c-introduction__content">&check;銘柄ごとにツイート数を集計し、各銘柄の話題性を教えてくれます。</p>
+                </div>
+                <div class="c-introduction">
+                    <p class="c-introduction__function">機能２:仮想通貨アカウント表示機能</p>
+                    <p class="c-introduction__content">
+                        &check;twitterアカウントをサービスに連携することで、サービス内から仮想通貨関連アカウントのフォローが可能です。
+                    </p>
+                    <p class="c-introduction__content">
+                        &check;仮想通貨アカウントのフォローを自動で行うことができます。
+                    </p>
+                </div>
+                <div class="c-introduction">
+                    <p class="c-introduction__function">機能３:仮想通貨関連ニュース表示機能</p>
+                    <p class="c-introduction__content">&check;Google newsの仮想通貨に関するニュースをチェックできます。</p>
+                </div>
+
+            </div>
+
+
+
         </div>
+
     </div>
 
 </main>
 
 @endsection
-
-{{-- <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-<title>Example</title>
-<link rel="stylesheet" href="{{ mix('css/app.css') }}">
-</head>
-
-<body>
-
-    <div id="app">
-        <example-component></example-component>
-    </div>
-
-
-    <script src="{{ mix('js/app.js') }}"></script>
-</body>
-
-</html> --}}

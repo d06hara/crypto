@@ -3,11 +3,14 @@
 // ===============================
 
 .l-main {
-  width:980px;
+  // width:980px;
+  box-sizing: border-box;
+  width: 100%;
   margin:0 auto;
   padding-top: $space_3l;
-  padding-left: $space_xl;
-  padding-right: $space_xl;
+  // padding-left: $space_xl;
+  // padding-right: $space_xl;
+  padding-bottom: $space_3l;
   background-color: $white;
 
   @include mq(lg) {
