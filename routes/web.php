@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/passedit', function () {
         return view('passedit');
     });
+    Route::post('/passedit/change', 'MypageController@changePass')->name('changepass');
     Route::get('/withdraw', function () {
         return view('withdraw');
     });
