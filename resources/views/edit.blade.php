@@ -30,7 +30,7 @@
 
           {{-- email --}}
           <div class="p-login__form-item">
-            <p><label for="email">E-mail address</label></p>
+            <p><label for="email">E-mail</label></p>
             <input type="email" id="email" class="use_icon @error('email') is-invalid @enderror" name="email"
               value="{{ $user->email }}" required autocomplete="email" autofocus placeholder="&#xf0e0;"></<input>
             @error('email')

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+use App\Http\Requests\ValidateEditRequest;
+
 class MyPageController extends Controller
 {
     public function show()
@@ -18,7 +20,7 @@ class MyPageController extends Controller
         $user = auth()->user();
         return view('/edit', compact('user'));
     }
-    public function update(Request $request, $id)
+    public function update(ValidateEditRequest $request, $id)
     {
 
         $auth = User::find($id);
