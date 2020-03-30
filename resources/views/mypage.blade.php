@@ -8,15 +8,20 @@
 
   <div class="p-mypage">
 
-    <div class="c-profile">
-      <div class="c-profile__name">
-        name:{{ $user->name }}
-      </div>
-      <div class="c-profile__email">
-        email:{{ $user->email}}
+    <div class="p-mypage__profile">
+      <div class="c-profile">
+        <div class="c-profile__name">
+          name:{{ $user->name }}
+        </div>
+        <div class="c-profile__email">
+          email:{{ $user->email}}
 
+        </div>
       </div>
+
     </div>
+
+
   </div>
 
 

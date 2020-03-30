@@ -850,11 +850,10 @@ input[type=text]:focus {
 }
 
 .c-profile {
-  width: 50%;
   border: 2px solid #888;
   border-radius: 10px;
   padding: 30px;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .c-profile__name {
@@ -1215,6 +1214,15 @@ input[type=text]:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.p-mypage {
+  margin-top: 100px;
+}
+
+.p-mypage__profile {
+  width: 60%;
+  margin: 0 auto;
 }
 
 .p-mypage__menu {

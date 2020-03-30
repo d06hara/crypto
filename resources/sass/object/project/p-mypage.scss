@@ -3,6 +3,12 @@
 // ===============================
 
 .p-mypage {
+  margin-top: 100px;
+
+  &__profile {
+    width: 60%;
+    margin:0 auto;
+  }
 
 
   &__menu {
