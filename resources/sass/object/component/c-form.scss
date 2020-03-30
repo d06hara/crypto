@@ -1,0 +1,113 @@
+// ===============================
+// component : form
+// ===============================
+
+.c-form {
+  box-shadow: 0 0 5px 1px #c0c0c0;
+  border-radius: 20px;
+  max-width: 980px;
+  width:40%;
+  margin:0 auto;
+  font-size: $font-size_m;
+
+  @include mq(lg){
+    width: 80%;
+    font-size: $font-size_s;
+  }
+
+  &__container {
+    margin-top: $space_3l;
+  }
+
+  &__title {
+    background: $sub-color;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    font-size: $font-size_xl;
+    font-weight: bold;
+    padding: 20px 26px;
+    @include mq(){
+      font-size: $font-size_l;
+    }
+    &-accent {
+      margin-right: $space_m;
+    }
+  }
+
+  &__twitter {
+    margin: 0 $space_xl;
+    padding: $space_xl 0;
+    border-bottom: 1px solid #d0cece;
+    
+    &-btn {
+      color: #FFF;
+      border-radius: 7px;
+      display: inline-block;
+      text-align: center;
+      background: #1da1f3;
+      overflow: hidden;
+      padding: $space_m;
+      @include mq(){
+        font-size: $font-size_s;
+      }
+      .fab-twitter {
+        text-shadow: 2px 2px 0px #4287d6;
+        font-size: 30px;
+      }
+      span {
+        display: inline-block;
+      }
+    }
+  }
+  &__contents {
+
+    &-fieldset{
+      border-radius: 0 0 20px 20px;
+      padding: $space_xl;
+    }
+    p {
+      color: #777;
+    }
+
+    &-item {
+      margin-bottom: $space_s;
+
+      input {
+        width: 100%;
+        border: 2px solid #aaa;
+        border-radius: 4px;
+        margin: 8px 0;
+        outline: none;
+        padding: 8px;
+        box-sizing: border-box;
+        transition: 0.3s;
+
+        &:focus {
+          border-color: dodgerBlue;
+          box-shadow: 0 0 8px 0 dodgerBlue;
+        } 
+      }
+      strong {
+        color: red;
+      }
+
+    }
+    
+    button {
+      background: $accent-color;
+      font-size: $font-size_m;
+      font-weight: bold;
+      border-radius: 4px;
+      color: #fff;
+      display: block;
+      margin: 0 auto;
+      padding: $space_s $space_m;
+      &:hover {
+        background-color: rgba($accent-color, 0.7);
+        cursor: pointer;
+      }
+    }
+  }
+
+
+}
