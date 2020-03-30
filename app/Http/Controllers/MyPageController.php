@@ -12,17 +12,22 @@ use App\Http\Requests\ValidChangePassRequest;
 
 class MyPageController extends Controller
 {
+    // mypage表示
     public function show()
     {
         $user = auth()->user();
         // dd($user);
         return view('/mypage', compact('user'));
     }
+
+    // プロフィール編集画面表示
     public function edit()
     {
         $user = auth()->user();
         return view('/edit', compact('user'));
     }
+
+    // プロフィール編集処理
     public function update(ValidateEditRequest $request, $id)
     {
 
@@ -37,6 +42,7 @@ class MyPageController extends Controller
         return redirect('/mypage')->with('flash_message', 'プロフィールを変更しました!');
     }
 
+    // パスワード変更処理
     public function changePass(ValidChangePassRequest $request)
     {
 
@@ -51,5 +57,19 @@ class MyPageController extends Controller
         $user->save();
 
         return redirect('/mypage')->with('flash_message', 'パスワードを変更しました。');
+    }
+
+    // 退会画面表示
+    public function withdraw()
+    {
+        $user = auth()->user();
+        return view('/withdraw', compact('user'));
+    }
+
+    // 退会処理
+    public function delete($id)
+    {
+        User::find($id)->delete();
+        return redirect('/login')->with('flaeh_message', '退会が完了しました。');
     }
 }

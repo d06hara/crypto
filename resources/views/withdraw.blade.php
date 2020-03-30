@@ -10,12 +10,13 @@
 
 
       {{-- withdraw form --}}
-      <form action="#" method="POST" class="p-passremind__form">
-
+      <form action="{{ route('delete', $user->id)}}" method="POST" class="p-passremind__form">
+        @csrf
         <fieldset class="p-passremind__form-fieldset">
 
           <p><input type="submit" value="退会する"></<input>
           </p>
+
 
         </fieldset>
 

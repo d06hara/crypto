@@ -35,7 +35,7 @@ class RegisterController extends Controller
     // protected $redirectTo = '/ranking';
     protected function redirectTo()
     {
-        session()->flash('flash_message', 'ユーザー登録に成功しました！');
+        session()->flash('flash_message', 'ユーザー登録が完了しました！');
         return '/ranking';
     }
 

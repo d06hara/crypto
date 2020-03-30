@@ -53,9 +53,8 @@ Route::group(['middleware' => 'auth'], function () {
     // パスワード編集機能
     Route::post('/passedit/change', 'MypageController@changePass')->name('changepass');
 
-    Route::get('/withdraw', function () {
-        return view('withdraw');
-    });
+    Route::get('/withdraw', 'MypageController@withdraw');
+    Route::post('/delete/{id}/', 'MypageController@delete')->name('delete');
     // Route::get('api/mypage', 'MypageController@show');
 
 
@@ -92,9 +91,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('api/news', 'NewsController@get_news');
     // Route::get('/news', 'NewsController@get_news')->name('news');
 
-    Route::get('/withdraw', function () {
-        return view(('withdraw'));
-    });
     Route::get('/twitter', 'AuthController@twitter');
     Route::get('/twitter/callback', 'AuthController@twitterCallback');
     // Route::get('/twitter', 'Auth\LoginController@redirectToProvider');
