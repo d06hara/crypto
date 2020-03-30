@@ -4,7 +4,7 @@
 
 @section('content')
 <main>
-  <p class="l-main__title">銘柄ランキング</p>
+  <p class="l-main__title">仮想通貨話題性ランキング</p>
   <bland-panel></bland-panel>
 </main>
 

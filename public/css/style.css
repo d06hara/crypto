@@ -271,6 +271,7 @@ input {
 
 .l-main__title {
   font-size: 24px;
+  margin: 0 15px;
   padding-bottom: 15px;
   border-bottom: 2px solid #1B435D;
 }
@@ -998,11 +999,12 @@ input[type=text]:focus {
   border-collapse: separate;
   border-spacing: 0 10px;
   table-layout: fixed;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 768px) {
   .c-table {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
@@ -1485,6 +1487,9 @@ input[type=text]:focus {
 .p-ranking {
   width: 100%;
   padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
 }
 
 .p-ranking__content {
@@ -1559,13 +1564,14 @@ input[type=text]:focus {
   }
 }
 
-.p-ranking__brand {
-  color: #ffffff;
-  background-color: #F99F48;
-  width: 80%;
-  border: 1px solid;
-  margin-bottom: 10px;
-  padding: 10px;
+@media screen and (max-width: 414px) {
+  .p-ranking__content-information {
+    font-size: 10px;
+  }
+}
+
+.p-register {
+  margin-top: 40px;
 }
 
 .message {

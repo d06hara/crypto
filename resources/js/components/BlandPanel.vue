@@ -1,21 +1,5 @@
 <template>
   <div class="p-ranking">
-    <!-- <div class="p-ranking__checkbox">
- 
-      <div class="p-ranking__checkbox-content">
-        <p>銘柄チェックボックス</p>
-        <p>TODO スクロールさせる</p>
-        <ul>
-          <li v-for="(check, index) in check_lists" :key="index">
-            <label v-bind:for="check">
-              <input type="checkbox" v-bind:value="check" v-model="preview" />
-              {{ check }}
-            </label>
-          </li>
-        </ul>
-      </div>
-    </div>-->
-
     <div class="p-ranking__content">
       <!-- ツイート数sort -->
       <div class="p-ranking__content-sort">

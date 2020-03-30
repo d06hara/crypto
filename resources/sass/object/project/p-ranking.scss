@@ -5,25 +5,9 @@
 .p-ranking {
   width: 100%;
   padding-top: $space_xl;
-  // &__checkbox { 
-  //   width: 30%;
-
-  //   &-content{
-  //     box-sizing: border-box;
-  //     background-color: $main-color;
-  //     box-shadow: 0 0 5px 1px #c0c0c0;
-  //     padding: $space_m;
-  //     border-radius: 10px;
-  //     width: 80%;
-  //     margin: 0 auto;
-  //     label{
-  //       display:block;
-  //       input[type=checkbox]{
-  //         margin-right:$space_m;
-  //       }
-  //     }
-  //   }
-  // }
+  padding-right: $space_l;
+  padding-left: $space_l;
+  box-sizing: border-box;
 
   &__content {
     box-sizing: border-box;
@@ -91,6 +75,9 @@
       @include mq(){
         font-size: $font_size_s;
       }
+      @include mq(sm){
+        font-size: 10px;
+      }
     }
     
     &-table { 
@@ -99,17 +86,17 @@
 
   }
 
-  &__brand {
-      color: $white;
-      background-color: $accent-color;
-      width: 80%;
-      border: 1px solid;
-      margin-bottom: $space_m;
-      padding: $space_m;
+  // &__brand {
+  //     color: $white;
+  //     background-color: $accent-color;
+  //     width: 80%;
+  //     border: 1px solid;
+  //     margin-bottom: $space_m;
+  //     padding: $space_m;
 
 
-    &-content{
+  //   &-content{
       
-    }
-  }
+  //   }
+  // }
 }

@@ -8,9 +8,10 @@
   border-collapse: separate;
   border-spacing: 0 $space_m;
   table-layout: fixed;
+  font-size: $font_size_m;
 
   @include mq(){
-    font-size: $font_size_m;
+    font-size: $font_size_s;
   }
   &__thead {
     background-color: $accent-color;
