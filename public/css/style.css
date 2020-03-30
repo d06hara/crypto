@@ -946,6 +946,25 @@ input[type=text]:focus {
   display: inline-block;
 }
 
+.p-accountauth {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.p-accountauth__text {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-accountauth__text {
+    font-size: 14px;
+  }
+}
+
+.p-accountauth__btn {
+  margin-top: 15px;
+}
+
 .p-form__container {
   width: 980px;
   margin: 0 auto;
@@ -1437,5 +1456,27 @@ input[type=text]:focus {
 
 .message.error {
   color: red;
+}
+
+.u-twitterbtn {
+  color: #FFF;
+  border-radius: 7px;
+  display: inline-block;
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+  background: #1da1f3;
+  overflow: hidden;
+  /*はみ出た部分を隠す*/
+}
+
+@media screen and (max-width: 768px) {
+  .u-twitterbtn {
+    font-size: 14px;
+  }
+}
+
+.u-twitterbtn span {
+  margin-left: 10px;
 }
 
