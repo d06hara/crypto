@@ -40,19 +40,19 @@ Route::get('/', function () {
 // ログイン認証を必要にする
 Route::group(['middleware' => 'auth'], function () {
 
-    // Route::get('/mypage', function () {
-    //     return view('mypage');
-    // });
+    // マイページ表示
     Route::get('/mypage', 'MypageController@show');
+    // プロフィール編集画面表示
     Route::get('/edit', 'MypageController@edit');
+    // プロフィール編集機能
     Route::post('/updata/{id}/', 'MypageController@update')->name('update');
-    // Route::get('/edit', function () {
-    //     return view('edit');
-    // });
+    // パスワード編集画面表示
     Route::get('/passedit', function () {
         return view('passedit');
     });
+    // パスワード編集機能
     Route::post('/passedit/change', 'MypageController@changePass')->name('changepass');
+
     Route::get('/withdraw', function () {
         return view('withdraw');
     });

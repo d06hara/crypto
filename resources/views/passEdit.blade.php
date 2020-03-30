@@ -9,19 +9,12 @@
   {{-- form --}}
   <div class="p-login__container">
     <div class="p-login">
-      <p class="p-login__title">パスワード画面</p>
+      <p class="p-login__title">パスワード変更画面</p>
       {{-- login form --}}
       <form action="{{ route('changepass') }}" method="POST" class="p-login__form">
         @csrf
 
         <fieldset class="p-login__form-fieldset">
-          {{-- @if(count($errors) > 0)
-          <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-          </ul>
-          @endif --}}
 
           {{-- password --}}
           <div class="p-login__form-item">
