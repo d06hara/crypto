@@ -84,34 +84,26 @@
 @endsection --}}
 @extends('layouts.layout')
 
-@section('title', 'login')
+@section('title', 'ログイン')
 
 @section('content')
 
 <main>
     {{-- login --}}
     <div class="p-login__container">
-        <div id="login" class="p-login">
+        <div class="c-form">
 
-            <p class="p-login__title"><span class="p-login__title-accent"></span>ログイン</p>
-            {{-- twitter login --}}
-            {{-- <div class="p-login__twitter">
-                <a href="/login/twitter" class="p-login__twitter-btn">
-                    <i class="fab fa-twitter"></i> <span>twitterアカウントでログインする方はこちら</span>
-                </a>
-            </div>
-            @if (session('oauth_error'))
-            {{ session('oauth_error') }}
-            @endif --}}
+            <p class="c-form__title"><span class="c-form__title-accent"></span>ログイン</p>
+
 
             {{-- login form --}}
-            <form action="{{ route('login') }}" method="POST" class="p-login__form">
+            <form action="{{ route('login') }}" method="POST" class="c-form__contents">
                 @csrf
 
-                <fieldset class="p-login__form-fieldset">
+                <fieldset class="c-form__contents-fieldset">
 
                     {{-- email --}}
-                    <div class="p-login__form-item">
+                    <div class="c-form__contents-item">
                         <p><label for="email">E-mail address</label></p>
                         <input type="email" id="email" class="use_icon @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
@@ -124,7 +116,7 @@
                     </div>
 
                     {{-- password --}}
-                    <div class="p-login__form-item">
+                    <div class="c-form__contents-item">
                         <p><label for="password">password</label></p>
                         <input type="password" id="password" class="use_icon @error('password') is-invalid @enderror"
                             name="password" required autocomplete="password" autofocus placeholder="&#xf084;">
