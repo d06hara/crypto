@@ -1,0 +1,12 @@
+// ===============================
+// utility:message
+// ===============================
+
+.message {
+  font-size: $font-size_m;
+  font-weight: bold;
+
+  &.error{
+    color: red;
+  }
+}

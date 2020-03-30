@@ -1430,3 +1430,12 @@ input[type=text]:focus {
   padding: 10px;
 }
 
+.message {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.message.error {
+  color: red;
+}
+

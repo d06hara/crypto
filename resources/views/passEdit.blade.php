@@ -15,13 +15,13 @@
         @csrf
 
         <fieldset class="p-login__form-fieldset">
-          @if(count($errors) > 0)
+          {{-- @if(count($errors) > 0)
           <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
-            @endforeach
+          @endforeach
           </ul>
-          @endif
+          @endif --}}
 
           {{-- password --}}
           <div class="p-login__form-item">
@@ -29,11 +29,17 @@
             <input type="password" id="password" class="use_icon @error('old_password') is-invalid @enderror"
               name="old_password" required autocomplete="password" autofocus placeholder="&#xf084;">
             </<input>
-            {{-- @error('old_password')
+            @error('old_password')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
             </span>
-            @enderror --}}
+            @enderror
+            {{-- パスワードが正しいかどうかのエラーメッセージは以下で表示 --}}
+            @if (session('error'))
+            <p class="message error">
+              {{ session('error') }}
+            </p>
+            @endif
           </div>
 
           {{-- password --}}
@@ -42,11 +48,11 @@
             <input type="password" id="password" class="use_icon @error('password') is-invalid @enderror"
               name="password" required autocomplete="password" autofocus placeholder="&#xf084; 8文字以上で入力してください">
             </<input>
-            {{-- @error('password')
+            @error('password')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
             </span>
-            @enderror --}}
+            @enderror
           </div>
 
           {{-- password-re --}}

@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 class ValidChangePassRequest extends FormRequest
 {
     /**
@@ -24,7 +27,7 @@ class ValidChangePassRequest extends FormRequest
     public function rules()
     {
         return [
-            'old_password' => 'required|unique:users,password',
+            'old_password' => 'required',
             'password' => 'required|min:8|different:old_password|confirmed',
         ];
     }
@@ -33,10 +36,9 @@ class ValidChangePassRequest extends FormRequest
     {
         return [
             'old_password.required' => '入力必須です',
-            'old_password.unique:users.passwsord' => '現在のパスワードが違います',
             'password.required' => '入力必須です',
             'password.min:8' => '8文字以上で入力してください',
-            'password.different:old_password' => '現在のパスワードと違うパスワードにしてください',
+            'password.different' => '現在のパスワードと違うパスワードにしてください',
             'password.confirmed' => '新しいパスワードと同じパスワードを入力してください'
         ];
     }

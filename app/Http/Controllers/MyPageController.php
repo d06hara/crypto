@@ -40,25 +40,14 @@ class MyPageController extends Controller
     public function changePass(ValidChangePassRequest $request)
     {
 
-        //パスワードのバリデーション。新しいパスワードは8文字以上、new-password_confirmationフィールドの値と一致しているかどうか。
-        // $validated_data = $request->validate([
-        //     'old_password' => 'required',
-        //     'password' => 'required|string|min:8|confirmed',
-        // ]);
-
-        //現在のパスワードが正しいかを調べる
+        //現在のパスワードが正しいかを調べる(これだけ別でチェック)
         if (!(Hash::check($request->get('old_password'), Auth::user()->password))) {
-            return redirect()->back()->withErrors('現在のパスワードが間違っています');
-        }
-
-        //現在のパスワードと新しいパスワードが違っているかを調べる
-        if (strcmp($request->get('old_password'), $request->get('password')) == 0) {
-            return redirect()->back();
+            return redirect()->back()->with('error', '現在のパスワードが間違っています');
         }
 
         //パスワードを変更
         $user = Auth::user();
-        $user->password = bcrypt($request->get('new-password'));
+        $user->password = bcrypt($request->get('password'));
         $user->save();
 
         return redirect('/mypage')->with('flash_message', 'パスワードを変更しました。');
