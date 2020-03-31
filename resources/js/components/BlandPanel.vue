@@ -1,7 +1,7 @@
 <template>
   <div class="p-ranking">
     <div class="p-ranking__content">
-      <!-- ツイート数sort -->
+      <!-- ソートタブ -->
       <div class="p-ranking__content-sort">
         <ul>
           <li>
@@ -25,7 +25,7 @@
         </ul>
       </div>
 
-      <!-- 銘柄filter-->
+      <!-- フィルターボックス-->
       <div class="p-ranking__content-filter">
         <select v-model="preview" multiple class="c-filter">
           <option class="c-filter__option" disabled>--銘柄の絞り込みが可能です--</option>
@@ -38,14 +38,12 @@
         </select>
       </div>
 
-      <!-- ランキング何時部分 -->
+      <!-- 時間情報 -->
       <div class="p-ranking__content-information">
         <p>
           <span>{{ time }}</span> 時点のランキング
         </p>
       </div>
-
-      <!-- テスト -->
 
       <!-- ランキングテーブル -->
       <div class="p-ranking__content-table">
@@ -89,8 +87,9 @@ export default {
   data() {
     return {
       selected: null,
-      options: ["list", "of", "options"],
+      // options: ["list", "of", "options"],
       check_lists: [
+        //絞り込み機能用に銘柄を格納
         "ビットコイン",
         "イーサリアム",
         "イーサリアムクラシック",
@@ -104,20 +103,20 @@ export default {
         "ステラルーメン",
         "クアンタム"
       ],
-      preview: [], //チェックした銘柄を格納する
+      preview: [], //絞り込んだ銘柄を格納するため空配列
       blands: [],
-      time: {},
-      sortItems: [
-        { name: "過去1時間" },
-        { name: "過去1日" },
-        { name: "過去1週間" }
-      ],
+      time: {}, //DB最終更新時間を入れる
+      // sortItems: [
+      //   { name: "過去1時間" },
+      //   { name: "過去1日" },
+      //   { name: "過去1週間" }
+      // ],
       sortKey: "",
-      activetab: 1,
-      test: {
-        key: "", //ソートキー
-        mode: false
-      }
+      activetab: 1
+      // test: {
+      //   key: "", //ソートキー
+      //   mode: false
+      // }
     };
   },
   // created: function() {
@@ -130,46 +129,51 @@ export default {
       // .then(response => (this.time = response.data[0]))
       // .then(response => (this.blands = response.data[1]))
       .then(response => {
+        // 時間を取得
         this.time = response.data[0];
+        //  銘柄データを取得
         this.blands = response.data[1];
       })
       .catch(response => console.log(response));
+    // 初期画面では1時間ごとのランキングになるようにする
     this.sortBy("hour");
   },
   computed: {
     // checkboxを使用した銘柄filter
     selectedBlands: function() {
-      var data = this.blands;
+      // var data = this.blands;
 
       // var sortKey = this.sortKey;
 
       // sortkeyの有無で処理を分ける
       // sortKeyがある場合⇨sortボタンが押された場合
       if (this.sortKey) {
-        // switchで条件分岐
+        // -----------------
+        // sort処理
+        // -----------------
         switch (this.sortKey) {
           case "hour":
+            console.log("１時間で並び替え");
             this.activetab = 1;
             this.blands.sort(function(a, b) {
-              console.log("１時間で並び替え");
               if (a.hour_tweets_count > b.hour_tweets_count) return -1;
               if (a.hour_tweets_count < b.hour_tweets_count) return 1;
               return 0;
             });
             break;
           case "day":
+            console.log("１日で並び替え");
             this.activetab = 2;
             this.blands.sort(function(a, b) {
-              console.log("１日で並び替え");
               if (a.day_tweets_count > b.day_tweets_count) return -1;
               if (a.day_tweets_count < b.day_tweets_count) return 1;
               return 0;
             });
             break;
           case "week":
+            console.log("１週間で並び替え");
             this.activetab = 3;
             this.blands.sort(function(a, b) {
-              console.log("１週間で並び替え");
               if (a.week_tweets_count > b.week_tweets_count) return -1;
               if (a.week_tweets_count < b.week_tweets_count) return 1;
               return 0;
@@ -187,12 +191,11 @@ export default {
         }, this);
       }
       // sortKeyがない場合=初期表示では1時間のツイート数順に並べる
+      console.log("初期表示です、１時間で並べます");
       this.sortKey = "hour";
-      console.log("テスト");
-      // return this.blands;
 
+      console.log("１時間で並び替え");
       this.blands.sort(function(a, b) {
-        console.log("１時間で並び替え");
         if (a.hour_tweets_count > b.hour_tweets_count) return -1;
         if (a.hour_tweets_count < b.hour_tweets_count) return 1;
         return 0;
@@ -208,39 +211,11 @@ export default {
       }, this);
     }
   },
+  // ソート機能発火
   methods: {
     sortBy: function(key) {
       this.sortKey = key;
     }
-    // sort: function(action_type) {
-    //   switch (action_type) {
-    //     case "hour":
-    //       this.blands.sort(function(a, b) {
-    //         console.log("１時間で並び替え");
-    //         if (a.hour_tweets_count > b.hour_tweets_count) return -1;
-    //         if (a.hour_tweets_count < b.hour_tweets_count) return 1;
-    //         return 0;
-    //       });
-    //       break;
-    //     case "day":
-    //       this.blands.sort(function(a, b) {
-    //         console.log("１日で並び替え");
-    //         if (a.day_tweets_count > b.day_tweets_count) return -1;
-    //         if (a.day_tweets_count < b.day_tweets_count) return 1;
-    //         return 0;
-    //       });
-    //       break;
-    //     case "week":
-    //       this.blands.sort(function(a, b) {
-    //         console.log("１週間で並び替え");
-    //         if (a.week_tweets_count > b.week_tweets_count) return -1;
-    //         if (a.week_tweets_count < b.week_tweets_count) return 1;
-    //         return 0;
-    //       });
-    //       break;
-    //     default:
-    //   }
-    // }
   }
 
   // methods: {

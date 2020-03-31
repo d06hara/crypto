@@ -40,6 +40,13 @@ Route::get('/', function () {
 // ログイン認証を必要にする
 Route::group(['middleware' => 'auth'], function () {
 
+    // ランキング画面表示
+    Route::get('/ranking', function () {
+        return view('ranking');
+    })->name('ranking');
+    // ランキング機能
+    Route::get('/api/ranking', 'RankingController@getTweetCount');
+
     // マイページ表示
     Route::get('/mypage', 'MypageController@show');
     // プロフィール編集画面表示
@@ -77,12 +84,6 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::middleware(['cors'])->group(function () {
     //     Route::post('/account/follow', 'TwittersController@accountFollow');
     // });
-
-    Route::get('/ranking', function () {
-        return view('ranking');
-    })->name('ranking');
-    // ranking画面
-    Route::get('/api/ranking', 'RankingController@getTweetCount');
 
     // news画面
     Route::get('/news', function () {

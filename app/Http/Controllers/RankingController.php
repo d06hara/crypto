@@ -12,19 +12,17 @@ class RankingController extends Controller
     // DBからツイート件数を取得⇨ランキング画面表示
     public function getTweetCount()
     {
-        // DBの更新日時を取得
+        // Tweetテーブルの最終更新日時を取得
         $recent_time = Tweet::max('created_at');
-        // dd($recent_time);
-        // １時間前の時間を取得
+        // 画面読み込み時から１時間前の時間を取得
         $before_one_hour = Carbon::now()->subHour(1);
-        // dd($before_one_hour);
-        // 1日前の時間を取得
+        //  画面読み込み時から1日前の時間を取得
         $before_one_day = Carbon::now()->subDay(1);
-        // dd($before_one_day);
-
-        // １週間前の時間を取得
+        // 画面読み込み時から１週間前の時間を取得
         $before_one_week = Carbon::now()->subWeek(1);
-        // ツイートの件数が多い順に銘柄モデルを取得
+
+
+        // 各銘柄それぞれの時間内でのツイート数を取得
         $blands = Bland::withCount([
             'tweets as hour_tweets_count' => function ($q) use ($before_one_hour) {
                 $q->where('tweet_created_at', '>', $before_one_hour);
@@ -36,20 +34,20 @@ class RankingController extends Controller
                 $q->where('tweet_created_at', '>', $before_one_week);
             },
         ])->get();
-        // $blands = Bland::withCount('tweets')->orderBy('tweets_count', 'desc')->get();
-        // dd($blands);
+
         // 空の配列を用意
         $data = [];
 
-        // coincheck処理
+        // coincheck api 処理
         $strUrl = "https://coincheck.com/api/ticker";
         $file = file_get_contents($strUrl);
         $file = mb_convert_encoding($file, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 
         $coin_info = json_decode($file, true);
 
-        // ビットコインのデータのみcoincheckから取得したデータを入れる
+
         foreach ($blands as $bland) {
+            // ビットコインのデータのみcoincheckから取得したデータを入れる
             if ($bland->bland_name === 'ビットコイン') {
                 $data[] = [
                     'id' => $bland->id,
@@ -63,6 +61,7 @@ class RankingController extends Controller
                     'display' => true,
                 ];
             } else {
+                // それ以外は不明とする
                 $data[] = [
                     'id' => $bland->id,
                     'name' => $bland->bland_name,
@@ -76,17 +75,7 @@ class RankingController extends Controller
                 ];
             }
         }
-        // dd($data);
-
-        // dd($coin_info);
-
-        // 連想配列としてviewに渡す
-        // return view('ranking', [
-        //     "data" => $data,
-        //     "coin_info" => $coin_info
-        // ]);
-
-        // dd($data);
+        // DB最終更新時間と銘柄データをvueへ渡す
         return [$recent_time, $data];
     }
 }
