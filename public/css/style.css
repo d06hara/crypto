@@ -1410,6 +1410,10 @@ input[type=text]:focus {
 
 .p-news {
   width: 100%;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
 }
 
 .p-news__cards {

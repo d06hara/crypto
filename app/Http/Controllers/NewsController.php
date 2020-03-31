@@ -26,33 +26,14 @@ class NewsController extends Controller
         $query = urlencode(mb_convert_encoding($keyword, "UTF-8", "auto"));
 
         //---- キーワード検索したいときのベースURL 
-        // $API_BASE_URL = "https://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=atom&q=";
         // $API_BASE_URL = "https://news.google.com/search?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=atom&q=";
         $api_url = "https://news.google.com/rss/search?q=" . $query . "&hl=ja&gl=JP&ceid=JP:ja";
-        // dd($api_url);
 
-
-
-        // dd($query);
-
-        //---- APIへのリクエストURL生成
-        // $api_url = $API_BASE_URL . $query;
-
-        // dd($api_url);
 
         //---- APIにアクセス、結果をsimplexmlに格納
         $contents = file_get_contents($api_url);
 
         $xml = simplexml_load_string($contents);
-        // // $xml = simplexml_load_string($contents, 'SimpleXMLElement', LIBXML_NOCDATA);
-
-        // // print_r($xml);
-        // dd($xml);
-        // // $json = json_encode($xml);
-        // // dd($json);
-        // // print_r($json);
-        // // $array = json_decode($json, true);
-        // // dd($array);
 
         //記事エントリを取り出す
         $items = $xml->channel->item;
@@ -70,10 +51,9 @@ class NewsController extends Controller
             $list[$i]['pubDate'] =  date('Y/m/d H:i', strtotime($items[$i]->pubDate));
             // 記事ソース
             $list[$i]['source'] = (string) $items[$i]->source;
-            // $url_split =  explode("=", (string) $items[$i]->link->attributes()->href);
-            // $list[$i]['url'] = end($url_split);
         }
 
+        // ページネーション化
         $news = new LengthAwarePaginator($list, count($list), 10, 1);
         // dd($news);
 
@@ -103,13 +83,13 @@ class NewsController extends Controller
 
 
         //$max_num以上の記事数の場合は切り捨て
-        if (count($list) > $max_num) {
-            for ($i = 0; $i < $max_num; $i++) {
-                $list_gn[$i] = $list[$i];
-            }
-        } else {
-            $list_gn = $list;
-        }
+        // if (count($list) > $max_num) {
+        //     for ($i = 0; $i < $max_num; $i++) {
+        //         $list_gn[$i] = $list[$i];
+        //     }
+        // } else {
+        //     $list_gn = $list;
+        // }
         // dd($list_gn);
 
 

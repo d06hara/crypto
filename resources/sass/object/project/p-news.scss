@@ -4,6 +4,10 @@
 
 .p-news{
   width: 100%;
+  padding-top: $space_xl;
+  padding-right: $space_l;
+  padding-left: $space_l;
+  box-sizing: border-box;
 
   &__cards {
     margin-top: $space_l;

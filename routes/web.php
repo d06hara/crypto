@@ -47,6 +47,17 @@ Route::group(['middleware' => 'auth'], function () {
     // ランキング機能
     Route::get('/api/ranking', 'RankingController@getTweetCount');
 
+
+
+
+
+    // news画面表示
+    Route::get('/news', function () {
+        return view('news');
+    });
+    // news取得api
+    Route::get('api/news', 'NewsController@get_news');
+
     // マイページ表示
     Route::get('/mypage', 'MypageController@show');
     // プロフィール編集画面表示
@@ -85,12 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
     //     Route::post('/account/follow', 'TwittersController@accountFollow');
     // });
 
-    // news画面
-    Route::get('/news', function () {
-        return view('news');
-    });
-    Route::get('api/news', 'NewsController@get_news');
-    // Route::get('/news', 'NewsController@get_news')->name('news');
+
 
     Route::get('/twitter', 'AuthController@twitter');
     Route::get('/twitter/callback', 'AuthController@twitterCallback');
