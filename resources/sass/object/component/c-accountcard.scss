@@ -45,6 +45,13 @@
       border: solid 1px #007bff;
       border-radius: 10px;
       padding: $space_s $space_m;
+      cursor: pointer;
+      // span:after {
+      //   content:'フォロー ＋';
+      //   &.active:after {
+      //     content: 'フォロー中';
+      //   }
+      // }
 
       &:hover {
         background-color: #007bff;

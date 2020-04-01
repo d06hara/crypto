@@ -51,7 +51,10 @@
             <span>@{{ account.screen_name }}</span>
           </p>
           <div class="c-accountcard__btn">
-            <button v-on:click="follow(account)" v-bind:class="{ active: account.users }">フォロー</button>
+            <button
+              v-on:click="followUnfollow(account)"
+              v-bind:class="{ active: account.users }"
+            >フォロー</button>
           </div>
           <ul class="c-accountcard__data">
             <li>
@@ -326,42 +329,48 @@ export default {
           $state.complete();
         });
     },
-    // フォロー機能(アンフォロー)
-    follow: function(account) {
-      // 既にフォローしている場合
+    // フォロー.アンフォロー機能
+    followUnfollow: function(account) {
+      // account.users === true  既にフォロー済み
+      // account.users === false 未フォロー
+
       if (account.users === true) {
+        // --------------------------
+        // 既にフォローしている場合
+        // アンフォロー処理
+        // --------------------------
         console.log(account.twitter_id + "をアンフォローします");
-        // 以下アンフォロー処理
 
         // ボタンを未フォロー状態に反転
         account.users = !account.users;
 
         // post処理
+        // アカウントのDB内idとtwitter_id,screen_nameをサーバーに渡す
         axios
           .post("/account/unfollow", {
             account_id: account.id,
             twitter_id: account.twitter_id,
             screen_name: account.screen_name
           })
-
           .catch(error => console.log(error));
       } else {
-        // まだフォローしていない場合
+        // --------------------------
+        // 未フォローの場合
+        // フォロー処理
+        // --------------------------
         console.log(account.twitter_id + "をフォローします");
-        // 以下フォロー処理
 
-        // ボタンをフォロー状態に反転
+        // ボタンをフォロー済み状態に反転
         account.users = !account.users;
 
         // pose処理
+        // アカウントのDB内idとtwitter_id,screen_nameをサーバーに渡す
         axios
           .post("/account/follow", {
-            // DB登録に必要なaccount_idとapiに必要なtwitter_idを取得
             account_id: account.id,
             twitter_id: account.twitter_id,
             screen_name: account.screen_name
           })
-
           .catch(error => console.log(error));
       }
     },
