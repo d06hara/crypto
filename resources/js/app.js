@@ -5,8 +5,8 @@ import './bootstrap'
 // window.Vue = require('vue');
 import Vue from 'vue';
 
-// import InfiniteLoading from 'vue-infinite-loading';
-// Vue.use(InfiniteLoading)
+import InfiniteLoading from 'vue-infinite-loading';
+Vue.use(InfiniteLoading)
 // import infinite from './infinite'
 // import Multiselect from 'vue-multiselect';
 // Vue.component('multiselect', Multiselect);

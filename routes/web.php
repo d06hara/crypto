@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     // news取得api
     Route::get('api/news', 'NewsController@get_news');
+    // Route::get('api/news/{page}/', 'NewsController@get_news');
 
     // マイページ表示
     Route::get('/mypage', 'MypageController@show');
