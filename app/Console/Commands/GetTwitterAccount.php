@@ -54,7 +54,7 @@ class GetTwitterAccount extends Command
         // ---------------------------
 
 
-        // count20のときpageは1~51まで
+        // count20のときpageは1~51までしか選択できない
         // users/searchのレートリミットは900/15min
         // 5分で100アカウント取得(5ページ分)
 

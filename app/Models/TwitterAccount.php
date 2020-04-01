@@ -27,16 +27,7 @@ class TwitterAccount extends Model
     }
 
 
-    // // アカウントデータの取得
-    // public function getAccountPage()
-    // {
-    //     // 10件データを取得
-    //     $data = TwitterAccount::paginate(10);
-
-    //     return $data;
-    // }
-
-    // twitterアカウント保存メソッド
+    // twitterアカウント保存メソッド(引数はapiから取得したアカウントの配列)
     public static function accountStore(array $twitter_accounts)
     {
         if (is_array($twitter_accounts)) {
@@ -44,19 +35,19 @@ class TwitterAccount extends Model
             // 取得した連想配列の数を取得
             $accounts_count = count($twitter_accounts);
 
-
-
+            // 取得したアカウントの保存or更新処理を行う
             for ($i = 0; $i < $accounts_count; $i++) {
+                // DB内に同じtwitter_idが保存されているかチェック
                 $account = TwitterAccount::where('twitter_id', $twitter_accounts[$i]->id)->first();
 
-                // dd($twitter_accounts[$i]->name);
-
+                // ------------------------------------
                 // twitter_idが保存されていなかった場合
+                // 新規保存処理を行う
+                // ------------------------------------
                 if (empty($account)) {
-                    // 新規作成
-                    // statusがあるかをチェック
+                    // apiからのデータにstatusがあるかをチェック
                     if (empty($twitter_accounts[$i]->status)) {
-                        // dd($twitter_accounts[$i]);
+                        // 無ければtextデータ以外を保存
                         TwitterAccount::create([
                             'twitter_id' => $twitter_accounts[$i]->id,
                             'name' => $twitter_accounts[$i]->name,
@@ -69,6 +60,7 @@ class TwitterAccount extends Model
                         ]);
                     } else {
                         // statusがある場合
+                        // textデータも含めて保存
                         TwitterAccount::create([
                             'twitter_id' => $twitter_accounts[$i]->id,
                             'name' => $twitter_accounts[$i]->name,
@@ -94,19 +86,20 @@ class TwitterAccount extends Model
                     //     ]
                     // );
                 } else {
+                    // ------------------------------------------
                     // twitter_idが既に保存されている場合
-                    // 更新処理
-                    // 更新は１日に１回のみupdated_atをチェックして処理を分ける
+                    // 更新処理を行う
+                    // 更新は１日に１回行う,updated_atをチェックして処理を分ける
+                    // ------------------------------------------
 
                     // アカウントから更新日のみ取得
                     $updated_at = $account->updated_at;
                     // 更新日が前日以降の(またはnull)場合のみ更新処理を行う
                     if (is_null($updated_at) || !($updated_at->isToday())) {
 
-                        // dd('あああ');
-
                         // statusの有無で処理を分ける
                         if (empty($twitter_accounts[$i]->status)) {
+                            // statusが無い場合、textデータ以外を更新
                             $account->name = $twitter_accounts[$i]->name;
                             $account->screen_name = $twitter_accounts[$i]->screen_name;
                             $account->description = $twitter_accounts[$i]->description;
@@ -117,7 +110,7 @@ class TwitterAccount extends Model
 
                             $account->save();
                         } else {
-                            // dd($account);
+                            // statusがある場合,textデータも含めて更新
                             $account->name = $twitter_accounts[$i]->name;
                             $account->screen_name = $twitter_accounts[$i]->screen_name;
                             $account->description = $twitter_accounts[$i]->description;
