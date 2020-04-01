@@ -40,24 +40,41 @@ Route::get('/', function () {
 // ログイン認証を必要にする
 Route::group(['middleware' => 'auth'], function () {
 
+    // ランキングページ関連
+    //----------------------------
     // ランキング画面表示
     Route::get('/ranking', function () {
         return view('ranking');
     })->name('ranking');
     // ランキング機能
     Route::get('/api/ranking', 'RankingController@getTweetCount');
+    //----------------------------
 
 
+    // アカウントページ関連
+    //----------------------------
+    // アカウント画面表示
+    Route::get('/account', 'AccountController@index')->name('account');
+    // アカウント呼び出しapi
+    Route::get('api/account', 'AccountController@accountIndex');
+    // ボタンからフォロー アンフォロー
+    Route::post('/account/follow', 'AccountController@accountFollow');
+    Route::post('/account/unfollow', 'AccountController@accountUnfollow');
+    // 自動フォロー(start, stop)
+    Route::post('/account/start', 'AccountController@autoFollowStart');
+    Route::post('/account/stop', 'AccountController@autoFollowStop');
+    //----------------------------
 
 
-
+    // ニュースページ関連
+    //----------------------------
     // news画面表示
     Route::get('/news', function () {
         return view('news');
     });
     // news取得api
     Route::get('api/news', 'NewsController@get_news');
-    // Route::get('api/news/{page}/', 'NewsController@get_news');
+    //----------------------------
 
     // マイページ表示
     Route::get('/mypage', 'MypageController@show');
@@ -76,20 +93,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/delete/{id}/', 'MypageController@delete')->name('delete');
     // Route::get('api/mypage', 'MypageController@show');
 
-
-    // ----------------------
-    // twitterアカウント表示画面
-    Route::get('/account', 'TwittersController@index')->name('account');
-
-    Route::get('api/account', 'AccountController@accountIndex');
-
-    // ボタンからフォロー アンフォロー
-    Route::post('/account/follow', 'TwittersController@accountFollow');
-    Route::post('/account/unfollow', 'TwittersController@accountUnfollow');
-
-    // 自動フォロー
-    Route::post('/account/start', 'TwittersController@autoFollowStart');
-    Route::post('/account/stop', 'TwittersController@autoFollowStop');
 
     // ----------------------
 

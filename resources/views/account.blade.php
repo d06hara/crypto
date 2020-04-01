@@ -9,9 +9,7 @@
 @if(Auth::user()->twitterUser)
 <main>
   <p class="l-main__title">アカウント一覧</p>
-  @auth
-  <h1>ログイン状態です</h1>
-  @endauth
+
   {{-- <div class="p-account"> --}}
   {{-- @foreach($search_users as $user)
       <div class="p-account__card">

@@ -1064,6 +1064,10 @@ input[type=text]:focus {
   width: 100%;
 }
 
+.p-account__auto {
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .p-account__pagination {
     text-align: center;

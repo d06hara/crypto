@@ -8,11 +8,11 @@
     </div>
 
     <!-- アカウント件数 -->
-    <div class="p-account__total">
-      <!-- <p>全 {{total}} 件中 {{from}} 〜 {{to}} 件表示</p> -->
-    </div>
+    <!-- <div class="p-account__total">
+      <p>全 {{total}} 件中 {{from}} 〜 {{to}} 件表示</p>
+    </div>-->
     <!-- accounts pagination todo css -->
-    <div class="p-news__pagination">
+    <!-- <div class="p-news__pagination">
       <div class="p-news__pagination-content">
         <ul class="c-pagination">
           <li class="c-pagination__list c-pagination__list-pre">
@@ -39,12 +39,12 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div>-->
 
     <!-- アカウントカード -->
     <div class="p-account__container">
       <div class="c-accountcard__container">
-        <div v-for="(account, index) in displayItems" class="c-accountcard" :key="index">
+        <div v-for="(account, index) in accounts" class="c-accountcard" :key="index">
           <!-- <p>twitter_id:{{ account.twitter_id }}</p> -->
           <p class="c-accountcard__name">
             {{ account.name }}
@@ -75,6 +75,8 @@
         </div>
       </div>
     </div>
+
+    <infinite-loading @infinite="infiniteHandler" spinner="spiral"></infinite-loading>
 
     <!-- pagination draft  todo:css修正 -->
     <!-- <div class="p-account__pagination">
@@ -143,6 +145,7 @@ export default {
       accounts: [], //accountデータを入れるための空配列
       follow_ids: [],
       isChecked: this.user_mode,
+      page: 1,
       // current_page: 1,
       // last_page: 1,
       // total: 1,
@@ -158,11 +161,11 @@ export default {
   //   this.load(1);
   //   // this.reAccounts;
   // },
-  mounted() {
-    console.log("mounted");
-    this.load(1);
-    // this.reAccounts;
-  },
+  // mounted() {
+  //   console.log("mounted");
+  //   this.load(1);
+  //   // this.reAccounts;
+  // },
   // mounted() {
   //   console.log("load");
   //   // this.load(1);
@@ -208,61 +211,61 @@ export default {
     //   // }
     //   // this.$set((this.accounts.users = false));
     // },
-    /**
-     * ページ数を取得する
-     * @return {number} 総ページ数(1はじまり)
-     */
-    pages() {
-      return Math.ceil(this.accounts.length / this.size);
-    },
-    /**
-     * ページネーションで表示するページ番号の範囲を取得する
-     * @return {Array<number>} ページ番号の配列
-     */
-    displayPageRange() {
-      const half = Math.ceil(this.pageRange / 2);
-      let start, end;
+    // /**
+    //  * ページ数を取得する
+    //  * @return {number} 総ページ数(1はじまり)
+    //  */
+    // pages() {
+    //   return Math.ceil(this.accounts.length / this.size);
+    // },
+    // /**
+    //  * ページネーションで表示するページ番号の範囲を取得する
+    //  * @return {Array<number>} ページ番号の配列
+    //  */
+    // displayPageRange() {
+    //   const half = Math.ceil(this.pageRange / 2);
+    //   let start, end;
 
-      if (this.pages < this.pageRange) {
-        // ページネーションのrangeよりページ数がすくない場合
-        start = 1;
-        end = this.pages;
-      } else if (this.currentPage < half) {
-        // 左端のページ番号が1になったとき
-        start = 1;
-        end = start + this.pageRange - 1;
-      } else if (this.pages - half < this.currentPage) {
-        // 右端のページ番号が総ページ数になったとき
-        end = this.pages;
-        start = end - this.pageRange + 1;
-      } else {
-        // activeページを中央にする
-        start = this.currentPage - half + 1;
-        end = this.currentPage + half;
-      }
+    //   if (this.pages < this.pageRange) {
+    //     // ページネーションのrangeよりページ数がすくない場合
+    //     start = 1;
+    //     end = this.pages;
+    //   } else if (this.currentPage < half) {
+    //     // 左端のページ番号が1になったとき
+    //     start = 1;
+    //     end = start + this.pageRange - 1;
+    //   } else if (this.pages - half < this.currentPage) {
+    //     // 右端のページ番号が総ページ数になったとき
+    //     end = this.pages;
+    //     start = end - this.pageRange + 1;
+    //   } else {
+    //     // activeページを中央にする
+    //     start = this.currentPage - half + 1;
+    //     end = this.currentPage + half;
+    //   }
 
-      let indexes = [];
-      for (let i = start; i <= end; i++) {
-        indexes.push(i);
-      }
-      return indexes;
-    },
-    /**
-     * 現在のページで表示するアイテムリストを取得する
-     * @return {any} 表示用アイテムリスト
-     */
-    displayItems() {
-      const head = this.currentPage * this.size;
-      return this.accounts.slice(head, head + this.size);
-    },
-    /**
-     * 現在のページかどうか判定する
-     * @param {number} page ページ番号
-     * @return　{boolean} 現在のページならtrue
-     */
-    isSelected(page) {
-      return page - 1 === this.currentPage;
-    },
+    //   let indexes = [];
+    //   for (let i = start; i <= end; i++) {
+    //     indexes.push(i);
+    //   }
+    //   return indexes;
+    // },
+    // /**
+    //  * 現在のページで表示するアイテムリストを取得する
+    //  * @return {any} 表示用アイテムリスト
+    //  */
+    // displayItems() {
+    //   const head = this.currentPage * this.size;
+    //   return this.accounts.slice(head, head + this.size);
+    // },
+    // /**
+    //  * 現在のページかどうか判定する
+    //  * @param {number} page ページ番号
+    //  * @return　{boolean} 現在のページならtrue
+    //  */
+    // isSelected(page) {
+    //   return page - 1 === this.currentPage;
+    // },
     // reAccounts: {
     //   get() {
     //     return this.accounts;
@@ -295,6 +298,34 @@ export default {
     }
   },
   methods: {
+    infiniteHandler($state) {
+      //web.phpで設定したルーティング
+      console.log("読み込みます");
+      axios
+        .get("/api/account", {
+          params: {
+            page: this.page
+            // per_page: 1
+          }
+        })
+        .then(({ data }) => {
+          console.log(data);
+          //そのままだと読み込み時にカクつくので1500毎に読み込む
+          setTimeout(() => {
+            if (this.page < data.data.length) {
+              console.log("次のページｗ読み込みます");
+              this.page += 1;
+              this.accounts.push(...data.data);
+              $state.loaded();
+            } else {
+              $state.complete();
+            }
+          }, 1500);
+        })
+        .catch(err => {
+          $state.complete();
+        });
+    },
     // フォロー機能(アンフォロー)
     follow: function(account) {
       // 既にフォローしている場合
@@ -365,53 +396,53 @@ export default {
         this.from = data.from;
         this.to = data.to;
       });
-    },
-    /**
-     * ページ先頭に移動する
-     */
-    first() {
-      this.currentPage = 0;
-      this.selectHandler();
-    },
-    /**
-     * ページ後尾に移動する
-     */
-    last() {
-      this.currentPage = this.pages - 1;
-      this.selectHandler();
-    },
-    /**
-     * 1ページ前に移動する
-     */
-    prev() {
-      if (0 < this.currentPage) {
-        this.currentPage--;
-        this.selectHandler();
-      }
-    },
-    /**
-     * 1ページ次に移動する
-     */
-    next() {
-      if (this.currentPage < this.pages - 1) {
-        this.currentPage++;
-        this.selectHandler();
-      }
-    },
-    /**
-     * 指定したページに移動する
-     * @param {number} index ページ番号
-     */
-    pageSelect(index) {
-      this.currentPage = index - 1;
-      this.selectHandler();
-    },
-    /**
-     * ページを変更したときの処理
-     */
-    selectHandler() {
-      // なんかの処理
     }
+    // /**
+    //  * ページ先頭に移動する
+    //  */
+    // first() {
+    //   this.currentPage = 0;
+    //   this.selectHandler();
+    // },
+    // /**
+    //  * ページ後尾に移動する
+    //  */
+    // last() {
+    //   this.currentPage = this.pages - 1;
+    //   this.selectHandler();
+    // },
+    // /**
+    //  * 1ページ前に移動する
+    //  */
+    // prev() {
+    //   if (0 < this.currentPage) {
+    //     this.currentPage--;
+    //     this.selectHandler();
+    //   }
+    // },
+    // /**
+    //  * 1ページ次に移動する
+    //  */
+    // next() {
+    //   if (this.currentPage < this.pages - 1) {
+    //     this.currentPage++;
+    //     this.selectHandler();
+    //   }
+    // },
+    // /**
+    //  * 指定したページに移動する
+    //  * @param {number} index ページ番号
+    //  */
+    // pageSelect(index) {
+    //   this.currentPage = index - 1;
+    //   this.selectHandler();
+    // },
+    // /**
+    //  * ページを変更したときの処理
+    //  */
+    // selectHandler() {
+    //   // なんかの処理
+    // }
     // change(page) {
     //   if (page >= 1 && page <= this.last_page) {
     //     this.load(page);

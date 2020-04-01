@@ -20,6 +20,10 @@ class TestController extends Controller
     // テストメソッド
     public function test()
     {
+        $accounts = TwitterAccount::with('users')->inRandomOrder()->take(10)->get();
+        dd($accounts);
+
+
         // 現時刻
         $a = TwitterUser::where('twitter_id', 1)->first();
         if (!is_null($a)) {
