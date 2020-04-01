@@ -10,6 +10,8 @@ use App\Models\UserAccount;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use Illuminate\Support\Carbon;
+use App\Models\Tweet;
 
 use function GuzzleHttp\json_decode;
 
@@ -18,6 +20,29 @@ class TestController extends Controller
     // テストメソッド
     public function test()
     {
+        // 現時刻
+
+        $time = Carbon::now();
+        $yesterday = Carbon::now()->subDay(1);
+
+        // 8日前を取得
+
+        $before_eight_days = Carbon::now()->subDay(8);
+        // $null = Tweet::where('created_at', null)->delete();
+        $null = Tweet::where('created_at', null)->count();
+        // dd($null);
+
+        // $tweet = Tweet::where('created_at', '<', $before_eight_days)->delete();
+        $tweet = Tweet::where('created_at', '<', $yesterday)->count();
+        dd($tweet);
+
+        if ($time < $before_eight_days) {
+            dd('a');
+        }
+
+        dd($before_eight_days);
+
+        dd($time);
 
         // $follow_targets = DB::table('twitter_accounts')->pluck('twitter_id', 'screen_name');
         // // $follow_targets = TwitterAccount::get('twitter_id');

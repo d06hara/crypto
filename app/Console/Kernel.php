@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         Commands\GetTweetAppAuthCommand::class,
         Commands\GetTwitterAccount::class,
         Commands\AutoFollow::class,
+        Commands\DeleteTweet::class,
 
     ];
 
@@ -38,6 +39,9 @@ class Kernel extends ConsoleKernel
             ->everyFiveMinutes()->withoutOverlapping();
         $schedule->command('auto:follow')
             ->everyFifteenMinutes()->withoutOverlapping();
+        // 毎日古いツイートを削除
+        $schedule->command('delete:tweet')
+            ->daily()->withoutOverlapping();
     }
 
     /**
