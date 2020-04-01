@@ -298,6 +298,7 @@ input {
 }
 
 .c-accountcard {
+  color: #666;
   width: calc(50% - 10px*2);
   box-sizing: border-box;
   box-shadow: 0 0 5px 1px #c0c0c0;
@@ -363,9 +364,15 @@ input {
   font-size: 12px;
 }
 
+.c-accountcard__profile {
+  width: 100%;
+  margin-top: 10px;
+  border-bottom: 1px dotted #666;
+  padding-bottom: 5px;
+}
+
 .c-accountcard__tweet {
   width: 90%;
-  color: #666;
   max-height: 100px;
   overflow: scroll;
   padding: 5px;

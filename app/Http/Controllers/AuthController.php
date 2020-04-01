@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Socialite;
 use Illuminate\Support\Facades\Auth;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Models\TwitterUser;
 
 class AuthController extends Controller
 {
@@ -74,7 +75,10 @@ class AuthController extends Controller
 
         // 認証したアカウントが登録されているどうかで処理分け
 
-        if (!is_null($providerUser->getId())) {
+        // 認証アカウントがDBにあるかチェック
+        $connected_account = TwitterUser::where('twitter_id', $providerUser->getId())->first();
+
+        if (!is_null($connected_account)) {
             // 認証したアカウントが既に他のユーザーに登録されていた場合
             return redirect('/account')->with('flash_error', 'このtwitterアカウントは既に使用されています');
         }

@@ -63,6 +63,7 @@
               <span>Follower</span>
             </li>
           </ul>
+          <div class="c-accountcard__profile">{{ account.description }}</div>
 
           <!-- ボタントグルテスト用 -->
           <!-- <div>
@@ -158,7 +159,7 @@ export default {
   //   // this.reAccounts;
   // },
   mounted() {
-    console.log("mounte");
+    console.log("mounted");
     this.load(1);
     // this.reAccounts;
   },

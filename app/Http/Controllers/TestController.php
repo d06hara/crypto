@@ -21,6 +21,11 @@ class TestController extends Controller
     public function test()
     {
         // 現時刻
+        $a = TwitterUser::where('twitter_id', 1)->first();
+        if (!is_null($a)) {
+            dd('ok');
+        }
+        dd($a);
 
         $time = Carbon::now();
         $yesterday = Carbon::now()->subDay(1);
