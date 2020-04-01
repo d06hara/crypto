@@ -278,8 +278,13 @@ input {
 
 @media screen and (max-width: 1000px) {
   .l-main__title {
-    font-size: 18px;
     padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .l-main__title {
+    font-size: 18px;
   }
 }
 
@@ -1065,7 +1070,21 @@ input[type=text]:focus {
 }
 
 .p-account__auto {
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: 10px;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-account__auto {
+    font-size: 14px;
+  }
+}
+
+.p-account__auto input[type=checkbox] {
+  position: relative;
+  top: -3px;
 }
 
 @media screen and (max-width: 768px) {

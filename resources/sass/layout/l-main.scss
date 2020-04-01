@@ -24,8 +24,10 @@
     border-bottom: 2px solid $sub-color;
 
     @include mq(lg) {
-      font-size: $font_size_l;
       padding-bottom: $space_m;
+    }
+    @include mq() {
+      font-size: $font-size_l;
     }
   }
 }

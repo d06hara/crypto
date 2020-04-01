@@ -2,9 +2,9 @@
   <div class="p-account">
     <!-- 自動フォローボタン -->
     <div class="p-account__auto">
-      <input type="checkbox" v-model="autoMode" v-on:change="autoFollow" />
-      <label for>自動フォロー</label>
-      <p>テスト {{ autoMode }} （機能が完成したら削除</p>
+      <input id="auto_follow" type="checkbox" v-model="autoMode" v-on:change="autoFollow" />
+      <label for="auto_follow">自動フォロー(チェックすると自動フォローが開始します)</label>
+      <!-- <p>テスト {{ autoMode }} （機能が完成したら削除</p> -->
     </div>
 
     <!-- アカウント件数 -->
