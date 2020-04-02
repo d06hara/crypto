@@ -7,22 +7,24 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
     // アカウント一覧画面表示
     public function index()
     {
-        // $twitter_accounts = TwitterAccount::get();
 
-        // dd($twitter_accounts);
-        // $twitter_accounts = json_encode($twitter_accounts);
-
-        // 自分のauto_modeの情報も知りたいので自分の情報を取得
+        // 使用者のauto_modeの状態を画面に渡す
         $user_mode = Auth()->user()->auto_mode;
+        // 文字列として渡す
+        if ($user_mode === 1) {
+            $user_mode = 'true';
+        } else {
+            $user_mode = 'false';
+        }
 
         return view('account', [
-            // 'twitter_accounts' => $twitter_accounts,
             'user_mode' => $user_mode
         ]);
     }
@@ -192,24 +194,20 @@ class AccountController extends Controller
     // ここでの処理は使用ユーザーのauto_modeを変更するだけ
     public function autoFollowStart()
     {
-        // ログインしているユーザーを取得
+        // ユーザーを取得
         $user = Auth()->user();
-        // dd($user->id);
-
+        // 使用者のauto_modeを１に変更する
         DB::table('users')->where('id', $user->id)->update([
             'auto_mode' => 1
         ]);
-        dd($user->auto_mode);
     }
     public function autoFollowStop()
     {
-        // ログインしているユーザーを取得
+        // ユーザーを取得
         $user = Auth()->user();
-        // dd($user->id);
-
+        // 使用者のauto_modeを0に変更する
         DB::table('users')->where('id', $user->id)->update([
             'auto_mode' => 0
         ]);
-        dd($user->auto_mode);
     }
 }

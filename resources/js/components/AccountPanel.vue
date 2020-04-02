@@ -2,7 +2,9 @@
   <div class="p-account">
     <!-- 自動フォローボタン -->
     <div class="p-account__auto">
+      <!-- <input id="auto_follow" type="checkbox" v-model="autoMode" /> -->
       <input id="auto_follow" type="checkbox" v-model="autoMode" v-on:change="autoFollow" />
+      <!-- <input id="auto_follow" type="checkbox" :value="isChecked" v-on:click="autoFollow" /> -->
       <label for="auto_follow">自動フォロー(チェックすると自動フォローが開始します)</label>
       <!-- <p>テスト {{ autoMode }} （機能が完成したら削除</p> -->
     </div>
@@ -51,10 +53,10 @@
             <span>@{{ account.screen_name }}</span>
           </p>
           <div class="c-accountcard__btn">
-            <button
-              v-on:click="followUnfollow(account)"
-              v-bind:class="{ active: account.users }"
-            >フォロー</button>
+            <button v-on:click="followUnfollow(account)" v-bind:class="{ active: account.users }">
+              <p v-if="account.users">フォロー中</p>
+              <p v-else>フォローする</p>
+            </button>
           </div>
           <ul class="c-accountcard__data">
             <li>
@@ -79,7 +81,9 @@
       </div>
     </div>
 
-    <infinite-loading @infinite="infiniteHandler" spinner="spiral"></infinite-loading>
+    <infinite-loading @infinite="infiniteHandler" spinner="spiral">
+      <span slot="no-more">no more data</span>
+    </infinite-loading>
 
     <!-- pagination draft  todo:css修正 -->
     <!-- <div class="p-account__pagination">
@@ -141,13 +145,29 @@ const config = {
 
 export default {
   name: "AccountPanel",
-  props: ["twitter_accounts", "user_mode"],
+  // props: [
+  //   ("user_mode": {
+  //     type: Boolean
+  //   });
+  // ], //使用者のauto_mode
+  props: ["user_mode"],
+  // props: {
+  //   user_mode
+  //   // user_mode: {
+  //   //   // type: Number
+  //   // }
+  //   // user_mode: {
+  //   //   coerce: function($val) {
+  //   //     return Boolean($val);
+  //   //   }
+  //   // }
+  // },
 
   data() {
     return {
       accounts: [], //accountデータを入れるための空配列
       follow_ids: [],
-      isChecked: this.user_mode,
+      isChecked: this.user_mode, //auto_mode初期ステータス
       page: 1,
       // current_page: 1,
       // last_page: 1,
@@ -164,11 +184,12 @@ export default {
   //   this.load(1);
   //   // this.reAccounts;
   // },
-  // mounted() {
-  //   console.log("mounted");
-  //   this.load(1);
-  //   // this.reAccounts;
-  // },
+  mounted() {
+    console.log("mounted");
+    // this.infiniteHandler();
+    // this.load(1);
+    // this.reAccounts;
+  },
   // mounted() {
   //   console.log("load");
   //   // this.load(1);
@@ -189,7 +210,6 @@ export default {
     //   //   }
     //   //   return { ...element, users: false };
     //   // });
-
     //   // -------------------------
     //   // return this.accounts.forEach(function(object, index) {
     //   //   if (object.users[0]) {
@@ -198,7 +218,6 @@ export default {
     //   //     return this.$set(this.accounts[index], "users", false);
     //   //   }
     //   // });
-
     //   // return this.accounts.forEach((object, index) => {
     //   //   if (object[index].users[0]) {
     //   //     this.$set(this.accounts[index], users[0], true);
@@ -228,7 +247,6 @@ export default {
     // displayPageRange() {
     //   const half = Math.ceil(this.pageRange / 2);
     //   let start, end;
-
     //   if (this.pages < this.pageRange) {
     //     // ページネーションのrangeよりページ数がすくない場合
     //     start = 1;
@@ -246,7 +264,6 @@ export default {
     //     start = this.currentPage - half + 1;
     //     end = this.currentPage + half;
     //   }
-
     //   let indexes = [];
     //   for (let i = start; i <= end; i++) {
     //     indexes.push(i);
@@ -291,11 +308,24 @@ export default {
     // accounts: function() {
     //   return this.twitter_accounts;
     // },
+    // 画面表示した時ユーザーが自動フォロー状態かどうかを表示する
     autoMode: {
       get() {
+        // if (this.isChecked === true) {
+        //   console.log("自動フォロー中です");
+        // } else {
+        //   console.log("自動フォロー停止中です");
+        // }
         return this.isChecked;
       },
       set() {
+        // if (this.isChecked === true) {
+        //   console.log("自動フォロー停止します");
+        //   axios.post("/account/stop");
+        // } else {
+        //   console.log("自動フォロー開始します");
+        //   axios.post("/account/start");
+        // }
         this.isChecked = !this.isChecked;
       }
     }
@@ -307,13 +337,23 @@ export default {
       axios
         .get("/api/account", {
           params: {
-            page: this.page
-            // per_page: 1
+            page: this.page,
+            per_page: 1
           }
         })
         .then(({ data }) => {
           console.log(data);
           //そのままだと読み込み時にカクつくので1500毎に読み込む
+
+          // if (this.page < data.data.length) {
+          //   console.log("次のページｗ読み込みます");
+          //   this.page += 1;
+          //   this.accounts.push(...data.data);
+          //   $state.loaded();
+          // } else {
+          //   $state.complete();
+          // }
+
           setTimeout(() => {
             if (this.page < data.data.length) {
               console.log("次のページｗ読み込みます");
@@ -376,7 +416,16 @@ export default {
     },
 
     // 自動フォロー機能
-    autoFollow: function(event) {
+    // auto_mode
+    autoFollow: function() {
+      this.isChecked = !this.isChecked;
+      // if (this.isChecked === true) {
+      //   console.log("自動フォローします");
+      //   axios.post("/account/start");
+      // } else {
+      //   console.log("自動フォロー終了");
+      //   axios.post("/account/stop");
+      // }
       if (this.autoMode === true) {
         console.log("自動フォローします");
         axios.post("/account/start");
@@ -384,8 +433,6 @@ export default {
         console.log("自動フォロー終了");
         axios.post("/account/stop");
       }
-
-      console.log("変更" + this.autoMode);
     },
     load(page) {
       console.log("loadします");
