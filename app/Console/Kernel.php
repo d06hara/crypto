@@ -37,6 +37,7 @@ class Kernel extends ConsoleKernel
             ->everyFiveMinutes()->withoutOverlapping();
         $schedule->command('get:twitteraccount')
             ->everyFiveMinutes()->withoutOverlapping();
+        // 自動フォロー
         $schedule->command('auto:follow')
             ->everyFifteenMinutes()->withoutOverlapping();
         // 毎日古いツイートを削除

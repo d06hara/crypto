@@ -20,6 +20,53 @@ class TestController extends Controller
     // テストメソッド
     public function test()
     {
+        $config = config('twitter');
+        $key = $config['api_key'];
+        $secret_key = $config['secret_key'];
+        $access_token = $config['access_token'];
+        $access_key = $config['access_token_secret'];
+        $connection = new TwitterOAuth($key, $secret_key, $access_token, $access_key);
+        // $frinend_ids = $connection->get('friends/ids', array(
+        //     'user_id' => $twitter_id,
+        //     'screen_name' => $screen_name,
+        //     'count' => 5000
+        // ));
+        // dd($frinend_ids->ids);
+
+        // twitter_accountsテーブルからidとscreen_nameを抜き出す
+        $follow_targets = DB::table('twitter_accounts')->pluck('twitter_id', 'screen_name');
+        // 配列へ変換
+        $follow_targets = $follow_targets->toArray();
+        $ids = [];
+        $cursor = -1;
+        do {
+            $result = $connection->get("friends/ids", [
+                'cursor' => $cursor
+            ]);
+            if (!is_array($result->ids)) {
+                throw new \Exception;
+            }
+            foreach ($result->ids as $id) {
+                $ids[] = $id;
+            }
+            $cursor = $result->next_cursor;
+        } while ($cursor != 0);
+
+        // dd($ids);
+
+        $common = array_intersect($ids, $follow_targets);
+        // dd($common);
+
+        $diff = array_diff($follow_targets, $common);
+        // dd($diff);
+        $follow_target_screen_name = array_rand($diff);
+        // dd($follow_target_screen_name);
+        $follow_target_id = $diff[$follow_target_screen_name];
+        dd($follow_target_id);
+
+
+
+
         $array1 = [1, 2, 3];
         $array2 = [1, 2];
         $common = array_intersect($array2, $array1);

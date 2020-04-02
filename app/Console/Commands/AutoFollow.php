@@ -40,58 +40,57 @@ class AutoFollow extends Command
      */
     public function handle()
     {
-        // TODO
+        // ===================
+        // 自動フォロー処理
+        // ===================
 
-        // 差分がない場合の処理
-
-        // ユーザー情報によって判定できるようにする
-        // 基本はauto_mode 0 で停止状態
-
-        $follow_targets = DB::table('twitter_accounts')->pluck('twitter_id', 'screen_name');
-        // $follow_targets = TwitterAccount::get('twitter_id');
-        // $follow_targets = json_decode($follow_targets);
-        $follow_targets = $follow_targets->toArray();
-        // dd($follow_targets->toArray());
-        $config = config('twitter');
-        $key = $config['api_key'];
-        $secret_key = $config['secret_key'];
-
+        // auto_modeが1になっているユーザーを取得
         $auto_mode_users = User::where('auto_mode', 1)->get();
 
-        // auto_modeが１のユーザーがいるか判定
         if ($auto_mode_users->isEmpty()) {
+            // auto_modeが1のユーザーがいなければ処理終了
             logger()->info('自動フォロー機能停止中です');
         } else {
+            // auto_modeが1のユーザーがいる場合、フォロー処理を実行
             logger()->info('自動フォローします');
 
+            // twitter_accountsテーブルからidとscreen_nameを抜き出す
+            $follow_targets = DB::table('twitter_accounts')->pluck('twitter_id', 'screen_name');
+            // 配列へ変換
+            $follow_targets = $follow_targets->toArray();
+            // アクセスキーを取得
+            $config = config('twitter');
+            $key = $config['api_key'];
+            $secret_key = $config['secret_key'];
+
+            // 順にフォロー処理
             foreach ($auto_mode_users as $auto_mode_user) {
                 // twitterUserを呼び出す
                 $twitter_user = $auto_mode_user->twitterUser;
-                // dd($twitter_user);
                 // アクセストークンを取得
                 $token = $twitter_user->token;
                 $token_secret = $twitter_user->tokenSecret;
 
-                // twitter_idとscreen_nameを取得
-                $twitter_id = $twitter_user->twitter_id;
-                // dd($twitter_id);
-                $screen_name = $twitter_user->nickname;
-                // dd($screen_name);
-
-                // APIに接続
+                // 接続
                 $connection = new TwitterOAuth($key, $secret_key, $token, $token_secret);
-                // dd($connection);
-
-                // フォローしている人のtwitter_idを取得
-                $frinend_ids = $connection->get('friends/ids', array(
-                    'user_id' => $twitter_id,
-                    'screen_name' => $screen_name,
-                    'count' => 5000
-                ));
-                // dd($frinend_ids->ids);
+                // フォロワーのtwitter_idを全て取得
+                $ids = [];
+                $cursor = -1;
+                do {
+                    $result = $connection->get("friends/ids", [
+                        'cursor' => $cursor
+                    ]);
+                    if (!is_array($result->ids)) {
+                        throw new \Exception;
+                    }
+                    foreach ($result->ids as $id) {
+                        $ids[] = $id;
+                    }
+                    $cursor = $result->next_cursor;
+                } while ($cursor != 0);
 
                 // まずは共通項を取得
-                $common_terms = array_intersect($frinend_ids->ids, $follow_targets);
+                $common_terms = array_intersect($ids, $follow_targets);
                 // dd($common_terms);
 
                 // 次にDB内accountとの差分を取得
