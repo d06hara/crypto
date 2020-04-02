@@ -15,9 +15,12 @@ class MyPageController extends Controller
     // mypage表示
     public function show()
     {
+        // ユーザー情報取得
         $user = auth()->user();
+        // twitter情報取得
+        $twitter_account = auth()->user()->twitterUser;
         // dd($user);
-        return view('/mypage', compact('user'));
+        return view('/mypage', compact('user', 'twitter_account'));
     }
 
     // プロフィール編集画面表示

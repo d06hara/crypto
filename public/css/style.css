@@ -989,13 +989,13 @@ input[type=text]:focus {
   font-size: 18px;
 }
 
-.c-profile__name {
-  border-bottom: 1px solid #ccc;
+.c-profile__item {
   padding-bottom: 10px;
 }
 
-.c-profile__name span {
+.c-profile__item span {
   font-weight: bold;
+  margin-left: 10px;
 }
 
 .c-profile__email {
@@ -1004,6 +1004,7 @@ input[type=text]:focus {
 
 .c-profile__email span {
   font-weight: bold;
+  margin-left: 10px;
 }
 
 .c-table {

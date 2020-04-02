@@ -76,6 +76,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('api/news', 'NewsController@get_news');
     //----------------------------
 
+
+    // マイページ関連
+    //----------------------------
     // マイページ表示
     Route::get('/mypage', 'MypageController@show');
     // プロフィール編集画面表示
@@ -92,6 +95,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/withdraw', 'MypageController@withdraw');
     Route::post('/delete/{id}/', 'MypageController@delete')->name('delete');
     // Route::get('api/mypage', 'MypageController@show');
+    //----------------------------
 
 
     // ----------------------

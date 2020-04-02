@@ -9,12 +9,13 @@
   padding: $space_xxl;
   font-size: $font-size_l;
 
-  &__name {
-    border-bottom: 1px solid #ccc;
+  &__item {
+
     padding-bottom: $space_m;
 
     span {
       font-weight: bold;
+      margin-left: $space_m;
     }
   }
 
@@ -23,6 +24,7 @@
 
     span {
       font-weight: bold;
+      margin-left: $space_m;
     }
   }
 
