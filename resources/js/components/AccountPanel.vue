@@ -3,8 +3,8 @@
     <!-- 自動フォローボタン -->
     <div class="p-account__auto">
       <!-- <input id="auto_follow" type="checkbox" v-model="autoMode" /> -->
-      <input id="auto_follow" type="checkbox" v-model="autoMode" v-on:change="autoFollow" />
-      <!-- <input id="auto_follow" type="checkbox" :value="isChecked" v-on:click="autoFollow" /> -->
+      <!-- <input id="auto_follow" type="checkbox" v-model="autoMode" v-on:change="autoFollow" /> -->
+      <input id="auto_follow" type="checkbox" v-bind:checked="autoMode" @change="autoFollow" />
       <label for="auto_follow">自動フォロー(チェックすると自動フォローが開始します)</label>
       <!-- <p>テスト {{ autoMode }} （機能が完成したら削除</p> -->
     </div>
@@ -311,11 +311,12 @@ export default {
     // 画面表示した時ユーザーが自動フォロー状態かどうかを表示する
     autoMode: {
       get() {
-        // if (this.isChecked === true) {
-        //   console.log("自動フォロー中です");
-        // } else {
-        //   console.log("自動フォロー停止中です");
-        // }
+        console.log(this.isChecked);
+        if (this.isChecked === true) {
+          console.log("自動フォロー中です");
+        } else {
+          console.log("自動フォロー停止中です");
+        }
         return this.isChecked;
       },
       set() {

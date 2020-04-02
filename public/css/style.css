@@ -1083,11 +1083,6 @@ input[type=text]:focus {
   }
 }
 
-.p-account__auto input[type=checkbox] {
-  position: relative;
-  top: -3px;
-}
-
 @media screen and (max-width: 768px) {
   .p-account__pagination {
     text-align: center;
