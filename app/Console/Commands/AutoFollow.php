@@ -98,16 +98,20 @@ class AutoFollow extends Command
                 $diff = array_diff($follow_targets, $common_terms);
                 // dd($diff);
 
-                // 差分からランダムに１キー(screen_name)を取得する
-                $follow_target_screen_name = array_rand($diff);
-                $follow_target_id = $diff[$follow_target_screen_name];
-                // dd($follow_target_id);
+                // 差分がある場合はフォロー処理へ
+                // 差分が無い場合処理終了
+                if (!empty($diff)) {
+                    // 差分からランダムに１キー(screen_name)を取得する
+                    $follow_target_screen_name = array_rand($diff);
+                    $follow_target_id = $diff[$follow_target_screen_name];
+                    // dd($follow_target_id);
 
-                $follow = $connection->post('friendships/create', array(
-                    'user_id' => $follow_target_id,
-                    'screen_name' => $follow_target_screen_name,
-                    'follow' => false
-                ));
+                    $follow = $connection->post('friendships/create', array(
+                        'user_id' => $follow_target_id,
+                        'screen_name' => $follow_target_screen_name,
+                        'follow' => false
+                    ));
+                }
             }
             logger()->info('自動フォロー完了');
         }

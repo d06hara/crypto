@@ -20,8 +20,16 @@ class TestController extends Controller
     // テストメソッド
     public function test()
     {
-        $accounts = TwitterAccount::with('users')->inRandomOrder()->take(10)->get();
-        dd($accounts);
+        $array1 = [1, 2, 3];
+        $array2 = [1, 2];
+        $common = array_intersect($array2, $array1);
+        // dd($common);
+        $diff = array_diff($array1, $common);
+        // dd($diff);
+        if (!empty($diff)) {
+            dd('a');
+        };
+        dd('i');
 
 
         // 現時刻
