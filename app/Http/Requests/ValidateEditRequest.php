@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ValidateEditRequest extends FormRequest
 {
@@ -24,8 +25,14 @@ class ValidateEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20|unique:users,name',
-            'email' => 'required|email|unique:users,email',
+            'name' => [
+                'required', Rule::unique('users')->ignore($this->id),
+                'max:20',
+            ],
+            'email' => [
+                'required', Rule::unique('users')->ignore($this->id),
+                'email',
+            ]
         ];
     }
 
@@ -33,11 +40,11 @@ class ValidateEditRequest extends FormRequest
     {
         return [
             'name.required' => '入力必須です',
-            'name.max:20' => '２０文字以内で入力してください',
-            'name.unique:users,name' => '入力されたユーザー名は既に使用されています',
+            'name.max' => '２０文字以内で入力してください',
+            'name.unique' => '入力されたユーザー名は既に使用されています',
             'email.required' => '入力必須です',
             'email.email' => 'メールアドレスの形式ではありません',
-            'email.unique:users,email' => '入力されたemailは既に使用されています'
+            'email.unique' => '入力されたemailは既に使用されています'
         ];
     }
 }

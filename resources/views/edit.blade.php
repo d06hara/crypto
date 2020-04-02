@@ -6,17 +6,17 @@
 <main>
 
   {{-- form --}}
-  <div class="p-login__container">
-    <div class="p-login">
-      <p class="p-login__title">プロフィール編集画面</p>
+  <div class="p-edit">
+    <div class="c-form">
+      <p class="c-form__title">プロフィール編集画面</p>
       {{-- login form --}}
-      <form action="{{ route('update', $user->id) }}" method="POST" class="p-login__form">
+      <form action="{{ route('update', $user->id) }}" method="POST" class="c-form__contents">
         @csrf
 
-        <fieldset class="p-login__form-fieldset">
+        <fieldset class="c-form__contents-fieldset">
 
           {{-- user name --}}
-          <div class="p-login__form-item">
+          <div class="c-form__contents-item">
             <p><label for="name">user name</label></p>
             <input type="text" id="name" class="use_icon @error('name') is-invalid @enderror" name="name"
               value="{{ $user->name }}" required autocomplete="name" autofocus placeholder="&#xf007;">
@@ -29,7 +29,7 @@
           </div>
 
           {{-- email --}}
-          <div class="p-login__form-item">
+          <div class="c-form__contents-item">
             <p><label for="email">E-mail</label></p>
             <input type="email" id="email" class="use_icon @error('email') is-invalid @enderror" name="email"
               value="{{ $user->email }}" required autocomplete="email" autofocus placeholder="&#xf0e0;"></<input>
