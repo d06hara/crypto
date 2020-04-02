@@ -68,7 +68,7 @@
 
   <div class="p-mypage">
     {{-- 後でここにformを入れる --}}
-    <div class="p-mypage__menu">
+    <div class="c-menu">
 
       <ul>
         <li><a href="{{ url('mypage') }}">マイページ</a></li>

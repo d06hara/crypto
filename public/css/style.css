@@ -650,16 +650,21 @@ input[type=text]:focus {
 .c-form {
   box-shadow: 0 0 5px 1px #c0c0c0;
   border-radius: 20px;
-  max-width: 980px;
-  width: 40%;
+  max-width: 600px;
+  width: 60%;
   margin: 0 auto;
   font-size: 14px;
 }
 
 @media screen and (max-width: 1000px) {
   .c-form {
-    width: 80%;
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c-form {
+    width: 80%;
   }
 }
 
@@ -793,6 +798,57 @@ input[type=text]:focus {
   .c-introduction__content {
     font-size: 12px;
   }
+}
+
+.c-menu {
+  width: 60%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .c-menu {
+    font-size: 12px;
+    width: 80%;
+  }
+}
+
+.c-menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wraps;
+}
+
+.c-menu ul li {
+  margin-right: 10px;
+}
+
+.c-menu ul li a {
+  display: block;
+  padding: 10px;
+  position: relative;
+  border-bottom: 2px solid #b2b2b2;
+}
+
+.c-menu ul li a::after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  transform: scaleX(0);
+  transform-origin: right top;
+  transition: transform 0.3s;
+}
+
+.c-menu ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left top;
 }
 
 @media screen and (max-width: 1000px) {
@@ -1113,6 +1169,10 @@ input[type=text]:focus {
   margin-top: 15px;
 }
 
+.p-edit {
+  margin-top: 40px;
+}
+
 .p-form__container {
   width: 980px;
   margin: 0 auto;
@@ -1390,49 +1450,6 @@ input[type=text]:focus {
 .p-mypage__profile {
   width: 60%;
   margin: 0 auto;
-}
-
-.p-mypage__menu {
-  width: 50%;
-  margin: 20px auto;
-  text-align: center;
-}
-
-.p-mypage__menu ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wraps;
-}
-
-.p-mypage__menu ul li {
-  margin-right: 10px;
-}
-
-.p-mypage__menu ul li a {
-  display: block;
-  padding: 10px;
-  position: relative;
-  border-bottom: 2px solid #b2b2b2;
-}
-
-.p-mypage__menu ul li a::after {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  display: block;
-  content: "";
-  width: 100%;
-  height: 2px;
-  background: #000000;
-  transform: scaleX(0);
-  transform-origin: right top;
-  transition: transform 0.3s;
-}
-
-.p-mypage__menu ul li a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left top;
 }
 
 .p-news {

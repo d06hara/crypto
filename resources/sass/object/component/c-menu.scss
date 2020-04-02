@@ -1,0 +1,53 @@
+// ===============================
+// component : menu
+// ===============================
+
+.c-menu {
+  width: 60%;
+  margin: $space_xl auto;
+  text-align: center;
+  font-size: $font-size_m;
+
+  @include mq(){
+    font-size: $font-size_s;
+    width: 80%;
+  }
+      
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wraps;
+    
+    li {
+      margin-right : $space_m;
+
+      a{
+        display:block;
+        padding: $space_m;
+        position: relative;
+        border-bottom: 2px solid #b2b2b2;
+
+       &::after {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #000000;
+        transform: scaleX(0);
+        transform-origin: right top;
+        transition: transform 0.3s;
+       }
+
+       &:hover::after{
+        transform: scaleX(1);
+        transform-origin: left top;
+       }
+      
+      }
+    }
+  }
+}
