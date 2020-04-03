@@ -12,26 +12,38 @@ use App\Http\Requests\ValidChangePassRequest;
 
 class MyPageController extends Controller
 {
-    // mypage表示
+    /**
+     * mypage表示
+     */
     public function show()
     {
         // ユーザー情報取得
         $user = auth()->user();
+        if (is_null($user)) {
+            abort(404);
+        }
         // twitter情報取得
         $twitter_account = auth()->user()->twitterUser;
 
         return view('/mypage', compact('user', 'twitter_account'));
     }
 
-    // プロフィール編集画面表示
+    /**
+     * プロフィール編集画面表示
+     */
     public function edit()
     {
         // ユーザー情報取得
         $user = auth()->user();
+        if (is_null($user)) {
+            abort(404);
+        }
         return view('/edit', compact('user'));
     }
 
-    // プロフィール編集処理
+    /**
+     * プロフィール編集処理
+     */
     public function update(ValidateEditRequest $request, $id)
     {
         $user_id = Auth::id();
@@ -54,15 +66,16 @@ class MyPageController extends Controller
         return redirect('/mypage')->with('flash_message', 'プロフィールを変更しました!');
     }
 
-    // パスワード変更処理
+    /**
+     * パスワード変更処理
+     */
     public function changePass(ValidChangePassRequest $request)
     {
 
-        //現在のパスワードが正しいかを調べる(これだけ別でチェック)
+        //現在のパスワードが正しいかを調べる(これだけRequestクラスと別でチェック)
         if (!(Hash::check($request->get('old_password'), Auth::user()->password))) {
             return redirect()->back()->with('error', '現在のパスワードが間違っています');
         }
-
         //パスワードを変更
         $user = Auth::user();
         $user->password = bcrypt($request->get('password'));
@@ -71,14 +84,21 @@ class MyPageController extends Controller
         return redirect('/mypage')->with('flash_message', 'パスワードを変更しました。');
     }
 
-    // 退会画面表示
+    /**
+     * 退会画面表示
+     */
     public function withdraw()
     {
         $user = auth()->user();
+        if (is_null($user)) {
+            abort(404);
+        }
         return view('/withdraw', compact('user'));
     }
 
-    // 退会処理
+    /**
+     * 退会処理
+     */
     public function delete($id)
     {
 
