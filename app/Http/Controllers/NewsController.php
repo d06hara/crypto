@@ -9,18 +9,18 @@ use Illuminate\Support\Collection;
 class NewsController extends Controller
 {
 
-    // 仮想通貨ニュース取得
+    /**
+     * 仮想通貨ニュース取得機能
+     */
     function get_news(Request $request)
     {
 
         set_time_limit(90);
 
         $keyword = '仮想通貨';
-        //----キーワードの文字コード変更
+        //キーワードの文字コード変更
         $query = urlencode(mb_convert_encoding($keyword, "UTF-8", "auto"));
-
-        //---- キーワード検索したいときのベースURL
-        // $API_BASE_URL = "https://news.google.com/search?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=atom&q=";
+        //url生成
         $api_url = "https://news.google.com/rss/search?q=" . $query . "&hl=ja&gl=JP&ceid=JP:ja";
 
 
@@ -48,32 +48,8 @@ class NewsController extends Controller
             // 記事ソース
             $list[$i]['source'] = (string) $items[$i]->source;
         }
-        // dd($list);
-        // $list = array($list);
-        // $list_data = array_chunk($list, 10);
 
-
-        // $list = array_chunk($list, 10);
-        // $list = new Collection($list);
-        // $list = json_encode($list);
-        // dd($list);
-        // dd($list);
-        // return $list->paginate(10);
-
-        // ページネーション化
-        // $news = new LengthAwarePaginator($list, count($list), 10, 1);
-        // return $news;
-        // dd($news);
-        // return $list->forpage($request->page, 10);
-        // $list = new Collection($list);
-        // $news = new LengthAwarePaginator(
-        //     $list->forPage(2, 10),
-        //     count($list),
-        //     10,
-        //     $request->page,
-        // );
-
-        // 配列を分割
+        // 配列を分割し、vueに渡す
         $list_data = array_chunk($list, 10);
         $news = new LengthAwarePaginator(
             $list_data[$request->page],
@@ -83,53 +59,5 @@ class NewsController extends Controller
         );
 
         return $news;
-
-
-
-        // dd($news);
-
-        // foreach($xml->channel->item as $item){
-        //     $title = $item->title;
-
-        //     $date = date(""Y年 n月 j日"", strtotime($item->pubDate));
-        //     $link = $item->link;
-
-        //     $description = strip_tags($item->description);
-
-        //     dd($title);
-        // }
-
-        //記事のタイトルとURLを取り出して配列に格納
-        // for ($i = 0; $i < count($data); $i++) {
-        //     $list = [];
-
-        //     $list[$i]['title'] = mb_convert_encoding($data[$i]->title, "UTF-8", "auto");
-        //     $url_split =  explode("=", (string) $data[$i]->link->attributes()->href);
-        //     $list[$i]['url'] = end($url_split);
-        //     // dd($list);
-        // }
-        // // dd($list);
-        // $list_gn = $list->paginate(10);
-
-
-
-        //$max_num以上の記事数の場合は切り捨て
-        // if (count($list) > $max_num) {
-        //     for ($i = 0; $i < $max_num; $i++) {
-        //         $list_gn[$i] = $list[$i];
-        //     }
-        // } else {
-        //     $list_gn = $list;
-        // }
-        // dd($list_gn);
-
-
-        // return view('news', [
-        //     // 'list_gn' => $list_gn,
-        //     'news' => $news
-        // ]);
-        // $newsData = json_encode($news);
-        // // return view('news')->with('newsData', $newsData);
-        // return $newsData;
     }
 }
