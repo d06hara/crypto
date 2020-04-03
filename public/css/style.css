@@ -1134,6 +1134,7 @@ input[type=text]:focus {
 
 .p-account {
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .p-account__auto {
@@ -1339,6 +1340,7 @@ input[type=text]:focus {
   padding-right: 15px;
   padding-left: 15px;
   box-sizing: border-box;
+  margin-bottom: 40px;
 }
 
 .p-news__cards {
@@ -1374,7 +1376,7 @@ input[type=text]:focus {
 .p-ranking__content {
   box-sizing: border-box;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   overflow: hidden;
 }
 
