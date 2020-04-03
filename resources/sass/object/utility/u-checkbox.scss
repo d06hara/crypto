@@ -79,5 +79,8 @@
     @include mq(){
       font-size: $font-size_m;
     }
+    @include mq(sm){
+      font-size: $font-size_s;
+    }
   }
 }

@@ -8,23 +8,15 @@ use Illuminate\Support\Collection;
 
 class NewsController extends Controller
 {
-    // ---------------------------------------------------------------
-    // グーグルニュース検索・データ取得関数 atom
-    //
-    //
-    /* ---------------- 以下、設定部分 ------------------------------ */
 
-    //$keyword:ニュース検索のキーワード
-    //$max_num:取得記事数の上限
-
+    // 仮想通貨ニュース取得
     function get_news(Request $request)
     {
-        // dd($request);
+
         set_time_limit(90);
 
         $keyword = '仮想通貨';
-        // $max_num = 20;
-        //----　キーワードの文字コード変更
+        //----キーワードの文字コード変更
         $query = urlencode(mb_convert_encoding($keyword, "UTF-8", "auto"));
 
         //---- キーワード検索したいときのベースURL
@@ -39,13 +31,10 @@ class NewsController extends Controller
 
         //記事エントリを取り出す
         $items = $xml->channel->item;
-        // dd($items);
-        // $data = $xml->channel;
-        // $count = count($items);
+
         // 記事のタイトルとURLを取り出して配列に格納
         $list = [];
         for ($i = 0; $i < count($items); $i++) {
-
             // 記事タイトル
             $list[$i]['title'] = mb_convert_encoding($items[$i]->title, "UTF-8", "auto");
             // 記事のリンク
@@ -79,17 +68,16 @@ class NewsController extends Controller
         //     10,
         //     $request->page,
         // );
+
+        // 配列を分割
         $list_data = array_chunk($list, 10);
         $news = new LengthAwarePaginator(
-            // $list_data[$request->page - 1],
             $list_data[$request->page],
             count($list),
             10,
             $request->page,
-            // array('path' => $request->url())
         );
 
-        // dd($news);
         return $news;
 
 

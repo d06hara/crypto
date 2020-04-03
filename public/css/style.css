@@ -1717,6 +1717,12 @@ input[type=text]:focus {
   }
 }
 
+@media screen and (max-width: 414px) {
+  .u-checkbox__labeltext {
+    font-size: 12px;
+  }
+}
+
 .message {
   font-size: 14px;
   font-weight: bold;

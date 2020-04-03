@@ -16,7 +16,9 @@
       </div>
     </div>
 
-    <infinite-loading @infinite="infiniteHandler" spinner="spiral"></infinite-loading>
+    <infinite-loading @infinite="infiniteHandler" spinner="spiral">
+      <span slot="no-more">no more data</span>
+    </infinite-loading>
 
     <!-- news pagination todo css -->
     <!-- <div class="p-news__pagination">
