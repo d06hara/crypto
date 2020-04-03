@@ -37,7 +37,7 @@ class ValidChangePassRequest extends FormRequest
         return [
             'old_password.required' => '入力必須です',
             'password.required' => '入力必須です',
-            'password.min:8' => '8文字以上で入力してください',
+            'password.min' => '8文字以上で入力してください',
             'password.different' => '現在のパスワードと違うパスワードにしてください',
             'password.confirmed' => '新しいパスワードと同じパスワードを入力してください'
         ];
