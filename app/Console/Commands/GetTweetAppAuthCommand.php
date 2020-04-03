@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Abraham\TwitterOAuth\TwitterOAuth;
 use Illuminate\Console\Command;
 use App\Models\Tweet;
 
@@ -51,7 +52,8 @@ class GetTweetAppAuthCommand extends Command
         $key = $config['api_key'];
         $secret_key = $config['secret_key'];
 
-        $connection = new TwitterAppAuth($key, $secret_key);
+        $connection = new TwitterOAuth($key, $secret_key);
+        // $connection = new TwitterAppAuth($key, $secret_key);
 
         // 検索したい銘柄キーワードを配列にしておく
         // coincheckで取り扱っている12銘柄
@@ -80,19 +82,16 @@ class GetTweetAppAuthCommand extends Command
             // 最新のツイートidに+1することで重複を防ぐ
             $since_id = $latest_tweet_id + 1;
 
-            // パラメータ
-            $params = array(
+            $tweet_obj = $connection->get('search/tweets', array(
                 "q" => $search_key,
                 "count" => 10,
                 "lang" => "ja",
                 "since_id" => $since_id
-            );
+            ));
 
-            $tweet_obj = $connection->searchTweet('search/tweets', $params);
+            $tweets_arr = $tweet_obj->statuses;
 
-            $tweet_arr = json_decode($tweet_obj);
-
-            $twitter_store = Tweet::tweetStore($tweet_arr, $bland_id);
+            $twitter_store = Tweet::tweetStore($tweets_arr, $bland_id);
         }
         // 確認証
         logger()->info('This is gettweet:appauth Command');

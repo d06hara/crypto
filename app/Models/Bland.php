@@ -13,7 +13,6 @@ class Bland extends Model
 
     protected $fillable = ['bland_name'];
 
-
     //tweetモデルとのリレーション
     // 銘柄が重複したツイートはそれぞれの銘柄で１つずつ保存しているため
     // １対多の関係

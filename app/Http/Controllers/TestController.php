@@ -20,6 +20,25 @@ class TestController extends Controller
     // テストメソッド
     public function test()
     {
+        // アクセスキー読み込み
+        $config = config('twitter');
+        $key = $config['api_key'];
+        $secret_key = $config['secret_key'];
+
+        $connection = new TwitterOAuth($key, $secret_key);
+        // dd($connection);
+        // bland_idごとに最新のツイートidを取得
+        $latest_tweet_id = Tweet::where('bland_id', 4)->max('tweet_id');
+        // 最新のツイートidに+1することで重複を防ぐ
+        $since_id = $latest_tweet_id + 1;
+        $tweets = $connection->get('search/tweets', array(
+            "q" => "ビットコイン",
+            "count" => 10,
+            "lang" => "ja",
+        ));
+        dd($tweets->statuses);
+
+
         $user = auth()->user()->twitterUser;
         dd($user);
         dd($user->token);
