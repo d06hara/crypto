@@ -9,18 +9,19 @@ use Carbon\Carbon;
 
 class RankingController extends Controller
 {
-    // DBからツイート件数を取得⇨ランキング画面表示
+    /**
+     * DBからツイート取得
+     */
     public function getTweetCount()
     {
         // Tweetテーブルの最終更新日時を取得
         $recent_time = Tweet::max('created_at');
-        // 画面読み込み時から１時間前の時間を取得
+        // １時間前の時間を取得
         $before_one_hour = Carbon::now()->subHour(1);
-        //  画面読み込み時から1日前の時間を取得
+        //  1日前の時間を取得
         $before_one_day = Carbon::now()->subDay(1);
-        // 画面読み込み時から１週間前の時間を取得
+        // １週間前の時間を取得
         $before_one_week = Carbon::now()->subWeek(1);
-
 
         // 各銘柄それぞれの時間内でのツイート数を取得
         $blands = Bland::withCount([
@@ -56,9 +57,9 @@ class RankingController extends Controller
                 $data[] = [
                     'id' => $bland->id,
                     'name' => $bland->bland_name,
-                    'hour_tweets_count' => $bland->hour_tweets_count, //件数へアクセス
-                    'day_tweets_count' => $bland->day_tweets_count, //件数へアクセス
-                    'week_tweets_count' => $bland->week_tweets_count, //件数へアクセス
+                    'hour_tweets_count' => $bland->hour_tweets_count,
+                    'day_tweets_count' => $bland->day_tweets_count,
+                    'week_tweets_count' => $bland->week_tweets_count,
                     'high' => $coin_info['high'],
                     'low' => $coin_info['low'],
                     'url' => 'https://twitter.com/search?q=' . urlencode($bland->bland_name) . '&src=typed_query',
@@ -69,9 +70,9 @@ class RankingController extends Controller
                 $data[] = [
                     'id' => $bland->id,
                     'name' => $bland->bland_name,
-                    'hour_tweets_count' => $bland->hour_tweets_count, //件数へアクセス
-                    'day_tweets_count' => $bland->day_tweets_count, //件数へアクセス
-                    'week_tweets_count' => $bland->week_tweets_count, //件数へアクセス
+                    'hour_tweets_count' => $bland->hour_tweets_count,
+                    'day_tweets_count' => $bland->day_tweets_count,
+                    'week_tweets_count' => $bland->week_tweets_count,
                     'high' => '不明',
                     'low' => '不明',
                     'url' => 'https://twitter.com/search?q=' . urlencode($bland->bland_name) . '&src=typed_query',
