@@ -63,6 +63,11 @@ Route::group(['middleware' => 'auth'], function () {
     // 自動フォロー(start, stop)
     Route::post('/account/start', 'AccountController@autoFollowStart');
     Route::post('/account/stop', 'AccountController@autoFollowStop');
+
+
+    // twitter連携処理
+    Route::get('/twitter', 'AuthController@twitter');
+    Route::get('/twitter/callback', 'AuthController@twitterCallback');
     //----------------------------
 
 
@@ -107,8 +112,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-    Route::get('/twitter', 'AuthController@twitter');
-    Route::get('/twitter/callback', 'AuthController@twitterCallback');
+
     // Route::get('/twitter', 'Auth\LoginController@redirectToProvider');
     // Route::get('/twitter/callback', 'Auth\LoginController@handleProviderCallback');
 });
