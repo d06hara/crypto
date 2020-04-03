@@ -74,21 +74,21 @@
 <main>
     {{-- login --}}
     <div class="p-login__container">
-        <div id="login" class="p-login">
+        <div class="c-form">
 
-            <p class="p-login__title"><span class="p-login__title-accent"></span>パスワードリセット</p>
+            <p class="c-form__title"><span class="c-form__title-accent"></span>パスワードリセット</p>
 
 
             {{-- passremind form --}}
-            <form action="{{ route('password.update') }}" method="POST" class="p-login__form">
+            <form action="{{ route('password.update') }}" method="POST" class="c-form__contents">
                 @csrf
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
-                <fieldset class="p-login__form-fieldset">
+                <fieldset class="c-form__contents-fieldset">
 
                     {{-- email --}}
-                    <div class="p-login__form-item">
+                    <div class="c-form__contents-item">
                         <p><label for="email">E-mail address</label></p>
                         <input type="email" id="email" class="use_icon @error('email') is-invalid @enderror"
                             name="email" value="{{ $mail ?? old('email') }}" required autocomplete="email" autofocus
@@ -102,7 +102,7 @@
                     </div>
 
                     {{-- new-password --}}
-                    <div class="p-login__form-item">
+                    <div class="c-form__contents-item">
                         <p><label for="password">password</label></p>
                         <input type="password" id="password" class="use_icon @error('password') is-invalid @enderror"
                             name="password" required autocomplete="new-password" placeholder="&#xf084; 8文字以上で入力してください">
@@ -115,7 +115,7 @@
                     </div>
 
                     {{-- new-password-re --}}
-                    <div class="p-login__form-item">
+                    <div class="c-form__contents-item">
                         <p><label for="password-confirm">password(再入力)</label></p>
                         <input type="password" id="password-confirm"
                             class="use_icon @error('password') is-invalid @enderror" name="password-confirmation"
