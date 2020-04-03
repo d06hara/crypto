@@ -91,11 +91,9 @@ class AutoFollow extends Command
 
                 // まずは共通項を取得
                 $common_terms = array_intersect($ids, $follow_targets);
-                // dd($common_terms);
 
                 // 次にDB内accountとの差分を取得
                 $diff = array_diff($follow_targets, $common_terms);
-                // dd($diff);
 
                 // 差分がある場合はフォロー処理へ
                 // 差分が無い場合処理終了

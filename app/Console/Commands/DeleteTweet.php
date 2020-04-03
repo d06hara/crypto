@@ -39,6 +39,11 @@ class DeleteTweet extends Command
      */
     public function handle()
     {
+
+        // ===================
+        // 自動tweet削除(8日前以前のツイートを削除する)
+        // ===================
+
         //8日前の時間を取得
         $before_eight_days = Carbon::now()->subDay(8);
         $delete_tweet = Tweet::where('created_at', '<', $before_eight_days)->delete();

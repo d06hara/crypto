@@ -41,44 +41,20 @@ class GetTweetAppAuthCommand extends Command
      */
     public function handle()
     {
-        //cronで実行したい処理を記述
-        // echo memory_get_usage() . "\n";
-        // app認証の準備
-        // ------------------------
+
+        // ===================
+        // 自動ツイート取得処理
+        // ===================
+
         // アクセスキー読み込み
         $config = config('twitter');
         $key = $config['api_key'];
         $secret_key = $config['secret_key'];
-        // echo memory_get_usage() . "\n";
 
-        // 自作クラスでインスタンス作成
         $connection = new TwitterAppAuth($key, $secret_key);
-        // echo memory_get_usage() . "\n";
-
-        // $query = Tweet::get();
-        // $max_tweet_id = Tweet::where('bland_id', 1)->max('tweet_id');
-        // echo memory_get_usage() . "\n";
-
-
-        // $max_tweet_id = Tweet::max('tweet_id');
-        // echo $max_tweet_id;
-
-
-        //初期データ
-        // if (!is_object($query)) {
-        //     //DBから最大値を取得
-        //     $max = $query->max('tweet_id');
-        //     //tweet_idの最大値から+1してDBのデータと被らないようにする
-        //     $since_id = $max + 1;
-        // } else {
-        //     $since_id = null;
-        // }
-
-
-
 
         // 検索したい銘柄キーワードを配列にしておく
-        // 日本で取り扱っている有名銘柄10種
+        // coincheckで取り扱っている12銘柄
         // それぞれbland_idと対応させる
         // 銘柄を追加する場合はここに追加
         $search_key_array = array(
@@ -96,33 +72,25 @@ class GetTweetAppAuthCommand extends Command
             12 => "クアンタム OR Quantum OR QTUM",
 
         );
-        // echo memory_get_usage() . "\n";
-
-        $test_arr = [];
 
         foreach ($search_key_array as $bland_id => $search_key) {
 
             // bland_idごとに最新のツイートidを取得
             $latest_tweet_id = Tweet::where('bland_id', $bland_id)->max('tweet_id');
-            // 最新のツイートidに+1することでDBで重複を防ぐ
+            // 最新のツイートidに+1することで重複を防ぐ
             $since_id = $latest_tweet_id + 1;
 
             // パラメータ
             $params = array(
-                // "q" => "BTC",
                 "q" => $search_key,
                 "count" => 10,
                 "lang" => "ja",
                 "since_id" => $since_id
             );
-            // echo memory_get_usage() . "\n";
-
 
             $tweet_obj = $connection->searchTweet('search/tweets', $params);
 
             $tweet_arr = json_decode($tweet_obj);
-
-            // dd($tweet_arr);
 
             $twitter_store = Tweet::tweetStore($tweet_arr, $bland_id);
         }
