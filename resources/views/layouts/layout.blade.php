@@ -88,45 +88,46 @@
       </nav>
 
     </header>
-    @section('sidebar')
+    {{-- @section('sidebar')
 
-    @show
+    @show --}}
 
-    {{-- フラッシュメッセージ --}}
-    {{-- 成功時 --}}
-    @if(Session::has('flash_message'))
-    <div class="c-flash ">
-      <div class="c-flash__success">
-        <p class="c-flash__success-text">{{ session('flash_message') }}</p>
-      </div>
-    </div>
-    @endif
 
-    {{-- 失敗時 --}}
-    @if(Session::has('flash_error'))
-    <div class="c-flash">
-      <div class="c-flash__error">
-        <p class="c-flash__error-text">{{ session('flash_error') }}</p>
-      </div>
-    </div>
-    @endif
 
     <div id="app" class="l-main js-float-menu-target">
+      {{-- フラッシュメッセージ --}}
+      {{-- 成功時 --}}
+      @if(Session::has('flash_message'))
+      <div class="c-flash ">
+        <div class="c-flash__success">
+          <p class="c-flash__success-text">{{ session('flash_message') }}</p>
+        </div>
+      </div>
+      @endif
+
+      {{-- 失敗時 --}}
+      @if(Session::has('flash_error'))
+      <div class="c-flash">
+        <div class="c-flash__error">
+          <p class="c-flash__error-text">{{ session('flash_error') }}</p>
+        </div>
+      </div>
+      @endif
       @yield('content')
     </div>
 
     <footer class="l-footer">
       <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    {{-- <script src="/public/js/app.js"></script> --}}
-    <script src="{{ asset('public/js/app.js') }}"></script>
+
 
   </div>
 
 
-
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  {{-- <script src="/public/js/app.js"></script> --}}
+  <script src="{{ asset('public/js/app.js') }}"></script>
 </body>
 
 </html>

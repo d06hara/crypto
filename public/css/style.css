@@ -211,6 +211,7 @@ input {
 }
 
 .l-footer {
+  margin-top: auto;
   box-sizing: border-box;
   height: 50px;
   width: 100%;
@@ -218,12 +219,13 @@ input {
   font-size: 14px;
   text-align: center;
   padding: 15px 0;
-  margin-top: 40px;
-  position: absolute;
-  /*←絶対位置*/
-  bottom: 0;
-  /*下に固定*/
   box-shadow: 0 0 1px gray;
+}
+
+@media screen and (max-width: 768px) {
+  .l-footer {
+    font-size: 12px;
+  }
 }
 
 .l-header {
@@ -255,12 +257,10 @@ input {
 }
 
 .l-main {
+  flex: 1;
   box-sizing: border-box;
   width: 100%;
   margin: 0 auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #ffffff;
 }
 
 @media screen and (max-width: 1000px) {
@@ -289,10 +289,9 @@ input {
 }
 
 .l-wrapper {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  position: relative;
-  padding-bottom: 50px;
-  box-sizing: border-box;
 }
 
 .c-accountcard__container {
@@ -1266,7 +1265,6 @@ input[type=text]:focus {
 
 .p-home__bottom {
   background-color: #f0f0f0;
-  margin-bottom: 15px;
 }
 
 .p-home__bottom-contents {

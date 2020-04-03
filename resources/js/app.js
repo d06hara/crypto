@@ -53,7 +53,8 @@ const app = new Vue({
 $(function () {
     // ヘッダーの高さコンテンツを下げる
     var height = $(".js-l-header").height();
-    $("body").css("margin-top", height);
+    $('.l-main').css('padding-top', height + 20);
+
 
     // フロートヘッダーメニュー
     var targetHeight = $('.js-float-menu').height();
@@ -69,5 +70,6 @@ $(function () {
 
     // flash_messageのfadeout
     $('.c-flash').fadeOut(3000);
+
 });
 
