@@ -20,6 +20,53 @@ class TestController extends Controller
     // テストメソッド
     public function test()
     {
+        $user = auth()->user()->twitterUser;
+        dd($user);
+        dd($user->token);
+        // dd($user->user_id);
+        // $user->accounts()->attach(458);
+        // dd($user);
+
+        $accounts = TwitterAccount::with('users')->where('id', 458)->get();
+        // dd($accounts);
+        // $accounts = TwitterAccount::with('users')->inRandomOrder()->take(50)->get();
+        $accounts = $accounts->toArray();
+        // dd($accounts);
+        $a = $accounts[0]['users'];
+        // dd($a);
+        $b = $a[0]['user_id'];
+        // dd($a);
+        // dd($b);
+        foreach ($accounts as $key => &$value) {
+            if (empty($value['users'])) {
+                $value['users'] = false;
+                dd('false');
+            } else {
+                // dd($value['users']);
+                // dd(count($value['users']));
+                // dd('からではない');
+                // dd($value['users'][0]['user_id']);
+
+                $i = 0;
+                while ($i < count($value['users'])) {
+
+                    if ($value['users'][$i]['user_id'] === 3) {
+                        // dd('2?');
+                        $value['users'] = true;
+                        break;
+                    }
+                    // dd('１ではない');
+                    $i++;
+                }
+                // dd($value['users']);
+                if (is_array($value['users'])) {
+                    // dd('false?');
+                    $value['users'] = false;
+                }
+            };
+        };
+        dd($accounts);
+
         $config = config('twitter');
         $key = $config['api_key'];
         $secret_key = $config['secret_key'];
