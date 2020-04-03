@@ -100,7 +100,7 @@
           display: inline-block;
           width: 80px;
           height: 1px;
-          background-color: black;
+          background-color: $black;
           left:0;
         }
         &:after {
@@ -110,7 +110,7 @@
           display: inline-block;
           width: 80px;
           height: 1px;
-          background-color: black;
+          background-color: $black;
           right:0 ;
         }
 

@@ -2,7 +2,6 @@
 // utility:twitter-btn
 // ===============================
 
-
 .u-twitterbtn {
   color: #FFF;
   border-radius: 7px;
@@ -13,7 +12,7 @@
   text-align: center;
   font-size: $font-size_xl;
   background: #1da1f3;
-  overflow: hidden;/*はみ出た部分を隠す*/
+  overflow: hidden;
 
   @include mq(){
     font-size: $font-size_m;

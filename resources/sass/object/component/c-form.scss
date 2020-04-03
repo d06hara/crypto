@@ -35,7 +35,7 @@
   &__title {
     background: $sub-color;
     border-radius: 20px 20px 0 0;
-    color: #fff;
+    color: $white;
     font-size: $font-size_xl;
     font-weight: bold;
     padding: 20px 26px;
@@ -53,7 +53,7 @@
     border-bottom: 1px solid #d0cece;
     
     &-btn {
-      color: #FFF;
+      color: $white;
       border-radius: 7px;
       display: inline-block;
       text-align: center;
@@ -79,7 +79,7 @@
       padding: $space_xl;
     }
     p {
-      color: #777;
+      color: $font-color_default;
     }
 
     &-item {
@@ -96,8 +96,8 @@
         transition: 0.3s;
 
         &:focus {
-          border-color: dodgerBlue;
-          box-shadow: 0 0 8px 0 dodgerBlue;
+          border-color: #1e90ff;
+          box-shadow: 0 0 8px 0 #1e90ff;
         } 
       }
       strong {
@@ -111,7 +111,7 @@
       font-size: $font-size_m;
       font-weight: bold;
       border-radius: 4px;
-      color: #fff;
+      color: $white;
       display: block;
       margin: 0 auto;
       padding: $space_s $space_m;

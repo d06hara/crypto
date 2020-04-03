@@ -52,8 +52,8 @@ const app = new Vue({
 
 $(function () {
     // ヘッダーの高さコンテンツを下げる
-    var height = $(".js-l-header").height();
-    $('.l-main').css('padding-top', height + 20);
+    // var height = $(".js-l-header").height();
+    // $('.l-main').css('padding-top', height + 20);
 
 
     // フロートヘッダーメニュー

@@ -12,7 +12,6 @@
 }
 
 .c-accountcard {
-  color: #666;
   width: calc(50% - #{$space_m}*2);
   box-sizing: border-box;
   box-shadow: 0 0 5px 1px #c0c0c0;
@@ -46,12 +45,7 @@
       border-radius: 10px;
       padding: $space_s $space_m;
       cursor: pointer;
-      // span:after {
-      //   content:'フォロー ＋';
-      //   &.active:after {
-      //     content: 'フォロー中';
-      //   }
-      // }
+
 
       &:hover {
         background-color: #007bff;
@@ -89,7 +83,7 @@
   &__profile {
     width: 100%;
     margin-top: $space_m;
-    border-bottom: 1px dotted #666;
+    border-bottom: 1px dotted $font-color_default;
     padding-bottom: $space_s;
     
   }
@@ -98,11 +92,8 @@
     width: 90%;
     max-height: 100px;
     overflow: scroll;
-    // background-color: #f7f7f7;
-    // border: 1px solid #ccc;
     padding: $space_s;
     margin: $space_m auto;
 
-    
   }
 }
