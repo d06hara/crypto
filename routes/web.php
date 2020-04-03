@@ -84,7 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
     // プロフィール編集画面表示
     Route::get('/edit', 'MypageController@edit');
     // プロフィール編集機能
-    Route::post('/updata/{id}/', 'MypageController@update')->name('update');
+    Route::post('/update/{id}/', 'MypageController@update')->name('update');
     // パスワード編集画面表示
     Route::get('/passedit', function () {
         return view('passedit');

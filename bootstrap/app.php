@@ -52,4 +52,11 @@ $app->singleton(
 |
 */
 
+$environment = $app->detectEnvironment(function () {
+    return env('APP_ENV', 'production');
+});
+if ($environment == 'testing') {
+    $app->loadEnvironmentFrom('.env.testing');
+}
+
 return $app;
