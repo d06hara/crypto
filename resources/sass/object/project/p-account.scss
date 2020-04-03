@@ -12,6 +12,8 @@
     font-size: $font-size_l;
     @include mq() {
       font-size: $font-size_m;
+      width: 80%;
+      margin: 0 auto;
     }
 
     // input[type="checkbox"] {

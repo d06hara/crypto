@@ -1137,6 +1137,8 @@ input[type=text]:focus {
 @media screen and (max-width: 768px) {
   .p-account__auto {
     font-size: 14px;
+    width: 80%;
+    margin: 0 auto;
   }
 }
 
@@ -1662,8 +1664,8 @@ input[type=text]:focus {
   top: 50%;
   left: 50%;
   width: 40%;
-  height: 4px;
-  border-radius: 2px;
+  height: 2px;
+  border-radius: 4px;
   transform: translate(-6px, 5px) rotateZ(-135deg);
   transform-origin: 2px 2px;
   background: #FFFFFF;
@@ -1695,11 +1697,24 @@ input[type=text]:focus {
   border-radius: 4px;
 }
 
+@media screen and (max-width: 414px) {
+  .u-checkbox__dummy {
+    width: 40px;
+    height: 24px;
+  }
+}
+
 .u-checkbox__labeltext {
-  margin-left: 12px;
+  margin-left: 10px;
   display: block;
   font-size: 18px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .u-checkbox__labeltext {
+    font-size: 14px;
+  }
 }
 
 .message {
