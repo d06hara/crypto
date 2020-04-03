@@ -45,6 +45,10 @@ class RankingController extends Controller
 
         $coin_info = json_decode($file, true);
 
+        if (is_null($coin_info)) {
+            abort(404);
+        }
+
 
         foreach ($blands as $bland) {
             // ビットコインのデータのみcoincheckから取得したデータを入れる

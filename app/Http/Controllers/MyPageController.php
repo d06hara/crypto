@@ -34,10 +34,15 @@ class MyPageController extends Controller
     // プロフィール編集処理
     public function update(ValidateEditRequest $request, $id)
     {
+        $user_id = Auth::id();
 
         $auth = User::find($id);
         if (is_null($auth)) {
             abort(404);
+        }
+
+        if ($user_id !== $auth->id) {
+            abort(403);
         }
 
         $form = $request->all();

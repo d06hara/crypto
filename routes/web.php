@@ -115,37 +115,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-// ---------------------------
-// socialite使用
-// ---------------------------
-// 新規登録
-// Route::get('/register/{provider}', 'Auth\RegisterController@redirectToProvider');
-// Route::get('register/{provider}/callback', 'Auth\RegisterController@handleProviderCallbac');
-
-// ログイン
-Route::get('/login/twitter', 'Auth\LoginController@redirectToProvider');
-Route::get('/login/twitter/callback', 'Auth\LoginController@handleProviderCallback');
-
-Route::get('/account/twitter', 'TwittersController@addTwitterAccount');
 
 
-// ---------------------------------------------
-
-
-
-
-// ---------------------------------------------
-// テストrouting
-// ---------------------------------------------
-
-// ログイン認証
-Route::group(['middleware' => 'auth'], function () {
-    // ユーザー一覧
-    Route::get('/users/index', 'UsersController@index');
-    // フォロー/フォロー解除を追加
-    Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
-    Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
-});
 
 
 

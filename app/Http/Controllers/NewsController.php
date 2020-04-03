@@ -27,6 +27,10 @@ class NewsController extends Controller
         //---- APIにアクセス、結果をsimplexmlに格納
         $contents = file_get_contents($api_url);
 
+        if (is_null($contents)) {
+            abort(404);
+        }
+
         $xml = simplexml_load_string($contents);
 
         //記事エントリを取り出す
