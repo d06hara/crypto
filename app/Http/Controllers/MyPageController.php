@@ -36,6 +36,9 @@ class MyPageController extends Controller
     {
 
         $auth = User::find($id);
+        if (is_null($auth)) {
+            abort(404);
+        }
 
         $form = $request->all();
 
