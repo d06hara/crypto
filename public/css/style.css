@@ -1474,6 +1474,10 @@ input[type=text]:focus {
   display: inline-block;
 }
 
+.p-passedit {
+  margin-top: 40px;
+}
+
 .p-passremind {
   box-shadow: 0 0 5px 1px #c0c0c0;
   border-radius: 20px;
@@ -1619,6 +1623,10 @@ input[type=text]:focus {
 }
 
 .p-register {
+  margin-top: 40px;
+}
+
+.p-withdraw {
   margin-top: 40px;
 }
 

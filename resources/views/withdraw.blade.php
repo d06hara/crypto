@@ -2,42 +2,41 @@
 @section('title', '退会ページ')
 @section('content')
 <main>
-  {{-- login --}}
-  <div class="p-passremind__container">
-    <div id="login" class="p-passremind">
+  <div class="p-withdraw">
+    <div class="p-withdraw__form">
+      <div class="c-form">
 
-      <h2 class="p-passremind__title"><span class="p-passremind__title-accent"></span>退会</h2>
+        <p class="c-form__title"><span class="c-form__title-accent"></span>退会</p>
 
+        <form action="{{ route('delete', $user->id)}}" method="POST" class="c-form__contents">
+          @csrf
+          <fieldset class="c-form__contents-fieldset">
 
-      {{-- withdraw form --}}
-      <form action="{{ route('delete', $user->id)}}" method="POST" class="p-passremind__form">
-        @csrf
-        <fieldset class="p-passremind__form-fieldset">
+            <div><button type="submit">退会する</button></div>
+          </fieldset>
 
-          <p><input type="submit" value="退会する"></<input>
-          </p>
+        </form>
 
+      </div>
+    </div>
+    <div class="p-withdtar__menu">
 
-        </fieldset>
+      <div class="c-menu">
 
-      </form>
+        <ul>
+          <li><a href="{{ url('mypage') }}">マイページ</a></li>
+          <li><a href="{{ url('edit') }}">プロフィール編集</a></li>
+          <li><a href="{{ url('passedit') }}">パスワード変更</a></li>
+        </ul>
+
+      </div>
 
     </div>
   </div>
 
-  <div class="p-mypage">
-    {{-- 後でここにformを入れる --}}
-    <div class="c-menu">
 
-      <ul>
-        <li><a href="{{ url('mypage') }}">マイページ</a></li>
-        <li><a href="{{ url('edit') }}">プロフィール編集</a></li>
-        <li><a href="{{ url('passedit') }}">パスワード変更</a></li>
-      </ul>
 
-    </div>
 
-  </div>
 
 
 </main>
