@@ -3,13 +3,11 @@
 // ===============================
 
 .c-card__container { 
-  display: -webkit-box; /*Android4.3*/
-  display: -moz-box;    /*Firefox21*/
-  display: -ms-flexbox; /*IE10*/
-  display: -webkit-flex; /*PC-Safari,iOS8.4*/
+  display: -webkit-box; /*Android4.3*/    /*Firefox21*/ /*IE10*/ /*PC-Safari,iOS8.4*/
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
 }
 
 

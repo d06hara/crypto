@@ -12,21 +12,27 @@
     right:-100%;
     width:100%;
     height: 100vh;
+    -webkit-transition: .5s;
     transition: .5s;
     &.active {
+      -webkit-transition: .5s;
       transition: .5s;
-      transform: translateX(-20%);
+      -webkit-transform: translateX(-20%);
+              transform: translateX(-20%);
       z-index: 2;
       @include mq() {
-        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
         text-align: center;
       }
     }
   }
 
   &__menu {
+    display: -webkit-box;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+            align-items: center;
     font-size: $font-size_m;
 
     @include mq(lg) {
@@ -72,6 +78,7 @@
     display: inline-block;
   }
   cursor: pointer;
+  -webkit-transition: all .4s;
   transition: all .4s;
   box-sizing: border-box;
   position:relative;
@@ -83,6 +90,7 @@
     background-color: $font-color_default;
     width:100%;
     height:4px;
+    -webkit-transition:all .4s;
     transition:all .4s;
     position: absolute;
     left:0;

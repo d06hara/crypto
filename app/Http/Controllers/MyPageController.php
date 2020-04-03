@@ -81,6 +81,18 @@ class MyPageController extends Controller
     // 退会処理
     public function delete($id)
     {
+
+        $user_id = Auth::id();
+
+        $auth = User::find($id);
+        if (is_null($auth)) {
+            abort(404);
+        }
+
+        if ($user_id !== $auth->id) {
+            abort(403);
+        }
+
         User::find($id)->delete();
         return redirect('/login')->with('flaeh_message', '退会が完了しました。');
     }

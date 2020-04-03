@@ -4,8 +4,10 @@
 
 .u-checkbox {
   padding: 12px 8px;
+  display: -webkit-inline-box;
   display: inline-flex;
-  align-items: center;
+  -webkit-box-align: center;
+          align-items: center;
   cursor: pointer;
 
   &__input {
@@ -35,8 +37,10 @@
           width: 40%;
           height: 2px;
           border-radius: 4px;
-          transform: translate(-6px, 5px) rotateZ(-135deg);
-          transform-origin: 2px 2px;
+          -webkit-transform: translate(-6px, 5px) rotateZ(-135deg);
+                  transform: translate(-6px, 5px) rotateZ(-135deg);
+          -webkit-transform-origin: 2px 2px;
+                  transform-origin: 2px 2px;
           background: #FFFFFF;
         }
         &::after {
@@ -48,8 +52,10 @@
           width: 76%;
           height: 4px;
           border-radius: 2px;
-          transform: translate(-6px, 5px) rotateZ(-45deg);
-          transform-origin: 2px 2px;
+          -webkit-transform: translate(-6px, 5px) rotateZ(-45deg);
+                  transform: translate(-6px, 5px) rotateZ(-45deg);
+          -webkit-transform-origin: 2px 2px;
+                  transform-origin: 2px 2px;
           background: #FFFFFF;
         }
       }

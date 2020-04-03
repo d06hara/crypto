@@ -3,7 +3,8 @@
 // ===============================
 
 .l-main {
-  flex:1;
+  -webkit-box-flex:1;
+          flex:1;
   // width:980px;
   box-sizing: border-box;
   width: 100%;

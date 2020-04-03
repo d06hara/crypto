@@ -20,8 +20,10 @@
       padding-bottom: $space_m;
 
           ul {
+            display: -webkit-box;
             display: flex;
-            justify-content: center;
+            -webkit-box-pack: center;
+                    justify-content: center;
     
             li {
               width: 25%;
@@ -34,6 +36,7 @@
                 text-decoration: none;
                 color: #999;
                 border: solid 1px #999;
+                -webkit-transition: .4s;
                 transition: .4s;
                 margin-right: 0;
 

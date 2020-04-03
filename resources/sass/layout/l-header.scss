@@ -7,9 +7,12 @@
   height: 80px;
   color: $font-color_default;
   background-color: $white;
+  display: -webkit-box;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
   padding-left: $space_xl;
   padding-right: $space_xl;
   left: 0;
@@ -19,6 +22,7 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 
   &.float-active {
+    -webkit-transition: .3s;
     transition: .3s;
     background: rgba(255, 255, 255, 0.7);
   }
