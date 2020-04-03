@@ -8,19 +8,18 @@
   border-radius: 10px;
   padding: $space_xxl;
   font-size: $font-size_l;
+  @include mq(){
+    font-size: $font-size_m;
+    padding: $space_l;
+  }
+  @include mq(sm){
+    font-size: $font-size_s;
+    padding: $space_m;
+  }
 
   &__item {
 
     padding-bottom: $space_m;
-
-    span {
-      font-weight: bold;
-      margin-left: $space_m;
-    }
-  }
-
-  &__email {
-    margin-top: $space_s;
 
     span {
       font-weight: bold;

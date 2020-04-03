@@ -1054,20 +1054,25 @@ input[type=text]:focus {
   font-size: 18px;
 }
 
+@media screen and (max-width: 768px) {
+  .c-profile {
+    font-size: 14px;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .c-profile {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
 .c-profile__item {
   padding-bottom: 10px;
 }
 
 .c-profile__item span {
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.c-profile__email {
-  margin-top: 5px;
-}
-
-.c-profile__email span {
   font-weight: bold;
   margin-left: 10px;
 }
@@ -1326,12 +1331,18 @@ input[type=text]:focus {
 }
 
 .p-mypage {
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 .p-mypage__profile {
   width: 60%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .p-mypage__profile {
+    width: 80%;
+  }
 }
 
 .p-news {

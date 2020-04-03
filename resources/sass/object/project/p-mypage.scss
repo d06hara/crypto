@@ -3,11 +3,15 @@
 // ===============================
 
 .p-mypage {
-  margin-top: 100px;
+  margin-top: $space_3l;
 
   &__profile {
     width: 60%;
     margin:0 auto;
+
+    @include mq(){
+      width: 80%;
+    }
   }
 
 
