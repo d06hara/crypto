@@ -91,8 +91,9 @@ Route::group(['middleware' => 'auth'], function () {
     });
     // パスワード編集機能
     Route::post('/passedit/change', 'MypageController@changePass')->name('changepass');
-
+    // 退会画面表示
     Route::get('/withdraw', 'MypageController@withdraw');
+    // 退会処理
     Route::post('/delete/{id}/', 'MypageController@delete')->name('delete');
     // Route::get('api/mypage', 'MypageController@show');
     //----------------------------

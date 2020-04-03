@@ -1,0 +1,75 @@
+// ===============================
+// utility:checkbox
+// ===============================
+
+.u-checkbox {
+  padding: 12px 8px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__input {
+    margin: 0;
+    width: 0;
+    opacity: 0;
+
+    &:hover {
+      background: rgba(0,0,0,.05) !important;
+    }
+
+    &:focus{
+      +span {
+        border: dashed 2px #333333;
+      }
+    }
+    &:checked {
+      +span {
+        background: #333333;
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 40%;
+          height: 4px;
+          border-radius: 2px;
+          transform: translate(-6px, 5px) rotateZ(-135deg);
+          transform-origin: 2px 2px;
+          background: #FFFFFF;
+        }
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 76%;
+          height: 4px;
+          border-radius: 2px;
+          transform: translate(-6px, 5px) rotateZ(-45deg);
+          transform-origin: 2px 2px;
+          background: #FFFFFF;
+        }
+      }
+    }
+  }
+  &__dummy {
+    position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: solid 2px transparent;
+  background: rgba(0,0,0, .1);
+  border-radius: 4px;
+  }
+  &__labeltext {
+    margin-left: 12px;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

@@ -1630,6 +1630,78 @@ input[type=text]:focus {
   margin-top: 40px;
 }
 
+.u-checkbox {
+  padding: 12px 8px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.u-checkbox__input {
+  margin: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.u-checkbox__input:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.u-checkbox__input:focus + span {
+  border: dashed 2px #333333;
+}
+
+.u-checkbox__input:checked + span {
+  background: #333333;
+}
+
+.u-checkbox__input:checked + span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  height: 4px;
+  border-radius: 2px;
+  transform: translate(-6px, 5px) rotateZ(-135deg);
+  transform-origin: 2px 2px;
+  background: #FFFFFF;
+}
+
+.u-checkbox__input:checked + span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76%;
+  height: 4px;
+  border-radius: 2px;
+  transform: translate(-6px, 5px) rotateZ(-45deg);
+  transform-origin: 2px 2px;
+  background: #FFFFFF;
+}
+
+.u-checkbox__dummy {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: solid 2px transparent;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.u-checkbox__labeltext {
+  margin-left: 12px;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .message {
   font-size: 14px;
   font-weight: bold;

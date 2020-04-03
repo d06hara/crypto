@@ -4,8 +4,18 @@
     <div class="p-account__auto">
       <!-- <input id="auto_follow" type="checkbox" v-model="autoMode" /> -->
       <!-- <input id="auto_follow" type="checkbox" v-model="autoMode" v-on:change="autoFollow" /> -->
-      <input id="auto_follow" type="checkbox" v-bind:checked="autoMode" @change="autoFollow" />
-      <label for="auto_follow">自動フォロー(チェックすると自動フォローが開始します)</label>
+
+      <label for="auto_follow" class="u-checkbox">
+        <input
+          id="auto_follow"
+          class="u-checkbox__input"
+          type="checkbox"
+          v-bind:checked="autoMode"
+          @change="autoFollow"
+        />
+        <span class="u-checkbox__dummy"></span>
+        <span class="u-checkbox__labeltext">自動フォロー(チェックすると自動フォローが開始します)</span>
+      </label>
       <!-- <p>テスト {{ autoMode }} （機能が完成したら削除</p> -->
     </div>
 
