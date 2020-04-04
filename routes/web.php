@@ -17,25 +17,11 @@ use Illuminate\Http\Request;
 
 // 認証系
 Auth::routes();
-// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
     return view('welcome');
 })->name('/');
 
-
-// API以外のリクエストに対しては全てindexテンプレートを返す
-// anyはなんでも良い⇨正規化
-// 画面遷移はvuerouterを使用
-// Route::get('/{any?}', function () {
-//     return view('index');
-// })->where('any', '.+');
-
-
-
-// ---------------------------------------------
-// 一時確定
-// ---------------------------------------------
 
 // ログイン認証を必要にする
 Route::group(['middleware' => 'auth'], function () {
@@ -63,7 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
     // 自動フォロー(start, stop)
     Route::post('/account/start', 'AccountController@autoFollowStart');
     Route::post('/account/stop', 'AccountController@autoFollowStop');
-
 
     // twitter連携処理
     Route::get('/twitter', 'AuthController@twitter');
@@ -100,27 +85,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/withdraw', 'MypageController@withdraw');
     // 退会処理
     Route::post('/delete/{id}/', 'MypageController@delete')->name('delete');
-    // Route::get('api/mypage', 'MypageController@show');
     //----------------------------
 
-
-    // ----------------------
-
-    // Route::middleware(['cors'])->group(function () {
-    //     Route::post('/account/follow', 'TwittersController@accountFollow');
-    // });
-
-
-
-
-    // Route::get('/twitter', 'Auth\LoginController@redirectToProvider');
-    // Route::get('/twitter/callback', 'Auth\LoginController@handleProviderCallback');
 });
-
-
-
-
-
 
 
 
