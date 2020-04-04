@@ -168,13 +168,25 @@ export default {
      * 自動フォロー
      */
     autoFollow: function() {
-      this.isChecked = !this.isChecked;
-      if (this.autoMode === true) {
-        console.log("自動フォローします");
-        axios.post("/account/start");
+      // autoModeがfalseの時自動フォロー開始
+      if (this.autoMode === false) {
+        axios.post("/account/start").then(response => {
+          console.log(response);
+          if (response.status === 200) {
+            console.log("自動フォローします");
+            // isCheckedを反転
+            this.isChecked = !this.isChecked;
+          }
+        });
       } else {
-        console.log("自動フォロー終了");
-        axios.post("/account/stop");
+        // autoModeがtrueの時自動フォロー停止
+        axios.post("/account/stop").then(response => {
+          if (response.status === 200) {
+            console.log("自動フォロー終了");
+            // isCheckedを反転
+            this.isChecked = !this.isChecked;
+          }
+        });
       }
     }
   }
