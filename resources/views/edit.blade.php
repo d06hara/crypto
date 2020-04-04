@@ -5,12 +5,12 @@
 @section('content')
 <main>
 
-  {{-- form --}}
   <div class="p-edit">
+    {{-- 編集フォーム --}}
     <div class="p-edit__form">
       <div class="c-form">
         <p class="c-form__title">プロフィール編集画面</p>
-        {{-- login form --}}
+
         <form action="{{ route('update', $user->id) }}" method="POST" class="c-form__contents">
           @csrf
 
@@ -49,6 +49,7 @@
     </div>
 
 
+    {{-- edit menu --}}
     <div class="p-edit__menu">
       <div class="c-menu">
 
