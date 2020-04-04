@@ -50,7 +50,7 @@ class RankingController extends Controller
             abort(404);
         }
 
-
+        // 24時間での最高取引価格と最安取引価格情報があるのはビットコインのみ
         foreach ($blands as $bland) {
             // ビットコインのデータのみcoincheckから取得したデータを入れる
             if ($bland->bland_name === 'ビットコイン') {
