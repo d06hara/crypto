@@ -35,7 +35,6 @@ class TwitterServiceProvider extends ServiceProvider
 
             $config = config('twitter');
 
-            // このインスタンスだと常に私のアカウントのインスタンスを取得している？
             return new TwitterOAuth($config['api_key'], $config['secret_key'], $config['access_token'], $config['access_token_secret']);
         });
     }
