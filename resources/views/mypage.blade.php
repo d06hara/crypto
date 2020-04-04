@@ -8,6 +8,7 @@
 
   <div class="p-mypage">
 
+    {{-- profile --}}
     <div class="p-mypage__profile">
       <div class="c-profile">
         <div class="c-profile__item">
@@ -40,6 +41,7 @@
 
     </div>
 
+    {{-- edit menu --}}
     <div class="p-mypage__menu">
       <div class="c-menu">
         <ul>
@@ -51,11 +53,6 @@
     </div>
 
   </div>
-
-
-
-
-  {{-- <my-page></my-page> --}}
 
 </main>
 @endsection
