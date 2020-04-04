@@ -11,7 +11,6 @@ Vue.use(InfiniteLoading)
 Vue.component('account-panel', require('./components/AccountPanel.vue').default);
 Vue.component('bland-panel', require('./components/BlandPanel.vue').default);
 Vue.component('news-panel', require('./components/NewsPanel.vue').default);
-Vue.component('my-page', require('./components/MyPage.vue').default);
 
 
 Vue.config.devtools = true;
