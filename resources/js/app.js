@@ -1,7 +1,5 @@
 
-
 import './bootstrap'
-
 
 import Vue from 'vue';
 
@@ -12,26 +10,12 @@ Vue.component('account-panel', require('./components/AccountPanel.vue').default)
 Vue.component('bland-panel', require('./components/BlandPanel.vue').default);
 Vue.component('news-panel', require('./components/NewsPanel.vue').default);
 
-
 Vue.config.devtools = true;
-const config = {
-    headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        "Access-Control-Allow-Credentials": "true",
-
-    }
-}
-
 
 
 const app = new Vue({
     el: '#app',
-
     data: {
-
     }
 });
 
