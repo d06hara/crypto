@@ -953,21 +953,6 @@ input {
   margin-top: 40px;
 }
 
-.p-form__container {
-  width: 980px;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-.p-form__group {
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 40px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #d0cece;
-}
-
 .p-home {
   width: 100%;
 }
