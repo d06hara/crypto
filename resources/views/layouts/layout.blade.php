@@ -18,8 +18,6 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
   {{-- fontawesome --}}
-  {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> --}}
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
   <!-- Styles -->
@@ -29,7 +27,7 @@
 <body>
   <div class="l-wrapper">
 
-    {{-- header --}}
+    {{-- ヘッダー --}}
     <header class="l-header js-l-header js-float-menu">
       @if(Auth::user())
       <a href="{{ route('ranking') }}" class="l-header__logo">
@@ -88,10 +86,6 @@
       </nav>
 
     </header>
-    {{-- @section('sidebar')
-
-    @show --}}
-
 
 
     <div id="app" class="l-main js-float-menu-target">
@@ -116,13 +110,12 @@
       @yield('content')
     </div>
 
+    {{-- footer --}}
     <footer class="l-footer">
       <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>
     </footer>
 
-
   </div>
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
