@@ -53,16 +53,6 @@
 </template>
 
 <script>
-// const config = {
-//   headers: {
-//     "Content-Type": "application/json",
-//     "Access-Control-Allow-Origin": "*",
-//     "Access-Control-Allow-Methods": "OPTIONS",
-//     "Access-Control-Allow-Headers": "Content-Type, Authorization",
-//     "Access-Control-Allow-Credentials": "true"
-//   }
-// };
-
 export default {
   name: "AccountPanel",
 
@@ -103,7 +93,6 @@ export default {
         .get("/api/account", {
           params: {
             page: this.page
-            // per_page: 1
           }
         })
         .then(({ data }) => {
@@ -131,10 +120,6 @@ export default {
         // 既にフォローしている場合
         // アンフォロー処理
         // --------------------------
-        console.log(account.twitter_id + "をアンフォローします");
-
-        // ボタンを未フォロー状態に反転
-        account.users = !account.users;
 
         // post処理
         // アカウントのDB内idとtwitter_id,screen_nameをサーバーに渡す
@@ -144,16 +129,20 @@ export default {
             twitter_id: account.twitter_id,
             screen_name: account.screen_name
           })
+          .then(response => {
+            console.log(response);
+            if (response.status === 200) {
+              console.log(account.twitter_id + "をアンフォローします");
+              // ボタンを未フォロー状態に反転
+              account.users = !account.users;
+            }
+          })
           .catch(error => console.log(error));
       } else {
         // --------------------------
         // 未フォローの場合
         // フォロー処理
         // --------------------------
-        console.log(account.twitter_id + "をフォローします");
-
-        // ボタンをフォロー済み状態に反転
-        account.users = !account.users;
 
         // pose処理
         // アカウントのDB内idとtwitter_id,screen_nameをサーバーに渡す
@@ -162,6 +151,14 @@ export default {
             account_id: account.id,
             twitter_id: account.twitter_id,
             screen_name: account.screen_name
+          })
+          .then(response => {
+            console.log(response);
+            if (response.status === 200) {
+              console.log(account.twitter_id + "をフォローします");
+              // ボタンをフォロー済み状態に反転
+              account.users = !account.users;
+            }
           })
           .catch(error => console.log(error));
       }
