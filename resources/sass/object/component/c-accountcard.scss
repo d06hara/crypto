@@ -8,7 +8,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  // align-items: center;
 
 }
 
@@ -61,7 +60,6 @@
   }
 
   &__data {
-    
 
     li {
       font-size: $font-size_m;
@@ -86,7 +84,7 @@
     margin-top: $space_m;
     border-bottom: 1px dotted $font-color_default;
     padding-bottom: $space_s;
-    
+
   }
 
   &__tweet {

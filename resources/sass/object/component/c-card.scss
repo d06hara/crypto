@@ -3,14 +3,12 @@
 // ===============================
 
 .c-card__container { 
-  display: -webkit-box; /*Android4.3*/    /*Firefox21*/ /*IE10*/ /*PC-Safari,iOS8.4*/
+  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
           justify-content: space-between;
 }
-
-
 .c-card{
   box-sizing: border-box;
   width: calc(50% - #{$space_m});
@@ -27,7 +25,6 @@
 
   &__textbox {
     width: 100%;
-    // height: 100%;
     padding: $space_l;
     box-sizing: border-box;
 
@@ -40,7 +37,6 @@
 
     &-item {
       font-size: $font-size_s;
-
     }
   }
 }

@@ -384,10 +384,6 @@ input {
 }
 
 .c-card__container {
-  /*Android4.3*/
-  /*Firefox21*/
-  /*IE10*/
-  /*PC-Safari,iOS8.4*/
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
