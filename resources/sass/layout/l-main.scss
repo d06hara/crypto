@@ -5,17 +5,12 @@
 .l-main {
   -webkit-box-flex:1;
           flex:1;
-  // width:980px;
+
   box-sizing: border-box;
   width: 100%;
   margin:0 auto;
   z-index: 1;
   padding-top: 100px;
-  // padding-top: $space_3l;
-  // padding-left: $space_xl;
-  // padding-right: $space_xl;
-  // padding-bottom: $space_3l;
-  // background-color: $white;
 
   @include mq(lg) {
     width: 100%;
