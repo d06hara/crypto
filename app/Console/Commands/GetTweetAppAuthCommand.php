@@ -93,7 +93,6 @@ class GetTweetAppAuthCommand extends Command
 
             $twitter_store = Tweet::tweetStore($tweets_arr, $bland_id);
         }
-        // 確認証
-        logger()->info('This is gettweet:appauth Command');
+        logger()->info('ツイート取得');
     }
 }

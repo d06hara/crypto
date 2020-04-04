@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TwitterAccount extends Model
 {
-    //
     protected $fillable = [
         'twitter_id',
         'name',
@@ -27,7 +26,9 @@ class TwitterAccount extends Model
     }
 
 
-    // twitterアカウント保存メソッド(引数はapiから取得したアカウントの配列)
+    /**
+     * twitterアカウント保存
+     */
     public static function accountStore(array $twitter_accounts)
     {
         if (is_array($twitter_accounts)) {
@@ -73,18 +74,6 @@ class TwitterAccount extends Model
                             'created_at' => Carbon::now()
                         ]);
                     }
-
-                    // TwitterAccount::updateOrInsert(
-                    //     ['twitter_id' => $twitter_accounts[$i]->id],
-                    //     [
-                    //         'name' => $twitter_accounts[$i]->name,
-                    //         'screen_name' => $twitter_accounts[$i]->screen_name,
-                    //         'description' => $twitter_accounts[$i]->description,
-                    //         'followers_count' => $twitter_accounts[$i]->followers_count,
-                    //         'friends_count' => $twitter_accounts[$i]->friends_count,
-                    //         'text' => $twitter_accounts[$i]->status->text
-                    //     ]
-                    // );
                 } else {
                     // ------------------------------------------
                     // twitter_idが既に保存されている場合
