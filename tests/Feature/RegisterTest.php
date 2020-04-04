@@ -14,12 +14,8 @@ class RegisterTest extends TestCase
     /**
      * @test
      */
-    // public function a()
-    // {
-    //     dd(env('APP_ENV'), env('DB_HOST'));
-    //     parent::setUp();
-    // }
-    public function should_新しいユーザーを作成して返却する()
+
+    public function 新しいユーザーを作成して返却する()
     {
 
         $data = [
