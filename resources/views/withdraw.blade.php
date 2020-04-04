@@ -3,6 +3,7 @@
 @section('content')
 <main>
   <div class="p-withdraw">
+    {{-- 退会フォーム --}}
     <div class="p-withdraw__form">
       <div class="c-form">
 
@@ -11,7 +12,6 @@
         <form action="{{ route('delete', $user->id)}}" method="POST" class="c-form__contents">
           @csrf
           <fieldset class="c-form__contents-fieldset">
-
             <div><button type="submit">退会する</button></div>
           </fieldset>
 
@@ -19,10 +19,10 @@
 
       </div>
     </div>
+
+    {{-- edit menu --}}
     <div class="p-withdtar__menu">
-
       <div class="c-menu">
-
         <ul>
           <li><a href="{{ url('mypage') }}">マイページ</a></li>
           <li><a href="{{ url('edit') }}">プロフィール編集</a></li>
@@ -33,11 +33,5 @@
 
     </div>
   </div>
-
-
-
-
-
-
 </main>
 @endsection
