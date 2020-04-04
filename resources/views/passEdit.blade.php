@@ -7,11 +7,11 @@
 <main>
 
   <div class="p-passedit">
-    {{-- form --}}
+    {{-- パスワード変更フォーム--}}
     <div class="p-passedit__form">
       <div class="c-form">
         <p class="c-form__title">パスワード変更画面</p>
-        {{-- login form --}}
+
         <form action="{{ route('changepass') }}" method="POST" class="c-form__contents">
           @csrf
 
@@ -66,11 +66,9 @@
       </div>
     </div>
 
-
+    {{-- edit menu --}}
     <div class="p-passedit__menu">
-      {{-- 後でここにformを入れる --}}
       <div class="c-menu">
-
         <ul>
           <li><a href="{{ url('mypage') }}">マイページ</a></li>
           <li><a href="{{ url('edit') }}">プロフィール変更</a></li>
