@@ -107,6 +107,15 @@
       @yield('content')
     </div>
 
+    {{-- status --}}
+    @if (session('status'))
+    <div class="c-flash ">
+      <div class="c-flash__success">
+        <p class="c-flash__success-text">{{ session('status') }}</p>
+      </div>
+    </div>
+    @endif
+
     {{-- footer --}}
     <footer class="l-footer">
       <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>

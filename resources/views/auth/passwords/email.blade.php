@@ -5,14 +5,6 @@
 
     <div class="p-passremind">
 
-        @if (session('status'))
-        <div class="c-flash">
-            <div class="c-flash__success" role="alert">
-                {{ session('status') }}
-            </div>
-        </div>
-        @endif
-
         <div class="p-passremind__form">
             <div class="c-form">
 
