@@ -73,21 +73,21 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::get('/mypage', function () {
     //     return view('mypage');
     // });
-    Route::get('/mypage', 'MypageController@show');
+    Route::get('/mypage', 'MyPageController@show');
     // プロフィール編集画面表示
-    Route::get('/edit', 'MypageController@edit');
+    Route::get('/edit', 'MyPageController@edit');
     // プロフィール編集機能
-    Route::post('/update/{id}/', 'MypageController@update')->name('update');
+    Route::post('/update/{id}/', 'MyPageController@update')->name('update');
     // パスワード編集画面表示
     Route::get('/passedit', function () {
         return view('passedit');
     });
     // パスワード編集機能
-    Route::post('/passedit/change', 'MypageController@changePass')->name('changepass');
+    Route::post('/passedit/change', 'MyPageController@changePass')->name('changepass');
     // 退会画面表示
-    Route::get('/withdraw', 'MypageController@withdraw');
+    Route::get('/withdraw', 'MyPageController@withdraw');
     // 退会処理
-    Route::post('/delete/{id}/', 'MypageController@delete')->name('delete');
+    Route::post('/delete/{id}/', 'MyPageController@delete')->name('delete');
     //----------------------------
 
 });
