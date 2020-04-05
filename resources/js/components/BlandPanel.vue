@@ -173,7 +173,7 @@ export default {
    */
   methods: {
     sortBy: function(key) {
-      // console.log("methods");
+      console.log("methods");
       this.sortKey = key;
     }
   }

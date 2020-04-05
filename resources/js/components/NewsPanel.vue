@@ -3,7 +3,6 @@
     <!-- news card -->
     <div class="p-news__cards">
       <div class="c-card__container">
-        <!-- <div v-for="(item, index) in displayItems" :key="index" class="c-card"> -->
         <div v-for="(item, index) in news" :key="index" class="c-card">
           <div class="c-card__textbox">
             <a v-bind:href="item.url" target="_blank">
