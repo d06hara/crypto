@@ -70,7 +70,10 @@ Route::group(['middleware' => 'auth'], function () {
     // マイページ関連
     //----------------------------
     // マイページ表示
-    Route::get('/mypage', 'MypageController@show');
+    Route::get('/mypage', function () {
+        return view('mypage');
+    });
+    // Route::get('/mypage', 'MypageController@show');
     // プロフィール編集画面表示
     Route::get('/edit', 'MypageController@edit');
     // プロフィール編集機能
