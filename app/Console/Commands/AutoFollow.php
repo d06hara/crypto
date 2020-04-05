@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Models\TwitterAccount;
 
 class AutoFollow extends Command
 {
@@ -109,6 +110,9 @@ class AutoFollow extends Command
                         'follow' => false
                     ));
                 }
+                // リレーションへの記入処理;
+                $follow_target_db_id = TwitterAccount::where('twitter_id', $follow_target_id)->value('id');
+                $twitter_user->accounts()->attach($follow_target_db_id);
             }
             logger()->info('自動フォロー完了');
         }
