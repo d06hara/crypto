@@ -1,12 +1,12 @@
 const mix = require('laravel-mix');
 // globのインポート
-const glob = require('glob');
+// const glob = require('glob');
 
-require('laravel-mix-bundle-analyzer');
-
-if (!mix.inProduction()) {
-    mix.bundleAnalyzer();
-}
+// 容量チェック
+// require('laravel-mix-bundle-analyzer');
+// if (!mix.inProduction()) {
+//     mix.bundleAnalyzer();
+// }
 
 
 /*
