@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\TwitterUser;
@@ -24,7 +24,7 @@ class AuthController extends Controller
     /**
      * twitterアカウント連携処理
      */
-    public function twitterCallback(Request $request)
+    public function twitterCallback()
     {
 
         try {
@@ -33,6 +33,7 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             return redirect('/login')->with('flash_error', '予期せぬエラーが発生しました');
         }
+
 
         // 認証アカウントが既にDBにあるかチェック
         $connected_account = TwitterUser::where('twitter_id', $providerUser->getId())->first();

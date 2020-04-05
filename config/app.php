@@ -181,9 +181,7 @@ return [
 
         // TwitterOAuth
         App\Providers\TwitterServiceProvider::class,
-        // Socialite
-        // \SocialiteProviders\Manager\ServiceProvider::class,
-        // Barryvdh\Cors\ServiceProvider::class,
+
 
     ],
 
@@ -239,9 +237,8 @@ return [
         // TwitterOAuthAliases
         'Twitter' => App\Facades\Twitter::class,
         // Socialite
-        // 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        // laravel/debugbar
-        // 'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
 
     ],
 
