@@ -18,12 +18,14 @@ class MyPageController extends Controller
     public function show()
     {
         // ユーザー情報取得
-        $user = auth()->user();
+        // $user = auth()->user();
+        $user = Auth::user();
+        // dd($user);
         if (is_null($user)) {
             abort(404);
         }
         // twitter情報取得
-        $twitter_account = auth()->user()->twitterUser;
+        $twitter_account = Auth::user()->twitterUser;
         if (is_null($twitter_account)) {
             return view('/mypage', compact('user'));
         }
@@ -93,6 +95,7 @@ class MyPageController extends Controller
     public function withdraw()
     {
         $user = auth()->user();
+        // dd($user);
         if (is_null($user)) {
             abort(404);
         }
