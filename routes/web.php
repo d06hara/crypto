@@ -78,7 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/update/{id}/', 'MyPageController@update')->name('update');
     // パスワード編集画面表示
     Route::get('/passedit', function () {
-        return view('passedit');
+        return view('passEdit');
     });
     // パスワード編集機能
     Route::post('/passedit/change', 'MyPageController@changePass')->name('changepass');
