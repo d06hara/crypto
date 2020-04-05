@@ -12,9 +12,13 @@ use Illuminate\Support\Facades\DB;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Illuminate\Support\Carbon;
 use App\Models\Tweet;
+use Illuminate\Support\Facades\Auth;
 
-use function GuzzleHttp\json_decode;
 
 class TestController extends Controller
 {
+
+    public function test()
+    {
+    }
 }

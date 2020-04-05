@@ -7,6 +7,7 @@ use Socialite;
 use Illuminate\Support\Facades\Auth;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\TwitterUser;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -44,10 +45,11 @@ class AuthController extends Controller
         // 認証したアカウントが未登録だった場合
 
         // 認証ユーザーを取得
-        $user = Auth::user();
+        $user_id = Auth::id();
+        $user = User::find($user_id);
 
         // 認証ユーザーに紐付くtwitter_userテーブルに必要な情報を入れる
-        $user->twitterUser->create([
+        $user->twitterUser()->create([
             'user_id' => $user->id,
             'twitter_id' => $providerUser->getId(),
             'token' => $providerUser->token,
