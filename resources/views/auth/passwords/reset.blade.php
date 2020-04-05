@@ -10,6 +10,7 @@
 
             <form action="{{ route('password.update') }}" method="POST" class="c-form__contents">
                 @csrf
+                <input type="hidden" name="token" value="{{ $token }}">
 
                 <fieldset class="c-form__contents-fieldset">
 
