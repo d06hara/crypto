@@ -19,9 +19,8 @@
                         {{-- user name --}}
                         <div class="c-form__contents-item">
                             <p><label for="name">user name</label></p>
-                            <input type="text" id="name" class="use_icon @error('name') is-invalid @enderror"
-                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
-                                placeholder="&#xf007;">
+                            <input type="text" class="use_icon @error('name') is-invalid @enderror" name="name"
+                                value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="&#xf007;">
                             </<input>
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -33,8 +32,8 @@
                         {{-- email --}}
                         <div class="c-form__contents-item">
                             <p><label for="email">E-mail address</label></p>
-                            <input type="email" id="email" class="use_icon @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                            <input type="email" class="use_icon @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;"></<input>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -46,9 +45,9 @@
                         {{-- password --}}
                         <div class="c-form__contents-item">
                             <p><label for="password">password</label></p>
-                            <input type="password" id="password"
-                                class="use_icon @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="password" autofocus placeholder="&#xf084; 8文字以上で入力してください">
+                            <input type="password" class="use_icon @error('password') is-invalid @enderror"
+                                name="password" required autocomplete="password" autofocus
+                                placeholder="&#xf084; 8文字以上で入力してください">
                             </<input>
                             @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -60,8 +59,7 @@
                         {{-- password-re --}}
                         <div class="c-form__contents-item">
                             <p><label for="password-confirmation">password(再入力)</label></p>
-                            <input type="password" id="password-confirm"
-                                class="use_icon @error('password-confirm') is-invalid @enderror"
+                            <input type="password" class="use_icon @error('password-confirm') is-invalid @enderror"
                                 name="password_confirmation" required autocomplete="password-confirm" autofocus
                                 placeholder="&#xf084;">
                             </<input>

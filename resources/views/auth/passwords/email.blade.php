@@ -24,9 +24,8 @@
                         <div class="c-form__contents-item">
                             <p><label for="email">E-mail address</label></p>
 
-                            <input id="email" type="email"
-                                class="use_icon form-control @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" required autocomplete="email" autofocus
+                            <input type="email" class="use_icon form-control @error('email') is-invalid @enderror"
+                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;">
                             @error('email')
                             <span class="invalid-feedback" role="alert">

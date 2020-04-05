@@ -20,8 +20,8 @@
                         {{-- email --}}
                         <div class="c-form__contents-item">
                             <p><label for="email">E-mail address</label></p>
-                            <input type="email" id="email" class="use_icon @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                            <input type="email" class="use_icon @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;"></<input>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -33,9 +33,8 @@
                         {{-- password --}}
                         <div class="c-form__contents-item">
                             <p><label for="password">password</label></p>
-                            <input type="password" id="password"
-                                class="use_icon @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="password" autofocus placeholder="&#xf084;">
+                            <input type="password" class="use_icon @error('password') is-invalid @enderror"
+                                name="password" required autocomplete="password" autofocus placeholder="&#xf084;">
                             </<input>
                             @error('password')
                             <span class="invalid-feedback" role="alert">
