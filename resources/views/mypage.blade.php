@@ -42,15 +42,15 @@
     </div>
 
     {{-- edit menu --}}
-    {{-- <div class="p-mypage__menu">
-    <div class="c-menu">
-      <ul>
-        <li><a href="{{ url('edit') }}">プロフィール編集</a></li>
-    <li><a href="{{ url('passedit') }}">パスワード変更</a></li>
-    <li><a href="{{ url('withdraw') }}">退会</a></li>
-    </ul>
-  </div>
-  </div> --}}
+    <div class="p-mypage__menu">
+      <div class="c-menu">
+        <ul>
+          <li><a href="{{ url('edit') }}">プロフィール編集</a></li>
+          <li><a href="{{ url('passedit') }}">パスワード変更</a></li>
+          <li><a href="{{ url('withdraw') }}">退会</a></li>
+        </ul>
+      </div>
+    </div>
 
   </div>
 
