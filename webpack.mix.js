@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 // globのインポート
-// const glob = require('glob');
+const glob = require('glob');
 
 // 容量チェック
 // require('laravel-mix-bundle-analyzer');
