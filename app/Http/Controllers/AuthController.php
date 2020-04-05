@@ -47,7 +47,7 @@ class AuthController extends Controller
         $user = Auth::user();
 
         // 認証ユーザーに紐付くtwitter_userテーブルに必要な情報を入れる
-        $user->twitterUser()->create([
+        $user->twitterUser->create([
             'user_id' => $user->id,
             'twitter_id' => $providerUser->getId(),
             'token' => $providerUser->token,
