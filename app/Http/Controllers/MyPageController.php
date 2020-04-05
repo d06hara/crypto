@@ -19,7 +19,7 @@ class MyPageController extends Controller
     {
         // ユーザー情報取得
         // $user = auth()->user();
-        // $user = Auth::user();
+        $user = Auth::user();
         // // dd($user);
         // if (is_null($user)) {
         //     abort(404);
@@ -31,7 +31,7 @@ class MyPageController extends Controller
         // }
 
         // return view('/mypage', compact('user', 'twitter_account'));
-        return view('/mypage');
+        return view('mypage', compact('user'));
     }
 
     /**
