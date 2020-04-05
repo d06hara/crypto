@@ -24,6 +24,9 @@ class MyPageController extends Controller
         }
         // twitter情報取得
         $twitter_account = auth()->user()->twitterUser;
+        if (is_null($twitter_account)) {
+            return view('/mypage', compact('user'));
+        }
 
         return view('/mypage', compact('user', 'twitter_account'));
     }
