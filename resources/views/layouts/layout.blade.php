@@ -10,9 +10,6 @@
 
   <title>Crypto trend | @yield('title', 'Home')</title>
 
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
-
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -120,7 +117,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   {{-- <script src="/public/js/app.js"></script> --}}
-  <script src="{{ asset('public/js/app.js') }}"></script>
+  <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
