@@ -18,7 +18,7 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
   <!-- Styles -->
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <link href="{{ mix('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -117,7 +117,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   {{-- <script src="/public/js/app.js"></script> --}}
-  <script src="{{ asset('js/app.js') }}"></script>
+  <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>

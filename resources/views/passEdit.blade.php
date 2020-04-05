@@ -20,8 +20,8 @@
             {{-- password --}}
             <div class="c-form__contents-item">
               <p><label for="old_password">現在のパスワード</label></p>
-              <input type="password" id="password" class="use_icon @error('old_password') is-invalid @enderror"
-                name="old_password" required autocomplete="password" autofocus placeholder="&#xf084;">
+              <input type="password" class="use_icon @error('old_password') is-invalid @enderror" name="old_password"
+                required autocomplete="password" autofocus placeholder="&#xf084;">
               </<input>
               @error('old_password')
               <span class="invalid-feedback" role="alert">
@@ -39,8 +39,8 @@
             {{-- password --}}
             <div class="c-form__contents-item">
               <p><label for="new_password">新しいパスワード</label></p>
-              <input type="password" id="password" class="use_icon @error('password') is-invalid @enderror"
-                name="password" required autocomplete="password" autofocus placeholder="&#xf084; 8文字以上で入力してください">
+              <input type="password" class="use_icon @error('password') is-invalid @enderror" name="password" required
+                autocomplete="password" autofocus placeholder="&#xf084; 8文字以上で入力してください">
               </<input>
               @error('password')
               <span class="invalid-feedback" role="alert">
