@@ -107,7 +107,7 @@ export default {
   },
 
   mounted: function() {
-    console.log("mounted");
+    // console.log("mounted");
     axios
       .get("/api/ranking")
       .then(response => {
@@ -128,7 +128,7 @@ export default {
       // sortKeyでswitch
       switch (this.sortKey) {
         case "hour":
-          console.log("１時間で並び替え");
+          // console.log("１時間で並び替え");
           this.activetab = 1;
           this.blands.sort(function(a, b) {
             if (a.hour_tweets_count > b.hour_tweets_count) return -1;
@@ -138,7 +138,7 @@ export default {
           break;
 
         case "day":
-          console.log("１日で並び替え");
+          // console.log("１日で並び替え");
           this.activetab = 2;
           this.blands.sort(function(a, b) {
             if (a.day_tweets_count > b.day_tweets_count) return -1;
@@ -148,7 +148,7 @@ export default {
           break;
 
         case "week":
-          console.log("１週間で並び替え");
+          // console.log("１週間で並び替え");
           this.activetab = 3;
           this.blands.sort(function(a, b) {
             if (a.week_tweets_count > b.week_tweets_count) return -1;
@@ -173,7 +173,7 @@ export default {
    */
   methods: {
     sortBy: function(key) {
-      console.log("methods");
+      // console.log("methods");
       this.sortKey = key;
     }
   }
