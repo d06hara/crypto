@@ -35,7 +35,7 @@ $(function () {
     });
 
     // flash_messageのfadeout
-    $('.c-flash').fadeOut(3000);
+    $('#c-flash').fadeOut(5000);
 
 });
 

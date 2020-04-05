@@ -38,4 +38,18 @@
     }
   }
 
+  &__status {
+    background-color: #007bff;
+    padding: $space_m $space_l;
+    border-radius: 10px;
+
+    &-text {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  
+
 }

@@ -89,7 +89,7 @@
       {{-- フラッシュメッセージ --}}
       {{-- 成功時 --}}
       @if(Session::has('flash_message'))
-      <div class="c-flash ">
+      <div class="c-flash" id="c-flash">
         <div class="c-flash__success">
           <p class="c-flash__success-text">{{ session('flash_message') }}</p>
         </div>
@@ -98,23 +98,27 @@
 
       {{-- 失敗時 --}}
       @if(Session::has('flash_error'))
-      <div class="c-flash">
+      <div class="c-flash" id="c-flash">
         <div class="c-flash__error">
           <p class="c-flash__error-text">{{ session('flash_error') }}</p>
         </div>
       </div>
       @endif
+
+      {{-- status --}}
+      @if (session('status'))
+      <div class="c-flash ">
+        <div class="c-flash__status">
+          <p class="c-flash__status-text">{{ session('status') }}</p>
+        </div>
+      </div>
+      @endif
+      {{-- content --}}
       @yield('content')
+
     </div>
 
-    {{-- status --}}
-    @if (session('status'))
-    <div class="c-flash ">
-      <div class="c-flash__success">
-        <p class="c-flash__success-text">{{ session('status') }}</p>
-      </div>
-    </div>
-    @endif
+
 
     {{-- footer --}}
     <footer class="l-footer">
