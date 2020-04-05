@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ValidateEditRequest extends FormRequest
 {
@@ -26,11 +27,11 @@ class ValidateEditRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', Rule::unique('users')->ignore($this->id),
+                'required', Rule::unique('users')->ignore(Auth::id()),
                 'max:20',
             ],
             'email' => [
-                'required', Rule::unique('users')->ignore($this->id),
+                'required', Rule::unique('users')->ignore(Auth::id()),
                 'email',
             ]
         ];
