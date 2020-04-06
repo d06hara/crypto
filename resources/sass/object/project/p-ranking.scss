@@ -9,11 +9,16 @@
   padding-left: $space_l;
   box-sizing: border-box;
 
+
+
   &__content {
     box-sizing: border-box;
-    width: 100%;
+    width: 80%;
     margin: 0 auto $space_3l auto;
     overflow: hidden;
+    @include mq(){
+      width: 100%;
+    }
 
    // sort部分
     &-sort {

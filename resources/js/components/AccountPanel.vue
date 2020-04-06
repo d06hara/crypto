@@ -1,54 +1,56 @@
 <template>
   <div class="p-account">
-    <!-- 自動フォローボタン -->
-    <div class="p-account__auto">
-      <label for="auto_follow" class="u-checkbox">
-        <input
-          id="auto_follow"
-          class="u-checkbox__input"
-          type="checkbox"
-          v-bind:checked="autoMode"
-          @change="autoFollow"
-        />
-        <span class="u-checkbox__dummy"></span>
-        <span class="u-checkbox__labeltext">自動フォロー(チェックすると自動フォローが開始します)</span>
-      </label>
-    </div>
+    <div class="p-account__contents">
+      <!-- 自動フォローボタン -->
+      <div class="p-account__contents-auto">
+        <label for="auto_follow" class="u-checkbox">
+          <input
+            id="auto_follow"
+            class="u-checkbox__input"
+            type="checkbox"
+            v-bind:checked="autoMode"
+            @change="autoFollow"
+          />
+          <span class="u-checkbox__dummy"></span>
+          <span class="u-checkbox__labeltext">自動フォロー(チェックすると自動フォローが開始します)</span>
+        </label>
+      </div>
 
-    <!-- アカウントカード -->
-    <div class="p-account__container">
-      <div class="c-accountcard__container">
-        <div v-for="(account, index) in accounts" class="c-accountcard" :key="index">
-          <p class="c-accountcard__name">
-            {{ account.name }}
-            <span>@{{ account.screen_name }}</span>
-          </p>
-          <div class="c-accountcard__btn">
-            <button v-on:click="followUnfollow(account)" v-bind:class="{ active: account.users }">
-              <p v-if="account.users">フォロー中</p>
-              <p v-else>フォローする</p>
-            </button>
+      <!-- アカウントカード -->
+      <div class="p-account__contents-card">
+        <div class="c-accountcard__container">
+          <div v-for="(account, index) in accounts" class="c-accountcard" :key="index">
+            <p class="c-accountcard__name">
+              {{ account.name }}
+              <span>@{{ account.screen_name }}</span>
+            </p>
+            <div class="c-accountcard__btn">
+              <button v-on:click="followUnfollow(account)" v-bind:class="{ active: account.users }">
+                <p v-if="account.users">フォロー中</p>
+                <p v-else>フォローする</p>
+              </button>
+            </div>
+            <ul class="c-accountcard__data">
+              <li>
+                {{ account.friends_count }}
+                <span>Following</span>
+              </li>
+              <li>
+                {{ account.followers_count }}
+                <span>Follower</span>
+              </li>
+            </ul>
+            <div class="c-accountcard__profile">{{ account.description }}</div>
+
+            <div class="c-accountcard__tweet">{{ account.text }}</div>
           </div>
-          <ul class="c-accountcard__data">
-            <li>
-              {{ account.friends_count }}
-              <span>Following</span>
-            </li>
-            <li>
-              {{ account.followers_count }}
-              <span>Follower</span>
-            </li>
-          </ul>
-          <div class="c-accountcard__profile">{{ account.description }}</div>
-
-          <div class="c-accountcard__tweet">{{ account.text }}</div>
         </div>
       </div>
-    </div>
 
-    <infinite-loading @infinite="infiniteHandler" spinner="spiral">
-      <span slot="no-more">no more data</span>
-    </infinite-loading>
+      <infinite-loading @infinite="infiniteHandler" spinner="spiral">
+        <span slot="no-more">no more data</span>
+      </infinite-loading>
+    </div>
   </div>
 </template>
 

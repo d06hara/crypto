@@ -6,21 +6,29 @@
   width: 100%;
   margin-bottom:$space_3l;
 
-  &__auto {
-    margin-top: $space_m;
-    margin-bottom: $space_m;
-    margin-left: $space_m;
-    font-size: $font-size_l;
-    @include mq() {
-      font-size: $font-size_m;
-      width: 80%;
-      margin: 0 auto;
+  &__contents {
+    width: 80%;
+    margin: 0 auto;
+
+    @include mq(lg){
+      width: 100%;
     }
 
-  }
+    &-auto {
+      margin-top: $space_m;
+      margin-bottom: $space_m;
+      margin-left: $space_m;
+      font-size: $font-size_l;
+      @include mq() {
+        font-size: $font-size_m;
+        width: 80%;
+        margin: 0 auto;
+      }
+  
+    }
+    &-card {
 
-  &__container {
-
+    }
   }
 
 }

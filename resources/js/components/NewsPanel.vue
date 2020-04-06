@@ -1,23 +1,25 @@
 <template>
   <div class="p-news">
-    <!-- news card -->
-    <div class="p-news__cards">
-      <div class="c-card__container">
-        <div v-for="(item, index) in news" :key="index" class="c-card">
-          <div class="c-card__textbox">
-            <a v-bind:href="item.url" target="_blank">
-              <div class="c-card__textbox-text">{{ item.title }}</div>
-              <p class="c-card__textbox-item">{{ item.source }}</p>
-              <p class="c-card__textbox-item">{{ item.pubDate }}</p>
-            </a>
+    <div class="p-news__contents">
+      <!-- news card -->
+      <div class="p-news__contents-cards">
+        <div class="c-card__container">
+          <div v-for="(item, index) in news" :key="index" class="c-card">
+            <div class="c-card__textbox">
+              <a v-bind:href="item.url" target="_blank">
+                <div class="c-card__textbox-text">{{ item.title }}</div>
+                <p class="c-card__textbox-item">{{ item.source }}</p>
+                <p class="c-card__textbox-item">{{ item.pubDate }}</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <infinite-loading @infinite="infiniteHandler" spinner="spiral">
-      <span slot="no-more">no more data</span>
-    </infinite-loading>
+      <infinite-loading @infinite="infiniteHandler" spinner="spiral">
+        <span slot="no-more">no more data</span>
+      </infinite-loading>
+    </div>
   </div>
 </template>
 
