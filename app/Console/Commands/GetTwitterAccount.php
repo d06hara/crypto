@@ -66,7 +66,7 @@ class GetTwitterAccount extends Command
         $total_search_accounts = [];
 
         // 5page分の繰り返し処理
-        for ($i = 1; $i < 6; $i++) {
+        for ($i = 1; $i < 3; $i++) {
             $search_accounts = $connection->get('users/search', array('q' => '仮想通貨', 'page' => $array_num[$i], 'count' => 20));
             // 取得したアカウントを配列に追加していく
             $total_search_accounts = array_merge($total_search_accounts, $search_accounts);
