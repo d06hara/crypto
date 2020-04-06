@@ -28,15 +28,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // 自動ツイート取得(5分)
+        // 自動ツイート取得(10分)
         $schedule->command('gettweet:appauth')
-            ->everyFiveMinutes()->withoutOverlapping();
-        // 自動アカウント取得(5分)
+            ->everyTenMinutes()->withoutOverlapping();
+        // 自動アカウント取得(10分)
         $schedule->command('get:twitteraccount')
-            ->everyFiveMinutes()->withoutOverlapping();
-        // 自動フォロー(15分)
+            ->everyTenMinutes()->withoutOverlapping();
+        // 自動フォロー(10分)
         $schedule->command('auto:follow')
-            ->everyFifteenMinutes()->withoutOverlapping();
+            ->everyTenMinutes()->withoutOverlapping();
         // 毎日古いツイートを削除(１日)
         $schedule->command('delete:tweet')
             ->daily()->withoutOverlapping();
