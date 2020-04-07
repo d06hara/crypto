@@ -6,8 +6,6 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 use Illuminate\Console\Command;
 use App\Models\Tweet;
 
-// 自作認証クラスの読み込み
-use App\lib\TwitterAppAuth;
 
 class GetTweetAppAuthCommand extends Command
 {
@@ -53,7 +51,7 @@ class GetTweetAppAuthCommand extends Command
         $secret_key = $config['secret_key'];
 
         $connection = new TwitterOAuth($key, $secret_key);
-        // $connection = new TwitterAppAuth($key, $secret_key);
+
 
         // 検索したい銘柄キーワードを配列にしておく
         // coincheckで取り扱っている12銘柄
