@@ -50,16 +50,22 @@
         <table class="c-table">
           <thead class="c-table__thead">
             <tr>
-              <th width="10">ランク</th>
+              <th width="10">ツイート数</th>
               <th width="40">銘柄</th>
               <th width="25">24時間での最高取引価格</th>
               <th width="25">24時間での最安取引価格</th>
             </tr>
           </thead>
           <tbody class="c-table__tbody">
-            <tr v-for="(bland, index) in selectedBlands" :key="bland.id">
-              <td width="10">
-                <a v-bind:href="bland.url" target="_blank">{{ index + 1 }}</a>
+            <tr v-for="bland in selectedBlands" :key="bland.id">
+              <td width="10" v-if="activetab === 1">
+                <a v-bind:href="bland.url" target="_blank">{{ bland.hour_tweets_count }}</a>
+              </td>
+              <td width="10" v-else-if="activetab === 2">
+                <a v-bind:href="bland.url" target="_blank">{{ bland.day_tweets_count }}</a>
+              </td>
+              <td width="10" v-else>
+                <a v-bind:href="bland.url" target="_blank">{{ bland.week_tweets_count }}</a>
               </td>
               <td width="40">
                 <a v-bind:href="bland.url" target="_blank">{{ bland.name }}</a>

@@ -2208,6 +2208,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlandPanel",
   data: function data() {
@@ -13747,13 +13753,31 @@ var render = function() {
           _c(
             "tbody",
             { staticClass: "c-table__tbody" },
-            _vm._l(_vm.selectedBlands, function(bland, index) {
+            _vm._l(_vm.selectedBlands, function(bland) {
               return _c("tr", { key: bland.id }, [
-                _c("td", { attrs: { width: "10" } }, [
-                  _c("a", { attrs: { href: bland.url, target: "_blank" } }, [
-                    _vm._v(_vm._s(index + 1))
-                  ])
-                ]),
+                _vm.activetab === 1
+                  ? _c("td", { attrs: { width: "10" } }, [
+                      _c(
+                        "a",
+                        { attrs: { href: bland.url, target: "_blank" } },
+                        [_vm._v(_vm._s(bland.hour_tweets_count))]
+                      )
+                    ])
+                  : _vm.activetab === 2
+                  ? _c("td", { attrs: { width: "10" } }, [
+                      _c(
+                        "a",
+                        { attrs: { href: bland.url, target: "_blank" } },
+                        [_vm._v(_vm._s(bland.day_tweets_count))]
+                      )
+                    ])
+                  : _c("td", { attrs: { width: "10" } }, [
+                      _c(
+                        "a",
+                        { attrs: { href: bland.url, target: "_blank" } },
+                        [_vm._v(_vm._s(bland.week_tweets_count))]
+                      )
+                    ]),
                 _vm._v(" "),
                 _c("td", { attrs: { width: "40" } }, [
                   _c("a", { attrs: { href: bland.url, target: "_blank" } }, [
@@ -13788,7 +13812,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "c-table__thead" }, [
       _c("tr", [
-        _c("th", { attrs: { width: "10" } }, [_vm._v("ランク")]),
+        _c("th", { attrs: { width: "10" } }, [_vm._v("ツイート数")]),
         _vm._v(" "),
         _c("th", { attrs: { width: "40" } }, [_vm._v("銘柄")]),
         _vm._v(" "),
