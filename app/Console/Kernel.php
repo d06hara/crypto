@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         Commands\GetTwitterAccount::class,
         Commands\AutoFollow::class,
         Commands\DeleteTweet::class,
+        Commands\WriteLog::class,
 
     ];
 
@@ -28,12 +29,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('writelog:info')
+            ->everyMinute();
         // 自動ツイート取得(10分)
         $schedule->command('gettweet:appauth')
-            ->everyTenMinutes()->withoutOverlapping();
+            // ->everyFiveMinutes();
+            ->everyFiveMinutes()->withoutOverlapping();
         // 自動アカウント取得(10分)
         $schedule->command('get:twitteraccount')
-            ->everyTenMinutes()->withoutOverlapping();
+            ->everyFiveMinutes()->withoutOverlapping();
         // 自動フォロー(10分)
         $schedule->command('auto:follow')
             ->everyTenMinutes()->withoutOverlapping();
