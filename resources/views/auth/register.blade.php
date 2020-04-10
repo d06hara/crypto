@@ -16,49 +16,59 @@
 
                     <fieldset class="c-form__contents-fieldset">
 
+                        {{-- エラーメッセージ --}}
+                        <div class="c-form__contents-item">
+                            <ul>
+                                <li>@error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </li>
+                                <li> @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </li>
+                                <li>@error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </li>
+                            </ul>
+                        </div>
+
+
                         {{-- user name --}}
                         <div class="c-form__contents-item">
-                            <p><label for="name">user name</label></p>
+                            <p><label for="name">ユーザーネーム(10文字以内)</label></p>
                             <input type="text" class="use_icon @error('name') is-invalid @enderror" name="name"
                                 value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="&#xf007;">
                             </<input>
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
 
                         {{-- email --}}
                         <div class="c-form__contents-item">
-                            <p><label for="email">E-mail address</label></p>
+                            <p><label for="email">Eメール</label></p>
                             <input type="email" class="use_icon @error('email') is-invalid @enderror" name="email"
                                 value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;"></<input>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
 
                         {{-- password --}}
                         <div class="c-form__contents-item">
-                            <p><label for="password">password</label></p>
+                            <p><label for="password">パスワード</label></p>
                             <input type="password" class="use_icon @error('password') is-invalid @enderror"
                                 name="password" required autocomplete="password" autofocus
                                 placeholder="&#xf084; 8文字以上で入力してください">
                             </<input>
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
 
                         {{-- password-re --}}
                         <div class="c-form__contents-item">
-                            <p><label for="password-confirmation">password(再入力)</label></p>
+                            <p><label for="password-confirmation">パスワード(確認用)</label></p>
                             <input type="password" class="use_icon @error('password-confirm') is-invalid @enderror"
                                 name="password_confirmation" required autocomplete="password-confirm" autofocus
                                 placeholder="&#xf084;">

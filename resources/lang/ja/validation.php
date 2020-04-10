@@ -34,7 +34,7 @@ return [
   //     'array'   => ':attribute は :min ～ :max 個まで有効です',
   // ],
   // 'boolean'              => ':attribute の値は true もしくは false のみ有効です',
-  'confirmed'            => ':attribute を確認用と一致させてください',
+  // 'confirmed'            => ':attribute を確認用と一致させてください',
   // 'date'                 => ':attribute を有効な日付形式にしてください',
   // 'date_format'          => ':attribute を :format 書式と一致させてください',
   // 'different'            => ':attribute を :other と違うものにしてください',
@@ -113,7 +113,7 @@ return [
   // ],
   // 'string'               => ':attribute は文字列のみ有効です',
   // 'timezone'             => ':attribute 正しいタイムゾーンのみ有効です',
-  'unique'               => ':attribute は既に存在します',
+  // 'unique'               => ':attribute は既に存在します',
   // 'uploaded'             => ':attribute アップロードに失敗しました',
   // 'url'                  => ':attribute は正しいURL書式のみ有効です',
 
@@ -133,11 +133,18 @@ return [
   // |
   // */
 
-  // 'custom' => [
-  //     'attribute-name' => [
-  //         'rule-name' => 'custom-message',
-  //     ],
-  // ],
+  'custom' => [
+    'name' => [
+      'max' => 'ユーザーネームは10文字以内で入力してください',
+    ],
+    'email' => [
+      'unique' => 'そのユーザーネームまたはEメールはご利用できません'
+    ],
+    'password' => [
+      'confirmed' => 'パスワードを確認用を一致させてください'
+    ]
+
+  ],
 
   /*
       |--------------------------------------------------------------------------

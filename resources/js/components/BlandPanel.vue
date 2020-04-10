@@ -58,6 +58,7 @@
           </thead>
           <tbody class="c-table__tbody">
             <tr v-for="bland in selectedBlands" :key="bland.id">
+              <!-- ツイート数 -->
               <td width="10" v-if="activetab === 1">
                 <a v-bind:href="bland.url" target="_blank">{{ bland.hour_tweets_count }}</a>
               </td>
@@ -67,12 +68,15 @@
               <td width="10" v-else>
                 <a v-bind:href="bland.url" target="_blank">{{ bland.week_tweets_count }}</a>
               </td>
+              <!-- 銘柄名 -->
               <td width="40">
                 <a v-bind:href="bland.url" target="_blank">{{ bland.name }}</a>
               </td>
+              <!-- 最高取引価格 -->
               <td width="25">
                 <a v-bind:href="bland.url" target="_blank">{{ bland.high }}</a>
               </td>
+              <!-- 最安取引価格 -->
               <td width="25">
                 <a v-bind:href="bland.url" target="_blank">{{ bland.low }}</a>
               </td>
