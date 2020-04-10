@@ -41,7 +41,7 @@
                         </div>
 
 
-                        {{-- user name --}}
+                        {{-- ユーザーネーム --}}
                         <div class="c-form__contents-item">
                             <p><label for="name">ユーザーネーム(10文字以内)</label></p>
                             <input type="text" class="use_icon @error('name') is-invalid @enderror" name="name"
@@ -49,7 +49,7 @@
                             </<input>
                         </div>
 
-                        {{-- email --}}
+                        {{-- Eメール --}}
                         <div class="c-form__contents-item">
                             <p><label for="email">Eメール</label></p>
                             <input type="email" class="use_icon @error('email') is-invalid @enderror" name="email"
@@ -57,7 +57,7 @@
                                 placeholder="&#xf0e0;"></<input>
                         </div>
 
-                        {{-- password --}}
+                        {{-- パスワード --}}
                         <div class="c-form__contents-item">
                             <p><label for="password">パスワード</label></p>
                             <input type="password" class="use_icon @error('password') is-invalid @enderror"
@@ -66,7 +66,7 @@
                             </<input>
                         </div>
 
-                        {{-- password-re --}}
+                        {{-- パスワード(確認用) --}}
                         <div class="c-form__contents-item">
                             <p><label for="password-confirmation">パスワード(確認用)</label></p>
                             <input type="password" class="use_icon @error('password-confirm') is-invalid @enderror"
