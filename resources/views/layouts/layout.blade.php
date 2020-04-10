@@ -71,7 +71,7 @@
           <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
           <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
           <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/news") }}">News</a></li>
-          <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li>
+          {{-- <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li> --}}
           <li class="c-nav__menu-item">
             <a class="c-nav__menu-link" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">Logout</a>

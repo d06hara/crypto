@@ -71,24 +71,24 @@ Route::group(['middleware' => 'auth'], function () {
     //----------------------------
     // マイページ表示
 
-    Route::get('/mypage', 'MyPageController@show');
-    // プロフィール編集画面表示
-    Route::get('/edit', 'MyPageController@edit');
-    // プロフィール編集機能
-    Route::post('/update/{id}/', 'MyPageController@update')->name('update');
-    // パスワード編集画面表示
-    Route::get('/passedit', function () {
-        return view('passEdit');
-    });
-    // パスワード編集機能
-    Route::post('/passedit/change', 'MyPageController@changePass')->name('changepass');
-    // 退会画面表示
-    Route::get('/withdraw', 'MyPageController@withdraw');
-    // 退会処理
-    Route::post('/delete/{id}/', 'MyPageController@delete')->name('delete');
+    // Route::get('/mypage', 'MyPageController@show');
+    // // プロフィール編集画面表示
+    // Route::get('/edit', 'MyPageController@edit');
+    // // プロフィール編集機能
+    // Route::post('/update/{id}/', 'MyPageController@update')->name('update');
+    // // パスワード編集画面表示
+    // Route::get('/passedit', function () {
+    //     return view('passEdit');
+    // });
+    // // パスワード編集機能
+    // Route::post('/passedit/change', 'MyPageController@changePass')->name('changepass');
+    // // 退会画面表示
+    // Route::get('/withdraw', 'MyPageController@withdraw');
+    // // 退会処理
+    // Route::post('/delete/{id}/', 'MyPageController@delete')->name('delete');
     //----------------------------
 
 });
 
 // テスト用ページ
-// Route::get('/test', 'TestController@test');
+Route::get('/test', 'TestController@test');
