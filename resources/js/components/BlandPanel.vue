@@ -1,23 +1,26 @@
 <template>
   <div class="p-ranking">
-    <div class="p-ranking__content">
+    <div class="p-ranking-content">
       <!-- ソートタブ -->
-      <div class="p-ranking__content-sort">
-        <ul>
-          <li>
+      <div class="p-ranking-content__sort">
+        <ul class="c-sort">
+          <li class="c-sort-item">
             <button
+              class="c-sort-item__btn"
               v-on:click="sortBy('hour')"
               v-bind:class="[ activetab === 1 ? 'active': '']"
             >過去１時間のツイート数順</button>
           </li>
-          <li>
+          <li class="c-sort-item">
             <button
+              class="c-sort-item__btn"
               v-on:click="sortBy('day')"
               v-bind:class="[ activetab === 2 ? 'active' : '']"
             >過去１日のツイート数順</button>
           </li>
-          <li>
+          <li class="c-sort-item">
             <button
+              class="c-sort-item__btn"
               v-on:click="sortBy('week')"
               v-bind:class="[ activetab === 3 ? 'active' : '']"
             >過去１週間のツイート数順</button>
@@ -26,7 +29,7 @@
       </div>
 
       <!-- フィルターボックス-->
-      <div class="p-ranking__content-filter">
+      <div class="p-ranking-content__filter">
         <select v-model="preview" multiple class="c-filter">
           <option class="c-filter__option" disabled>--銘柄の絞り込みが可能です--</option>
           <option
@@ -39,46 +42,70 @@
       </div>
 
       <!-- 時間情報 -->
-      <div class="p-ranking__content-information">
+      <div class="p-ranking-content__information">
         <p>
-          <span>{{ time }}</span> 時点のランキング
+          <span class="p-ranking-content__information--accent">{{ time }}</span> 時点のランキング
         </p>
       </div>
 
       <!-- ランキングテーブル -->
-      <div class="p-ranking__content-table">
+      <div class="p-ranking-content__table">
         <table class="c-table">
-          <thead class="c-table__thead">
-            <tr>
-              <th width="10">ツイート数</th>
-              <th width="40">銘柄</th>
-              <th width="25">24時間での最高取引価格</th>
-              <th width="25">24時間での最安取引価格</th>
+          <thead class="c-table-thead">
+            <tr class="c-table-thead-row">
+              <th class="c-table-thead-row__header" width="10">ツイート数</th>
+              <th class="c-table-thead-row__header" width="40">銘柄</th>
+              <th class="c-table-thead-row__header" width="25">24時間での最高取引価格</th>
+              <th class="c-table-thead-row__header" width="25">24時間での最安取引価格</th>
             </tr>
           </thead>
-          <tbody class="c-table__tbody">
-            <tr v-for="bland in selectedBlands" :key="bland.id">
+          <tbody class="c-table-tbody">
+            <tr class="c-table-tbody-row" v-for="bland in selectedBlands" :key="bland.id">
               <!-- ツイート数 -->
-              <td width="10" v-if="activetab === 1">
-                <a v-bind:href="bland.url" target="_blank">{{ bland.hour_tweets_count }}</a>
+              <td class="c-table-tbody-row__data" width="10" v-if="activetab === 1">
+                <a
+                  class="c-table-tbody-row__link"
+                  v-bind:href="bland.url"
+                  target="_blank"
+                >{{ bland.hour_tweets_count }}</a>
               </td>
-              <td width="10" v-else-if="activetab === 2">
-                <a v-bind:href="bland.url" target="_blank">{{ bland.day_tweets_count }}</a>
+              <td class="c-table-tbody-row__data" width="10" v-else-if="activetab === 2">
+                <a
+                  class="c-table-tbody-row__link"
+                  v-bind:href="bland.url"
+                  target="_blank"
+                >{{ bland.day_tweets_count }}</a>
               </td>
-              <td width="10" v-else>
-                <a v-bind:href="bland.url" target="_blank">{{ bland.week_tweets_count }}</a>
+              <td class="c-table-tbody-row__data" width="10" v-else>
+                <a
+                  class="c-table-tbody-row__link"
+                  v-bind:href="bland.url"
+                  target="_blank"
+                >{{ bland.week_tweets_count }}</a>
               </td>
               <!-- 銘柄名 -->
-              <td width="40">
-                <a v-bind:href="bland.url" target="_blank">{{ bland.name }}</a>
+              <td class="c-table-tbody-row__data" width="40">
+                <a
+                  class="c-table-tbody-row__link"
+                  v-bind:href="bland.url"
+                  target="_blank"
+                >{{ bland.name }}</a>
               </td>
               <!-- 最高取引価格 -->
-              <td width="25">
-                <a v-bind:href="bland.url" target="_blank">{{ bland.high }}</a>
+              <td class="c-table-tbody-row__data" width="25">
+                <a
+                  class="c-table-tbody-row__link"
+                  v-bind:href="bland.url"
+                  target="_blank"
+                >{{ bland.high }}</a>
               </td>
               <!-- 最安取引価格 -->
-              <td width="25">
-                <a v-bind:href="bland.url" target="_blank">{{ bland.low }}</a>
+              <td class="c-table-tbody-row__data" width="25">
+                <a
+                  class="c-table-tbody-row__link"
+                  v-bind:href="bland.url"
+                  target="_blank"
+                >{{ bland.low }}</a>
               </td>
             </tr>
           </tbody>

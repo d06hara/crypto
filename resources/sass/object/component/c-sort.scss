@@ -1,0 +1,32 @@
+// ===============================
+// component : sort
+// ===============================
+.c-sort {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  &-item {
+    width: 25%;
+    text-align: center;
+    &__btn {
+      width: 100%;
+      display: inline-block;
+      padding: $space_s $space_m;
+      text-decoration: none;
+      color: #999;
+      border: solid 1px #999;
+      -webkit-transition: .4s;
+      transition: .4s;
+      margin-right: 0;
+      &.active {
+        background: #999;
+        color: white;
+      }
+      &:hover{
+        background: #999;
+        color: white;
+      }
+    }
+  }
+}

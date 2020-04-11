@@ -2218,6 +2218,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlandPanel",
   data: function data() {
@@ -13640,13 +13667,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-ranking" }, [
-    _c("div", { staticClass: "p-ranking__content" }, [
-      _c("div", { staticClass: "p-ranking__content-sort" }, [
-        _c("ul", [
-          _c("li", [
+    _c("div", { staticClass: "p-ranking-content" }, [
+      _c("div", { staticClass: "p-ranking-content__sort" }, [
+        _c("ul", { staticClass: "c-sort" }, [
+          _c("li", { staticClass: "c-sort-item" }, [
             _c(
               "button",
               {
+                staticClass: "c-sort-item__btn",
                 class: [_vm.activetab === 1 ? "active" : ""],
                 on: {
                   click: function($event) {
@@ -13658,10 +13686,11 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("li", [
+          _c("li", { staticClass: "c-sort-item" }, [
             _c(
               "button",
               {
+                staticClass: "c-sort-item__btn",
                 class: [_vm.activetab === 2 ? "active" : ""],
                 on: {
                   click: function($event) {
@@ -13673,10 +13702,11 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("li", [
+          _c("li", { staticClass: "c-sort-item" }, [
             _c(
               "button",
               {
+                staticClass: "c-sort-item__btn",
                 class: [_vm.activetab === 3 ? "active" : ""],
                 on: {
                   click: function($event) {
@@ -13690,7 +13720,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-ranking__content-filter" }, [
+      _c("div", { staticClass: "p-ranking-content__filter" }, [
         _c(
           "select",
           {
@@ -13743,64 +13773,138 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-ranking__content-information" }, [
+      _c("div", { staticClass: "p-ranking-content__information" }, [
         _c("p", [
-          _c("span", [_vm._v(_vm._s(_vm.time))]),
+          _c(
+            "span",
+            { staticClass: "p-ranking-content__information--accent" },
+            [_vm._v(_vm._s(_vm.time))]
+          ),
           _vm._v(" 時点のランキング\n      ")
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-ranking__content-table" }, [
+      _c("div", { staticClass: "p-ranking-content__table" }, [
         _c("table", { staticClass: "c-table" }, [
           _vm._m(0),
           _vm._v(" "),
           _c(
             "tbody",
-            { staticClass: "c-table__tbody" },
+            { staticClass: "c-table-tbody" },
             _vm._l(_vm.selectedBlands, function(bland) {
-              return _c("tr", { key: bland.id }, [
-                _vm.activetab === 1
-                  ? _c("td", { attrs: { width: "10" } }, [
+              return _c(
+                "tr",
+                { key: bland.id, staticClass: "c-table-tbody-row" },
+                [
+                  _vm.activetab === 1
+                    ? _c(
+                        "td",
+                        {
+                          staticClass: "c-table-tbody-row__data",
+                          attrs: { width: "10" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "c-table-tbody-row__link",
+                              attrs: { href: bland.url, target: "_blank" }
+                            },
+                            [_vm._v(_vm._s(bland.hour_tweets_count))]
+                          )
+                        ]
+                      )
+                    : _vm.activetab === 2
+                    ? _c(
+                        "td",
+                        {
+                          staticClass: "c-table-tbody-row__data",
+                          attrs: { width: "10" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "c-table-tbody-row__link",
+                              attrs: { href: bland.url, target: "_blank" }
+                            },
+                            [_vm._v(_vm._s(bland.day_tweets_count))]
+                          )
+                        ]
+                      )
+                    : _c(
+                        "td",
+                        {
+                          staticClass: "c-table-tbody-row__data",
+                          attrs: { width: "10" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "c-table-tbody-row__link",
+                              attrs: { href: bland.url, target: "_blank" }
+                            },
+                            [_vm._v(_vm._s(bland.week_tweets_count))]
+                          )
+                        ]
+                      ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "c-table-tbody-row__data",
+                      attrs: { width: "40" }
+                    },
+                    [
                       _c(
                         "a",
-                        { attrs: { href: bland.url, target: "_blank" } },
-                        [_vm._v(_vm._s(bland.hour_tweets_count))]
+                        {
+                          staticClass: "c-table-tbody-row__link",
+                          attrs: { href: bland.url, target: "_blank" }
+                        },
+                        [_vm._v(_vm._s(bland.name))]
                       )
-                    ])
-                  : _vm.activetab === 2
-                  ? _c("td", { attrs: { width: "10" } }, [
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "c-table-tbody-row__data",
+                      attrs: { width: "25" }
+                    },
+                    [
                       _c(
                         "a",
-                        { attrs: { href: bland.url, target: "_blank" } },
-                        [_vm._v(_vm._s(bland.day_tweets_count))]
+                        {
+                          staticClass: "c-table-tbody-row__link",
+                          attrs: { href: bland.url, target: "_blank" }
+                        },
+                        [_vm._v(_vm._s(bland.high))]
                       )
-                    ])
-                  : _c("td", { attrs: { width: "10" } }, [
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "c-table-tbody-row__data",
+                      attrs: { width: "25" }
+                    },
+                    [
                       _c(
                         "a",
-                        { attrs: { href: bland.url, target: "_blank" } },
-                        [_vm._v(_vm._s(bland.week_tweets_count))]
+                        {
+                          staticClass: "c-table-tbody-row__link",
+                          attrs: { href: bland.url, target: "_blank" }
+                        },
+                        [_vm._v(_vm._s(bland.low))]
                       )
-                    ]),
-                _vm._v(" "),
-                _c("td", { attrs: { width: "40" } }, [
-                  _c("a", { attrs: { href: bland.url, target: "_blank" } }, [
-                    _vm._v(_vm._s(bland.name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", { attrs: { width: "25" } }, [
-                  _c("a", { attrs: { href: bland.url, target: "_blank" } }, [
-                    _vm._v(_vm._s(bland.high))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", { attrs: { width: "25" } }, [
-                  _c("a", { attrs: { href: bland.url, target: "_blank" } }, [
-                    _vm._v(_vm._s(bland.low))
-                  ])
-                ])
-              ])
+                    ]
+                  )
+                ]
+              )
             }),
             0
           )
@@ -13814,17 +13918,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", { staticClass: "c-table__thead" }, [
-      _c("tr", [
-        _c("th", { attrs: { width: "10" } }, [_vm._v("ツイート数")]),
+    return _c("thead", { staticClass: "c-table-thead" }, [
+      _c("tr", { staticClass: "c-table-thead-row" }, [
+        _c(
+          "th",
+          { staticClass: "c-table-thead-row__header", attrs: { width: "10" } },
+          [_vm._v("ツイート数")]
+        ),
         _vm._v(" "),
-        _c("th", { attrs: { width: "40" } }, [_vm._v("銘柄")]),
+        _c(
+          "th",
+          { staticClass: "c-table-thead-row__header", attrs: { width: "40" } },
+          [_vm._v("銘柄")]
+        ),
         _vm._v(" "),
-        _c("th", { attrs: { width: "25" } }, [
-          _vm._v("24時間での最高取引価格")
-        ]),
+        _c(
+          "th",
+          { staticClass: "c-table-thead-row__header", attrs: { width: "25" } },
+          [_vm._v("24時間での最高取引価格")]
+        ),
         _vm._v(" "),
-        _c("th", { attrs: { width: "25" } }, [_vm._v("24時間での最安取引価格")])
+        _c(
+          "th",
+          { staticClass: "c-table-thead-row__header", attrs: { width: "25" } },
+          [_vm._v("24時間での最安取引価格")]
+        )
       ])
     ])
   }

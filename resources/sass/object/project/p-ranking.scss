@@ -9,9 +9,7 @@
   padding-left: $space_l;
   box-sizing: border-box;
 
-
-
-  &__content {
+  &-content {
     box-sizing: border-box;
     width: 80%;
     margin: 0 auto $space_3l auto;
@@ -20,63 +18,26 @@
       width: 100%;
     }
 
-   // sort部分
-    &-sort {
+    &__sort {
       padding-bottom: $space_m;
-
-          ul {
-            display: -webkit-box;
-            display: flex;
-            -webkit-box-pack: center;
-                    justify-content: center;
-    
-            li {
-              width: 25%;
-              text-align: center;
-    
-              button {
-                width: 100%;
-                display: inline-block;
-                padding: $space_s $space_m;
-                text-decoration: none;
-                color: #999;
-                border: solid 1px #999;
-                -webkit-transition: .4s;
-                transition: .4s;
-                margin-right: 0;
-
-                &.active {
-                  background: #999;
-                  color: white;
-                }
-    
-                &:hover{
-                  background: #999;
-                  color: white;
-                }
-              }
-            }
-          }
-    
     }
 
-    &-filter {
+    &__filter {
       margin-top: $space_m;
       display: inline-block;
       width: 50%;
-      
       @include mq() {
         width: 30%;
         font-size: $font_size_s;
       }
     }
 
-    &-information {
+    &__information {
       font-size: $font_size_m;
       float: right;
       position: relative;
       top: 70px;
-      span {
+      &--accent {
         font-weight: bold;
       }
 
@@ -87,10 +48,5 @@
         font-size: 10px;
       }
     }
-    
-    &-table { 
-      
-    }
-
   }
 }

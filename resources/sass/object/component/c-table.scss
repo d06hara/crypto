@@ -1,7 +1,6 @@
 // ===============================
 // component:table
 // ===============================
-
 .c-table { 
   width: 100%;
   margin:0 auto;
@@ -9,56 +8,40 @@
   border-spacing: 0 $space_m;
   table-layout: fixed;
   font-size: $font_size_m;
-
   @include mq(){
     font-size: $font_size_s;
   }
-  &__thead {
+  &-thead {
     background-color: $accent-color;
     color: white;
-
-    tr {
+    &-row {
       height: 30px;
       @include mq(){
         height: 50px;
       }
-
-      th{
+      &__header{
         padding:$space_m;
         vertical-align: middle;
         @include mq(){
           padding: $space_s;
         }
-
       }
     }
   }
-
-  &__tbody {
-
-    tr { 
+  &-tbody {
+    &-row { 
       background-color: $white;
       height: 50px;
-
-      @include mq(){
-
-      }
-
       &:hover {
         background-color: rgba($accent-color, 0.3);
       }
-      
-      td{
+      &__data{
         text-align: center;
         line-height: 50px;
         white-space: nowrap;
-        @include mq(){
-
-        }
-
-         a{
-           display: block;
-         }
+      }
+      &__link{
+        display:block;
       }
     }
   }
