@@ -1,16 +1,13 @@
 // ===============================
 // component : account-card
 // ===============================
-
-.c-accountcard__container {
+.accountcard__container {
   width: 100%;
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
 }
-
 .c-accountcard {
   width: calc(50% - #{$space_m}*2);
   box-sizing: border-box;
@@ -18,81 +15,64 @@
   padding: $space_l;
   border-radius: 10px;
   margin: $space_m;
-
   @include mq() {
     width: 80%;
     margin: $space_m auto;
   }
-
   &__name {
     font-size: $font-size_l;
     margin-bottom : $space_m;
-
-    span {
+    &--accent {
       font-size: $font-size_s;
       font-weight: bold;
       color: #888;
     }
   }
-
   &__btn {
     float: right;
-
-    button {
-      background-color: $white;
-      color: #007bff;
-      border: solid 1px #007bff;
-      border-radius: 10px;
-      padding: $space_s $space_m;
-      cursor: pointer;
-
-
-      &:hover {
-        background-color: #007bff;
-        color: $white;
-      }
-
-      &.active {
-        background-color: #007bff;
-        color: $white;
-      }
+    background-color: $white;
+    color: #007bff;
+    border: solid 1px #007bff;
+    border-radius: 10px;
+    padding: $space_s $space_m;
+    cursor: pointer;
+    &:hover {
+      background-color: #007bff;
+      color: $white;
+    }
+    &.active {
+      background-color: #007bff;
+      color: $white;
     }
   }
-
-  &__data {
-
-    li {
+  &-data {
+    width: 100%;
+    &__item {
       font-size: $font-size_m;
       text-align: center;
       display: inline-block;
       padding: 0 $space_m;
       border-right: solid 1px #bdc3c7;
-
       &:last-child {
         border: none;
       }
-
-      span {
+      &--accent {
         display: block;
         font-size: $font-size_s
       }
     }
   }
-
   &__profile {
     width: 100%;
     margin-top: $space_m;
     border-bottom: 1px dotted $font-color_default;
     padding-bottom: $space_s;
-
   }
-
   &__tweet {
     width: 90%;
     max-height: 100px;
     overflow: scroll;
     padding: $space_s;
     margin: $space_m auto;
-
   }
 }

@@ -1,20 +1,16 @@
 // ===============================
 // project:account
 // ===============================
-
 .p-account {
   width: 100%;
   margin-bottom:$space_3l;
-
-  &__contents {
+  &-contents {
     width: 80%;
     margin: 0 auto;
-
     @include mq(lg){
       width: 100%;
     }
-
-    &-auto {
+    &__auto {
       margin-top: $space_m;
       margin-bottom: $space_m;
       margin-left: $space_m;
@@ -24,11 +20,6 @@
         width: 80%;
         margin: 0 auto;
       }
-  
-    }
-    &-card {
-
     }
   }
-
 }

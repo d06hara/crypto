@@ -1,8 +1,8 @@
 <template>
   <div class="p-account">
-    <div class="p-account__contents">
+    <div class="p-account-contents">
       <!-- 自動フォローボタン -->
-      <div class="p-account__contents-auto">
+      <div class="p-account-contents__auto">
         <label for="auto_follow" class="u-checkbox">
           <input
             id="auto_follow"
@@ -17,27 +17,31 @@
       </div>
 
       <!-- アカウントカード -->
-      <div class="p-account__contents-card">
-        <div class="c-accountcard__container">
+      <div class="p-account-contents__card">
+        <div class="accountcard__container">
           <div v-for="(account, index) in accounts" class="c-accountcard" :key="index">
             <p class="c-accountcard__name">
               {{ account.name }}
-              <span>@{{ account.screen_name }}</span>
+              <span class="c-accountcard__name--accent">@{{ account.screen_name }}</span>
             </p>
-            <div class="c-accountcard__btn">
-              <button v-on:click="followUnfollow(account)" v-bind:class="{ active: account.users }">
-                <p v-if="account.users">フォロー中</p>
-                <p v-else>フォローする</p>
-              </button>
-            </div>
-            <ul class="c-accountcard__data">
-              <li>
+
+            <button
+              class="c-accountcard__btn"
+              v-on:click="followUnfollow(account)"
+              v-bind:class="{ active: account.users }"
+            >
+              <p v-if="account.users">フォロー中</p>
+              <p v-else>フォローする</p>
+            </button>
+
+            <ul class="c-accountcard-data">
+              <li class="c-accountcard-data__item">
                 {{ account.friends_count }}
-                <span>Following</span>
+                <span class="c-accountcard-data__item--accent">Following</span>
               </li>
-              <li>
+              <li class="c-accountcard-data__item">
                 {{ account.followers_count }}
-                <span>Follower</span>
+                <span class="c-accountcard-data__item--accent">Follower</span>
               </li>
             </ul>
             <div class="c-accountcard__profile">{{ account.description }}</div>

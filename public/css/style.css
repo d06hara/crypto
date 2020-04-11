@@ -294,7 +294,7 @@ input {
   min-height: 100vh;
 }
 
-.c-accountcard__container {
+.accountcard__container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -322,7 +322,7 @@ input {
   margin-bottom: 10px;
 }
 
-.c-accountcard__name span {
+.c-accountcard__name--accent {
   font-size: 12px;
   font-weight: bold;
   color: #888;
@@ -330,9 +330,6 @@ input {
 
 .c-accountcard__btn {
   float: right;
-}
-
-.c-accountcard__btn button {
   background-color: #ffffff;
   color: #007bff;
   border: solid 1px #007bff;
@@ -341,17 +338,21 @@ input {
   cursor: pointer;
 }
 
-.c-accountcard__btn button:hover {
+.c-accountcard__btn:hover {
   background-color: #007bff;
   color: #ffffff;
 }
 
-.c-accountcard__btn button.active {
+.c-accountcard__btn.active {
   background-color: #007bff;
   color: #ffffff;
 }
 
-.c-accountcard__data li {
+.c-accountcard-data {
+  width: 100%;
+}
+
+.c-accountcard-data__item {
   font-size: 14px;
   text-align: center;
   display: inline-block;
@@ -359,11 +360,11 @@ input {
   border-right: solid 1px #bdc3c7;
 }
 
-.c-accountcard__data li:last-child {
+.c-accountcard-data__item:last-child {
   border: none;
 }
 
-.c-accountcard__data li span {
+.c-accountcard-data__item--accent {
   display: block;
   font-size: 12px;
 }
@@ -889,18 +890,18 @@ input {
   margin-bottom: 40px;
 }
 
-.p-account__contents {
+.p-account-contents {
   width: 80%;
   margin: 0 auto;
 }
 
 @media screen and (max-width: 1000px) {
-  .p-account__contents {
+  .p-account-contents {
     width: 100%;
   }
 }
 
-.p-account__contents-auto {
+.p-account-contents__auto {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -908,7 +909,7 @@ input {
 }
 
 @media screen and (max-width: 768px) {
-  .p-account__contents-auto {
+  .p-account-contents__auto {
     font-size: 14px;
     width: 80%;
     margin: 0 auto;

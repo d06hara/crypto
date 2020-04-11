@@ -1,14 +1,11 @@
 // ===============================
 // project:accountauth
 // ===============================
-
 .p-accountauth {
   width: 80%;
   margin:$space_3l auto;
-  
   &__text {
     font-size: $font-size_l;
-
     @include mq(){
       font-size: $font-size_m;
     }

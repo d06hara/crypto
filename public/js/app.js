@@ -1972,6 +1972,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AccountPanel",
   props: ["user_mode"],
@@ -13539,9 +13543,9 @@ var render = function() {
   return _c("div", { staticClass: "p-account" }, [
     _c(
       "div",
-      { staticClass: "p-account__contents" },
+      { staticClass: "p-account-contents" },
       [
-        _c("div", { staticClass: "p-account__contents-auto" }, [
+        _c("div", { staticClass: "p-account-contents__auto" }, [
           _c(
             "label",
             { staticClass: "u-checkbox", attrs: { for: "auto_follow" } },
@@ -13562,55 +13566,64 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "p-account__contents-card" }, [
+        _c("div", { staticClass: "p-account-contents__card" }, [
           _c(
             "div",
-            { staticClass: "c-accountcard__container" },
+            { staticClass: "accountcard__container" },
             _vm._l(_vm.accounts, function(account, index) {
               return _c("div", { key: index, staticClass: "c-accountcard" }, [
                 _c("p", { staticClass: "c-accountcard__name" }, [
                   _vm._v(
                     "\n            " + _vm._s(account.name) + "\n            "
                   ),
-                  _c("span", [_vm._v("@" + _vm._s(account.screen_name))])
+                  _c("span", { staticClass: "c-accountcard__name--accent" }, [
+                    _vm._v("@" + _vm._s(account.screen_name))
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "c-accountcard__btn" }, [
-                  _c(
-                    "button",
-                    {
-                      class: { active: account.users },
-                      on: {
-                        click: function($event) {
-                          return _vm.followUnfollow(account)
-                        }
+                _c(
+                  "button",
+                  {
+                    staticClass: "c-accountcard__btn",
+                    class: { active: account.users },
+                    on: {
+                      click: function($event) {
+                        return _vm.followUnfollow(account)
                       }
-                    },
-                    [
-                      account.users
-                        ? _c("p", [_vm._v("フォロー中")])
-                        : _c("p", [_vm._v("フォローする")])
-                    ]
-                  )
-                ]),
+                    }
+                  },
+                  [
+                    account.users
+                      ? _c("p", [_vm._v("フォロー中")])
+                      : _c("p", [_vm._v("フォローする")])
+                  ]
+                ),
                 _vm._v(" "),
-                _c("ul", { staticClass: "c-accountcard__data" }, [
-                  _c("li", [
+                _c("ul", { staticClass: "c-accountcard-data" }, [
+                  _c("li", { staticClass: "c-accountcard-data__item" }, [
                     _vm._v(
                       "\n              " +
                         _vm._s(account.friends_count) +
                         "\n              "
                     ),
-                    _c("span", [_vm._v("Following")])
+                    _c(
+                      "span",
+                      { staticClass: "c-accountcard-data__item--accent" },
+                      [_vm._v("Following")]
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("li", [
+                  _c("li", { staticClass: "c-accountcard-data__item" }, [
                     _vm._v(
                       "\n              " +
                         _vm._s(account.followers_count) +
                         "\n              "
                     ),
-                    _c("span", [_vm._v("Follower")])
+                    _c(
+                      "span",
+                      { staticClass: "c-accountcard-data__item--accent" },
+                      [_vm._v("Follower")]
+                    )
                   ])
                 ]),
                 _vm._v(" "),
