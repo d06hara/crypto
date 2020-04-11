@@ -17,16 +17,16 @@
 
                 <p class="c-form__title"><span class="c-form__title-accent"></span>パスワードリマインダー</p>
 
-                <form action="{{ route('password.email') }}" method="POST" class="c-form__contents">
+                <form action="{{ route('password.email') }}" method="POST" class="c-form-contents">
                     @csrf
-                    <fieldset class="c-form__contents-fieldset">
+                    <fieldset class="c-form-contents__fieldset">
 
                         {{-- エラーメッセージ --}}
-                        <div class="c-form__contents-item">
+                        <div class="c-form-contents__item">
                             <ul>
                                 <li> @error('email')
                                     <span role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong class="c-form-contents__item--accent">{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </li>
@@ -34,10 +34,10 @@
                         </div>
 
                         {{-- Eメール --}}
-                        <div class="c-form__contents-item">
+                        <div class="c-form-contents__item">
                             <p>ご指定のEメール宛にパスワードリセット用のリンクをお送りいたします。</p>
                             <p><label for="email">Eメール</label></p>
-                            <input type="email" class="use_icon form-control @error('email') is-invalid @enderror"
+                            <input type="email" class="c-form-contents__item--form @error('email')  @enderror"
                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;">
 

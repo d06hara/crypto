@@ -25,13 +25,13 @@
                         <div class="c-form-contents__item">
                             <ul>
                                 <li> @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span role="alert">
                                         <strong class="c-form-contents__item--accent">{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </li>
                                 <li>@error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span role="alert">
                                         <strong class="c-form-contents__item--accent">{{ $message }}</strong>
                                     </span>
                                     @enderror
