@@ -17,6 +17,23 @@
                 <input type="hidden" name="token" value="{{ $token }}">
 
                 <fieldset class="c-form-contents__fieldset">
+                    {{-- エラーメッセージ --}}
+                    <div class="c-form-contents__item">
+                        <ul>
+                            <li>@error('email')
+                                <span role="alert">
+                                    <strong class="c-form-contents__item--accent">{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </li>
+                            <li>@error('password')
+                                <span role="alert">
+                                    <strong class="c-form-contents__item--accent">{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </li>
+                        </ul>
+                    </div>
                     {{-- Eメール --}}
                     <div class="c-form-contents__item">
                         <p><label for="email">Eメール</label></p>

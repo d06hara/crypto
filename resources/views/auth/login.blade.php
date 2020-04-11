@@ -21,7 +21,7 @@
                         {{-- エラーメッセージ --}}
                         <div class="c-form-contents__item">
                             <ul>
-                                <li> @error('email')
+                                <li>@error('email')
                                     <span role="alert">
                                         <strong class="c-form-contents__item--accent">{{ $message }}</strong>
                                     </span>
