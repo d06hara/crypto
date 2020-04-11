@@ -12,15 +12,12 @@
     <div class="p-login">
         {{-- ログインフォーム --}}
         <div class="p-login__form">
-
             <div class="c-form">
+                {{-- フォームタイトル --}}
                 <p class="c-form__title"><span class="c-form__title--accent"></span>ログイン</p>
-
                 <form action="{{ route('login') }}" method="POST" class="c-form-contents">
                     @csrf
-
                     <fieldset class="c-form-contents__fieldset">
-
                         {{-- エラーメッセージ --}}
                         <div class="c-form-contents__item">
                             <ul>
@@ -38,7 +35,6 @@
                                 </li>
                             </ul>
                         </div>
-
                         {{-- Eメール --}}
                         <div class="c-form-contents__item">
                             <p><label for="email">Eメール</label></p>
@@ -46,7 +42,6 @@
                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;"></<input>
                         </div>
-
                         {{-- パスワード --}}
                         <div class="c-form-contents__item">
                             <p><label for="password">パスワード</label></p>
@@ -54,18 +49,16 @@
                                 name="password" required autocomplete="password" autofocus placeholder="&#xf084;">
                             </<input>
                         </div>
-
+                        {{-- ログインボタン --}}
                         <button class="c-form-contents__btn" type="submit">ログイン</button>
 
                         <p style="margin-top:10px;">パスワードを忘れた方は<a href="{{ url('password/reset') }}"
                                 style="font-weight: bold;">こちら</a></p>
-
                     </fieldset>
-
                 </form>
-                </<button>
             </div>
         </div>
+    </div>
 </main>
 
 @endsection

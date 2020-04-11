@@ -8,19 +8,15 @@
 
 @section('content')
 <main>
-
-
     <div class="p-passremind">
-
+        {{-- パスワードリマインダーフォーム --}}
         <div class="p-passremind__form">
             <div class="c-form">
-
+                {{-- フォームタイトル --}}
                 <p class="c-form__title"><span class="c-form__title-accent"></span>パスワードリマインダー</p>
-
                 <form action="{{ route('password.email') }}" method="POST" class="c-form-contents">
                     @csrf
                     <fieldset class="c-form-contents__fieldset">
-
                         {{-- エラーメッセージ --}}
                         <div class="c-form-contents__item">
                             <ul>
@@ -32,23 +28,20 @@
                                 </li>
                             </ul>
                         </div>
-
                         {{-- Eメール --}}
                         <div class="c-form-contents__item">
-                            <p>ご指定のEメール宛にパスワードリセット用のリンクをお送りいたします。</p>
+                            <p style="margin-bottom:10px;">ご指定のEメール宛にパスワードリセット用のリンクをお送りいたします。</p>
                             <p><label for="email">Eメール</label></p>
                             <input type="email" class="c-form-contents__item--form @error('email')  @enderror"
                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;">
-
-                            <button class="c-form-contents__btn" type="submit">送信</button>
-
-                            </<button>
+                        </div>
+                        {{-- 送信ボタン --}}
+                        <button class="c-form-contents__btn" type="submit">送信</button>
                     </fieldset>
                 </form>
             </div>
         </div>
-
-
+    </div>
 </main>
 @endsection

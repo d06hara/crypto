@@ -7,21 +7,19 @@
 
 @section('content')
 <main>
-
+    {{-- パスワードリセットフォーム --}}
     <div class="p-passremind">
         <div class="c-form">
-
+            {{-- フォームタイトル --}}
             <p class="c-form__title"><span class="c-form__title-accent"></span>パスワードリセット</p>
-
             <form action="{{ route('password.update') }}" method="POST" class="c-form-contents">
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
 
                 <fieldset class="c-form-contents__fieldset">
-
-                    {{-- email --}}
+                    {{-- Eメール --}}
                     <div class="c-form-contents__item">
-                        <p><label for="email">E-mail address</label></p>
+                        <p><label for="email">Eメール</label></p>
                         <input type="email" class="c-form-contents__item--form @error('email') @enderror" name="email"
                             value="{{ $mail ?? old('email') }}" required autocomplete="email" autofocus
                             placeholder="&#xf0e0;">
@@ -32,10 +30,9 @@
                         </span>
                         @enderror
                     </div>
-
-                    {{-- new-password --}}
+                    {{-- 新しいパスワード --}}
                     <div class="c-form-contents__item">
-                        <p><label for="password">password</label></p>
+                        <p><label for="password">新しいパスワード</label></p>
                         <input type="password" class="c-form-contents__item--form @error('password') @enderror"
                             name="password" required autocomplete="new-password" placeholder="&#xf084; 8文字以上で入力してください">
                         </<input>
@@ -45,10 +42,9 @@
                         </span>
                         @enderror
                     </div>
-
-                    {{-- new-password-re --}}
+                    {{-- 新しいパスワード(確認用) --}}
                     <div class="c-form-contents__item">
-                        <p><label for="password-confirm">password(再入力)</label></p>
+                        <p><label for="password-confirm">新しいパスワード(確認用)</label></p>
                         <input type="password" class="c-form-contents__item--form @error('password') @enderror"
                             name="password_confirmation" required autocomplete="new-password-confirmation"
                             placeholder="&#xf084;">
@@ -59,15 +55,12 @@
                         </span>
                         @enderror
                     </div>
-
-                    <div><button type="submit">パスワードをリセットする</button></div>
-
+                    {{-- リセットボタン --}}
+                    <button class="c-form-contents__btn" type="submit">パスワードをリセットする</button>
                 </fieldset>
             </form>
         </div>
     </div>
-
-
 </main>
 
 @endsection

@@ -8,19 +8,15 @@
 @section('content')
 
 <main>
-
     <div class="p-register">
         {{-- 新規登録フォーム --}}
         <div class="p-register__form">
             <div class="c-form">
-
+                {{-- フォームタイトル --}}
                 <p class="c-form__title"><span class="c-form__title-accent"></span>アカウント登録</p>
-
                 <form action="{{ route('register') }}" method="POST" class="c-form-contents">
                     @csrf
-
                     <fieldset class="c-form-contents__fieldset">
-
                         {{-- エラーメッセージ --}}
                         <div class="c-form-contents__item">
                             <ul>
@@ -44,8 +40,6 @@
                                 </li>
                             </ul>
                         </div>
-
-
                         {{-- ユーザーネーム --}}
                         <div class="c-form-contents__item">
                             <p><label for="name">ユーザーネーム(10文字以内)</label></p>
@@ -53,7 +47,6 @@
                                 value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="&#xf007;">
                             </<input>
                         </div>
-
                         {{-- Eメール --}}
                         <div class="c-form-contents__item">
                             <p><label for="email">Eメール</label></p>
@@ -61,16 +54,13 @@
                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;"></<input>
                         </div>
-
                         {{-- パスワード --}}
                         <div class="c-form-contents__item">
-                            <p><label for="password">パスワード</label></p>
+                            <p><label for="password">パスワード(8文字以上)</label></p>
                             <input type="password" class="c-form-contents__item--form @error('password') @enderror"
-                                name="password" required autocomplete="password" autofocus
-                                placeholder="&#xf084; 8文字以上で入力してください">
+                                name="password" required autocomplete="password" autofocus placeholder="&#xf084;">
                             </<input>
                         </div>
-
                         {{-- パスワード(確認用) --}}
                         <div class="c-form-contents__item">
                             <p><label for="password-confirmation">パスワード(確認用)</label></p>
@@ -79,13 +69,9 @@
                                 name="password_confirmation" required autocomplete="password-confirm" autofocus
                                 placeholder="&#xf084;">
                             </<input>
-
                         </div>
-
-
+                        {{-- 登録ボタン --}}
                         <button class="c-form-contents__btn" type="submit">登録する</button>
-
-
                     </fieldset>
                 </form>
             </div>
