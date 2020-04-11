@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
-@section('title', 'アカウント一覧')
+@section('title', '仮想通貨アカウント一覧')
+@section('keywords', '仮想通貨,仮想通貨アカウント')
+@section('description', '仮想通貨に関連するtwitterアカウントを一覧で表示しています。フォロー機能や自動フォロー機能もあり、仮想通貨に関連するアカウントを効率よくフォローできます。')
 
 @section('content')
 

@@ -1,5 +1,10 @@
 @extends('layouts.layout')
 
+@section('title', 'パスワードリセット')
+@section('keywords', '仮想通貨,仮想通貨トレンド,仮想通貨アカウント,仮想通貨ニュース')
+@section('description',
+'twitterを利用した、仮想通貨の話題性を分析するツール。銘柄ごとにツイート数を集計しランキング形式で表示する仮想通貨トレンドランキング機能や,twitterから仮想通貨に関連するアカウントのみを表示する機能など、仮想通貨の話題性を分析するためのサービスです。')
+
 @section('content')
 <main>
 
