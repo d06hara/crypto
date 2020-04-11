@@ -1,15 +1,15 @@
 <template>
   <div class="p-news">
-    <div class="p-news__contents">
+    <div class="p-news-contents">
       <!-- news card -->
-      <div class="p-news__contents-cards">
-        <div class="c-card__container">
+      <div class="p-news-contents__cards">
+        <div class="card__container">
           <div v-for="(item, index) in news" :key="index" class="c-card">
-            <div class="c-card__textbox">
+            <div class="c-card-textbox">
               <a v-bind:href="item.url" target="_blank">
-                <div class="c-card__textbox-text">{{ item.title }}</div>
-                <p class="c-card__textbox-item">{{ item.source }}</p>
-                <p class="c-card__textbox-item">{{ item.pubDate }}</p>
+                <div class="c-card-textbox__text">{{ item.title }}</div>
+                <p class="c-card-textbox__item">{{ item.source }}</p>
+                <p class="c-card-textbox__item">{{ item.pubDate }}</p>
               </a>
             </div>
           </div>

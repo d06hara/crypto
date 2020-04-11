@@ -1,7 +1,6 @@
 // ===============================
 // project:news
 // ===============================
-
 .p-news{
   width: 100%;
   padding-top: $space_xl;
@@ -9,18 +8,14 @@
   padding-left: $space_l;
   box-sizing: border-box;
   margin-bottom: $space_3l;
-
-
-  &__contents{
+  &-contents{
     width: 80%;
     margin: 0 auto;
     @include mq(lg){
       width: 100%;
     }
-    &-cards {
+    &__cards {
       margin-top: $space_l;
     }
   }
-
-
 }

@@ -2,12 +2,12 @@
 // component : card
 // ===============================
 
-.c-card__container { 
+.card__container { 
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .c-card{
   box-sizing: border-box;
@@ -17,25 +17,20 @@
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0,0,0,.2);
   background-color: $white;
-
   @include mq() {
-    width: 80%;
+    width: 90%;
     margin: 0 auto $space_m auto;
   }
-
-  &__textbox {
+  &-textbox {
     width: 100%;
     padding: $space_l;
     box-sizing: border-box;
-
-
-    &-text {
+    &__text {
       font-size: $font-size_l;
       font-weight: bold;
       margin-bottom: $space_s;
     }
-
-    &-item {
+    &__item {
       font-size: $font-size_s;
     }
   }

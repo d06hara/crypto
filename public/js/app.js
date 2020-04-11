@@ -13971,25 +13971,25 @@ var render = function() {
   return _c("div", { staticClass: "p-news" }, [
     _c(
       "div",
-      { staticClass: "p-news__contents" },
+      { staticClass: "p-news-contents" },
       [
-        _c("div", { staticClass: "p-news__contents-cards" }, [
+        _c("div", { staticClass: "p-news-contents__cards" }, [
           _c(
             "div",
-            { staticClass: "c-card__container" },
+            { staticClass: "card__container" },
             _vm._l(_vm.news, function(item, index) {
               return _c("div", { key: index, staticClass: "c-card" }, [
-                _c("div", { staticClass: "c-card__textbox" }, [
+                _c("div", { staticClass: "c-card-textbox" }, [
                   _c("a", { attrs: { href: item.url, target: "_blank" } }, [
-                    _c("div", { staticClass: "c-card__textbox-text" }, [
+                    _c("div", { staticClass: "c-card-textbox__text" }, [
                       _vm._v(_vm._s(item.title))
                     ]),
                     _vm._v(" "),
-                    _c("p", { staticClass: "c-card__textbox-item" }, [
+                    _c("p", { staticClass: "c-card-textbox__item" }, [
                       _vm._v(_vm._s(item.source))
                     ]),
                     _vm._v(" "),
-                    _c("p", { staticClass: "c-card__textbox-item" }, [
+                    _c("p", { staticClass: "c-card-textbox__item" }, [
                       _vm._v(_vm._s(item.pubDate))
                     ])
                   ])

@@ -383,7 +383,7 @@ input {
   margin: 10px auto;
 }
 
-.c-card__container {
+.card__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -401,24 +401,24 @@ input {
 
 @media screen and (max-width: 768px) {
   .c-card {
-    width: 80%;
+    width: 90%;
     margin: 0 auto 10px auto;
   }
 }
 
-.c-card__textbox {
+.c-card-textbox {
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
 }
 
-.c-card__textbox-text {
+.c-card-textbox__text {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.c-card__textbox-item {
+.c-card-textbox__item {
   font-size: 12px;
 }
 
@@ -1068,18 +1068,18 @@ input {
   margin-bottom: 40px;
 }
 
-.p-news__contents {
+.p-news-contents {
   width: 80%;
   margin: 0 auto;
 }
 
 @media screen and (max-width: 1000px) {
-  .p-news__contents {
+  .p-news-contents {
     width: 100%;
   }
 }
 
-.p-news__contents-cards {
+.p-news-contents__cards {
   margin-top: 15px;
 }
 
