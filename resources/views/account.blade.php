@@ -22,7 +22,7 @@
     <p class="p-accountauth__text">ご利用中のtwitterアカウントを連携する方は以下のボタンを押してください。</p>
     <div class="p-accountauth__btn">
       <a href="{{ url('/twitter') }}" class="u-twitterbtn">
-        <i class="fab fa-twitter"></i><span>twitterアカウントを登録する</span>
+        <i class="fab fa-twitter"></i><span class="u-twitterbtn__text">twitterアカウントを登録する</span>
       </a>
     </div>
   </div>

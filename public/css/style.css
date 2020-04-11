@@ -1176,15 +1176,6 @@ input {
   }
 }
 
-.message {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.message.error {
-  color: red;
-}
-
 .u-twitterbtn {
   color: #FFF;
   border-radius: 7px;
@@ -1202,7 +1193,7 @@ input {
   }
 }
 
-.u-twitterbtn span {
+.u-twitterbtn__text {
   margin-left: 10px;
 }
 
