@@ -44,15 +44,10 @@
                     </div>
                     {{-- 新しいパスワード --}}
                     <div class="c-form-contents__item">
-                        <p><label for="password">新しいパスワード</label></p>
+                        <p><label for="password">新しいパスワード(8文字以上)</label></p>
                         <input type="password" class="c-form-contents__item--form @error('password') @enderror"
                             name="password" required autocomplete="new-password" placeholder="&#xf084; 8文字以上で入力してください">
                         </<input>
-                        @error('password')
-                        <span role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
                     </div>
                     {{-- 新しいパスワード(確認用) --}}
                     <div class="c-form-contents__item">
