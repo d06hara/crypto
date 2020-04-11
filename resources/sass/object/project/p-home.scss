@@ -1,52 +1,43 @@
 // ===============================
 // project:home
 // ===============================
-
 .p-home {
   width: 100%;
-
-  &__upper {
+  &-upper {
   width: 80%;
   margin: 0 auto;
   display: -webkit-box;
   display: flex;
   box-sizing: border-box;
   padding: 50px $space_xl;
-
   @include mq(){
     display: block;
   }
-
   &-left {
     box-sizing: border-box;
     padding-top: 100px;
     width: 30%;
-
     @include mq(lg){
       padding-top: 50px;
-
     }
     @include mq(){
       width: 100%;
       padding-top: $space_l;
     }
-    &-title {
+    &__title {
       font-weight: bold;
       font-size: $font-size_3l;
       @include mq(lg){
         font-size: $font-size_xl;
       }
-
     }
-    &-sub {
+    &__sub {
       margin-top: $space_l;
       font-size: $font-size_xl;
       @include mq(lg){
         font-size: $font-size_l;
       }
-
     }
-
   }
   &-right {
     box-sizing: border-box;
@@ -59,29 +50,23 @@
       width: 100%;
     }
   }
-
   }
-
-  &__bottom {
+  &-bottom {
     background-color: #f0f0f0;
-
     &-contents {
       width: 980px;
       margin: 0 auto;
       padding: $space_3l 0;
-
       @include mq(lg){
         width: 80%;
       }
-
-      &-heading {
+      &__heading {
         text-align: center;
         width: 20%;
         margin: 0 auto;
         font-size: $font-size_l;
         position: relative;
         padding: 0 80px;
-
         &:before {
           content: '';
           position: absolute;
@@ -102,7 +87,6 @@
           background-color: $black;
           right:0 ;
         }
-
       }
     }
   }

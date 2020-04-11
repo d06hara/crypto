@@ -11,21 +11,21 @@
     <div class="p-home">
 
         {{-- topページ上部 --}}
-        <div class="p-home__upper">
+        <div class="p-home-upper">
             {{-- 紹介 --}}
-            <div class="p-home__upper-left">
-                <p class="p-home__upper-left-title">crypto trend</p>
-                <p class="p-home__upper-left-sub">twitterを利用した、仮想通貨の話題性を分析するツールです。</p>
+            <div class="p-home-upper-left">
+                <p class="p-home-upper-left__title">crypto trend</p>
+                <p class="p-home-upper-left__sub">twitterを利用した、仮想通貨の話題性を分析するツールです。</p>
             </div>
             {{-- 画像 --}}
-            <div class="p-home__upper-right">
+            <div class="p-home-upper-right">
             </div>
         </div>
 
         {{-- topページ下部 --}}
-        <div class="p-home__bottom">
-            <div class="p-home__bottom-contents">
-                <p class="p-home__bottom-contents-heading">機能紹介</p>
+        <div class="p-home-bottom">
+            <div class="p-home-bottom-contents">
+                <p class="p-home-bottom-contents__heading">機能紹介</p>
 
                 <div class="c-introduction">
                     <p class="c-introduction__function">機能１:仮想通貨トレンドランキング</p>
