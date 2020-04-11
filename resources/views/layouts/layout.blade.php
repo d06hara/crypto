@@ -40,10 +40,10 @@
       @endif
 
       <!-- ハンバーガーメニュー（スマートフォン) -->
-      <div class="menu-triger js-toggle-sp-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="c-hamburger js-toggle-sp-menu">
+        <span class="c-hamburger__line"></span>
+        <span class="c-hamburger__line"></span>
+        <span class="c-hamburger__line"></span>
       </div>
 
       {{-- ナビゲーションメニュー --}}
