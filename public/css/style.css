@@ -465,40 +465,26 @@ input {
   }
 }
 
-.c-flash__success {
+.c-flash__text {
+  text-align: center;
+}
+
+.c-flash__text--success {
   background-color: #28a745;
   padding: 10px 15px;
   border-radius: 10px;
 }
 
-.c-flash__success-text {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.c-flash__error {
+.c-flash__text--error {
   background-color: #dc3545;
   padding: 10px 15px;
   border-radius: 10px;
 }
 
-.c-flash__error-text {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.c-flash__status {
+.c-flash__text--status {
   background-color: #007bff;
   padding: 10px 15px;
   border-radius: 10px;
-}
-
-.c-flash__status-text {
-  text-align: center;
-  margin: 0;
-  padding: 0;
 }
 
 .use_icon {
