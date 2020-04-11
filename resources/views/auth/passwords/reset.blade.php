@@ -41,11 +41,6 @@
                             value="{{ $mail ?? old('email') }}" required autocomplete="email" autofocus
                             placeholder="&#xf0e0;">
                         </<input>
-                        @error('email')
-                        <span role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
                     </div>
                     {{-- 新しいパスワード --}}
                     <div class="c-form-contents__item">
@@ -66,11 +61,6 @@
                             name="password_confirmation" required autocomplete="new-password-confirmation"
                             placeholder="&#xf084;">
                         </<input>
-                        @error('password')
-                        <span role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
                     </div>
                     {{-- リセットボタン --}}
                     <button class="c-form-contents__btn" type="submit">パスワードをリセットする</button>
