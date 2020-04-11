@@ -28,7 +28,7 @@
   <div class="l-wrapper">
 
     {{-- ヘッダー --}}
-    <header class="l-header js-l-header js-float-menu">
+    <header class="l-header js-float-menu">
       @if(Auth::user())
       <a href="{{ route('ranking') }}" class="l-header__logo">
         <h1 class="l-header__title">crypto trend</h1>
@@ -125,7 +125,7 @@
 
     {{-- footer --}}
     <footer class="l-footer">
-      <p class="c-footer__text">Copyright © crypto-trend. All Rights Reserved</p>
+      <p class="l-footer__text">Copyright © crypto-trend. All Rights Reserved</p>
     </footer>
 
   </div>
