@@ -1106,15 +1106,11 @@ input {
   background: rgba(0, 0, 0, 0.05) !important;
 }
 
-.u-checkbox__input:focus + span {
-  border: dashed 2px #333333;
+.u-checkbox__input:checked + .u-checkbox__dummy--checked {
+  background: #333;
 }
 
-.u-checkbox__input:checked + span {
-  background: #333333;
-}
-
-.u-checkbox__input:checked + span::before {
+.u-checkbox__input:checked + .u-checkbox__dummy--checked::before {
   content: "";
   display: block;
   position: absolute;
@@ -1128,7 +1124,7 @@ input {
   background: #FFFFFF;
 }
 
-.u-checkbox__input:checked + span::after {
+.u-checkbox__input:checked + .u-checkbox__dummy--checked::after {
   content: "";
   display: block;
   position: absolute;

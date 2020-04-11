@@ -13557,7 +13557,9 @@ var render = function() {
                 on: { change: _vm.autoFollow }
               }),
               _vm._v(" "),
-              _c("span", { staticClass: "u-checkbox__dummy" }),
+              _c("span", {
+                staticClass: "u-checkbox__dummy u-checkbox__dummy--checked"
+              }),
               _vm._v(" "),
               _c("span", { staticClass: "u-checkbox__labeltext" }, [
                 _vm._v("自動フォロー(チェックすると自動フォローが開始します)")

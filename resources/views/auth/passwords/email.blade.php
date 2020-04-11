@@ -41,9 +41,9 @@
                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;">
 
-                            <div><button type="submit">送信</button></div>
+                            <button class="c-form-contents__btn" type="submit">送信</button>
 
-                        </div>
+                            </<button>
                     </fieldset>
                 </form>
             </div>

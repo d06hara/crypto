@@ -11,7 +11,7 @@
             v-bind:checked="autoMode"
             @change="autoFollow"
           />
-          <span class="u-checkbox__dummy"></span>
+          <span class="u-checkbox__dummy u-checkbox__dummy--checked"></span>
           <span class="u-checkbox__labeltext">自動フォロー(チェックすると自動フォローが開始します)</span>
         </label>
       </div>

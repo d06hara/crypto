@@ -1,33 +1,23 @@
 // ===============================
 // utility:checkbox
 // ===============================
-
 .u-checkbox {
   padding: 12px 8px;
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   cursor: pointer;
-
   &__input {
     margin: 0;
     width: 0;
     opacity: 0;
-
     &:hover {
       background: rgba(0,0,0,.05) !important;
     }
-
-    &:focus{
-      +span {
-        border: dashed 2px #333333;
-      }
-    }
     &:checked {
-      +span {
-        background: #333333;
-
+      +.u-checkbox__dummy--checked{
+        background: $black;
         &::before {
           content: "";
           display: block;
@@ -63,19 +53,18 @@
   }
   &__dummy {
     position: relative;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 32px;
-  height: 32px;
-  border: solid 2px transparent;
-  background: rgba(0,0,0, .1);
-  border-radius: 4px;
-  @include mq(sm){
-    width: 40px;
-    height: 24px;
-  }
-
+    top: 0;
+    left: 0;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: solid 2px transparent;
+    background: rgba(0,0,0, .1);
+    border-radius: 4px;
+    @include mq(sm){
+      width: 40px;
+      height: 24px;
+    }
   }
   &__labeltext {
     margin-left: $space_m;
