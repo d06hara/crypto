@@ -14,25 +14,25 @@
         <div class="p-login__form">
 
             <div class="c-form">
-                <p class="c-form__title"><span class="c-form__title-accent"></span>ログイン</p>
+                <p class="c-form__title"><span class="c-form__title--accent"></span>ログイン</p>
 
-                <form action="{{ route('login') }}" method="POST" class="c-form__contents">
+                <form action="{{ route('login') }}" method="POST" class="c-form-contents">
                     @csrf
 
-                    <fieldset class="c-form__contents-fieldset">
+                    <fieldset class="c-form-contents__fieldset">
 
                         {{-- エラーメッセージ --}}
-                        <div class="c-form__contents-item">
+                        <div class="c-form-contents__item">
                             <ul>
                                 <li> @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong class="c-form-contents__item--accent">{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </li>
                                 <li>@error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong class="c-form-contents__item--accent">{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </li>
@@ -40,22 +40,22 @@
                         </div>
 
                         {{-- Eメール --}}
-                        <div class="c-form__contents-item">
+                        <div class="c-form-contents__item">
                             <p><label for="email">Eメール</label></p>
-                            <input type="email" class="use_icon @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" required autocomplete="email" autofocus
+                            <input type="email" class="c-form-contents__item--form @error('email') @enderror"
+                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                                 placeholder="&#xf0e0;"></<input>
                         </div>
 
                         {{-- パスワード --}}
-                        <div class="c-form__contents-item">
+                        <div class="c-form-contents__item">
                             <p><label for="password">パスワード</label></p>
-                            <input type="password" class="use_icon @error('password') is-invalid @enderror"
+                            <input type="password" class="c-form-contents__item--form @error('password')  @enderror"
                                 name="password" required autocomplete="password" autofocus placeholder="&#xf084;">
                             </<input>
                         </div>
 
-                        <div><button type="submit">ログイン</button></div>
+                        <button class="c-form-contents__btn" type="submit">ログイン</button>
 
                         <p style="margin-top:10px;">パスワードを忘れた方は<a href="{{ url('password/reset') }}"
                                 style="font-weight: bold;">こちら</a></p>
@@ -63,9 +63,9 @@
                     </fieldset>
 
                 </form>
+                </<button>
             </div>
         </div>
-    </div>
 </main>
 
 @endsection
