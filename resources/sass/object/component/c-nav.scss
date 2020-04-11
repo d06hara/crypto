@@ -28,7 +28,7 @@
     }
   }
 
-  &__menu {
+  &-menu {
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
@@ -45,24 +45,21 @@
       font-size: $font-size_xl;
     }
 
-    &-item {
+    &__item {
       display: block;
       border-radius: 5px;
       padding: $space_m;
 
-      &:hover {
-        
-      }
     }
 
-    &-link {
+    &__link {
       -webkit-font-smoothing: initial;
 
       &:hover {
         color: $accent-color;
       }
 
-      span {
+      &--accent {
         font-weight: bold;
       }
     }

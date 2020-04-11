@@ -11,7 +11,7 @@
   <!-- title, description, keyword -->
   <title>Crypto trend | @yield('title', 'Home')</title>
   <meta name="description" content="@yield('description')">
-  <meta name="keywords" content="@yield('keywords')">s
+  <meta name="keywords" content="@yield('keywords')">
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -47,47 +47,47 @@
       </div>
 
       {{-- ナビゲーションメニュー --}}
-      <nav class="c-nav nav-menu js-toggle-sp-menu-target">
-        <ul class="c-nav__menu">
+      <nav class="c-nav js-toggle-sp-menu-target">
+        <ul class="c-nav-menu">
           @guest
-          <li class="c-nav__menu-item">
-            <a class="c-nav__menu-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+          <li class="c-nav-menu__item">
+            <a class="c-nav-men__link" href="{{ route('login') }}">{{ __('Login') }}</a>
           </li>
           @if(Route::has('register'))
-          <li class="c-nav__menu-item">
-            <a class="c-nav__menu-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+          <li class="c-nav-menu__item">
+            <a class="c-nav-menu__link" href="{{ route('register') }}">{{ __('Register') }}</a>
           </li>
           @endif
           @else
-          <li class="c-nav__menu-item">
-            <p class="c-nav__menu-link">ユーザー名<br><span>{{ Auth::user()->name }}</span></p>
+          <li class="c-nav-menu__item">
+            <p class="c-nav-menu__link">ユーザー名<br><span class="c-nav-menu__link--accent">{{ Auth::user()->name }}</span>
+            </p>
           </li>
           @if(Auth::user()->twitterUser)
-          <li class="c-nav__menu-item">
-            <p class="c-nav__menu-link">twitterアカウント<br><span>{{ Auth::user()->twitterUser->nickname }}</span></a>
+          <li class="c-nav-menu__item">
+            <p class="c-nav-menu__link">twitterアカウント<br><span
+                class="c-nav-menu__link--accent">{{ Auth::user()->twitterUser->nickname }}</span></a>
           </li>
           @else
-          <li class="c-nav__menu-item">
-            <p class="c-nav__menu-link">twitterアカウント<br><span>未登録</span></p>
+          <li class="c-nav-menu__item">
+            <p class="c-nav-menu__link">twitterアカウント<br><span class="c-nav-menu__link--accent">未登録</span></p>
           </li>
           @endif
-          <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/ranking") }}">Ranking</a></li>
-          <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/account") }}">Account</a></li>
-          <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/news") }}">News</a></li>
-          {{-- <li class="c-nav__menu-item"><a class="c-nav__menu-link" href="{{ url("/mypage") }}">Mypage</a></li> --}}
-          <li class="c-nav__menu-item">
-            <a class="c-nav__menu-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+          <li class="c-nav-menu__item"><a class="c-nav-menu__link" href="{{ url("/ranking") }}">Ranking</a></li>
+          <li class="c-nav-menu__item"><a class="c-nav-menu__link" href="{{ url("/account") }}">Account</a></li>
+          <li class="c-nav-menu__item"><a class="c-nav-menu__link" href="{{ url("/news") }}">News</a></li>
+          <li class="c-nav-menu__item">
+            <a class="c-nav-menu__link" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
           </li>
           @endguest
-
         </ul>
       </nav>
 
     </header>
 
-
+    {{-- app --}}
     <div id="app" class="l-main js-float-menu-target">
       {{-- フラッシュメッセージ --}}
       {{-- 成功時 --}}
