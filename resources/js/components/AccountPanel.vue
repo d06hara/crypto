@@ -78,11 +78,6 @@ export default {
      */
     autoMode: {
       get() {
-        if (this.isChecked === true) {
-          console.log("自動フォロー中です");
-        } else {
-          console.log("自動フォロー停止中です");
-        }
         return this.isChecked;
       },
       set() {
@@ -136,9 +131,7 @@ export default {
             screen_name: account.screen_name
           })
           .then(response => {
-            console.log(response);
             if (response.status === 200) {
-              console.log(account.twitter_id + "をアンフォローします");
               // ボタンを未フォロー状態に反転
               account.users = !account.users;
             }
@@ -159,9 +152,7 @@ export default {
             screen_name: account.screen_name
           })
           .then(response => {
-            console.log(response);
             if (response.status === 200) {
-              console.log(account.twitter_id + "をフォローします");
               // ボタンをフォロー済み状態に反転
               account.users = !account.users;
             }
@@ -177,9 +168,7 @@ export default {
       // autoModeがfalseの時自動フォロー開始
       if (this.autoMode === false) {
         axios.post("/account/start").then(response => {
-          console.log(response);
           if (response.status === 200) {
-            console.log("自動フォローします");
             // isCheckedを反転
             this.isChecked = !this.isChecked;
           }
@@ -188,7 +177,6 @@ export default {
         // autoModeがtrueの時自動フォロー停止
         axios.post("/account/stop").then(response => {
           if (response.status === 200) {
-            console.log("自動フォロー終了");
             // isCheckedを反転
             this.isChecked = !this.isChecked;
           }
