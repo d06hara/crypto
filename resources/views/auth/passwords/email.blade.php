@@ -33,7 +33,7 @@
                             <p style="margin-bottom:10px;">ご指定のEメール宛にパスワードリセット用のリンクをお送りいたします。</p>
                             <p><label for="email">Eメール</label></p>
                             <input type="email" class="c-form-contents__item--form @error('email')  @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                                name="email" value="{{ old('email') }}" autocomplete="email" autofocus
                                 placeholder="&#xf0e0;">
                         </div>
                         {{-- 送信ボタン --}}

@@ -39,14 +39,14 @@
                         <div class="c-form-contents__item">
                             <p><label for="email">Eメール</label></p>
                             <input type="email" class="c-form-contents__item--form @error('email') @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                                name="email" value="{{ old('email') }}" autocomplete="email" autofocus
                                 placeholder="&#xf0e0;"></<input>
                         </div>
                         {{-- パスワード --}}
                         <div class="c-form-contents__item">
                             <p><label for="password">パスワード</label></p>
                             <input type="password" class="c-form-contents__item--form @error('password')  @enderror"
-                                name="password" required autocomplete="password" autofocus placeholder="&#xf084;">
+                                name="password" autocomplete="password" autofocus placeholder="&#xf084;">
                             </<input>
                         </div>
                         {{-- ログインボタン --}}

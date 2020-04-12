@@ -71,6 +71,8 @@ class GetTweetAppAuthCommand extends Command
             12 => "クアンタム OR Quantum OR QTUM",
         );
 
+        logger()->info('ツイート取得途中');
+
         foreach ($search_key_array as $bland_id => $search_key) {
 
             // bland_idごとに最新のツイートidを取得
@@ -91,6 +93,7 @@ class GetTweetAppAuthCommand extends Command
 
             $twitter_store = Tweet::tweetStore($tweets_arr, $bland_id);
         }
+
         logger()->info('ツイート取得');
     }
 }

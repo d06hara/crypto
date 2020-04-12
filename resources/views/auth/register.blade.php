@@ -44,21 +44,21 @@
                         <div class="c-form-contents__item">
                             <p><label for="name">ユーザーネーム(10文字以内)</label></p>
                             <input type="text" class="c-form-contents__item--form @error('name') @enderror" name="name"
-                                value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="&#xf007;">
+                                value="{{ old('name') }}" autocomplete="name" autofocus placeholder="&#xf007;">
                             </<input>
                         </div>
                         {{-- Eメール --}}
                         <div class="c-form-contents__item">
                             <p><label for="email">Eメール</label></p>
                             <input type="email" class="c-form-contents__item--form @error('email') @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                                name="email" value="{{ old('email') }}" autocomplete="email" autofocus
                                 placeholder="&#xf0e0;"></<input>
                         </div>
                         {{-- パスワード --}}
                         <div class="c-form-contents__item">
                             <p><label for="password">パスワード(8文字以上)</label></p>
                             <input type="password" class="c-form-contents__item--form @error('password') @enderror"
-                                name="password" required autocomplete="password" autofocus placeholder="&#xf084;">
+                                name="password" autocomplete="password" autofocus placeholder="&#xf084;">
                             </<input>
                         </div>
                         {{-- パスワード(確認用) --}}
@@ -66,7 +66,7 @@
                             <p><label for="password-confirmation">パスワード(確認用)</label></p>
                             <input type="password"
                                 class="c-form-contents__item--form @error('password-confirm') @enderror"
-                                name="password_confirmation" required autocomplete="password-confirm" autofocus
+                                name="password_confirmation" autocomplete="password-confirm" autofocus
                                 placeholder="&#xf084;">
                             </<input>
                         </div>
