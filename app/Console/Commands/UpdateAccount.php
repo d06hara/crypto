@@ -47,7 +47,6 @@ class UpdateAccount extends Command
         // 更新日が今日より前のアカウントを全て取得
         $today = Carbon::today();
         $total_update_accounts = TwitterAccount::where('updated_at', '<=', $today)->get()->toArray();
-        dd($total_update_accounts);
 
         // アカウントがある場合更新
         if (!empty($total_update_accounts)) {

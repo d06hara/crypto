@@ -38,6 +38,9 @@ class Kernel extends ConsoleKernel
         // 自動アカウント取得(10分)
         // $schedule->command('get:twitteraccount')
         //     ->everyTenMinutes()->withoutOverlapping();
+        // アカウント更新(10分)
+        // $schedule->command('update:account')
+        //     ->everyTenMinutes()->withoutOverlapping();
         // 自動フォロー(10分)
         $schedule->command('auto:follow')
             ->everyTenMinutes()->withoutOverlapping();
