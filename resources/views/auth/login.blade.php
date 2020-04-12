@@ -38,15 +38,17 @@
                         {{-- Eメール --}}
                         <div class="c-form-contents__item">
                             <p><label for="email">Eメール</label></p>
-                            <input type="email" class="c-form-contents__item--form @error('email') @enderror"
+                            <input type="email" id="email" class="c-form-contents__item--form @error('email') @enderror"
                                 name="email" value="{{ old('email') }}" autocomplete="email" autofocus
-                                placeholder="&#xf0e0;"></<input>
+                                placeholder="&#xf0e0;">
+                            </<input>
                         </div>
                         {{-- パスワード --}}
                         <div class="c-form-contents__item">
                             <p><label for="password">パスワード</label></p>
-                            <input type="password" class="c-form-contents__item--form @error('password')  @enderror"
-                                name="password" autocomplete="password" autofocus placeholder="&#xf084;">
+                            <input type="password" id="password"
+                                class="c-form-contents__item--form @error('password')  @enderror" name="password"
+                                autocomplete="password" autofocus placeholder="&#xf084;">
                             </<input>
                         </div>
                         {{-- ログインボタン --}}
