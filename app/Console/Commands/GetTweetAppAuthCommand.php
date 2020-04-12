@@ -82,7 +82,7 @@ class GetTweetAppAuthCommand extends Command
 
             $tweet_obj = $connection->get('search/tweets', array(
                 "q" => $search_key,
-                "count" => 10,
+                "count" => 100,
                 "lang" => "ja",
                 "since_id" => $since_id
             ));
