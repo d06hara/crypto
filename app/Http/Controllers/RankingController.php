@@ -16,12 +16,18 @@ class RankingController extends Controller
     {
         // Tweetテーブルの最終更新日時を取得
         $recent_time = Tweet::max('created_at');
+        $time_for_hour = new Carbon($recent_time);
+        $time_for_day = new Carbon($recent_time);
+        $time_for_week = new Carbon($recent_time);
+
         // １時間前の時間を取得
-        $before_one_hour = Carbon::now()->subHour(1);
+        $before_one_hour = $time_for_hour->subHour(1);
+
         //  1日前の時間を取得
-        $before_one_day = Carbon::now()->subDay(1);
+        $before_one_day = $time_for_day->subDay(1);
+
         // １週間前の時間を取得
-        $before_one_week = Carbon::now()->subWeek(1);
+        $before_one_week = $time_for_week->subWeek(1);
 
         // 各銘柄それぞれの時間内でのツイート数を取得
         $blands = Bland::withCount([

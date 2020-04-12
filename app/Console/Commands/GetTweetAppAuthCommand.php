@@ -84,6 +84,8 @@ class GetTweetAppAuthCommand extends Command
                 "q" => $search_key,
                 "count" => 100,
                 "lang" => "ja",
+                "local" => "ja",
+                "result_type" => "mixed",
                 "since_id" => $since_id
             ));
 

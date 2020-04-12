@@ -34,10 +34,10 @@ class Kernel extends ConsoleKernel
         // 自動ツイート取得(10分)
         $schedule->command('gettweet:appauth')
             // ->everyFiveMinutes();
-            ->everyFiveMinutes()->withoutOverlapping();
+            ->everyTenMinutes()->withoutOverlapping();
         // 自動アカウント取得(10分)
         $schedule->command('get:twitteraccount')
-            ->everyFiveMinutes()->withoutOverlapping();
+            ->everyTenMinutes()->withoutOverlapping();
         // 自動フォロー(10分)
         $schedule->command('auto:follow')
             ->everyTenMinutes()->withoutOverlapping();
