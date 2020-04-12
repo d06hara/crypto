@@ -40,7 +40,6 @@ class GetTweetAppAuthCommand extends Command
      */
     public function handle()
     {
-
         // ===================
         // 自動ツイート取得処理
         // ===================
@@ -70,7 +69,6 @@ class GetTweetAppAuthCommand extends Command
             10 => "モナコイン OR MonaCoin OR MONA",
             11 => "ステラルーメン OR StellarLumens OR XLM",
             12 => "クアンタム OR Quantum OR QTUM",
-
         );
 
         foreach ($search_key_array as $bland_id => $search_key) {

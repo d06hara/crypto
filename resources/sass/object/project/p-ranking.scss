@@ -34,9 +34,7 @@
 
     &__information {
       font-size: $font_size_m;
-      float: right;
-      position: relative;
-      top: 70px;
+      text-align: right;
       &--accent {
         font-weight: bold;
       }
