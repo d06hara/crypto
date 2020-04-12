@@ -44,9 +44,9 @@
                 <span class="c-accountcard-data__item--accent">Follower</span>
               </li>
             </ul>
-            <div class="c-accountcard__profile">{{ account.description }}</div>
+            <p class="c-accountcard__profile">{{ account.description }}</p>
 
-            <div class="c-accountcard__tweet">{{ account.text }}</div>
+            <p class="c-accountcard__tweet">{{ account.text }}</p>
           </div>
         </div>
       </div>
