@@ -61,7 +61,7 @@ class GetTweetAppAuthCommand extends Command
             1 => "ビットコイン OR Bitcoin OR BTC",
             2 => "イーサリアム OR Ethereum OR ETH",
             3 => "イーサリアムクラシック OR EthreumClassic OR ETC",
-            4 => "リスク OR Lisk OR LSK",
+            4 => "Lisk OR LSK", //リスクのみ日本語検索なし（仮想通貨と関連がないツイートが多すぎるため)
             5 => "ファクトム OR Factom OR FCT",
             6 => "リップル OR Ripple OR XRP",
             7 => "ネム OR NEM OR XEM",
