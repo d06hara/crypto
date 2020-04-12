@@ -8,6 +8,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class AccountController extends Controller
 {
@@ -37,7 +38,9 @@ class AccountController extends Controller
     {
         // DBからランダムに50件取得
         // twitter_userとのリレーション情報も取得
-        $accounts = TwitterAccount::with('users')->inRandomOrder()->take(50)->get();
+        // 更新日が1日前以前のものは取得しない
+        $yesterday = Carbon::yesterday();
+        $accounts = TwitterAccount::with('users')->where('updated_at', '>=', $yesterday)->inRandomOrder()->take(50)->get();
         if (empty($accounts)) {
             abort(404);
         };

@@ -53,8 +53,7 @@ class GetTwitterAccount extends Command
         $connection = new TwitterOAuth($key, $secret_key, $manager_token, $manager_token_secret);
         // ---------------------------
 
-
-        // count20のときpageは1~51までしか選択できない
+        // countの最大値20のときpageは1~51までしか選択できない
         // users/searchのレートリミットは900/15min
 
         // 1~51までの数字の配列を用意

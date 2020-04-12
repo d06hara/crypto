@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\Models\User;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\TwitterAccount;
@@ -55,8 +55,11 @@ class AutoFollow extends Command
             // auto_modeが1のユーザーがいる場合、フォロー処理を実行
             logger()->info('自動フォローします');
 
+            // 前日の日時を取得
+            $yesterday = Carbon::yesterday();
             // twitter_accountsテーブルからidとscreen_nameを抜き出す
-            $follow_targets = DB::table('twitter_accounts')->pluck('twitter_id', 'screen_name');
+            // 更新日が昨日より前のアカウントは取得しない
+            $follow_targets = TwitterAccount::where('updated_at', '>=', $yesterday)->pluck('twitter_id', 'screen_name');
             // 配列へ変換
             $follow_targets = $follow_targets->toArray();
             // アクセスキーを取得
