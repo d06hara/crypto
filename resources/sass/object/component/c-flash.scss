@@ -1,22 +1,18 @@
 // ===============================
 // component : flash_message
 // ===============================
-
 .c-flash {
   width: 20%;
   margin-left: auto;
   font-weight: bold;
   color: $white;
   opacity: 0.7;
-
   @include mq() {
     width: 100%;
     margin: 0 auto;
   }
-
   &__text {
     text-align: center;
-
     &--success{
       background-color: #28a745;
       padding: $space_m $space_l;

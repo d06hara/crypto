@@ -1,9 +1,8 @@
 // ===============================
 // component : nav
 // ===============================
-
 .c-nav {
-
+  display:block;
   @include mq(lg) {
     display: block;
     position:absolute;
@@ -27,38 +26,30 @@
       }
     }
   }
-
   &-menu {
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
-            align-items: center;
+          align-items: center;
     font-size: $font-size_m;
-
     @include mq(lg) {
       display: inline-block;
       font-size: $font-size_l;
     }
-
     @include mq() {
       text-align: center;
       font-size: $font-size_xl;
     }
-
     &__item {
       display: block;
       border-radius: 5px;
       padding: $space_m;
-
     }
-
     &__link {
       -webkit-font-smoothing: initial;
-
       &:hover {
         color: $accent-color;
       }
-
       &--accent {
         font-weight: bold;
       }

@@ -1,7 +1,7 @@
 // ===============================
 // component:table
 // ===============================
-.c-table { 
+.c-table {
   width: 100%;
   margin:0 auto;
   border-collapse: separate;
@@ -29,7 +29,7 @@
     }
   }
   &-tbody {
-    &-row { 
+    &-row {
       background-color: $white;
       height: 50px;
       &:hover {
