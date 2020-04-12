@@ -65,9 +65,4 @@ Route::group(['middleware' => 'auth'], function () {
     // news取得api
     Route::get('api/news', 'NewsController@get_news');
     //----------------------------
-
-
 });
-
-// テスト用ページ
-Route::get('/test', 'TestController@test');
