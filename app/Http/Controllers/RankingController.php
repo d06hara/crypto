@@ -14,8 +14,8 @@ class RankingController extends Controller
      */
     public function getTweetCount()
     {
-        // Tweetテーブルの最新ツイート作成日時を取得
-        $recent_time = Tweet::max('tweet_created_at');
+        // Tweetテーブルの最新更新日時を取得
+        $recent_time = Tweet::max('created_at');
         $time_for_hour = new Carbon($recent_time);
         $time_for_day = new Carbon($recent_time);
         $time_for_week = new Carbon($recent_time);
