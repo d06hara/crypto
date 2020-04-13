@@ -57,18 +57,18 @@ class GetTweetAppAuthCommand extends Command
         // それぞれbland_idと対応させる
         // 銘柄を追加する場合はここに追加
         $search_key_array = array(
-            1 => "ビットコイン OR Bitcoin OR BTC",
-            2 => "イーサリアム OR Ethereum OR ETH",
-            3 => "イーサリアムクラシック OR EthreumClassic OR ETC",
+            1 => "ビットコイン",
+            2 => "イーサリアム",
+            3 => "イーサリアムクラシック",
             4 => "Lisk OR LSK", //リスクのみ日本語検索なし（仮想通貨と関連がないツイートが多すぎるため)
-            5 => "ファクトム OR Factom OR FCT",
-            6 => "リップル OR Ripple OR XRP",
-            7 => "ネム OR NEM OR XEM",
-            8 => "ライトコイン OR LiteCoin OR LTC",
-            9 => "ビットコインキャッシュ OR BitcoinCash OR BCH",
-            10 => "モナコイン OR MonaCoin OR MONA",
-            11 => "ステラルーメン OR StellarLumens OR XLM",
-            12 => "クアンタム OR Quantum OR QTUM",
+            5 => "ファクトム",
+            6 => "リップル",
+            7 => "ネム",
+            8 => "ライトコイン",
+            9 => "ビットコインキャッシュ",
+            10 => "モナコイン",
+            11 => "ステラルーメン",
+            12 => "クアンタム",
         );
 
         logger()->info('ツイート取得途中');
