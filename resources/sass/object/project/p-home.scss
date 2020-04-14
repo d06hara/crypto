@@ -6,9 +6,10 @@
   &-upper {
   width: 80%;
   margin: 0 auto;
-  display: -webkit-box;
+  display:-webkit-box;
+  display:-webkit-flex;
   display:-ms-flexbox;
-  display: flex;
+  display:flex;
   box-sizing: border-box;
   padding: 50px $space_xl;
   @include mq(){

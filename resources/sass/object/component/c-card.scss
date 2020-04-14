@@ -2,12 +2,17 @@
 // component : card
 // ===============================
 .card__container { 
-  display: -webkit-box;
+  display:-webkit-box;
+  display:-webkit-flex;
   display:-ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
+  display:flex;
+  -webkit-flex-wrap:wrap;
+  -ms-flex-wrap:wrap;
+  flex-wrap:wrap;
+  -webkit-box-pack:justify;
+  -webkit-justify-content:space-between;
+  -ms-flex-pack:justify;
+  justify-content:space-between;
 }
 .c-card{
   box-sizing: border-box;

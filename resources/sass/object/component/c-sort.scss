@@ -2,11 +2,14 @@
 // component : sort
 // ===============================
 .c-sort {
-  display: -webkit-box;
+  display:-webkit-box;
+  display:-webkit-flex;
   display:-ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
+  display:flex;
+  -webkit-box-pack:center;
+  -webkit-justify-content:center;
+  -ms-flex-pack:center;
+  justify-content:center;
   &-item {
     width: 25%;
     text-align: center;
