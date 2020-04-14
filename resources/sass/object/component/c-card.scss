@@ -3,6 +3,7 @@
 // ===============================
 .card__container { 
   display: -webkit-box;
+  display:-ms-flexbox;
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: justify;

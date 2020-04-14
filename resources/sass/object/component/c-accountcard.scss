@@ -4,6 +4,7 @@
 .accountcard__container {
   width: 100%;
   display: -webkit-box;
+  display:-ms-flexbox;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
