@@ -3,6 +3,8 @@
 // =========================
 .c-hamburger {
   display:none;
+  float: right;
+  margin-top: $space_xl;
   @include mq(lg) {
     display: inline-block;
   }

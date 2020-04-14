@@ -2,7 +2,9 @@
 // component : nav
 // ===============================
 .c-nav {
+  float: right;
   display:block;
+  padding-top: $space_m;
   @include mq(lg) {
     display: block;
     position:absolute;
