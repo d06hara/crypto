@@ -1,6 +1,7 @@
 
 import './bootstrap'
 
+// IE対応
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
