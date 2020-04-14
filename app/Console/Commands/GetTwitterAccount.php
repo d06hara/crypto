@@ -73,7 +73,6 @@ class GetTwitterAccount extends Command
 
         if (is_array($total_search_accounts)) {
             TwitterAccount::accountStore($total_search_accounts);
-            // TwitterAccount::accountStore($total_search_accounts);
             logger()->info('アカウント保存処理完了');
         }
     }

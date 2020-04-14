@@ -63,16 +63,6 @@
             <tr class="c-table-tbody-row" v-for="bland in selectedBlands" :key="bland.id">
               <!-- ツイート数 -->
               <td class="c-table-tbody-row__data" width="10" v-if="activetab === 1">
-                <!-- <div v-if="bland.hour_tweets_count >= 600">
-                  <a class="c-table-tbody-row__link" v-bind:href="bland.url" target="_blank">≧600</a>
-                </div>
-                <div v-else>
-                  <a
-                    class="c-table-tbody-row__link"
-                    v-bind:href="bland.url"
-                    target="_blank"
-                  >{{ bland.hour_tweets_count }}</a>
-                </div>-->
                 <a
                   class="c-table-tbody-row__link"
                   v-bind:href="bland.url"
@@ -80,16 +70,6 @@
                 >{{ bland.hour_tweets_count }}</a>
               </td>
               <td class="c-table-tbody-row__data" width="10" v-else-if="activetab === 2">
-                <!-- <div v-if="bland.day_tweets_count >= 14400">
-                  <a class="c-table-tbody-row__link" v-bind:href="bland.url" target="_blank">≧14400</a>
-                </div>
-                <div v-else>
-                  <a
-                    class="c-table-tbody-row__link"
-                    v-bind:href="bland.url"
-                    target="_blank"
-                  >{{ bland.day_tweets_count }}</a>
-                </div>-->
                 <a
                   class="c-table-tbody-row__link"
                   v-bind:href="bland.url"
@@ -97,16 +77,6 @@
                 >{{ bland.day_tweets_count }}</a>
               </td>
               <td class="c-table-tbody-row__data" width="10" v-else>
-                <!-- <div v-if="bland.week_tweets_count >= 100800">
-                  <a class="c-table-tbody-row__link" v-bind:href="bland.url" target="_blank">≧100800</a>
-                </div>
-                <div v-else>
-                  <a
-                    class="c-table-tbody-row__link"
-                    v-bind:href="bland.url"
-                    target="_blank"
-                  >{{ bland.week_tweets_count }}</a>
-                </div>-->
                 <a
                   class="c-table-tbody-row__link"
                   v-bind:href="bland.url"
@@ -195,7 +165,6 @@ export default {
       // sortKeyでswitch
       switch (this.sortKey) {
         case "hour":
-          // console.log("１時間で並び替え");
           this.activetab = 1;
           this.blands.sort(function(a, b) {
             if (a.hour_tweets_count > b.hour_tweets_count) return -1;
@@ -205,7 +174,6 @@ export default {
           break;
 
         case "day":
-          // console.log("１日で並び替え");
           this.activetab = 2;
           this.blands.sort(function(a, b) {
             if (a.day_tweets_count > b.day_tweets_count) return -1;
@@ -215,7 +183,6 @@ export default {
           break;
 
         case "week":
-          // console.log("１週間で並び替え");
           this.activetab = 3;
           this.blands.sort(function(a, b) {
             if (a.week_tweets_count > b.week_tweets_count) return -1;
@@ -240,7 +207,6 @@ export default {
    */
   methods: {
     sortBy: function(key) {
-      // console.log("methods");
       this.sortKey = key;
     }
   }

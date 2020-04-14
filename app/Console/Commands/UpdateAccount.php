@@ -44,15 +44,14 @@ class UpdateAccount extends Command
         /**
          * twitterアカウント更新処理
          */
-        // 更新日が今日より前のアカウントを全て取得
+        // 更新日が前日以前のアカウントを全て取得
         $today = Carbon::today();
         $total_update_accounts = TwitterAccount::where('updated_at', '<=', $today)->get()->toArray();
 
-        // アカウントがある場合更新
+        // アカウントがある場合更新処理を行う
         if (!empty($total_update_accounts)) {
             // 取得した配列の数を取得
             $accounts_count = count($total_update_accounts);
-            // dd($accounts_count);
 
             //  ユーザー認証(twitterOauth使用:ユーザーは自分)
             $config = config('twitter');
@@ -63,8 +62,7 @@ class UpdateAccount extends Command
 
             $connection = new TwitterOAuth($key, $secret_key, $manager_token, $manager_token_secret);
 
-
-            // 数が100を超えていた場合
+            // 更新対象の数が100を超えていた場合
             if ($accounts_count > 100) {
 
                 // １度に更新できる上限の100要素取り出す
@@ -156,10 +154,7 @@ class UpdateAccount extends Command
                 }
             }
         }
-        // dd($total_update_accounts);
-        // dd('kara');
 
         logger()->info('アカウント更新処理完了');
-        // dd('ok');
     }
 }
