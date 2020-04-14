@@ -72,8 +72,8 @@
     width: 100%;
     margin-top: $space_m;
     overflow: scroll;
-    -ms-overflow-style: none;    /* IE, Edge 対応 */
-    scrollbar-width: none;       /* Firefox 対応 */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     border-bottom: 1px dotted $font-color_default;
     padding-bottom: $space_s;
   }
@@ -81,8 +81,8 @@
     width: 90%;
     max-height: 100px;
     overflow: scroll;
-    -ms-overflow-style: none;    /* IE, Edge 対応 */
-    scrollbar-width: none;       /* Firefox 対応 */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     padding: $space_s;
     margin: $space_m auto;
   }

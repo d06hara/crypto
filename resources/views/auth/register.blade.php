@@ -42,7 +42,7 @@
                         </div>
                         {{-- ユーザーネーム --}}
                         <div class="c-form-contents__item">
-                            <p><label for="name">ユーザーネーム(10文字以内)</label></p>
+                            <p class="c-form-contents__item--label"><label for="name">ユーザーネーム(10文字以内)</label></p>
                             <input type="text" id="name" class="c-form-contents__item--form @error('name') @enderror"
                                 name="name" value="{{ old('name') }}" autocomplete="name" autofocus
                                 placeholder="&#xf007;">
@@ -50,7 +50,7 @@
                         </div>
                         {{-- Eメール --}}
                         <div class="c-form-contents__item">
-                            <p><label for="email">Eメール</label></p>
+                            <p class="c-form-contents__item--label"><label for="email">Eメール</label></p>
                             <input type="email" id="email" class="c-form-contents__item--form @error('email') @enderror"
                                 name="email" value="{{ old('email') }}" autocomplete="email" autofocus
                                 placeholder="&#xf0e0;">
@@ -58,7 +58,7 @@
                         </div>
                         {{-- パスワード --}}
                         <div class="c-form-contents__item">
-                            <p><label for="password">パスワード(8文字以上)</label></p>
+                            <p class="c-form-contents__item--label"><label for="password">パスワード(8文字以上)</label></p>
                             <input type="password" id="password"
                                 class="c-form-contents__item--form @error('password') @enderror" name="password"
                                 autocomplete="password" autofocus placeholder="&#xf084;">
@@ -66,7 +66,8 @@
                         </div>
                         {{-- パスワード(確認用) --}}
                         <div class="c-form-contents__item">
-                            <p><label for="password-confirmation">パスワード(確認用)</label></p>
+                            <p class="c-form-contents__item--label"><label
+                                    for="password-confirmation">パスワード(確認用)</label></p>
                             <input type="password" id="password-confirmation"
                                 class="c-form-contents__item--form @error('password-confirm') @enderror"
                                 name="password_confirmation" autocomplete="password-confirm" autofocus

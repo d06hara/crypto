@@ -22,7 +22,7 @@
     font-weight: bold;
     padding: 20px 26px;
     @include mq(){
-      font-size: $font-size_l;
+      font-size: $font-size_xl;
     }
     &--accent {
       margin-right: $space_m;
@@ -36,6 +36,9 @@
     }
     &__item {
       margin-bottom: $space_s;
+      &--label {
+        font-size: $font-size_m
+      }
       &--form {
         width: 100%;
         border: 2px solid #aaa;
@@ -50,9 +53,13 @@
         font-family: "Font Awesome 5 Free"; 
         font-style: normal;
         font-weight: 900;
+        font-size: $font-size_l;
         line-height: 1;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        @include mq() {
+          height: 50px;
+        }
         &:focus {
           border-color: #1e90ff;
           box-shadow: 0 0 8px 0 #1e90ff;
@@ -71,9 +78,23 @@
       display: block;
       margin: 0 auto;
       padding: $space_s $space_m;
+      @include mq(){
+        font-size: $font-size_l;
+        padding: $space_m $space_l;
+      }
       &:hover {
         background-color: rgba($accent-color, 0.7);
         cursor: pointer;
+      }
+    }
+    &__text{
+      font-size:$font-size_m;
+      margin-top: $space_m;
+      @include mq(){
+        margin-top: $space_l;
+      }
+      &--link {
+        font-weight: bold;
       }
     }
   }

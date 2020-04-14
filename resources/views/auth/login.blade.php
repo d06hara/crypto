@@ -37,7 +37,7 @@
                         </div>
                         {{-- Eメール --}}
                         <div class="c-form-contents__item">
-                            <p><label for="email">Eメール</label></p>
+                            <p class="c-form-contents__item--label"><label for="email">Eメール</label></p>
                             <input type="email" id="email" class="c-form-contents__item--form @error('email') @enderror"
                                 name="email" value="{{ old('email') }}" autocomplete="email" autofocus
                                 placeholder="&#xf0e0;">
@@ -45,7 +45,7 @@
                         </div>
                         {{-- パスワード --}}
                         <div class="c-form-contents__item">
-                            <p><label for="password">パスワード</label></p>
+                            <p class="c-form-contents__item--label"><label for="password">パスワード</label></p>
                             <input type="password" id="password"
                                 class="c-form-contents__item--form @error('password')  @enderror" name="password"
                                 autocomplete="password" autofocus placeholder="&#xf084;">
@@ -54,8 +54,8 @@
                         {{-- ログインボタン --}}
                         <button class="c-form-contents__btn" type="submit">ログイン</button>
 
-                        <p style="margin-top:10px;">パスワードを忘れた方は<a href="{{ url('password/reset') }}"
-                                style="font-weight: bold;">こちら</a></p>
+                        <p class="c-form-contents__text">パスワードを忘れた方は<a href="{{ url('password/reset') }}"
+                                class="c-form-contents__text--link">こちら</a></p>
                     </fieldset>
                 </form>
             </div>

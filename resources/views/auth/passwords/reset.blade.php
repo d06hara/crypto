@@ -36,7 +36,7 @@
                     </div>
                     {{-- Eメール --}}
                     <div class="c-form-contents__item">
-                        <p><label for="email">Eメール</label></p>
+                        <p class="c-form-contents__item--label"><label for="email">Eメール</label></p>
                         <input type="email" id="email" class="c-form-contents__item--form @error('email') @enderror"
                             name="email" value="{{ $mail ?? old('email') }}" autocomplete="email" autofocus
                             placeholder="&#xf0e0;">
@@ -44,7 +44,7 @@
                     </div>
                     {{-- 新しいパスワード --}}
                     <div class="c-form-contents__item">
-                        <p><label for="password">新しいパスワード(8文字以上)</label></p>
+                        <p class="c-form-contents__item--label"><label for="password">新しいパスワード(8文字以上)</label></p>
                         <input type="password" id="password"
                             class="c-form-contents__item--form @error('password') @enderror" name="password"
                             autocomplete="new-password" placeholder="&#xf084; 8文字以上で入力してください">
@@ -52,7 +52,8 @@
                     </div>
                     {{-- 新しいパスワード(確認用) --}}
                     <div class="c-form-contents__item">
-                        <p><label for="password-confirmation">新しいパスワード(確認用)</label></p>
+                        <p class="c-form-contents__item--label"><label for="password-confirmation">新しいパスワード(確認用)</label>
+                        </p>
                         <input type="password" id="password-confirmation"
                             class="c-form-contents__item--form @error('password') @enderror"
                             name="password_confirmation" autocomplete="new-password-confirmation"
