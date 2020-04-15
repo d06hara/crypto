@@ -20,9 +20,6 @@ const glob = require('glob');
  |
  */
 
-// mix.js('resources/js/app.js', 'public/js')
-//     .sass('resources/sass/app.scss', 'public/css');
-
 mix.webpackConfig({
     module: {
         rules: [{
@@ -35,4 +32,3 @@ mix.webpackConfig({
 })
     .js('resources/js/app.js', 'public/js')
     .sass('resources/sass/style.scss', 'public/css')
-    // .sourceMaps();
