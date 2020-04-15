@@ -38,9 +38,18 @@ class AccountController extends Controller
     {
         // DBからランダムに50件取得
         // twitter_userとのリレーション情報も取得
-        // 更新日が1日前以前のものは取得しない
+        // 更新日が新しいものから取得する
+
+        // ５ページ目以上がgetされた時
+        if ($request->page >= 5) {
+            abort(404);
+        }
+
         $yesterday = Carbon::yesterday();
-        $accounts = TwitterAccount::with('users')->where('updated_at', '>=', $yesterday)->inRandomOrder()->take(50)->get();
+
+        $limit = 10; // 一度に取得する件数
+        $offset = $request->page * $limit; // 現在の取得開始位置
+        $accounts = TwitterAccount::with('users')->orderBy('updated_at', 'desc')->offset($offset)->take($limit)->get();
         if (empty($accounts)) {
             abort(404);
         };
@@ -75,15 +84,7 @@ class AccountController extends Controller
             };
         };
 
-        // フォロー情報が入った配列を分割し,vueに渡す
-        $accounts = array_chunk($accounts, 10);
-        $accounts = new LengthAwarePaginator(
-            $accounts[$request->page],
-            count($accounts),
-            10,
-            $request->page,
-        );
-
+        // フォロー情報が入った配列をvueに渡す
         return $accounts;
     }
 

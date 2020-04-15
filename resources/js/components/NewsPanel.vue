@@ -44,9 +44,10 @@ export default {
         .then(({ data }) => {
           //そのままだと読み込み時にカクつくので1500毎に読み込む
           setTimeout(() => {
-            if (this.page < data.data.length) {
+            // 10ページ目以上がgetされた時処理終了
+            if (this.page < 10) {
               this.page += 1;
-              this.news.push(...data.data);
+              this.news.push(...data);
               $state.loaded();
             } else {
               $state.complete();

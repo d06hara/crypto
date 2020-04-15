@@ -14,6 +14,10 @@ class NewsController extends Controller
      */
     function get_news(Request $request)
     {
+        // 10ページ目以上がgetされた時
+        if ($request->page >= 10) {
+            abort(404);
+        }
 
         set_time_limit(90);
 
@@ -51,12 +55,8 @@ class NewsController extends Controller
 
         // 配列を分割し、vueに渡す
         $list_data = array_chunk($list, 10);
-        $news = new LengthAwarePaginator(
-            $list_data[$request->page],
-            count($list),
-            10,
-            $request->page,
-        );
+
+        $news = $list_data[$request->page];
 
         return $news;
     }

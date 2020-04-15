@@ -100,9 +100,10 @@ export default {
         .then(({ data }) => {
           //そのままだと読み込み時にカクつくので1500毎に読み込む
           setTimeout(() => {
-            if (this.page < data.data.length) {
+            // 5ページ目以上がgetされたらload終了
+            if (this.page < 5) {
               this.page += 1;
-              this.accounts.push(...data.data);
+              this.accounts.push(...data);
               $state.loaded();
             } else {
               $state.complete();
@@ -124,7 +125,7 @@ export default {
         // --------------------------
 
         // post処理
-        // アカウントのDB内idとtwitter_id,screen_nameをサーバーに渡す
+        // アカウントのDB内id,twitter_id,screen_nameをサーバーに渡す
         axios
           .post("/account/unfollow", {
             account_id: account.id,
