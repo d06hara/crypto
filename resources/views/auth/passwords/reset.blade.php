@@ -47,7 +47,7 @@
                         <p class="c-form-contents__item--label"><label for="password">新しいパスワード(8文字以上)</label></p>
                         <input type="password" id="password"
                             class="c-form-contents__item--form @error('password') @enderror" name="password"
-                            autocomplete="new-password" placeholder="&#xf084; 8文字以上で入力してください">
+                            autocomplete="new-password" placeholder="&#xf084;">
                         </<input>
                     </div>
                     {{-- 新しいパスワード(確認用) --}}

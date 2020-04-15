@@ -2,13 +2,6 @@ const mix = require('laravel-mix');
 // globのインポート
 const glob = require('glob');
 
-// 容量チェック
-// require('laravel-mix-bundle-analyzer');
-// if (!mix.inProduction()) {
-//     mix.bundleAnalyzer();
-// }
-
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
