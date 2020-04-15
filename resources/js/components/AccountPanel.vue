@@ -52,7 +52,8 @@
       </div>
 
       <infinite-loading @infinite="infiniteHandler" spinner="spiral">
-        <span slot="no-more">no more data</span>
+        <!-- 読み込みデータが終了した時は何も表示しない -->
+        <span slot="no-more"></span>
       </infinite-loading>
     </div>
   </div>
