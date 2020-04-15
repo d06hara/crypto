@@ -32,7 +32,7 @@ $(function () {
         $('.js-float-menu').toggleClass('float-active', $(this).scrollTop() > targetHeight);
     });
 
-    // SPメニュー
+    // ハンバーガーメニュー
     $('.js-toggle-sp-menu').on('click', function () {
         $(this).toggleClass('active');
         $('.js-toggle-sp-menu-target').toggleClass('active');
