@@ -76,7 +76,7 @@
     scrollbar-width: none;
     border-bottom: 1px dotted $font-color_default;
     padding-bottom: $space_s;
-    ::-webkit-scrollbar{
+    &::-webkit-scrollbar{
       display:noen;
     }
   }
@@ -88,7 +88,7 @@
     scrollbar-width: none;
     padding: $space_s;
     margin: $space_m auto;
-    ::-webkit-scrollbar{
+    &::-webkit-scrollbar{
       display:noen;
     }
   }
