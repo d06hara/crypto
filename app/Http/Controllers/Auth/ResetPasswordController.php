@@ -47,7 +47,7 @@ class ResetPasswordController extends Controller
         // パスワードリセットのバリデーション
         return [
             'token' => 'required',
-            'email' => 'required|email|max:20',
+            'email' => 'required|email|max:150',
             'password' => 'required|confirmed|min:8|max:150',
         ];
     }
