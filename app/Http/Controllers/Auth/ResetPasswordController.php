@@ -44,10 +44,11 @@ class ResetPasswordController extends Controller
      */
     protected function rules()
     {
+        // パスワードリセットのバリデーション
         return [
             'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:6|max:10',
+            'email' => 'required|email|max:20',
+            'password' => 'required|confirmed|min:8|max:150',
         ];
     }
 }
