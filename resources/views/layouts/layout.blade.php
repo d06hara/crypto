@@ -48,8 +48,8 @@
 
       {{-- ナビゲーションメニュー --}}
       <nav class="c-nav js-toggle-sp-menu-target">
-        <ul class="c-nav-menu">
-          @guest
+        @guest
+        <ul class="c-nav-menu c-nav-menu__guest">
           <li class="c-nav-menu__item">
             <a class="c-nav-men__link" href="{{ route('login') }}">{{ __('Login') }}</a>
           </li>
@@ -58,7 +58,9 @@
             <a class="c-nav-menu__link" href="{{ route('register') }}">{{ __('Register') }}</a>
           </li>
           @endif
-          @else
+        </ul>
+        @else
+        <ul class="c-nav-menu">
           <li class="c-nav-menu__item">
             <p class="c-nav-menu__link">ユーザー名<br><span class="c-nav-menu__link--accent">{{ Auth::user()->name }}</span>
             </p>
@@ -81,8 +83,8 @@
           document.getElementById('logout-form').submit();">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
           </li>
-          @endguest
         </ul>
+        @endguest
       </nav>
 
     </header>

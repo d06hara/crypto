@@ -46,6 +46,9 @@
       text-align: center;
       font-size: $font-size_xl;
     }
+    &__guest {
+      margin-top: $space_m;
+    }
     &__item {
       display: block;
       border-radius: 5px;
