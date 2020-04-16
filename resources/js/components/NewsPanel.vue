@@ -32,7 +32,6 @@ export default {
       page: 0 //初期表示ページ
     };
   },
-
   methods: {
     infiniteHandler($state) {
       axios

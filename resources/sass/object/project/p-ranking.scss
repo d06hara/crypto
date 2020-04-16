@@ -33,12 +33,6 @@
       &--accent {
         font-weight: bold;
       }
-      @include mq(){
-        font-size: $font_size_s;
-      }
-      @include mq(sm){
-        font-size: 10px;
-      }
     }
   }
 }

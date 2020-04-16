@@ -142,9 +142,7 @@ export default {
       activetab: 1 //ソートの状態表示
     };
   },
-
   mounted: function() {
-    // console.log("mounted");
     axios
       .get("/api/ranking")
       .then(response => {

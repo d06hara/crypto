@@ -62,9 +62,7 @@
 <script>
 export default {
   name: "AccountPanel",
-
   props: ["user_mode"],
-
   data() {
     return {
       accounts: [], //accountデータを入れるための空配列
@@ -72,7 +70,6 @@ export default {
       page: 0
     };
   },
-
   computed: {
     /**
      * ユーザーが自動フォロー状態か判定
@@ -123,7 +120,6 @@ export default {
         // 既にフォローしている場合
         // アンフォロー処理
         // --------------------------
-
         // post処理
         // アカウントのDB内id,twitter_id,screen_nameをサーバーに渡す
         axios
@@ -144,7 +140,6 @@ export default {
         // 未フォローの場合
         // フォロー処理
         // --------------------------
-
         // pose処理
         // アカウントのDB内idとtwitter_id,screen_nameをサーバーに渡す
         axios
@@ -162,7 +157,6 @@ export default {
           .catch(error => console.log(error));
       }
     },
-
     /**
      * 自動フォロー
      */
