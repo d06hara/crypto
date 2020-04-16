@@ -105,17 +105,16 @@ class AutoFollow extends Command
                     // 差分からランダムに１キー(screen_name)を取得する
                     $follow_target_screen_name = array_rand($diff);
                     $follow_target_id = $diff[$follow_target_screen_name];
-                    // dd($follow_target_id);
 
                     $follow = $connection->post('friendships/create', array(
                         'user_id' => $follow_target_id,
                         'screen_name' => $follow_target_screen_name,
                         'follow' => false
                     ));
+                    // リレーションへの記入処理;
+                    $follow_target_db_id = TwitterAccount::where('twitter_id', $follow_target_id)->value('id');
+                    $twitter_user->accounts()->attach($follow_target_db_id);
                 }
-                // リレーションへの記入処理;
-                $follow_target_db_id = TwitterAccount::where('twitter_id', $follow_target_id)->value('id');
-                $twitter_user->accounts()->attach($follow_target_db_id);
             }
             logger()->info('自動フォロー完了');
         }
