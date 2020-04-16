@@ -11,8 +11,6 @@
 |
 */
 
-use App\Http\Controllers\TwittersController;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 // 認証系

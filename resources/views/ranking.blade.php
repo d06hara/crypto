@@ -9,5 +9,4 @@
   <p class="l-main__title">仮想通貨トレンドランキング</p>
   <bland-panel></bland-panel>
 </main>
-
 @endsection

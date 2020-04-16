@@ -45,8 +45,6 @@ class AccountController extends Controller
             abort(404);
         }
 
-        $yesterday = Carbon::yesterday();
-
         $limit = 10; // 一度に取得する件数
         $offset = $request->page * $limit; // 現在の取得開始位置
         $accounts = TwitterAccount::with('users')->orderBy('updated_at', 'desc')->offset($offset)->take($limit)->get();

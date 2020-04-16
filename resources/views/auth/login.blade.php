@@ -7,7 +7,6 @@
 
 
 @section('content')
-
 <main>
     <div class="p-login">
         {{-- ログインフォーム --}}
@@ -62,5 +61,4 @@
         </div>
     </div>
 </main>
-
 @endsection
