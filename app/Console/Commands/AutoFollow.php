@@ -111,9 +111,11 @@ class AutoFollow extends Command
                         'screen_name' => $follow_target_screen_name,
                         'follow' => false
                     ));
-                    // リレーションへの記入処理;
-                    $follow_target_db_id = TwitterAccount::where('twitter_id', $follow_target_id)->value('id');
-                    $twitter_user->accounts()->attach($follow_target_db_id);
+                    // followできた場合リレーションへの記入処理(凍結等でフォローできなかった場合はリレーション記入行わない)
+                    if (empty($follow->errors)) {
+                        $follow_target_db_id = TwitterAccount::where('twitter_id', $follow_target_id)->value('id');
+                        $twitter_user->accounts()->attach($follow_target_db_id);
+                    }
                 }
             }
             logger()->info('自動フォロー完了');
