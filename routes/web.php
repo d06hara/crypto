@@ -63,4 +63,13 @@ Route::group(['middleware' => 'auth'], function () {
     // news取得api
     Route::get('api/news', 'NewsController@get_news');
     //----------------------------
+
+
+
+
+
+    // 退会画面表示
+    Route::get('/withdraw', 'MyPageController@withdraw');
+    // 退会処理
+    Route::post('/delete/{id}/', 'MyPageController@delete')->name('delete');
 });
