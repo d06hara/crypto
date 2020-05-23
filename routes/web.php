@@ -67,7 +67,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
+    // マイページ関連
+    //----------------------------
+    // マイページ表示
 
+    Route::get('/mypage', 'MyPageController@show');
     // 退会画面表示
     Route::get('/withdraw', 'MyPageController@withdraw');
     // 退会処理
