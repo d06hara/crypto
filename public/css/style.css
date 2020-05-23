@@ -1011,6 +1011,10 @@ input {
   margin-top: 15px;
 }
 
+.p-edit {
+  margin-top: 40px;
+}
+
 .p-home {
   width: 100%;
 }
@@ -1227,6 +1231,10 @@ input {
 }
 
 .p-register {
+  margin-top: 40px;
+}
+
+.p-withdraw {
   margin-top: 40px;
 }
 
