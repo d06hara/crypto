@@ -9,10 +9,10 @@
 
         <p class="c-form__title"><span class="c-form__title-accent"></span>退会</p>
 
-        <form action="{{ route('delete', $user->id)}}" method="POST" class="c-form__contents">
+        <form action="{{ route('delete', $user->id)}}" method="POST" class="c-form-contents">
           @csrf
-          <fieldset class="c-form__contents-fieldset">
-            <div><button type="submit">退会する</button></div>
+          <fieldset class="c-form-contents__fieldset">
+            <div><button class="c-form-contents__btn" type="submit">退会する</button></div>
           </fieldset>
 
         </form>
