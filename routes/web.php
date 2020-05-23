@@ -72,6 +72,11 @@ Route::group(['middleware' => 'auth'], function () {
     // マイページ表示
 
     Route::get('/mypage', 'MyPageController@show');
+    // プロフィール編集画面表示
+    Route::get('/edit', 'MyPageController@edit');
+    // プロフィール編集機能
+    Route::post('/update/{id}/', 'MyPageController@update')->name('update');
+
     // 退会画面表示
     Route::get('/withdraw', 'MyPageController@withdraw');
     // 退会処理
