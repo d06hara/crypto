@@ -27,7 +27,7 @@ class RegisterTest extends TestCase
 
         $response = $this->json('POST', route('register'), $data);
 
-        $user = User::first();
+        $user = User::orderBy('created_at', 'desc')->first();
         $this->assertEquals($data['name'], $user->name);
 
         $response
