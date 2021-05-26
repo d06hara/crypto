@@ -79,4 +79,13 @@ class MyPageController extends Controller
         }
         return view('/withdraw', compact('user'));
     }
+
+    /**
+     * 退会処理
+     */
+    public function delete($id)
+    {
+        User::find($id)->delete();
+        return redirect('/login')->with('flash_message', '退会しました。');
+    }
 }
