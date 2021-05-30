@@ -24,28 +24,17 @@ twitter 上の仮想通貨に関するつぶやきを銘柄ごとに自動で集
 -   パスワードリセット
 -   パスワード変更
 
-## その他の機能
-
--   ログイン・ログアウト
--   会員登録
--   退会
--   SNS 連携(twitter)
--   プロフィール編集
--   パスワードリセット
--   パスワード変更
-
 ## 使用技術
 
 -   nginx
--   mysql
+-   Mysql
 -   composer
 -   npm
 -   webpack
 
 ## フロントエンド
 
--   scss
--   FLOCSS
+-   SCSS(CSS設計：FLOCSS)
 -   Vue.js
 
 ## バックエンド
