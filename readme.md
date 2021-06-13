@@ -1,6 +1,6 @@
 # crypto-trend
 
-twitterAPI を用いた仮想通貨情報収集ツール。
+twitterAPI を用いた仮想通貨情報収集ツール
 
 ## 簡単な説明
 
@@ -19,16 +19,15 @@ twitter 上の仮想通貨に関するつぶやきを銘柄ごとに自動で集
 -   ログイン・ログアウト
 -   会員登録
 -   退会
--   SNS 連携(twitter)
+-   SNS 連携(Twitter)
 -   プロフィール編集
 -   パスワードリセット
 -   パスワード変更
 
 ## 使用技術
 
--   nginx
 -   Mysql
--   composer
+-   Composer
 -   npm
 -   webpack
 
