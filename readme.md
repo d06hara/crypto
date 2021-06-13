@@ -1,6 +1,6 @@
 # crypto-trend
 
-twitterAPI を用いた仮想通貨情報収集ツール
+twitterAPI を用いた仮想通貨情報収集ツール  
 URL:https://crypto-trend.herokuapp.com/
 
 ## 簡単な説明
